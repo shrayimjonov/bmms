@@ -201,7 +201,7 @@
             "username": "kapitalbank",
             "password": "",
             "token": null,
-            "body": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"><soapenv:Body><ns1:CancelTransactionArguments xmlns:ns1=\"http://uws.provider.com/\"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"ns1:CancelTransactionArguments \"><password>Xlkej2ddss33df4P</password><username>kapitalbank</username><serviceId>1</serviceId><transactionId>20852</transactionId><parameters><paramKey>reason</paramKey><paramValue></paramValue></parameters></ns1:CancelTransactionArguments></soapenv:Body></soapenv:Envelope>",
+            "body": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"><soapenv:Body><ns1:CancelTransactionArguments xmlns:ns1=\"http://uws.provider.com/\"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"ns1:CancelTransactionArguments \"><password>REDACTED</password><username>kapitalbank</username><serviceId>1</serviceId><transactionId>20852</transactionId><parameters><paramKey>reason</paramKey><paramValue></paramValue></parameters></ns1:CancelTransactionArguments></soapenv:Body></soapenv:Envelope>",
             "statusQuery": "//*[local-name()='status']",
             "messageQuery": "//*[local-name()='errorMsg']",
             "successCode": "0",

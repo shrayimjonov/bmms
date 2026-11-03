@@ -59,7 +59,7 @@
 ////    }
 //
 //    private P2pPayRequest getP2pPayRequest(long requestAmount, long commissionBonusAmount) throws JsonProcessingException {
-//        var paramsString = "{ \"pan\": \"9860090000000000\", \"bin\": \"986009\", \"additionalParam\": {\"citizen\":  \"Tashkent\", \"birthDate\":  \"2022-01-05\", \"docType\":  \"Биометрическая паспорт гражданина Респ.Узбекистан\", \"docNumber\": \"AA2978517\", \"docDate\": \"2013-09-18\", \"pinFl\":  \"30000000000000\", \"firstName\":  \"Avazxon\", \"lastName\":  \"Saidakramov\", \"middleName\":  \"Akmalovich\"} }";
+//        var paramsString = "{ \"pan\": \"9860090000000000\", \"bin\": \"986009\", \"additionalParam\": {\"citizen\":  \"Tashkent\", \"birthDate\":  \"2022-01-05\", \"docType\":  \"Биометрическая паспорт гражданина Респ.Узбекистан\", \"docNumber\": \"AA0000000\", \"docDate\": \"2000-01-01\", \"pinFl\":  \"30000000000000\", \"firstName\":  \"Test\", \"lastName\":  \"Testov\", \"middleName\":  \"Testovich\"} }";
 //        var senderAccount = new P2pAccount().withType(P2pAccountType.PAN).withCurrency(860).withParams(objectMapper.readTree(paramsString));
 //        senderAccount.setCommissionFreeAmount(commissionBonusAmount);
 //

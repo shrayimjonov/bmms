@@ -169,7 +169,7 @@ spring:
         registration:
           oidc:
             client-id: ${SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_ID}
-            client-secret: ${PRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET}
+            client-secret: ${SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET}
             scope: openid,profile,email
 
 server:

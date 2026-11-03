@@ -41,7 +41,7 @@ public class P2pNciForexTest {
     public static final String AGENT_TRAN_ID = "123";
     public static final long INFO_AMOUNT = 100L;
     public static final String TESHABOY_BOLTAYEV = "TESHABOY BOLTAYEV";
-    public static final String JAVLON_ERALIYEV_COO = "JAVLON ERALIYEV COO";
+    public static final String JAVLON_ERALIYEV_COO = "TOSHMAT ESHMATOV COO";
     public static final String PROMO_CODE = "5mln";
 
     @Autowired

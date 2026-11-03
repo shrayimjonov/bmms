@@ -58,7 +58,7 @@ public class BillPaynetWSDLRestTest {
         String message = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
             "<soapenv:Body>\n" +
             "<ns1:GetInformationArguments xmlns:ns1=\"http://uws.provider.com/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"ns1: GetInformationArguments\">\n" +
-            "<password>23543t4geefwefrwgteh6575</password>\n" +
+            "<password>REDACTED</password>\n" +
             "<username>" + DummyDataAdapterV3.DUMMY_AGENT + "</username>\n" +
             "<parameters>\n" +
             "<paramKey>account</paramKey>\n" +
@@ -87,7 +87,7 @@ public class BillPaynetWSDLRestTest {
         String message = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
             "<soapenv:Body>\n" +
             "<ns1:PerformTransactionArguments xmlns:ns1=\"http://uws.provider.com/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"ns1:PerformTransactionArguments\">\n" +
-            "<password>23543t4geefwefrwgteh6575</password>\n" +
+            "<password>REDACTED</password>\n" +
             "<username>dummy-agent</username>\n" +
             "<amount>150000</amount>\n" +
             "<parameters>\n" +
@@ -117,7 +117,7 @@ public class BillPaynetWSDLRestTest {
         performTransactionRequest();
         String message = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
             "<soapenv:Body><ns1:CheckTransactionArguments xmlns:ns1=\"http://uws.provider.com/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"ns1: CheckTransactionArguments\">\n" +
-            "<password>23543t4geefwefrwgteh6575</password>\n" +
+            "<password>REDACTED</password>\n" +
             "<username>dummy-agent</username>\n" +
             "<serviceId>" + DUMMY_RECIPIENT_ID + "</serviceId>\n" +
             "<transactionId>" + billId + "</transactionId>\n" +
@@ -149,7 +149,7 @@ public class BillPaynetWSDLRestTest {
         String message = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
             "<soapenv:Body>\n" +
             "<ns1:GetStatementArguments xmlns:ns1=\"http://uws.provider.com/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"ns1: GetStatementArguments\">\n" +
-            "<password>23543t4geefwefrwgteh6575</password>\n" +
+            "<password>REDACTED</password>\n" +
             "<username>dummy-agent</username>\n" +
             "<dateFrom>2018-10-09T08:00:00</dateFrom>\n" +
             "<dateTo>2018-10-29T08:00:00</dateTo>\n" +

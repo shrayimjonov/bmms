@@ -38,7 +38,7 @@
         "success": {
             "request": {
                 "url": "https://paysys.fibernet.uz",
-                "body": "<x:Envelope xmlns:x=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://service.payment.uzbilling\"><x:Header/><x:Body><uws:PerformTransactionArguments xmlns:uws=\"http://uws.provider.com/\"><password>Xlkej2ddss33df4P</password><username>kapitalbank</username><amount>50000</amount><parameters><paramKey>login</paramKey><paramValue>2499</paramValue></parameters><serviceId>1</serviceId><transactionId>20852</transactionId><transactionTime>1536756734</transactionTime></uws:PerformTransactionArguments></x:Body></x:Envelope>",
+                "body": "<x:Envelope xmlns:x=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://service.payment.uzbilling\"><x:Header/><x:Body><uws:PerformTransactionArguments xmlns:uws=\"http://uws.provider.com/\"><password>REDACTED</password><username>kapitalbank</username><amount>50000</amount><parameters><paramKey>login</paramKey><paramValue>2499</paramValue></parameters><serviceId>1</serviceId><transactionId>20852</transactionId><transactionTime>1536756734</transactionTime></uws:PerformTransactionArguments></x:Body></x:Envelope>",
                 "headers": {
                     "Content-Type": "application/xml"
                 },
@@ -71,7 +71,7 @@
         "success": {
             "request": {
                 "url": "https://paysys.fibernet.uz",
-                "body": "<x:Envelope xmlns:x=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://service.payment.uzbilling\"><x:Header/><x:Body><uws:GetStatementArguments xmlns:uws=\"http://uws.provider.com/\"><password>Xlkej2ddss33df4P</password><username>kapitalbank</username><dateFrom>2018-09-24T00:00:00</dateFrom><dateTo>2018-09-24T23:59:59</dateTo><serviceId>1</serviceId><parameters><paramKey>reason</paramKey><paramValue></paramValue></parameters></uws:GetStatementArguments></x:Body></x:Envelope>",
+                "body": "<x:Envelope xmlns:x=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://service.payment.uzbilling\"><x:Header/><x:Body><uws:GetStatementArguments xmlns:uws=\"http://uws.provider.com/\"><password>REDACTED</password><username>kapitalbank</username><dateFrom>2018-09-24T00:00:00</dateFrom><dateTo>2018-09-24T23:59:59</dateTo><serviceId>1</serviceId><parameters><paramKey>reason</paramKey><paramValue></paramValue></parameters></uws:GetStatementArguments></x:Body></x:Envelope>",
                 "headers": {
                     "Content-Type": "application/xml"
                 },

@@ -75,7 +75,7 @@ public class P2pServiceTest {
     public static final String VISA_PAN = "4909570000000000";
     public static final long INFO_AMOUNT = 100L;
     public static final String TESHABOY_BOLTAYEV = "TESHABOY BOLTAYEV";
-    public static final String JAVLON_ERALIYEV_COO = "JAVLON ERALIYEV COO";
+    public static final String JAVLON_ERALIYEV_COO = "TOSHMAT ESHMATOV COO";
     public static final String PROMO_CODE = "5mln";
     public static final String HUMO_PAN_ACTION_CODE_1 = "9860090000000000";
 
@@ -135,13 +135,13 @@ public class P2pServiceTest {
     @Transactional
     @WithMockUser(DummyDataAdapterV3.DUMMY_AGENT)
     public void testFullNameParser() {
-        Sender sender = new Sender().withFullName("TURKOV KEMRAN");
+        Sender sender = new Sender().withFullName("TESTOV TEST");
 
         Assertions.assertThat(sender.getLastName()).isNotNull();
         Assertions.assertThat(sender.getMiddleName()).isNotNull();
         Assertions.assertThat(sender.getLastName()).isNotNull();
 
-        sender = new Sender().withFullName("TURKOV");
+        sender = new Sender().withFullName("TESTOV");
 
         Assertions.assertThat(sender.getLastName()).isNotNull();
         Assertions.assertThat(sender.getMiddleName()).isNotNull();
@@ -1094,7 +1094,7 @@ public class P2pServiceTest {
 
         var senderAccount = new P2pAccount().withType(P2pAccountType.PAN).withCurrency(860).withParams(objectMapper.readTree(paramsString));
 
-        String recipientName = "JAVLON ERALIYEV";
+        String recipientName = "TOSHMAT ESHMATOV";
         String purpose = "Оплата 100% за договор 333 от 01.01.21";
         var paramsString2 =
                 "{ \"account\": \"22616000990000582001\", \"mfo\": \"01158\", \"name\": \"" +
@@ -1160,7 +1160,7 @@ public class P2pServiceTest {
         int databaseSizeBeforeCreate = transactionRepository.findAll().size();
         Instant instant = Instant.now();
 
-        var paramsString1 = "{ \"account\": \"22616000990000582001\", \"mfo\": \"00491\", \"name\": \"JAVLON ERALIYEV\" }";
+        var paramsString1 = "{ \"account\": \"22616000990000582001\", \"mfo\": \"00491\", \"name\": \"TOSHMAT ESHMATOV\" }";
 
         var senderAccount = new P2pAccount()
                 .withType(P2pAccountType.ACCOUNT)
@@ -1168,7 +1168,7 @@ public class P2pServiceTest {
                 .withParams(objectMapper.readTree(paramsString1));
 
         var paramsString2 =
-                "{ \"account\": \"22616000990000582002\", \"mfo\": \"00491\", \"name\": \"ERALIYEV JAVLON\", \"comment\": \"Test payment 2\" }";
+                "{ \"account\": \"22616000990000582002\", \"mfo\": \"00491\", \"name\": \"ESHMATOV TOSHMAT\", \"comment\": \"Test payment 2\" }";
 
         var recipientAccount = new P2pAccount()
                 .withType(P2pAccountType.ACCOUNT)
@@ -1239,7 +1239,7 @@ public class P2pServiceTest {
                 .withCurrency(860)
                 .withParams(objectMapper.readTree(paramsString1));
 
-        var paramsString2 = "{ \"account\": \"22616000990000582002\", \"mfo\": \"00491\", \"name\": \"ERALIYEV JAVLON\", \"comment\": \"Test payment 2\" }";
+        var paramsString2 = "{ \"account\": \"22616000990000582002\", \"mfo\": \"00491\", \"name\": \"ESHMATOV TOSHMAT\", \"comment\": \"Test payment 2\" }";
 
         var recipientAccount = new P2pAccount()
                 .withType(P2pAccountType.ACCOUNT)
@@ -1326,7 +1326,7 @@ public class P2pServiceTest {
     public void infoNci2Nci() {
         int databaseSizeBeforeCreate = transactionRepository.findAll().size();
 
-        var paramsString1 = "{ \"account\": \"22616000990000582001\", \"mfo\": \"00491\", \"name\": \"JAVLON ERALIYEV\" }";
+        var paramsString1 = "{ \"account\": \"22616000990000582001\", \"mfo\": \"00491\", \"name\": \"TOSHMAT ESHMATOV\" }";
 
         var senderAccount = new P2pAccount()
                 .withType(P2pAccountType.ACCOUNT)
@@ -1334,7 +1334,7 @@ public class P2pServiceTest {
                 .withParams(objectMapper.readTree(paramsString1));
 
         var paramsString2 =
-                "{ \"account\": \"22616000990000582002\", \"mfo\": \"00491\", \"name\": \"ERALIYEV JAVLON\", \"comment\": \"Test payment 2\" }";
+                "{ \"account\": \"22616000990000582002\", \"mfo\": \"00491\", \"name\": \"ESHMATOV TOSHMAT\", \"comment\": \"Test payment 2\" }";
 
         var recipientAccount = new P2pAccount()
                 .withType(P2pAccountType.ACCOUNT)
@@ -1497,7 +1497,7 @@ public class P2pServiceTest {
         Assertions.assertThat(simpleBillResponse.getSender()).isNotNull();
         Assertions.assertThat(simpleBillResponse.getSender().getAmount()).isNotNull();
         //        Assertions.assertThat(simpleBillResponse.getSender().getAmount()).isEqualTo(4989895L);
-        Assertions.assertThat(simpleBillResponse.getSender().getAmount()).isIn(4989895L, 5000000L); // TODO - Avazxon
+        Assertions.assertThat(simpleBillResponse.getSender().getAmount()).isIn(4989895L, 5000000L); // TODO - Test
 
         Assertions.assertThat(simpleBillResponse.getRecipient()).isNotNull();
         Assertions.assertThat(simpleBillResponse.getRecipient().getAmount()).isNotNull();
@@ -1544,7 +1544,7 @@ public class P2pServiceTest {
         Assertions.assertThat(simpleBillResponse.getSender()).isNotNull();
         Assertions.assertThat(simpleBillResponse.getSender().getAmount()).isNotNull();
         //        Assertions.assertThat(simpleBillResponse.getSender().getAmount()).isEqualTo(491510L);
-        Assertions.assertThat(simpleBillResponse.getSender().getAmount()).isIn(491510L, 500000L); // TODO - Avazxon
+        Assertions.assertThat(simpleBillResponse.getSender().getAmount()).isIn(491510L, 500000L); // TODO - Test
 
         Assertions.assertThat(simpleBillResponse.getRecipient()).isNotNull();
         Assertions.assertThat(simpleBillResponse.getRecipient().getAmount()).isNotNull();
@@ -2132,7 +2132,7 @@ public class P2pServiceTest {
         var paramsString2 =
                 "{ \"account\": \"" +
                         senderNciAccount +
-                        "\", \"mfo\": \"00491\", \"name\": \"JAVLON ERALIYEV\", \"comment\": \"Test payment\" }";
+                        "\", \"mfo\": \"00491\", \"name\": \"TOSHMAT ESHMATOV\", \"comment\": \"Test payment\" }";
 
         //22616000990000582001
 
@@ -2286,7 +2286,7 @@ public class P2pServiceTest {
         long amount = 10000L;
 
         String anorUzcardPan = PredefinedCardRepo2.REAL_PAN_ANOR;
-        var paramsString2 = "{ \"pan\": \"" + anorUzcardPan + "\", \"bin\": \"860063\", \"name\": \"JAVLON ERALIYEV RUSTAMBEKOVICH\" }";
+        var paramsString2 = "{ \"pan\": \"" + anorUzcardPan + "\", \"bin\": \"860063\", \"name\": \"TOSHMAT ESHMATOV TESHABOYEVICH\" }";
 
         var senderAccount = new P2pAccount()
                 .withType(P2pAccountType.PAN)
@@ -2340,7 +2340,7 @@ public class P2pServiceTest {
         long amount = 10000L;
 
         String humoPan = "9860090000000000";
-        var paramsString2 = "{ \"pan\": \"" + humoPan + "\", \"bin\": \"986009\", \"name\": \"JAVLON ERALIYEV RUSTAMBEKOVICH\" }";
+        var paramsString2 = "{ \"pan\": \"" + humoPan + "\", \"bin\": \"986009\", \"name\": \"TOSHMAT ESHMATOV TESHABOYEVICH\" }";
 
         var senderAccount = new P2pAccount()
                 .withType(P2pAccountType.PAN)
@@ -2395,7 +2395,7 @@ public class P2pServiceTest {
         long amount = 10000L;
 
         String humoPan = "9860600000000000";
-        var paramsString2 = "{ \"pan\": \"" + humoPan + "\", \"bin\": \"986060\", \"name\": \"JAVLON ERALIYEV\" }";
+        var paramsString2 = "{ \"pan\": \"" + humoPan + "\", \"bin\": \"986060\", \"name\": \"TOSHMAT ESHMATOV\" }";
 
         var senderAccount = new P2pAccount()
                 .withType(P2pAccountType.PAN)
@@ -2450,7 +2450,7 @@ public class P2pServiceTest {
         long amount = 10000L;
 
         String humoPan = "986060QMQNES3710";
-        var paramsString2 = "{ \"token\": \"" + humoPan + "\", \"bin\": \"986060\", \"name\": \"JAVLON ERALIYEV\" }";
+        var paramsString2 = "{ \"token\": \"" + humoPan + "\", \"bin\": \"986060\", \"name\": \"TOSHMAT ESHMATOV\" }";
 
         var senderAccount = new P2pAccount()
                 .withType(P2pAccountType.TOKEN)
@@ -2502,7 +2502,7 @@ public class P2pServiceTest {
         long amount = 10000L;
 
         String humoPan = "9860090000000000";
-        var paramsString2 = "{ \"pan\": \"" + humoPan + "\", \"bin\": \"986009\", \"name\": \"JAVLON ERALIYEV\" }";
+        var paramsString2 = "{ \"pan\": \"" + humoPan + "\", \"bin\": \"986009\", \"name\": \"TOSHMAT ESHMATOV\" }";
 
         var senderAccount = new P2pAccount()
                 .withType(P2pAccountType.PAN)
@@ -2615,7 +2615,7 @@ public class P2pServiceTest {
         var paramsString2 =
                 "{ \"account\": \"" +
                         senderNciAccount +
-                        "\", \"mfo\": \"00491\", \"name\": \"JAVLON ERALIYEV\", \"comment\": \"Test payment\" }";
+                        "\", \"mfo\": \"00491\", \"name\": \"TOSHMAT ESHMATOV\", \"comment\": \"Test payment\" }";
 
         // 22616000990000582001
 
@@ -2683,7 +2683,7 @@ public class P2pServiceTest {
         var paramsString2 =
                 "{ \"account\": \"" +
                         senderNciAccount +
-                        "\", \"mfo\": \"00491\", \"name\": \"JAVLON ERALIYEV\", \"comment\": \"Test payment\" }";
+                        "\", \"mfo\": \"00491\", \"name\": \"TOSHMAT ESHMATOV\", \"comment\": \"Test payment\" }";
 
         // 22616000990000582001
 
@@ -2737,7 +2737,7 @@ public class P2pServiceTest {
         var paramsString1 =
                 "{ \"account\": \"" +
                         senderNciAccount +
-                        "\", \"mfo\": \"00491\", \"name\": \"JAVLON ERALIYEV\", \"comment\": \"Test payment\" }";
+                        "\", \"mfo\": \"00491\", \"name\": \"TOSHMAT ESHMATOV\", \"comment\": \"Test payment\" }";
 
         // 22616000990000582001
 
@@ -3001,7 +3001,7 @@ public class P2pServiceTest {
     @WithMockUser("TEST_USER")
     public void test10MlnToSuccess() throws JsonProcessingException {
         var paramsString =
-                "{ \"pan\": \"9860090000000000\", \"bin\": \"986009\", \"additionalParam\": {\"citizen\":  \"Tashkent\", \"birthDate\":  \"2022-01-05\", \"docType\":  \"Биометрическая паспорт гражданина Респ.Узбекистан\", \"docNumber\": \"AA2978517\", \"docDate\": \"2013-09-18\", \"pinFl\":  \"30000000000000\", \"firstName\":  \"Avazxon\", \"lastName\":  \"Saidakramov\", \"middleName\":  \"Akmalovich\"} }";
+                "{ \"pan\": \"9860090000000000\", \"bin\": \"986009\", \"additionalParam\": {\"citizen\":  \"Tashkent\", \"birthDate\":  \"2022-01-05\", \"docType\":  \"Биометрическая паспорт гражданина Респ.Узбекистан\", \"docNumber\": \"AA0000000\", \"docDate\": \"2000-01-01\", \"pinFl\":  \"30000000000000\", \"firstName\":  \"Test\", \"lastName\":  \"Testov\", \"middleName\":  \"Testovich\"} }";
 
         var senderAccount = new P2pAccount().withType(P2pAccountType.PAN).withCurrency(860).withParams(objectMapper.readTree(paramsString));
 

@@ -32,7 +32,7 @@ public class AbsTransactionRequest implements Billed {
     @ApiModelProperty(name = "Abs recipient account", notes = "accCo param in NCI", example = "22616000990000582001")
     private String accCo;
 
-    @ApiModelProperty(name = "Abs recipient account name", notes = "nameCo param in NCI", example = "JAVLON ERALIYEV")
+    @ApiModelProperty(name = "Abs recipient account name", notes = "nameCo param in NCI", example = "TOSHMAT ESHMATOV")
     private String nameCo;
 
     @NotNull

@@ -96,7 +96,7 @@ public class NciAccountToUzcardMultiTranCancelTest {
     @Transactional
     @WithMockUser(DummyDataAdapterV3.DUMMY_AGENT)
     public void payNciAccount2UzcardToken() {
-        createDeposit("JAVLON ERALIYEV");
+        createDeposit("TOSHMAT ESHMATOV");
         setupMock();
         int databaseSizeBeforeCreate = transactionRepository.findAll().size();
         int billSizeBeforeCreate = billRepository.findAll().size();
@@ -104,7 +104,7 @@ public class NciAccountToUzcardMultiTranCancelTest {
         long amount = 10000L;
         String senderNciAccount = "20208000000548837006";
 
-        var paramsString1 = "{ \"account\": \"" + senderNciAccount + "\", \"mfo\": \"00491\", \"name\": \"JAVLON ERALIYEV\", \"comment\": \"Test payment\" }";
+        var paramsString1 = "{ \"account\": \"" + senderNciAccount + "\", \"mfo\": \"00491\", \"name\": \"TOSHMAT ESHMATOV\", \"comment\": \"Test payment\" }";
 
         var senderAccount = new P2pAccount()
             .withType(P2pAccountType.ACCOUNT)

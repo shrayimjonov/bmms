@@ -154,7 +154,7 @@ TIP: *currency* зарезервированный параметр
 |Map<String, String>
 |
 {
-    "fio":"J.R. Eraliyev",
+    "fio":"T.T. Eshmatov",
     "nextParam":"nextValue"
 }
 |Доп. информация.

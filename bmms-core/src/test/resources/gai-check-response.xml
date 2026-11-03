@@ -13,8 +13,8 @@
             <transaction_id label="Номер чека">10178612348</transaction_id>
             <provider_name label="Оператор">Штрафы ГУБДД</provider_name>
             <amount label="Cумма">87465</amount>
-            <FIO label="ФИО">MAXMUDXO?JAYEV SAIDALI SHUXRATXO?JA O?G?LI</FIO>
-            <NDECREE label="Номер поручения">KV18131297906</NDECREE>
+            <FIO label="ФИО">TESTOV TEST TESTOVICH</FIO>
+            <NDECREE label="Номер поручения">KV00000000000</NDECREE>
             <ADDRESS label="Адрес"> </ADDRESS>
             <NTYPE label="Вид нарушения">XAVFSIZLIK KAMARIDAN FOYDALANISH</NTYPE>
             <DAN2CAR label="Номер авто"> </DAN2CAR>

@@ -31,7 +31,7 @@ recipients can be added without code changes.
 Hazelcast · Keycloak (OAuth2/JWT) · SOAP/WSDL · MapStruct · Micrometer/Prometheus · Testcontainers ·
 Angular · Docker · Maven**
 
-The core module contains about 1,300 Java classes and more than 300 Liquibase changelogs.
+The core module contains about 1,300 Java classes (including tests) and over 200 Liquibase changelog files.
 
 ## Running locally
 
