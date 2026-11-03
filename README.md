@@ -1,39 +1,32 @@
-# BMMS — Bill Master Payment Gateway
+# BMMS (Bill Master)
 
-**Bill Master (BMMS)** is a bank-grade billing and payments hub. Agents (banks, wallets, kiosks) use it to pay
-thousands of service providers (mobile operators, utilities, internet providers, taxis, government services) and
-to make card-to-card (P2P) transfers across Uzbekistan's national card networks.
+Billing and payment hub. Banks, wallets and kiosks use it to pay service providers (mobile operators,
+utilities, internet, taxi, government services) and to make card to card transfers.
 
-> **Context.** Production system used in the Davrbank environment, built by the bank's integration team.
-> I include it as a reference for the domain and integrations I work with. Published with all confidential data
-> removed — see [Security & sanitization](#security--sanitization).
+This is a cleaned copy of the real project. Keys, passwords, server addresses and personal data were removed.
 
 ## Modules
 
-| Module | Type | Purpose |
-|---|---|---|
-| [`bmms-core`](bmms-core) | JHipster microservice | Billing engine: bills, transactions, holds/cancellations, reconciliation, bookkeeping, deposits and virtual accounts, P2P transfers, commissions, fraud checks |
-| [`bill-master-gateway`](bill-master-gateway) | JHipster gateway + Angular UI | API gateway (Spring Cloud Gateway), OAuth2/Keycloak security and admin dashboard (users, groups, cash-back, dashboards) |
+- bmms-core - billing engine: bills, transactions, holds and cancels, reconciliation, bookkeeping,
+  deposits, virtual accounts, P2P transfers, commissions, fraud checks
+- bill-master-gateway - API gateway with Keycloak login and an Angular admin panel
 
-## Integrations (adapter / gateway pattern)
+## Integrations
 
-- **Card networks:** Humo, Uzcard, Visa/Mastercard (P2P, holds, cancellations, balance)
-- **Aggregators and providers:** Paynet, Munis (government payments, SOAP/WSDL), mobile operators, internet and taxi providers
-- **Core banking:** NCI / ABS bookkeeping, OFD fiscal receipts
-- **Reconciliation:** automatic daily matching with every provider, plus discrepancy reports
+- cards: Humo, Uzcard, Visa/Mastercard
+- providers: Paynet, Munis (SOAP), mobile operators, internet and taxi providers
+- core banking: NCI/ABS, OFD fiscal receipts
+- daily reconciliation with each provider
 
-Each provider is described declaratively (JSON request templates and response-field mapping), so new
-recipients can be added without code changes.
+Providers are described in JSON (request templates and response fields), so a new one can be added
+without changing code.
 
-## Tech stack
+## Stack
 
-**Java 11 · Spring Boot 2.4 · JHipster 7.1 · Spring Cloud (Gateway, OpenFeign, Consul) · PostgreSQL · Liquibase ·
-Hazelcast · Keycloak (OAuth2/JWT) · SOAP/WSDL · MapStruct · Micrometer/Prometheus · Testcontainers ·
-Angular · Docker · Maven**
+Java 11, Spring Boot 2.4, JHipster 7.1, Spring Cloud (Gateway, OpenFeign, Consul), PostgreSQL, Liquibase,
+Hazelcast, Keycloak, SOAP, MapStruct, Prometheus, Testcontainers, Angular, Docker, Maven.
 
-The core module contains about 1,300 Java classes (including tests) and over 200 Liquibase changelog files.
-
-## Running locally
+## How to run
 
 ```bash
 cd bmms-core
@@ -41,10 +34,9 @@ docker-compose -f src/main/docker/postgresql.yml up -d
 ./mvnw
 ```
 
-Configuration is externalized as `${ENV_VAR}` placeholders (see `.env.example`).
+Settings come from environment variables, see `.env.example`.
 
-## Security & sanitization
+## What was removed
 
-- Private keys, certificates and keystores, gateway credentials, environment profiles, CI pipelines and
-  real API dumps were removed.
-- Internal hosts/IPs, card numbers and personal data were masked. Git history is not included.
+Private keys, certificates, provider passwords, config profiles, CI files, real API dumps, internal hosts,
+card numbers, personal data and git history.
