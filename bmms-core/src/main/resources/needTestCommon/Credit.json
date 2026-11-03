@@ -1,0 +1,103 @@
+{
+    "check": {
+        "account": "2078",
+        "amount": 500,
+        "success": {
+            "request": {
+                "url": "http://127.0.0.1:7101/JetB2OTPWS/ScriptExecutorWS",
+                "body": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:typ=\"http://internal.example.com/otp/scriptexecutor/types\"><soapenv:Header/><soapenv:Body><typ:executeScriptRequest><typ:userName>KAPITALKIOSK</typ:userName><typ:scriptId>20001</typ:scriptId><typ:parameters><typ:listExecuteScriptParameter><typ:paramName>aMFO</typ:paramName><typ:dataType>varchar2</typ:dataType><typ:paramValue>${MFO}</typ:paramValue></typ:listExecuteScriptParameter><typ:listExecuteScriptParameter><typ:paramName>aLoanID</typ:paramName><typ:dataType>number</typ:dataType><typ:paramValue>${account}</typ:paramValue></typ:listExecuteScriptParameter></typ:parameters></typ:executeScriptRequest></soapenv:Body></soapenv:Envelope>",
+                "headers": {
+                    "Content-Type": "text/xml"
+                },
+                "validate": {
+                    "url": true,
+                    "body": true,
+                    "headers": true
+                }
+            },
+            "response": {
+                "status": 200,
+                "body": "<?xml version='1.0' encoding='UTF-8'?><S:Envelope xmlns:S=\"http://schemas.xmlsoap.org/soap/envelope/\"><S:Body><executeScriptResponse xmlns=\"http://internal.example.com/otp/scriptexecutor/types\"><output>0#Успешно выполнено#61#ASHUROV SALOXIDDIN KADIRALIYEVICH#1989-06-05</output><errorCode>0</errorCode></executeScriptResponse></S:Body></S:Envelope>"
+            }
+        },
+        "fail": {
+            "request": {
+                "url": "",
+                "body": "",
+                "headers": {
+                    "h1": "v1"
+                }
+            },
+            "response": {
+                "status": "",
+                "body": ""
+            }
+        }
+    },
+    "pay": {
+        "success": {
+            "request": {
+                "url": "http://127.0.0.1:7101/JetB2OTPWS/ScriptExecutorWS",
+                "body": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:typ=\"http://internal.example.com/otp/scriptexecutor/types\"><soapenv:Header/><soapenv:Body><typ:executeScriptRequest><typ:userName>KAPITALKIOSK</typ:userName><typ:scriptId>20002</typ:scriptId><typ:parameters><typ:listExecuteScriptParameter><typ:paramName>aRequestID</typ:paramName><typ:dataType>number</typ:dataType><typ:paramValue>49</typ:paramValue></typ:listExecuteScriptParameter><typ:listExecuteScriptParameter><typ:paramName>aMFO</typ:paramName><typ:dataType>varchar2</typ:dataType><typ:paramValue>00974</typ:paramValue></typ:listExecuteScriptParameter><typ:listExecuteScriptParameter><typ:paramName>aLoanID</typ:paramName><typ:dataType>number</typ:dataType><typ:paramValue>4181</typ:paramValue></typ:listExecuteScriptParameter><typ:listExecuteScriptParameter><typ:paramName>aSumma</typ:paramName><typ:dataType>number</typ:dataType><typ:paramValue>666600</typ:paramValue></typ:listExecuteScriptParameter></typ:parameters></typ:executeScriptRequest></soapenv:Body></soapenv:Envelope>",
+                "headers": {
+                    "Content-Type": "application/xml"
+                },
+                "validate": {
+                    "url": true,
+                    "body": false,
+                    "headers": true
+                }
+            },
+            "response": {
+                "status": 200,
+                "body": "<S:Envelope xmlns:S=\"http://schemas.xmlsoap.org/soap/envelope/\"><S:Body><executeScriptResponse xmlns=\"http://internal.example.com/otp/scriptexecutor/types\"><output>0#Успешно выполнено</output><errorCode>0</errorCode></executeScriptResponse></S:Body></S:Envelope>"
+            }
+        },
+        "fail": {
+            "request": {
+                "url": "",
+                "body": "",
+                "headers": {
+                    "h1": "v1"
+                }
+            },
+            "response": {
+                "status": "",
+                "bo dy": ""
+            }
+        }
+    },
+    "reconcile": {
+        "success": {
+            "request": {
+                "url": "https://paynet.mytaxi.uz/api/server.php",
+                "body": "<x:Envelope xmlns:x=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://service.payment.uzbilling\"><x:Header/><x:Body><uws:GetStatementArguments xmlns:uws=\"http://uws.provider.com/\"><password>mYt@Xi20_15clicK</password><username>MytaxiAPIClick2015</username><dateFrom>2018-09-24T00:00:00</dateFrom><dateTo>2018-09-24T23:59:59</dateTo><serviceId>1</serviceId><parameters><paramKey>reason</paramKey><paramValue></paramValue></parameters></uws:GetStatementArguments></x:Body></x:Envelope>",
+                "headers": {
+                    "Content-Type": "application/xml"
+                },
+                "validate": {
+                    "url": true,
+                    "body": false,
+                    "headers": true
+                }
+            },
+            "response": {
+                "status": 200,
+                "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ns1=\"http://uws.provider.com/\"><SOAP-ENV:Body><ns1:GetStatementResult><errorMsg>Ok</errorMsg><status>0</status><timeStamp>2018-09-25T14:47:25+05:00</timeStamp><statements><amount>7000</amount><providerTrnId>8942291</providerTrnId><transactionId>8506753733</transactionId><transactionTime>2018-09-24T09:56:36+05:00</transactionTime></statements><statements><amount>13000</amount><providerTrnId>8942475</providerTrnId><transactionId>8506815025</transactionId><transactionTime>2018-09-24T10:17:09+05:00</transactionTime></statements></ns1:GetStatementResult></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+            }
+        },
+        "fail": {
+            "request": {
+                "url": "",
+                "body": "",
+                "headers": {
+                    "h1": "v1"
+                }
+            },
+            "response": {
+                "status": "",
+                "bo dy": ""
+            }
+        }
+    }
+}

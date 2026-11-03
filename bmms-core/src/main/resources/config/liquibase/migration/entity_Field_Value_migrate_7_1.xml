@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Entity Field Value migrate to 7.1 jhipster
+    -->
+    <changeSet id="entity_Field_Value_migrate-1" author="zafar">
+        <!--
+            Rename column jhi_value
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="field_value"
+                          columnName="jhi_value"/>
+        </preConditions>
+
+        <comment>Rename column jhi_value</comment>
+
+        <renameColumn tableName="field_value" oldColumnName="jhi_value" newColumnName="value"/>
+    </changeSet>
+
+    <changeSet id="entity_Field_Value_migrate-2" author="zafar">
+        <!--
+           Rename column titles_id entity Field value title
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="field_value_title"
+                          columnName="titles_id"/>
+        </preConditions>
+
+        <comment>Rename column titles_id entity Field value title</comment>
+
+        <renameColumn tableName="field_value_title" oldColumnName="titles_id" newColumnName="title_id"/>
+    </changeSet>
+
+    <changeSet id="entity_Field_Value_migrate-3" author="zafar">
+        <!--
+            Rename column field_values_id entity Field value title
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="field_value_title"
+                          columnName="field_values_id"/>
+        </preConditions>
+
+        <comment>Rename column field_values_id entity Field value title</comment>
+
+        <renameColumn tableName="field_value_title" oldColumnName="field_values_id" newColumnName="field_value_id"/>
+    </changeSet>
+
+    <changeSet id="entity_Field_Value_migrate-4" author="zafar">
+        <!--
+            Drop primary key field_value_title
+        -->
+        <preConditions onFail="MARK_RAN">
+            <primaryKeyExists tableName="field_value_title"/>
+        </preConditions>
+
+        <comment>Drop primary key field_value_title</comment>
+
+        <dropPrimaryKey tableName="field_value_title"
+                        dropIndex="true"/>
+    </changeSet>
+
+    <changeSet id="entity_Field_Value_migrate-5" author="zafar">
+        <!--
+            Rename table field value title
+        -->
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="field_value_title"/>
+        </preConditions>
+
+        <comment>Rename table field value title</comment>
+
+        <renameTable oldTableName="field_value_title" newTableName="rel_field_value__title"/>
+    </changeSet>
+
+    <changeSet id="entity_Field_Value_migrate-6" author="zafar">
+        <!--
+           Add primary key rel_field_value__title
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <primaryKeyExists tableName="rel_field_value__title"/>
+            </not>
+        </preConditions>
+
+        <comment>Add primary key rel_field_value__title</comment>
+
+        <addPrimaryKey columnNames="field_value_id, title_id" tableName="rel_field_value__title"/>
+    </changeSet>
+
+    <changeSet id="entity_Field_Value_migrate-7" author="zafar">
+        <!--
+           Rename column descriptions_id entity Field value description
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="field_value_description"
+                          columnName="descriptions_id"/>
+        </preConditions>
+
+        <comment>Rename column descriptions_id entity Field valy description</comment>
+
+        <renameColumn tableName="field_value_description" oldColumnName="descriptions_id" newColumnName="description_id"/>
+    </changeSet>
+
+    <changeSet id="entity_Field_Value_migrate-8" author="zafar">
+        <!--
+            Rename column field_values_id entity Field value description
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="field_value_description"
+                          columnName="field_values_id"/>
+        </preConditions>
+
+        <comment>Rename column field_values_id entity Field value description</comment>
+
+        <renameColumn tableName="field_value_description" oldColumnName="field_values_id" newColumnName="field_value_id"/>
+    </changeSet>
+
+    <changeSet id="entity_Field_Value_migrate-9" author="zafar">
+        <!--
+            Drop primary key field_value_description
+        -->
+        <preConditions onFail="MARK_RAN">
+            <primaryKeyExists tableName="field_value_description"/>
+        </preConditions>
+
+        <comment>Drop primary key field_value_description</comment>
+
+        <dropPrimaryKey tableName="field_value_description"
+                        dropIndex="true"/>
+    </changeSet>
+
+    <changeSet id="entity_Field_Value_migrate-10" author="zafar">
+        <!--
+            Rename table field value description
+        -->
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="field_value_description"/>
+        </preConditions>
+
+        <comment>Rename table field_value_description</comment>
+
+        <renameTable oldTableName="field_value_description" newTableName="rel_field_value__description"/>
+    </changeSet>
+
+    <changeSet id="entity_Field_Value_migrate-11" author="zafar">
+        <!--
+           Add primary key rel_field_value__description
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <primaryKeyExists tableName="rel_field_value__description"/>
+            </not>
+        </preConditions>
+
+        <comment>Add primary key rel_field__description</comment>
+
+        <addPrimaryKey columnNames="field_value_id, description_id" tableName="rel_field_value__description"/>
+
+    </changeSet>
+
+    <changeSet id="entity_Field_Value_migrate-12" author="zafar">
+        <!--
+          Add column created_by
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="field_value"
+                              columnName="created_by"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column created_by</comment>
+
+        <addColumn tableName="field_value">
+            <column name="created_by" type="varchar(50)" defaultValue="system">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_Field_Value_migrate-13" author="zafar">
+        <!--
+           Add column created_date
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="field_value"
+                              columnName="created_date"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column created_date</comment>
+
+        <addColumn tableName="field_value">
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_Field_Value_migrate-14" author="zafar">
+        <!--
+          Add column last_modified_by
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="field_value"
+                              columnName="last_modified_by"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column last_modified_by</comment>
+
+        <addColumn tableName="field_value">
+            <column name="last_modified_by" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_Field_Value_migrate-15" author="zafar">
+        <!--
+         Add column last_modified_date
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="field_value"
+                              columnName="last_modified_date"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column last_modified_date</comment>
+
+        <addColumn tableName="field_value">
+            <column name="last_modified_date" type="timestamp"/>
+        </addColumn>
+
+    </changeSet>
+</databaseChangeLog>

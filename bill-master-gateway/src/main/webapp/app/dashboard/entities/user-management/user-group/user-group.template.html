@@ -1,0 +1,88 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h5 class="mb-0" jhiTranslate="global.menu.entities.pkuaaGroup">User Groups</h5>
+
+  <div>
+    <nz-badge [nzCount]="filterRef.querySize">
+      <button nz-button nzSize="large" jhiTranslate="entity.action.filter" (click)="showFilter = !showFilter">Filter</button>
+    </nz-badge>
+
+    <!--      <button type="button" class="ml-2" nz-button nzSize="large" nzType="primary" jhiTranslate="entity.action.add"-->
+    <!--              *jhiHasAnyAuthority="[authority.USER_GROUP_WRITE]" (click)="userGroupService.openUpdate()">-->
+    <!--        Add-->
+    <!--      </button>-->
+  </div>
+</div>
+
+<ngl-filter-field [hidden]="!showFilter" [fields]="filterFields" (onFilter)="setQuery($event); loadPage()" #filterRef></ngl-filter-field>
+
+<div class="mb-3" [style.max-width.px]="350">
+  <nz-input-group nzSize="large" [nzPrefix]="prefixTemplateUser" [nzSuffix]="searchText ? suffixTemplateInfo : null">
+    <input
+      nz-input
+      placeholder="{{ 'global.form.search.placeholder' | translate }}"
+      name="searchText"
+      [(ngModel)]="searchText"
+      (ngModelChange)="loadPage()"
+      auto-focus
+    />
+  </nz-input-group>
+  <ng-template #prefixTemplateUser><i nz-icon nzType="search" class="mr-2"></i></ng-template>
+  <ng-template #suffixTemplateInfo>
+    <i nz-icon nzType="close-circle" class="cursor-pointer" (click)="searchText = null; loadPage()"></i>
+  </ng-template>
+</div>
+
+<bm-alert></bm-alert>
+
+<div class="table-responsive" *ngIf="data?.length">
+  <nz-table [nzLoading]="loading" nzSize="middle" nzTemplateMode nzOuterBordered>
+    <thead>
+      <tr>
+        <!--        <th jhiTranslate="global.field.id">ID</th>-->
+        <th jhiTranslate="userGroup.name">Name</th>
+        <!--        <th jhiTranslate="userGroup.details">Details</th>-->
+        <!--        <th></th>-->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let group of data; trackBy: trackId">
+        <!--        <td>-->
+        <!--          <a href="javascript:void(0)" (click)="userGroupService.openView(group)">{{ group.id }}</a>-->
+        <!--        </td>-->
+        <td>{{ group.name }}</td>
+        <!--        <td>{{ group.description }}</td>-->
+        <!--        <td width="10">-->
+        <!--          <nz-button-group nzSize="small" *jhiHasAnyAuthority="[authority.USER_GROUP_WRITE]">-->
+        <!--            <button nz-button (click)="userGroupService.openView(group)" title="{{ 'entity.action.view' | translate }}">-->
+        <!--              <i nz-icon nzType="eye" class="icon-btn"></i>-->
+        <!--            </button>-->
+        <!--            <button nz-button (click)="userGroupService.openUpdate(group, true)" title="{{ 'entity.action.duplicate' | translate }}">-->
+        <!--              <i nz-icon nzType="copy" class="icon-btn"></i>-->
+        <!--            </button>-->
+        <!--            <button nz-button title="{{ 'entity.action.edit' | translate }}" (click)="userGroupService.openUpdate(group)">-->
+        <!--              <i nz-icon nzType="edit" class="icon-btn"></i>-->
+        <!--            </button>-->
+        <!--            <button-->
+        <!--              nz-button-->
+        <!--              (click)="userGroupService.openDelete(group.id)"-->
+        <!--              title="{{ 'entity.action.delete' | translate }}"-->
+        <!--              [disabled]="isNotRemovable(group)"-->
+        <!--            >-->
+        <!--              <i nz-icon nzType="delete" class="icon-btn"></i>-->
+        <!--            </button>-->
+        <!--          </nz-button-group>-->
+        <!--        </td>-->
+      </tr>
+    </tbody>
+  </nz-table>
+</div>
+
+<div class="d-flex justify-content-center mt-3">
+  <nz-pagination
+    [nzPageIndex]="ngbPaginationPage"
+    [nzTotal]="totalItems"
+    [nzPageSize]="itemsPerPage"
+    (nzPageIndexChange)="loadPage($event)"
+  >
+  </nz-pagination>
+</div>

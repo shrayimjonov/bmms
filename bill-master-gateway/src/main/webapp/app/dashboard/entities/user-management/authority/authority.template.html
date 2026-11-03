@@ -1,0 +1,69 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h5 class="mb-0" jhiTranslate="global.menu.entities.pkuaaAuthority">Authorities</h5>
+
+  <!--  <button-->
+  <!--    type="button"-->
+  <!--    nz-button-->
+  <!--    nzSize="large"-->
+  <!--    nzType="primary"-->
+  <!--    jhiTranslate="entity.action.add"-->
+  <!--    *jhiHasAnyAuthority="[authority.AUTHORITY_WRITE]"-->
+  <!--    (click)="openCreateModal()"-->
+  <!--  >-->
+  <!--    Add-->
+  <!--  </button>-->
+</div>
+
+<div class="mb-3" [style.max-width.px]="350">
+  <nz-input-group nzSize="large" [nzPrefix]="prefixTemplateUser" [nzSuffix]="searchText ? suffixTemplateInfo : null">
+    <input
+      nz-input
+      placeholder="{{ 'global.form.search.placeholder' | translate }}"
+      name="searchText"
+      [(ngModel)]="searchText"
+      (ngModelChange)="loadPage()"
+      auto-focus
+    />
+  </nz-input-group>
+  <ng-template #prefixTemplateUser><i nz-icon nzType="search" class="mr-2"></i></ng-template>
+  <ng-template #suffixTemplateInfo>
+    <i nz-icon nzType="close-circle" class="cursor-pointer" (click)="searchText = null; loadPage()"></i>
+  </ng-template>
+</div>
+
+<bm-alert></bm-alert>
+
+<div class="table-responsive" *ngIf="data?.length">
+  <nz-table nzTemplateMode [nzLoading]="loading" nzSize="small" [nzShowPagination]="false" nzOuterBordered>
+    <thead>
+      <tr>
+        <th width="300" jhiTranslate="userGroup.name">Name</th>
+        <th jhiTranslate="userGroup.details">Details</th>
+        <!--        <th></th>-->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let auth of data">
+        <td>{{ auth.name }}</td>
+        <td>{{ auth.description }}</td>
+        <!--        <td width="10" class="text-right">-->
+        <!--          <nz-button-group nzSize="small" *jhiHasAnyAuthority="[authority.AUTHORITY_WRITE]">-->
+        <!--            <button type="submit" nz-button (click)="delete(auth.name)" title="{{ 'entity.action.delete' | translate }}">-->
+        <!--              <i nz-icon nzType="delete" class="icon-btn"></i>-->
+        <!--            </button>-->
+        <!--          </nz-button-group>-->
+        <!--        </td>-->
+      </tr>
+    </tbody>
+  </nz-table>
+</div>
+
+<div class="d-flex justify-content-center mt-3">
+  <nz-pagination
+    [nzPageIndex]="ngbPaginationPage"
+    [nzTotal]="totalItems"
+    [nzPageSize]="itemsPerPage"
+    (nzPageIndexChange)="loadPage($event)"
+  >
+  </nz-pagination>
+</div>

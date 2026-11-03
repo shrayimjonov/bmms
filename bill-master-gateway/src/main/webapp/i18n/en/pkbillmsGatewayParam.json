@@ -1,0 +1,47 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsGatewayParam": {
+      "home": {
+        "title": "Gateway Params",
+        "createLabel": "Create a new Gateway Param",
+        "createOrEditLabel": "Create or edit a Gateway Param",
+        "notFound": "No Gateway Params found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Gateway Param {{ id }}?"
+      },
+      "detail": {
+        "title": "Gateway Param"
+      },
+      "url": "Url",
+      "type": "Type",
+      "username": "Username",
+      "password": "Password",
+      "token": "Token",
+      "body": "Body",
+      "statusQuery": "Status Query",
+      "messageQuery": "Message Query",
+      "successCode": "Success Code",
+      "callback": "Callback",
+      "timeout": "Timeout",
+      "headers": "Headers",
+      "dataQueries": "Data Queries",
+      "httpMethodType": "Http Method Type",
+      "protocol": "Protocol",
+      "requestMediaType": "Request Media Type",
+      "responseMediaType": "Response Media Type",
+      "active": "Active",
+      "mode": "Mode",
+      "extIdQuery": "Ext Id Query",
+      "successOn2xx": "Success On 2 Xx",
+      "recipient": "Recipient"
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsGatewayParam": {
+      "created": "A new Gateway Param is created with identifier {{ param }}",
+      "updated": "A Gateway Param is updated with identifier {{ param }}",
+      "deleted": "A Gateway Param is deleted with identifier {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,121 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h4 class="mb-0" jhiTranslate="global.menu.entities.pkbillmsBill">Bills</h4>
+
+  <div>
+    <nz-badge [nzCount]="filterRef.querySize">
+      <button nz-button nzSize="large" jhiTranslate="entity.action.filter" (click)="showFilter = !showFilter">Filter</button>
+    </nz-badge>
+
+    <ngl-export-as class="ml-2"
+      *ngIf="data?.length"
+      [data]="data"
+      requestUrl="{{ billService.resourceUrl }}"
+      [requestOption]="getOption"
+      translationPrefix="billMasterGwApp.pkbillmsBill"
+      fileName="bills">
+    </ngl-export-as>
+  </div>
+</div>
+
+<ngl-filter-field [hidden]="!showFilter" [fields]="filterFields" (onFilter)="setQuery($event); loadPage()" #filterRef></ngl-filter-field>
+
+<bm-alert></bm-alert>
+
+<ng-container *ngIf="data?.length">
+  <div class="table-responsive">
+    <nz-table [nzLoading]="loading" nzSize="small" nzTemplateMode nzOuterBordered>
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th jhiSortBy="id">
+            <span jhiTranslate="global.field.id">ID</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhisortby="recipientShortName">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBill.recipientShortName">Recipient Short Name</span>
+          </th>
+          <th jhisortby="account">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBill.account">Account</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="amount">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBill.amount">Amount</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+<!--          <th jhisortby="sessionId">-->
+<!--            <span jhiTranslate="billMasterGwApp.pkbillmsBill.sessionId">Session Id</span>-->
+<!--            <sort-icon icon="sort"></sort-icon>-->
+<!--          </th>-->
+          <th jhisortby="type">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBill.type">Type</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhisortby="extId">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBill.extId">Ext Id</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhisortby="success">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBill.success">Success</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhisortby="requestTime">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBill.requestTime">Request Time</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhisortby="responseTime">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBill.responseTime">Response Time</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhisortby="login">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBill.login">Login</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bill of data; trackBy: trackId">
+          <td>
+            <a href="javascript:void(0)" (click)="view(bill)">{{ bill.id }}</a>
+          </td>
+          <td>
+            <a href="javascript:void(0)" (click)="viewRecipient(bill.recipientId)">{{ bill.recipientShortName }}</a>
+          </td>
+          <td nz-tooltip="{{bill.account}}">{{ bill.account | bmEllipsis:16}}</td>
+          <td>{{ bill.amount | bmAmount: bill.amountRatio }}</td>
+<!--          <td>{{ bill.sessionId }}</td>-->
+          <td>
+            <span class="badge bill-type {{ bill.type }}" jhiTranslate="billMasterGwApp.RequestType.{{ bill.type }}">{{ bill.type }}</span>
+          </td>
+          <td nz-tooltip="{{bill.extId}}">{{ bill.extId | bmEllipsis:18}}</td>
+          <td>
+            <span [bm-boolean-badge]="bill.success" bmType="success">{{ bill.success }}</span>
+          </td>
+          <td>{{ bill.requestTime | bmDate }}</td>
+          <td>{{ bill.responseTime | bmDate }}</td>
+          <td>
+            <a href="javascript:void(0)" (click)="viewAgent(bill.login)">{{ bill.login }}</a>
+          </td>
+          <td width="10">
+            <nz-button-group nzSize="small">
+              <button nz-button (click)="billService.openHistory(bill.id)" title="{{ 'entity.action.history' | translate }}">
+                <i nz-icon nzType="history" class="icon-btn"></i>
+              </button>
+              <button type="submit" nz-button (click)="view(bill)" title="{{ 'entity.action.view' | translate }}">
+                <i nz-icon nzType="eye" class="icon-btn"></i>
+              </button>
+            </nz-button-group>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+
+  <div class="d-flex justify-content-center mt-3">
+    <nz-pagination
+      [nzPageIndex]="ngbPaginationPage"
+      [nzTotal]="totalItems"
+      [nzPageSize]="itemsPerPage"
+      (nzPageIndexChange)="loadPage($event)">
+    </nz-pagination>
+  </div>
+</ng-container>

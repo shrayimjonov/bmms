@@ -1,0 +1,118 @@
+@import '../bootstrap-variables';
+@import 'nz-table';
+@import 'nz-select';
+@import 'nz-switch';
+@import 'nz-message';
+
+::ng-deep .ant-radio-button-wrapper:first-child {
+  border-radius: $border-radius 0 0 $border-radius;
+}
+
+::ng-deep .ant-radio-button-wrapper:last-child {
+  border-radius: 0 $border-radius $border-radius 0;
+}
+
+::ng-deep .cdk-overlay-container {
+  z-index: 1060;
+}
+
+::ng-deep .ant-tabs-tab .anticon {
+  margin-right: 8px;
+}
+
+::ng-deep .ant-table-small {
+  margin: 0 !important;
+}
+
+::ng-deep .ant-collapse > .ant-collapse-item > .ant-collapse-header .ant-collapse-arrow {
+  vertical-align: 1px;
+}
+
+::ng-deep .ant-select,
+::ng-deep .ant-input-number {
+  width: 100%;
+}
+
+.ant-input-group.ant-input-group-compact > .ant-cascader-picker-focused:last-child .ant-input,
+.ant-input-group.ant-input-group-compact > .ant-cascader-picker:last-child .ant-input,
+.ant-input-group.ant-input-group-compact > .ant-select:last-child > .ant-select-selector,
+.ant-input-group.ant-input-group-compact > :last-child {
+  border-top-right-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
+}
+
+::ng-deep .ant-input,
+::ng-deep .ant-select:not(.ant-select-customize-input) .ant-select-selector,
+::ng-deep .ant-input-affix-wrapper,
+::ng-deep .ant-btn-lg,
+::ng-deep .ant-input-number,
+::ng-deep .ant-alert {
+  border-radius: $border-radius;
+}
+
+::ng-deep ngl-filter-field .ant-btn {
+  border-radius: $border-radius !important;
+}
+
+::ng-deep ngl-date-picker-input .ant-picker {
+  border-radius: $border-radius;
+}
+
+::ng-deep .ant-btn-group > .ant-btn:first-child:not(:last-child) {
+  border-top-left-radius: $border-radius;
+  border-bottom-left-radius: $border-radius;
+}
+
+::ng-deep .ant-btn-group > .ant-btn:last-child:not(:first-child) {
+  border-top-right-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
+}
+
+::ng-deep .ant-alert {
+  padding: 12px 15px;
+}
+
+::ng-deep nz-date-picker {
+  width: 100%;
+}
+
+::ng-deep .ant-picker-large {
+  padding: 6.7px 11px;
+}
+
+::ng-deep .ant-btn-lg,
+::ng-deep .ant-input-lg,
+::ng-deep .ant-select-selection-search-input,
+::ng-deep .ant-picker-large .ant-picker-input > input {
+  font-size: $font-size;
+}
+
+::ng-deep .ant-input-lg,
+::ng-deep .ant-picker-large {
+  padding: 8px 11px;
+}
+
+::ng-deep .ant-btn-group-sm > .ant-btn, .ant-btn-group-sm > span > .ant-btn {
+  height: 26px;
+}
+
+::ng-deep .ant-alert-icon {
+  font-size: 16px;
+}
+
+::ng-deep .ant-alert-message {
+  vertical-align: middle;
+}
+
+::ng-deep .ant-alert-icon {
+  margin-right: 10px;
+}
+
+::ng-deep .ant-tabs-tab a {
+  text-decoration: none;
+  color: initial !important;
+}
+
+::ng-deep .ant-tabs-tab-active a {
+  color: inherit !important;
+}

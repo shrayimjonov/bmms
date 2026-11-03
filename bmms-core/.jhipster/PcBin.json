@@ -1,0 +1,75 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "pkbillms",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "bin",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": "1",
+            "fieldValidateRulesMaxlength": "32"
+        },
+        {
+            "fieldName": "bankName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "128"
+        },
+        {
+            "fieldName": "pcType",
+            "fieldType": "BinPcType",
+            "fieldValues": "UZCARD,HUMO,VISA,NCI,FOREX,ANOR,TKB,TINKOFF,MASTER_CARD,MIR,UNION_PAY,WALLET,WALLET_UZS,WALLET_USD,WALLET_RUB,OTHER"
+        },
+        {
+            "fieldName": "useCredit",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "useDebit",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "useReverse",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "useReconcile",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "comment",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "256"
+        }
+    ],
+    "changelogDate": "20211224065829",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceClass",
+    "entityTableName": "pc_bin",
+    "jpaMetamodelFiltering": true,
+    "pagination": "pagination",
+    "microserviceName": "pkbillms"
+}

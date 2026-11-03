@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Entity SettingProperty migrate to 7.1 jhipster
+    -->
+    <changeSet id="entity_SettingProperty_migrate-1" author="zafar">
+        <!--
+            Rename column jhi_key
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="setting_property"
+                          columnName="jhi_key"/>
+        </preConditions>
+
+        <comment>Rename column jhi_comment</comment>
+
+        <renameColumn tableName="setting_property" oldColumnName="jhi_key" newColumnName="key"/>
+    </changeSet>
+
+    <changeSet id="entity_SettingProperty_migrate-2" author="zafar">
+        <!--
+          Add column jhi_value
+        -->
+        <preConditions onFail="MARK_RAN">
+                <columnExists tableName="setting_property"
+                              columnName="jhi_value"/>
+        </preConditions>
+
+        <comment>Add column jhi_value</comment>
+
+        <renameColumn tableName="setting_property" oldColumnName="jhi_value" newColumnName="value"/>
+
+    </changeSet>
+    <changeSet id="entity_SettingProperty_migrate-3" author="zafar">
+        <!--
+          Modify column value
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="setting_property"
+                          columnName="value"/>
+        </preConditions>
+
+        <comment> Modify column value</comment>
+
+        <modifyDataType tableName="setting_property" columnName="value" newDataType="varchar(512)"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,34 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsRecipientGroup": {
+      "home": {
+        "title": "Qabul qiluvchi guruh",
+        "createLabel": "Yangi qabul qiluvchi guruh qo`shish",
+        "createOrEditLabel": "Qabul qiluvchi guruhni tahrirlash",
+        "notFound": "Qabul qiluvchi guruhlar topilmadi"
+      },
+      "delete": {
+        "question": "{{ id }}- Qabul qiluvchi guruhni o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "Qabul qiluvchi guruh"
+      },
+      "name": "Nomi",
+      "active": "Aktiv",
+      "more": "Qo'shimcha ma'lumot",
+      "recipient": "Qabul qiluvchi",
+      "help": {
+        "name": "Название",
+        "active": "Активность",
+        "more": "Дополнительная информация"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsRecipientGroup": {
+      "created": "Qabul qiluvchi guruh {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- Qabul qiluvchi guruh saqlandi",
+      "deleted": "{{ param }}- Qabul qiluvchi guruh o`chirildi"
+    }
+  }
+}

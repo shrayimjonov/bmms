@@ -1,0 +1,69 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsField": {
+      "home": {
+        "title": "Поля поставщиков",
+        "createLabel": "Создать новый Поля поставщикa",
+        "createOrEditLabel": "Создать или отредактировать Поля поставщикa",
+        "notFound": "Поля поставщиков не найдены"
+      },
+      "delete": {
+        "question": "Вы уверены что хотите удалить Поля поставщикa {{ id }}?"
+      },
+      "detail": {
+        "title": "Поля поставщикa"
+      },
+      "fromRequest": "Из запроса",
+      "fromResponse": "Из ответа",
+      "id": "Ид",
+      "name": "Название",
+      "extId": "Ext Id",
+      "type": "Тип",
+      "controlType": "Тип управления",
+      "content": "Содержание",
+      "validation": "Валидация",
+      "placeholder": "Placeholder",
+      "mask": "Маска",
+      "maskSymbol": "Символ маски",
+      "lengthMin": "Мин. длина",
+      "lengthMax": "Макс. длина",
+      "requireField": "Требуемое поле",
+      "filterBy": "Фильтр по",
+      "optional": "Необязательный",
+      "output": "Вывод",
+      "visibility": "Видимость",
+      "ord": "Порядок",
+      "requestType": "Тип запроса",
+      "recipient": "Получатель",
+      "title": "Название",
+      "description": "Описание",
+      "value": "Значение",
+      "prefix": "Префикс",
+      "help": {
+        "name": "Field (merchant param) name; account_id, phone, login, ...",
+        "extId": "External id, optional",
+        "content": "Type of content for frontend usage; phone, email, text",
+        "validation": "Java regexp pattern to validate before sending to server",
+        "placeholder": "Field placeholder for UI input box",
+        "mask": "UI input mask",
+        "maskSymbol": "UI input mask symbol",
+        "lengthMin": "Min length for text fields",
+        "lengthMax": "Max length for text fields",
+        "requireField": "Require parent field to draw this one",
+        "filterBy": "Filter showing by previous selected field",
+        "optional": "Is field optional to fill",
+        "output": "Need to send the value to server",
+        "visibility": "Visible in UI, can be used for hidden static fields",
+        "ord": "Display order",
+        "requestType": "Define to which of CHECK,PAY,STATUS,CANCEL,DEPOSIT belongs that field"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsField": {
+      "created": "Новый Поля поставщикa создан с идентификатором {{ param }}",
+      "updated": "Поля поставщикa обновлен с идентификатором {{ param }}",
+      "deleted": "Поля поставщикa удален с идентификатором {{ param }}"
+    }
+  }
+}

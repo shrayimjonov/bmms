@@ -1,0 +1,42 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsCategory": {
+      "home": {
+        "title": "Categories",
+        "createLabel": "Create a new Category",
+        "createOrEditLabel": "Create or edit a Category",
+        "notFound": "No Categories found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Category {{ id }}?"
+      },
+      "detail": {
+        "title": "Category"
+      },
+      "shortName": "Short Name",
+      "thumbnail": "Thumbnail",
+      "thumbnailFile": "Thumbnail File",
+      "logo": "Logo",
+      "logoFile": "Logo File",
+      "ord": "Ord",
+      "active": "Active",
+      "parent": "Parent",
+      "name": "Name",
+      "help": {
+        "shortName": "Short name to show in UI",
+        "thumbnail": "Thumbnail file path or url",
+        "thumbnailFile": "Thumbnail file",
+        "logo": "Logo file path or url",
+        "logoFile": "Logo file",
+        "ord": "Display order"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsCategory": {
+      "created": "A new Category is created with identifier {{ param }}",
+      "updated": "A Category is updated with identifier {{ param }}",
+      "deleted": "A Category is deleted with identifier {{ param }}"
+    }
+  }
+}

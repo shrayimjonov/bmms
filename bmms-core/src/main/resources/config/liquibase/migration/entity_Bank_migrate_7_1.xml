@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Entity Bank migrate to 7.1 jhipster
+    -->
+    <changeSet id="entity_Bank_migrate-1" author="zafar">
+        <!--
+            Drop column logo
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="bank"
+                          columnName="logo"/>
+        </preConditions>
+
+        <comment>Drop column logo</comment>
+
+        <dropColumn tableName="bank" columnName="logo"/>
+    </changeSet>
+
+    <changeSet id="entity_Bank_migrate-2" author="zafar">
+        <!--
+            Drop column oferta
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="bank"
+                          columnName="oferta"/>
+        </preConditions>
+
+        <comment>Drop column oferta</comment>
+
+        <dropColumn tableName="bank" columnName="oferta"/>
+    </changeSet>
+
+    <changeSet id="entity_Bank_migrate-3" author="zafar">
+        <!--
+            Add column oferta
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="bank"
+                              columnName="oferta"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column oferta</comment>
+
+        <addColumn tableName="bank">
+            <column name="oferta" type="longblob">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_Bank_migrate-4" author="zafar">
+        <!--
+            Add column logo
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="bank"
+                              columnName="logo"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column logo</comment>
+
+        <addColumn tableName="bank">
+            <column name="logo" type="longblob">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

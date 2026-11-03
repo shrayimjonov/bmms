@@ -1,0 +1,65 @@
+<form [formGroup]="editForm" (ngSubmit)="save()">
+  <div class="modal-header">
+    <h4 class="modal-title" jhiTranslate="billMasterGwApp.reportmsReport.home.createOrEditLabel">Create Or Edit
+      Label</h4>
+
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            (click)="close()">&times;
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <bm-alert></bm-alert>
+
+    <div class="form-group">
+      <label jhiTranslate="billMasterGwApp.reportmsReport.template" for="field_template">Template</label>
+      <bm-file id="field_template" formControlName="template" [bmAccept]="null"></bm-file>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label jhiTranslate="billMasterGwApp.reportmsReport.title" for="field_title">Title</label>
+        <input nz-input nzSize="large" formControlName="title" id="field_title" input-validator>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label jhiTranslate="billMasterGwApp.reportmsReport.fileName" for="field_fileName">File Name</label>
+        <input nz-input nzSize="large" formControlName="fileName" id="field_fileName" input-validator>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label jhiTranslate="billMasterGwApp.reportmsReport.ord" for="field_ord">Ord</label>
+        <input type="number" nz-input nzSize="large" formControlName="ord" id="field_ord">
+      </div>
+
+      <div class="form-group col-md-12">
+        <label jhiTranslate="billMasterGwApp.reportmsReport.desc" for="field_desc">Desc</label>
+        <textarea nz-input nzSize="large" rows="3" id="field_desc"
+                  formControlName="desc" input-validator>
+                </textarea>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="field_lang" jhiTranslate="billMasterGwApp.reportmsReport.lang">Lang</label>
+        <bm-select-input id="field_lang" formControlName="lang" [data]="langs"></bm-select-input>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="field_defaultFormat" jhiTranslate="billMasterGwApp.reportmsReport.defaultFormat">Default
+          Format</label>
+        <bm-select-input id="field_defaultFormat" formControlName="defaultFormat" [data]="formats"></bm-select-input>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" nz-button nzSize="large" nzType="text" jhiTranslate="entity.action.cancel"
+            (click)="close()">
+      Cancel
+    </button>
+
+    <button nz-button nzSize="large" nzType="primary" [nzLoading]="loading" [input-validator-button]="editForm">
+      {{ 'entity.action.save' | translate }}
+    </button>
+  </div>
+</form>

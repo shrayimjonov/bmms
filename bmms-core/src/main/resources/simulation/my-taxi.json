@@ -1,0 +1,138 @@
+{
+    "check": {
+        "account": "2078",
+        "amount": 500,
+        "success": {
+            "request": {
+                "url": "https://paynet.mytaxi.uz/api/server.php",
+                "body": "<x:Envelope xmlns:x=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://service.payment.uzbilling\">    <x:Header/>    <x:Body>        <uws:GetInformationArguments xmlns:uws=\"http://uws.provider.com/\"><username>${username}</username><password>${password}</password><parameters><paramKey>clientid</paramKey><paramValue>${account}</paramValue></parameters><serviceId>55</serviceId></uws:GetInformationArguments>    </x:Body></x:Envelope>",
+                "headers": {
+                    "Content-Type": "application/xml"
+                },
+                "validate": {
+                    "url": true,
+                    "body": true,
+                    "headers": true
+                }
+            },
+            "response": {
+                "status": 200,
+                "body": "<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ns1=\"http://uws.provider.com/\"><SOAP-ENV:Body><ns1:GetInformationResult><errorMsg>Ok</errorMsg><status>0</status><timeStamp>2018-09-12T21:40:37+05:00</timeStamp><parameters><paramKey>name</paramKey><paramValue>Шомансуров Кахрамон</paramValue></parameters></ns1:GetInformationResult></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+            }
+        },
+        "fail": {
+            "request": {
+                "url": "",
+                "body": "",
+                "headers": {
+                    "h1": "v1"
+                }
+            },
+            "response": {
+                "status": "",
+                "body": ""
+            }
+        }
+    },
+    "pay": {
+        "success": {
+            "request": {
+                "url": "https://paynet.mytaxi.uz/api/server.php",
+                "body": "<x:Envelope xmlns:x=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://service.payment.uzbilling\"><x:Header/><x:Body><uws:PerformTransactionArguments xmlns:uws=\"http://uws.provider.com/\"><password>${password}</password><username>${username}</username><amount>500</amount><parameters><paramKey>clientid</paramKey><paramValue>${account}</paramValue></parameters><serviceId>55</serviceId><transactionId>22602</transactionId><transactionTime>1536764367</transactionTime></uws:PerformTransactionArguments></x:Body></x:Envelope>",
+                "headers": {
+                    "Content-Type": "application/xml"
+                },
+                "validate": {
+                    "url": true,
+                    "body": false,
+                    "headers": true
+                }
+            },
+            "response": {
+                "status": 200,
+                "body": "<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ns1=\"http://uws.provider.com/\"><SOAP-ENV:Body><ns1:PerformTransactionResult><errorMsg>Ok</errorMsg><status>0</status><timeStamp>2018-09-12T21:41:30+05:00</timeStamp><providerTrnId>8829589</providerTrnId></ns1:PerformTransactionResult></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+            }
+        },
+        "fail": {
+            "request": {
+                "url": "",
+                "body": "",
+                "headers": {
+                    "h1": "v1"
+                }
+            },
+            "response": {
+                "status": "",
+                "bo dy": ""
+            }
+        }
+    },
+    "reconcile": {
+        "success": {
+            "request": {
+                "url": "https://paynet.mytaxi.uz/api/server.php",
+                "body": "<x:Envelope xmlns:x=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://service.payment.uzbilling\"><x:Header/><x:Body><uws:GetStatementArguments xmlns:uws=\"http://uws.provider.com/\"><password>${password}</password><username>${username}</username><dateFrom>2018-09-24T00:00:00</dateFrom><dateTo>2018-09-24T23:59:59</dateTo><serviceId>1</serviceId><parameters><paramKey>reason</paramKey><paramValue></paramValue></parameters></uws:GetStatementArguments></x:Body></x:Envelope>",
+                "headers": {
+                    "Content-Type": "application/xml"
+                },
+                "validate": {
+                    "url": true,
+                    "body": false,
+                    "headers": true
+                }
+            },
+            "response": {
+                "status": 200,
+                "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ns1=\"http://uws.provider.com/\"><SOAP-ENV:Body><ns1:GetStatementResult><errorMsg>Ok</errorMsg><status>0</status><timeStamp>2018-09-25T14:47:25+05:00</timeStamp><statements><amount>7000</amount><providerTrnId>8942291</providerTrnId><transactionId>8506753733</transactionId><transactionTime>2018-09-24T09:56:36+05:00</transactionTime></statements><statements><amount>13000</amount><providerTrnId>8942475</providerTrnId><transactionId>8506815025</transactionId><transactionTime>2018-09-24T10:17:09+05:00</transactionTime></statements></ns1:GetStatementResult></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+            }
+        },
+        "fail": {
+            "request": {
+                "url": "",
+                "body": "",
+                "headers": {
+                    "h1": "v1"
+                }
+            },
+            "response": {
+                "status": "",
+                "bo dy": ""
+            }
+        }
+    },
+    "cancel": {
+        "account": "2078",
+        "amount": 500,
+        "success": {
+            "request": {
+                "url": "https://paynet.mytaxi.uz/api/server.php",
+                "body": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"><soapenv:Body> \t<ns1:CancelTransactionArguments xmlns:ns1=\"http://uws.provider.com/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"ns1:CancelTransactionArguments \"><password>${password}</password><username>${username}</username><serviceId>55</serviceId><transactionId>${tranId}</transactionId><parameters><paramKey>reason</paramKey><paramValue></paramValue></parameters></ns1:CancelTransactionArguments></soapenv:Body></soapenv:Envelope>",
+                "headers": {
+                    "Content-Type": "application/xml"
+                },
+                "validate": {
+                    "url": true,
+                    "body": true,
+                    "headers": true
+                }
+            },
+            "response": {
+                "status": 200,
+                "body": "<SOAP-ENV:Body><ns1:CancelTransactionResult><errorMsg>Ok</errorMsg><status>0</status><timeStamp>2018-09-12T21:44:03+05:00</timeStamp><transactionState>2</transactionState></ns1:CancelTransactionResult></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+            }
+        },
+        "fail": {
+            "request": {
+                "url": "",
+                "body": "",
+                "headers": {
+                    "h1": "v1"
+                }
+            },
+            "response": {
+                "status": "",
+                "body": ""
+            }
+        }
+    }
+}

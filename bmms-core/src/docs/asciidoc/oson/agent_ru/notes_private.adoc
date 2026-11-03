@@ -1,0 +1,13 @@
+=== Notes
+
+Variables:
+
+tranId - billId in the system;
+timestamp - timestamp of sending moment;
+account - value of field, FieldType = ACCOUNT;
+amount - value of field, FieldType = AMOUNT;
+password - value of GatewayParam password field;
+username - value of GatewayParam username field;
+token - value of GatewayParam token field;
+
+All variable names comes from BaseParam enum;

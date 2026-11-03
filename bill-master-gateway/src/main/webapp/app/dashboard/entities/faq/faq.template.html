@@ -1,0 +1,83 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h4 class="mb-0" jhiTranslate="global.menu.entities.faq">FAQ</h4>
+
+  <button
+    type="button"
+    nz-button
+    nzSize="large"
+    nzType="primary"
+    jhiTranslate="entity.action.add"
+    class="ml-2"
+    *jhiHasAnyAuthority="[authority.FAQ_WRITE]"
+    (click)="faqService.openUpdate()"
+  >
+    Add
+  </button>
+</div>
+
+<bm-alert></bm-alert>
+
+<div *ngIf="data?.length" class="table-responsive">
+  <nz-table [nzLoading]="loading" nzSize="small" nzTemplateMode nzOuterBordered>
+    <thead>
+      <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+        <th jhiSortBy="id">
+          <span jhiTranslate="billMasterGwApp.pkbillmsField.id">Id</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <th jhiSortBy="active">
+          <span jhiTranslate="billMasterGwApp.faq.active">Active</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <th jhiSortBy="active">
+          <span jhiTranslate="billMasterGwApp.faq.question">Question</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <!--      <th jhiSortBy="active">-->
+        <!--        <span jhiTranslate="billMasterGwApp.faq.answer">Answer</span>-->
+        <!--        <sort-icon icon="sort"></sort-icon>-->
+        <!--      </th>-->
+        <th jhiSortBy="video">
+          <span jhiTranslate="billMasterGwApp.faq.video">Video</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <!--      <th jhiSortBy="category.id">-->
+        <!--        <span jhiTranslate="billMasterGwApp.faq.category">Category</span>-->
+        <!--        <sort-icon icon="sort"></sort-icon>-->
+        <!--      </th>-->
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let faq of data; trackBy: trackId">
+        <td>{{ faq.id }}</td>
+        <td>{{ faq.active }}</td>
+        <td>{{ getI18nText(faq.questions) }}</td>
+        <!--      <td>{{ getI18nText(faq.answers) }}</td>-->
+        <td>{{ faq.videoUrl }}</td>
+        <!--      <td *ngIf="faq.questionCategory">-->
+        <!--        {{ getI18nText(faq.questionCategory.names) }}-->
+        <!--      </td>-->
+        <td class="text-right">
+          <nz-button-group *jhiHasAnyAuthority="[authority.FAQ_WRITE]" nzSize="small">
+            <button nz-button (click)="faqService.openUpdate(faq)" title="{{ 'entity.action.edit' | translate }}">
+              <i nz-icon nzType="edit" class="icon-btn"></i>
+            </button>
+            <button nz-button (click)="faqService.openDelete(faq.id)" title="{{ 'entity.action.delete' | translate }}">
+              <i nz-icon nzType="delete" class="icon-btn"></i>
+            </button>
+          </nz-button-group>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>
+<div class="d-flex justify-content-center mt-3">
+  <nz-pagination
+    [nzPageIndex]="ngbPaginationPage"
+    [nzTotal]="totalItems"
+    [nzPageSize]="itemsPerPage"
+    (nzPageIndexChange)="loadPage($event)"
+  >
+  </nz-pagination>
+</div>

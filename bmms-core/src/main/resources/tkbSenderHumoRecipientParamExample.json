@@ -1,0 +1,17 @@
+{
+  "sender": {
+    "forexFrom": "19997643800001183002",
+    "forexTo": "23120000600001183228",
+    "forexPurposeId": "44012",
+    "forexFxDeal": 229,
+    "forexType": 9,
+    "absTranFrom": "23120000600001183228",
+    "absTranTo": "23118000500001183009",
+    "absTranToName": "Зачисление на карту Humo через ANOR MOBILE (TKB)",
+    "absTranPurposeId": "00634"
+  },
+  "recipient": {
+    "merchantId": "humo-merchant",
+    "terminalId": "humo-terminal"
+  }
+}

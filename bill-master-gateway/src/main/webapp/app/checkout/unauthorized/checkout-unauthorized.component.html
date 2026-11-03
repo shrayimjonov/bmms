@@ -1,0 +1,82 @@
+<form [formGroup]="editForm" (ngSubmit)="submit()">
+  <div class="form-group" *ngIf="!checkResponse.success && !payResponse.success">
+    <h6 class="mb-4 font-weight-bold" jhiTranslate="payment.payByCard">Pay By Card</h6>
+
+    <label jhiTranslate="payment.pan">Pan</label>
+    <nz-input-group nzSize="large" [nzPrefix]="panPrefix" [nzSuffix]="panSuffix">
+      <input
+        nz-input
+        #pan
+        autocomplete="off"
+        formControlName="pan"
+        placeholder="0000 0000 0000 0000"
+        mask="0000 0000 0000 0000"
+        (input)="onChangePan()"
+        [readOnly]="loading"
+        auto-focus
+      />
+    </nz-input-group>
+
+    <small class="form-text text-danger" jhiTranslate="entity.validation.payment.not.possible" *ngIf="editForm.get('pan')?.errors?.pattern">
+      Payment Not Possible
+    </small>
+
+    <ng-template #panPrefix>
+      <i nz-icon nzType="credit-card" class="mr-2"></i>
+    </ng-template>
+
+    <ng-template #panSuffix>
+      <input
+        nz-input
+        nzBorderless
+        autocomplete="off"
+        class="shadow-none"
+        placeholder="{{ 'payment.exp' | translate }}"
+        [readOnly]="loading"
+        id="exp"
+        formControlName="exp"
+        mask="00/00"
+        [disable]="editForm.get('pan')?.errors?.pattern"
+        (input)="editForm.get('exp')?.value ? $event.preventDefault() : pan.focus()"
+      />
+    </ng-template>
+  </div>
+
+  <div *ngIf="checkResponse.success && !payResponse.success">
+    <p class="text-muted mb-4 fs-16">
+      На номер <span class="font-weight-bold">{{ checkResponse.data?.phone }}</span> отправлен код подтверждения
+    </p>
+
+    <div class="mb-3" *ngIf="codeTimeLeft">
+      <a class="text-underline" id="resent" disabled>
+        Отправить SMS с кодом через <span class="font-weight-bold">{{ codeTimeLeft | async }}</span>
+      </a>
+    </div>
+
+    <div class="form-group">
+      <label jhiTranslate="payment.code">Confirmation Code</label>
+      <input
+        nz-input
+        nzSize="large"
+        autocomplete="off"
+        formControlName="code"
+        mask="000000"
+        placeholder="{{ 'payment.code.placeholder' | translate }}"
+        [readOnly]="loading"
+        auto-focus
+      />
+    </div>
+  </div>
+
+  <button
+    type="submit"
+    class="w-100 mt-2"
+    nz-button
+    nzSize="large"
+    nzType="primary"
+    [nzLoading]="loading"
+    [input-validator-button]="editForm"
+  >
+    {{ 'entity.action.pay' | translate }}
+  </button>
+</form>

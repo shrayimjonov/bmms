@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:getRegionsListResponse xmlns:ns2="http://st.apus.com/">
+    <return>
+        <AreasList>
+            <Title>SSP Markaziy apparati va hududiy boshqarmasi</Title>
+            <Area>
+                <Id>1700</Id>
+                <Code>1700</Code>
+                <Name>O`zbekiston Respublikasi</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>1703</Id>
+                <Code>1703</Code>
+                <Name>Andijon viloyati</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>1706</Id>
+                <Code>1706</Code>
+                <Name>Buxoro viloyati</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>1708</Id>
+                <Code>1708</Code>
+                <Name>Jizzax viloyati</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>1710</Id>
+                <Code>1710</Code>
+                <Name>Qashqadaryo viloyati</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>1712</Id>
+                <Code>1712</Code>
+                <Name>Navoiy viloyati</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>1714</Id>
+                <Code>1714</Code>
+                <Name>Namangan viloyati</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>1718</Id>
+                <Code>1718</Code>
+                <Name>Samarqand viloyati</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>1722</Id>
+                <Code>1722</Code>
+                <Name>Surxondaryo viloyati</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>1724</Id>
+                <Code>1724</Code>
+                <Name>Sirdaryo viloyati</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>1726</Id>
+                <Code>1726</Code>
+                <Name>Toshkent shahri</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>1727</Id>
+                <Code>1727</Code>
+                <Name>Toshkent viloyati</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>1730</Id>
+                <Code>1730</Code>
+                <Name>Farg'ona viloyati</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>1733</Id>
+                <Code>1733</Code>
+                <Name>Xorazm viloyati</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>1735</Id>
+                <Code>1735</Code>
+                <Name>Qoraqalpog'iston Respublikasi</Name>
+                <Children/>
+            </Area>
+        </AreasList>
+        <Result>
+            <code>OK</code>
+            <Description>Xatolik yo’q</Description>
+        </Result>
+    </return>
+</ns2:getRegionsListResponse>

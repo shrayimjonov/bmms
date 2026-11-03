@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <changeSet id="modified_recipient_type_varchar_255_to_32" author="javlon">
+
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="recipient" columnName="jhi_type"/>
+        </preConditions>
+
+        <comment>Resize recipient.jhi_type from 255 to 32</comment>
+
+        <modifyDataType columnName="jhi_type"
+                        newDataType="varchar(32)"
+                        schemaName="public"
+                        tableName="recipient"
+        />
+    </changeSet>
+
+    <changeSet id="deleted_recipient_epos_merchant" author="javlon">
+
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="recipient" columnName="epos_merchant"/>
+        </preConditions>
+
+        <comment>Drop column recipient.epos_merchant</comment>
+
+        <dropColumn columnName="epos_merchant" schemaName="public" tableName="recipient"/>
+    </changeSet>
+
+    <changeSet id="deleted_recipient_epos_port" author="javlon">
+
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="recipient" columnName="epos_port"/>
+        </preConditions>
+
+        <comment>Drop column recipient.epos_port</comment>
+
+        <dropColumn columnName="epos_port" schemaName="public" tableName="recipient"/>
+    </changeSet>
+
+    <changeSet id="deleted_recipient_epos_terminal" author="javlon">
+
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="recipient" columnName="epos_terminal"/>
+        </preConditions>
+
+        <comment>Drop column recipient.epos_terminal</comment>
+
+        <dropColumn columnName="epos_terminal" schemaName="public" tableName="recipient"/>
+    </changeSet>
+
+</databaseChangeLog>

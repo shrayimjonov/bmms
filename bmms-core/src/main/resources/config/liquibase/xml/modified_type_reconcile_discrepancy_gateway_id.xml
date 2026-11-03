@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="modified_type_reconcile_discrepancy_gateway_id" author="jhipster">
+        <modifyDataType tableName="reconcile_discrepancy"
+                        columnName="gateway_transaction_id"
+                        newDataType="varchar(72)"
+                        schemaName="public"/>
+    </changeSet>
+</databaseChangeLog>

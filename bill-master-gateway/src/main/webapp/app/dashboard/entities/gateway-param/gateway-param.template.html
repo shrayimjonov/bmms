@@ -1,0 +1,144 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h4 class="mb-0" jhiTranslate="global.menu.entities.pkbillmsGatewayParam">Gateway Params</h4>
+
+  <div>
+    <nz-badge [nzCount]="filterRef.querySize">
+      <button nz-button nzSize="large" jhiTranslate="entity.action.filter" (click)="showFilter = !showFilter">Filter</button>
+    </nz-badge>
+
+    <ngl-export-as
+      *ngIf="data?.length"
+      class="ml-2"
+      [data]="data"
+      requestUrl="{{ gatewayParamService.resourceUrl }}"
+      [requestOption]="getOption"
+      translationPrefix="billMasterGwApp.pkbillmsGatewayParam"
+      fileName="gateway_param'"
+    >
+    </ngl-export-as>
+
+    <button
+      class="ml-2"
+      type="button"
+      nz-button
+      nzSize="large"
+      nzType="primary"
+      jhiTranslate="entity.action.add"
+      *jhiHasAnyAuthority="[authority.GATEWAY_PARAM_WRITE]"
+      (click)="gatewayParamService.openUpdate()"
+    >
+      Add
+    </button>
+  </div>
+</div>
+
+<ngl-filter-field [hidden]="!showFilter" [fields]="filterFields" (onFilter)="setQuery($event); loadPage()" #filterRef></ngl-filter-field>
+
+<bm-alert></bm-alert>
+
+<ng-container *ngIf="data?.length">
+  <div class="table-responsive">
+    <nz-table [nzLoading]="loading" nzSize="small" nzTemplateMode nzOuterBordered>
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th jhiSortBy="id">
+            <span jhiTranslate="global.field.id">ID</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="url">
+            <span jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.url">Url</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="type">
+            <span jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.type">Type</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="username">
+            <span jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.username">Username</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="recipient">
+            <span jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.recipient">Recipient</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="protocol">
+            <span jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.protocol">Protocol</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="mode">
+            <span jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.mode">Mode</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="active">
+            <span jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.active">Active</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let gatewayParam of data; trackBy: trackId">
+          <td>
+            <a href="javascript:void(0)" (click)="gatewayParamService.openView(gatewayParam)">{{ gatewayParam.id }}</a>
+          </td>
+          <td>{{ gatewayParam.url }}</td>
+          <td>{{ gatewayParam.type }}</td>
+          <td>{{ gatewayParam.username }}</td>
+          <td>
+            <a href="javascript:void(0)" *ngIf="gatewayParam.recipient" (click)="recipientService.openView(gatewayParam.recipient)"
+              >{{ gatewayParam.recipient.shortName }}
+            </a>
+          </td>
+          <td>{{ gatewayParam.protocol }}</td>
+          <td>{{ gatewayParam.mode }}</td>
+          <td>
+            <span [bm-boolean-badge]="gatewayParam.active" bmType="active">{{ gatewayParam.active }}</span>
+          </td>
+          <td width="10" class="text-right">
+            <nz-button-group nzSize="small">
+              <button
+                nz-button
+                (click)="gatewayParamService.openHistory(gatewayParam.id)"
+                title="{{ 'entity.action.history' | translate }}"
+              >
+                <i nz-icon nzType="history" class="icon-btn"></i>
+              </button>
+              <button nz-button (click)="gatewayParamService.openView(gatewayParam)" title="{{ 'entity.action.view' | translate }}">
+                <i nz-icon nzType="eye" class="icon-btn"></i>
+              </button>
+              <ng-container *jhiHasAnyAuthority="[authority.GATEWAY_PARAM_WRITE]">
+                <button
+                  nz-button
+                  (click)="gatewayParamService.openUpdate(gatewayParam, true)"
+                  title="{{ 'entity.action.duplicate' | translate }}"
+                >
+                  <i nz-icon nzType="copy" class="icon-btn"></i>
+                </button>
+                <button nz-button (click)="gatewayParamService.openUpdate(gatewayParam)" title="{{ 'entity.action.edit' | translate }}">
+                  <i nz-icon nzType="edit" class="icon-btn"></i>
+                </button>
+                <button
+                  nz-button
+                  (click)="gatewayParamService.openDelete(gatewayParam.id)"
+                  title="{{ 'entity.action.delete' | translate }}"
+                >
+                  <i nz-icon nzType="delete" class="icon-btn"></i>
+                </button>
+              </ng-container>
+            </nz-button-group>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+
+  <div class="d-flex justify-content-center mt-3">
+    <nz-pagination
+      [nzPageIndex]="ngbPaginationPage"
+      [nzTotal]="totalItems"
+      [nzPageSize]="itemsPerPage"
+      (nzPageIndexChange)="loadPage($event)"
+    >
+    </nz-pagination>
+  </div>
+</ng-container>

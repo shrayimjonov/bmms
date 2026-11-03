@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity ForeignPay.
+    -->
+    <changeSet id="20180918063227-1" author="jhipster">
+        <createTable tableName="foreign_pay">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="verified_date" type="datetime">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="status" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="card_token" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="bill_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="otp" type="varchar(6)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="phone" type="varchar(13)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="entry_count" type="integer">
+                <constraints nullable="false" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="foreign_pay" columnName="verified_date" columnDataType="datetime"/>
+        
+    </changeSet>
+    
+    <!-- Added the entity audit columns -->
+    <changeSet id="20180918063227-audit-1" author="jhipster-entity-audit">
+        <addColumn tableName="foreign_pay">
+            <column name="created_by" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="varchar(50)"/>
+            <column name="last_modified_date" type="timestamp"/>
+        </addColumn>
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

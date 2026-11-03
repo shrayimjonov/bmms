@@ -1,0 +1,10 @@
+{
+  "billMasterGwApp": {
+    "ModeType": {
+      "null": "",
+      "TEST": "TEST",
+      "DEV": "DEV",
+      "PROD": "PROD"
+    }
+  }
+}

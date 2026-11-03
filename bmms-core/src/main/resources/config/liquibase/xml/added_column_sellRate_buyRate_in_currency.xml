@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Deposit.
+    -->
+    <changeSet id="added_column_sellRate_buyRate_in_currency" author="saahon">
+
+        <addColumn tableName="currency">
+            <column name="sell_rate" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+        </addColumn>
+        <addColumn tableName="currency">
+            <column name="buy_rate" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+        </addColumn>
+
+    </changeSet>
+</databaseChangeLog>

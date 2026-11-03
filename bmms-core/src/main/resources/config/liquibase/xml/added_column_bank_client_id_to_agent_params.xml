@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <changeSet id="added_column_bank_client_id_to_agent_params-abdurahim" author="abdurahim">
+        <addColumn tableName="agent_params">
+            <column name="bank_client_id" type="varchar(20)">
+                <constraints nullable="true" unique="true" uniqueConstraintName="ux_agent_params__bank_client_id" />
+            </column>
+            <column name="bank_account_prefix" type="varchar(64)">
+                <constraints nullable="true" />
+            </column>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

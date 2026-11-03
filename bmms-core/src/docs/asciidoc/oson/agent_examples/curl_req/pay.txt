@@ -1,0 +1,5 @@
+curl --request POST \
+  --url {devBaseUrl}/pkbillms/api/agent/pay/3102 \
+  --header 'Authorization: Bearer xxx' \
+  --header 'Cache-Control: no-cache' \
+  --header 'Content-Type: application/json'

@@ -1,0 +1,31 @@
+{
+    "name": "SettingProperty",
+    "fields": [
+        {
+            "fieldName": "key",
+            "fieldType": "Prop",
+            "fieldValues": "EPOS_TERMINAL,EPOS_MERCHANT,EPOS_PORT,PAYNET_TERMINAL,PAYNET_USERNAME,PAYNET_PASSWORD",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "value",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 64
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181203012232",
+    "javadoc": "Значения настроек оплат",
+    "entityTableName": "setting_property",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "bmms",
+    "applications": "*",
+    "microserviceName": "pkbillms",
+    "enableEntityAudit": true,
+    "databaseType": "sql"
+}

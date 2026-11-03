@@ -1,0 +1,42 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsCategory": {
+      "home": {
+        "title": "Yetkazib beruvchilar toifalari",
+        "createLabel": "Yangi yetkazib beruvchi toifasini qo`shish",
+        "createOrEditLabel": "Yetkazib beruvchilar toifasini tahrirlash",
+        "notFound": "Xech qanday yetkazib beruvchi toifalari topilmadi"
+      },
+      "delete": {
+        "question": "{{ id }}- Yetkazib beruvchi toifasini o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "Yetkazib beruvchi toifalari"
+      },
+      "shortName": "Qisqa nomi",
+      "thumbnail": "Eskiz",
+      "thumbnailFile": "Eskiz fayl",
+      "logo": "Logo",
+      "logoFile": "Logo fayl",
+      "ord": "Tartib",
+      "active": "Aktiv",
+      "parent": "Parent",
+      "name": "Nomi",
+      "help": {
+        "shortName": "Qisqa nomi",
+        "thumbnail": "Eskiz",
+        "thumbnailFile": "Eskiz fayl",
+        "logo": "Logo",
+        "logoFile": "Logo fayl",
+        "ord": "Ord"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsCategory": {
+      "created": "Kategoriya {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- Kategoriya saqlandi",
+      "deleted": "{{ param }}- Kategoriya o`chirildi"
+    }
+  }
+}

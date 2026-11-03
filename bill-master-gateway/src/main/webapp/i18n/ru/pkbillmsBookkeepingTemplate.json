@@ -1,0 +1,51 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsBookkeepingTemplate": {
+      "home": {
+        "title": "Шаблон проводок",
+        "createLabel": "Создать новый Шаблон проводок",
+        "createOrEditLabel": "Создать или отредактировать Шаблон проводок",
+        "notFound": "Шаблон проводок не найдены"
+      },
+      "delete": {
+        "question": "Вы уверены что хотите удалить Шаблон проводок {{ id }}?"
+      },
+      "detail": {
+        "title": "Шаблон проводок"
+      },
+      "groupId": "Ид Группы",
+      "sMfo": "МФО Отправителя",
+      "sInn": "ИНН Отправителя",
+      "sAccount": "Р/С Отправителя",
+      "rMfo": "МФО Получателя",
+      "rInn": "ИНН Получателя",
+      "rAccount": "Р/С Получателя",
+      "amount": "Сумма",
+      "period": "Периоды",
+      "bookkeepingType": "Тип бух. проводки",
+      "docType": "Тип документа",
+      "docCode": "Код платежа",
+      "docTaskCode": "Код задачи",
+      "rAccountName": "Наименование",
+      "control": "Порядковый номер",
+      "groupIds": "Ид группы",
+      "bookkeepingPayType": "Тип платежа проводки",
+      "gateway": "Шлюз",
+      "recipient": "Поставщик",
+      "calculateAmountRule": "Правило расчета суммы",
+      "payTypes": "Тип оплаты",
+      "sType": "Тип отп.",
+      "sTypeIds": "Ид тип отп.",
+      "name": "Название",
+      "amountCalculateType": "Сумма Тип расчета",
+      "desc": "Деск"
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsBookkeepingTemplate": {
+      "created": "Новый Шаблон проводок создан с идентификатором {{ param }}",
+      "updated": "Шаблон проводок обновлен с идентификатором {{ param }}",
+      "deleted": "Шаблон проводок удален с идентификатором {{ param }}"
+    }
+  }
+}

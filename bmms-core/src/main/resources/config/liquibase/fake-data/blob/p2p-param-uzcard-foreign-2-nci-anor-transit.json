@@ -1,0 +1,18 @@
+{
+  "sender": {
+    "merchantId": 123,
+    "terminalId": 234,
+    "port": 4444,
+    "paymentPurpose": "payment"
+  },
+  "recipient": {
+    "bankAccount": "17403000600000491316",
+    "bankMfo": "00491",
+    "accName": "СД транзитный счет",
+    "purposeId": "00634",
+    "purpose": "Перевод с ПК № \"PAN\" на кошелек FIO",
+
+    "tranType": "106",
+    "tax": ""
+  }
+}

@@ -1,0 +1,3 @@
+id;name;org;taxnr;ban;contract;spring_bean_name;mfo;active;created_by;created_date;last_modified_by;last_modified_date
+1;Upay;SSP-MAROQAND;10000001;11111111111111111111;1001;upayGatewayService;10001;true;javlon;2016-07-05 12:21:21.543000;javlon;2016-07-05 12:21:25.126000
+2;PayNet;UZPAYNET;205916449;22604000504445936555;Е12251 от 01.02.2010;paynetServiceImpl;00821;true;javlon;2016-07-05 12:21:21.543000;javlon;2016-07-05 12:21:25.126000

@@ -1,0 +1,33 @@
+{
+  "billMasterGwApp": {
+    "TransactionStatus": {
+      "null": "",
+      "NEW": "NEW",
+      "CHECK_OK": "CHECK_OK",
+      "CHECK_FAIL": "CHECK_FAIL",
+      "WAITING": "WAITING",
+      "SUCCESS": "SUCCESS",
+      "FAILED": "FAILED",
+      "CANCELLED": "CANCELLED",
+      "REVERSED": "REVERSED",
+      "INVOICE_SENDING": "INVOICE_SENDING",
+      "INVOICE_SENT": "INVOICE_SENT",
+      "INVOICE_PAID": "INVOICE_PAID",
+      "FINISHED": "FINISHED",
+      "EXPIRED": "EXPIRED",
+      "INVOICE_REJECTED": "INVOICE_REJECTED",
+      "OTHER": "OTHER",
+      "CHECKING": "CHECKING",
+      "PAYING": "PAYING",
+      "POSTPONED": "POSTPONED",
+      "CANCEL_FAILED": "CANCEL_FAILED",
+      "R_CANCEL_FAILED": "R_CANCEL_FAILED",
+      "S_CANCEL_FAILED": "S_CANCEL_FAILED",
+      "RECIPIENT_CANCELLED": "RECIPIENT_CANCELLED",
+      "SENDER_CANCELLED": "SENDER_CANCELLED",
+      "S_NEED_CONFIRM": "S_NEED_CONFIRM",
+      "R_NEED_CONFIRM": "R_NEED_CONFIRM",
+      "DEBITED": "DEBITED"
+    }
+  }
+}

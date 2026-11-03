@@ -1,0 +1,3 @@
+id;priority;active;sender_pc;recipient_pc;sender_condition_id;recipient_condition_id;sender_percent_id;recipient_percent_id;value
+1;1;true;HUMO;HUMO;2;7;1;0;../fake-data/blob/p2p-param-anorbank-value.json
+2;2;true;HUMO;HUMO;2;8;1;0;../fake-data/blob/p2p-param-kapitalbank-value.json

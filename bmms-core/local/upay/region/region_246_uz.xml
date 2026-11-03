@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:getRegionsListResponse xmlns:ns2="http://st.apus.com/">
+    <return>
+        <AreasList>
+            <Title>Do'kon</Title>
+            <Area>
+                <Id>41</Id>
+                <Code>1</Code>
+                <Name>Dalabayev</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>61</Id>
+                <Code>2</Code>
+                <Name>Modern Exclusive Trade</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>62</Id>
+                <Code>3</Code>
+                <Name>YaTT Savina T.N.</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>63</Id>
+                <Code>4</Code>
+                <Name>YaTT Adilov Z.P.</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>64</Id>
+                <Code>5</Code>
+                <Name>YaTT Egamova M.S.</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>65</Id>
+                <Code>6</Code>
+                <Name>YaTT «Islomov Xayrullo Abdullayevich»</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>66</Id>
+                <Code>7</Code>
+                <Name>ЧП «FORT PRO TRADE»</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>67</Id>
+                <Code>8</Code>
+                <Name>ООО “Eclipse tekstil”</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>68</Id>
+                <Code>9</Code>
+                <Name>YaTT Ғафуров Элдор Муродиллаевич</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>87</Id>
+                <Code>10</Code>
+                <Name>YATT Fazilov Boburxon Shuxrat o’g’li</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>88</Id>
+                <Code>11</Code>
+                <Name>ЧП Nikolaenko Janna Vasilevna</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>89</Id>
+                <Code>12</Code>
+                <Name>YATT Usmanova N.T.</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>90</Id>
+                <Code>13</Code>
+                <Name>ЯТТ Xamdullayev S.A.</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>91</Id>
+                <Code>14</Code>
+                <Name>ООО «PAINT GRAPH»</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>92</Id>
+                <Code>15</Code>
+                <Name>IP "Nurullayev Dilshod G'aybullo o'g'li"</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>93</Id>
+                <Code>16</Code>
+                <Name>СП «Fazilov Izatilla Fatxullayevich»</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>94</Id>
+                <Code>17</Code>
+                <Name>YATT «Tashxujayev Jaxongir Baxodir o’g’li»</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>95</Id>
+                <Code>18</Code>
+                <Name>YATT «Musayev Farxod Maxmudjonovich»</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>96</Id>
+                <Code>19</Code>
+                <Name>ООО «Ali Brand House»</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>97</Id>
+                <Code>20</Code>
+                <Name>XK Chelak Irina Xasanbayevna</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>98</Id>
+                <Code>21</Code>
+                <Name>XK Xachaturova Violetta Olegovna</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>99</Id>
+                <Code>22</Code>
+                <Name>XK Demurin Anton Aleksandrovich</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>100</Id>
+                <Code>23</Code>
+                <Name>OOO ATE</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>101</Id>
+                <Code>24</Code>
+                <Name>YATT Xamidov Xabibullo Xayrullo o'g'li</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>102</Id>
+                <Code>25</Code>
+                <Name>YATT Tursunov Jahongir Mirsalimovich</Name>
+                <Children/>
+            </Area>
+        </AreasList>
+        <Result>
+            <code>OK</code>
+            <Description>Xatolik yo’q</Description>
+        </Result>
+    </return>
+</ns2:getRegionsListResponse>

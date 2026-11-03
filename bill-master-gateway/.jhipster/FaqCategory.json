@@ -1,0 +1,34 @@
+{
+  "applications": "*",
+  "changelogDate": "20211102110011",
+  "clientRootFolder": "",
+  "dto": "mapstruct",
+  "enableEntityAudit": true,
+  "entityTableName": "faq",
+  "fields": [
+    {
+      "fieldName": "active",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"],
+      "javadoc": "Активный"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "FaqMs",
+  "name": "FaqCategory",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityRelationshipName": "",
+      "relationshipName": "name",
+      "otherEntityName": "i18n",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "service": "serviceImpl",
+  "databaseType": "sql"
+}

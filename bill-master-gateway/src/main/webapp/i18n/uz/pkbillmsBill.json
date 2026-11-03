@@ -1,0 +1,63 @@
+{
+  "billMasterGwApp": {
+    "billWithId": "Request {{ id }}",
+    "pkbillmsBill": {
+      "home": {
+        "title": "Bills",
+        "createLabel": "Yangi Bill qo`shish",
+        "createOrEditLabel": "Billni tahrirlash",
+        "notFound": "Cheklar topilmadi"
+      },
+      "delete": {
+        "question": "{{ id }}- Billni o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "Bill"
+      },
+      "recipientId": "Qabul qiluvchi Idsi",
+      "recipientShortName": "Qabul qiluvchi qisqa nomi",
+      "sessionId": "Sessiya Idsi",
+      "type": "Tur",
+      "amountRatio": "Summa nisbati",
+      "amount": "Summa",
+      "profit": "Foyda",
+      "account": "Account",
+      "params": "Parametrlar",
+      "currency": "Valyuta",
+      "extId": "Ext Id",
+      "checkId": "Tekshiruv Idsi",
+      "payId": "To'lov Idsi",
+      "transactionId": "Transaction ID",
+      "requestTime": "So'rov sanasi",
+      "requestTimeFrom": "So'rov sanasi (dan)",
+      "requestTimeTo": "So'rov sanasi (gacha)",
+      "requestJson": "Request Json",
+      "responseJson": "Response Json",
+      "responseTime": "Javob sanasi",
+      "responseTimeFrom": "Response Time (from)",
+      "responseTimeTo": "Response Time (to)",
+      "responseCode": "Response Code",
+      "responseText": "Response Text",
+      "success": "Muvaffaqiyatli",
+      "login": "Login",
+      "fraudId": "Fraud Id",
+      "840": "dollar",
+      "860": "so'm",
+      "978": "yevro",
+      "643": "rubl",
+      "156": "yuan",
+      "null": " ",
+      "": " ",
+      "help": {
+        "amountRatio": "Разрядность суммы, 1 - сум, 100 - тийин"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsBill": {
+      "created": "Bill {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- Bill saqlandi",
+      "deleted": "{{ param }}- Bill o`chirildi"
+    }
+  }
+}

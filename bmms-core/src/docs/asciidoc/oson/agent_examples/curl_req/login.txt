@@ -1,0 +1,5 @@
+curl --request POST \
+  --url {devBaseUrl}/auth/login \
+  --header 'Cache-Control: no-cache' \
+  --header 'Content-Type: application/json' \
+  --data '{\n  "username": "MyLogin",\n  "password": ""\n}'

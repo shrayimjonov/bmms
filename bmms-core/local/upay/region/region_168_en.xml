@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:getRegionsListResponse xmlns:ns2="http://st.apus.com/">
+    <return>
+        <AreasList>
+            <Title>Region</Title>
+            <Area>
+                <Id>3</Id>
+                <Code>1</Code>
+                <Name>Tashkent</Name>
+                <ShortName>Tash.sh</ShortName>
+                <Children>
+                    <Title>District</Title>
+                    <Area>
+                        <Id>1</Id>
+                        <Code>1</Code>
+                        <Name>Bektemir District</Name>
+                        <ShortName>Bek</ShortName>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>2</Id>
+                        <Code>2</Code>
+                        <Name>Mirzo ulugbek District</Name>
+                        <ShortName>Mir U</ShortName>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>3</Id>
+                        <Code>3</Code>
+                        <Name>Mirobod District</Name>
+                        <ShortName>Mir</ShortName>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>4</Id>
+                        <Code>4</Code>
+                        <Name>Olmazor District</Name>
+                        <ShortName>Olm</ShortName>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>5</Id>
+                        <Code>5</Code>
+                        <Name>Sergeli District</Name>
+                        <ShortName>Sir</ShortName>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>6</Id>
+                        <Code>6</Code>
+                        <Name>Uchtepa District</Name>
+                        <ShortName>Ucht</ShortName>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>7</Id>
+                        <Code>7</Code>
+                        <Name>Chilonzor District</Name>
+                        <ShortName>Chil</ShortName>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>8</Id>
+                        <Code>8</Code>
+                        <Name>Shayxontoxur District</Name>
+                        <ShortName>Shay</ShortName>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>9</Id>
+                        <Code>9</Code>
+                        <Name>Yunusobod District</Name>
+                        <ShortName>Yun</ShortName>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>10</Id>
+                        <Code>10</Code>
+                        <Name>Yakkasaroy District</Name>
+                        <ShortName>Yak</ShortName>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>11</Id>
+                        <Code>11</Code>
+                        <Name>Yashnabod District</Name>
+                        <ShortName>Yash</ShortName>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>12</Id>
+                        <Code>12</Code>
+                        <Name>Chirchik District</Name>
+                        <ShortName>Chir</ShortName>
+                        <Children/>
+                    </Area>
+                </Children>
+            </Area>
+        </AreasList>
+        <Result>
+            <code>OK</code>
+            <Description>Successful</Description>
+        </Result>
+    </return>
+</ns2:getRegionsListResponse>

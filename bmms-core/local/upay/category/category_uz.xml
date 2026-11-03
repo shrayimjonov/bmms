@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:getServiceCategoryListResponse xmlns:ns2="http://st.apus.com/">
+    <return>
+        <Categories>
+            <ServiceCategory>
+                <Id>3</Id>
+                <Position>1</Position>
+                <Name>Kommunal xizmatlar</Name>
+                <Type>0</Type>
+                <Status>true</Status>
+                <ShortName>
+                    <uz>Kommunal to`lovlar</uz>
+                    <ru>Коммунальные</ru>
+                    <en>Utilities</en>
+                </ShortName>
+                <onUssd>true</onUssd>
+            </ServiceCategory>
+            <ServiceCategory>
+                <Id>11</Id>
+                <Position>1</Position>
+                <Name>Tovar va xizmatlar haridi</Name>
+                <Type>1</Type>
+                <Status>true</Status>
+                <ShortName>
+                    <uz>Online-magazin</uz>
+                    <ru>Онлайн магазины</ru>
+                    <en>Online-shopping</en>
+                </ShortName>
+                <onUssd>true</onUssd>
+            </ServiceCategory>
+            <ServiceCategory>
+                <Id>12</Id>
+                <Position>1</Position>
+                <Name>Pul o'tkazmalari</Name>
+                <Type>2</Type>
+                <Status>true</Status>
+                <ShortName>
+                    <uz>Pul o'tkazmalari</uz>
+                    <ru>Переводы средств</ru>
+                    <en>Money tranfers</en>
+                </ShortName>
+                <onUssd>true</onUssd>
+            </ServiceCategory>
+            <ServiceCategory>
+                <Id>15</Id>
+                <Position>1</Position>
+                <Name>Joyda to'lov</Name>
+                <Type>3</Type>
+                <Status>false</Status>
+                <ShortName>
+                    <uz>Joyda to'lov</uz>
+                    <ru>Оплата на метах</ru>
+                    <en>In-place</en>
+                </ShortName>
+                <onUssd>true</onUssd>
+            </ServiceCategory>
+            <ServiceCategory>
+                <Id>1</Id>
+                <Position>2</Position>
+                <Name>Uyali aloqa operatorlari</Name>
+                <Type>0</Type>
+                <Status>true</Status>
+                <ShortName>
+                    <uz>Uyali aloqa</uz>
+                    <ru>Мобильные</ru>
+                    <en>Mobile</en>
+                </ShortName>
+                <onUssd>true</onUssd>
+            </ServiceCategory>
+            <ServiceCategory>
+                <Id>2</Id>
+                <Position>3</Position>
+                <Name>Internet provayderlari</Name>
+                <Type>0</Type>
+                <Status>true</Status>
+                <ShortName>
+                    <uz>Internet</uz>
+                    <ru>Интернет</ru>
+                    <en>Internet</en>
+                </ShortName>
+                <onUssd>true</onUssd>
+            </ServiceCategory>
+            <ServiceCategory>
+                <Id>9</Id>
+                <Position>4</Position>
+                <Name>Soliq to'lovlari</Name>
+                <Type>0</Type>
+                <Status>true</Status>
+                <ShortName>
+                    <uz>Soliq</uz>
+                    <ru>Налоги</ru>
+                    <en>Tax</en>
+                </ShortName>
+                <onUssd>true</onUssd>
+            </ServiceCategory>
+            <ServiceCategory>
+                <Id>5</Id>
+                <Position>5</Position>
+                <Name>Televideniya xizmatlari</Name>
+                <Type>0</Type>
+                <Status>true</Status>
+                <ShortName>
+                    <uz>TV</uz>
+                    <ru>ТВ</ru>
+                    <en>TV</en>
+                </ShortName>
+                <onUssd>true</onUssd>
+            </ServiceCategory>
+            <ServiceCategory>
+                <Id>8</Id>
+                <Position>6</Position>
+                <Name>Telefoniya</Name>
+                <Type>0</Type>
+                <Status>true</Status>
+                <ShortName>
+                    <uz>Telefoniya</uz>
+                    <ru>Телефония</ru>
+                    <en>Telephony</en>
+                </ShortName>
+                <onUssd>true</onUssd>
+            </ServiceCategory>
+            <ServiceCategory>
+                <Id>7</Id>
+                <Position>7</Position>
+                <Name>Internet resurslar</Name>
+                <Type>0</Type>
+                <Status>true</Status>
+                <ShortName>
+                    <uz>Web-saytlar</uz>
+                    <ru>Вэб-сайты</ru>
+                    <en>Websites</en>
+                </ShortName>
+                <onUssd>true</onUssd>
+            </ServiceCategory>
+            <ServiceCategory>
+                <Id>6</Id>
+                <Position>8</Position>
+                <Name>Sug'urta</Name>
+                <Type>0</Type>
+                <Status>true</Status>
+                <ShortName>
+                    <uz>Sug`urta</uz>
+                    <ru>Страхование</ru>
+                    <en>Insurance</en>
+                </ShortName>
+                <onUssd>true</onUssd>
+            </ServiceCategory>
+            <ServiceCategory>
+                <Id>10</Id>
+                <Position>9</Position>
+                <Name>Davlat xizmatlari</Name>
+                <Type>0</Type>
+                <Status>true</Status>
+                <ShortName>
+                    <uz>Davlat xizmatlari</uz>
+                    <ru>Гос. Услуги</ru>
+                    <en>Gov Services</en>
+                </ShortName>
+                <onUssd>true</onUssd>
+            </ServiceCategory>
+            <ServiceCategory>
+                <Id>13</Id>
+                <Position>10</Position>
+                <Name>Kreditlar</Name>
+                <Type>0</Type>
+                <Status>true</Status>
+                <ShortName>
+                    <uz>Kreditlar</uz>
+                    <ru>Кредиты</ru>
+                    <en>Credits</en>
+                </ShortName>
+                <onUssd>true</onUssd>
+            </ServiceCategory>
+            <ServiceCategory>
+                <Id>17</Id>
+                <Position>11</Position>
+                <Name>Salomatlik va go'zallik</Name>
+                <Type>0</Type>
+                <Status>false</Status>
+                <ShortName>
+                    <uz>Aptekalar</uz>
+                    <ru>Аптеки</ru>
+                    <en>Pharmacies</en>
+                </ShortName>
+                <onUssd>true</onUssd>
+            </ServiceCategory>
+            <ServiceCategory>
+                <Id>18</Id>
+                <Position>12</Position>
+                <Name>Dam olish markazlari</Name>
+                <Type>0</Type>
+                <Status>true</Status>
+                <ShortName>
+                    <uz>Parklar</uz>
+                    <ru>Парки</ru>
+                    <en>Parks</en>
+                </ShortName>
+                <onUssd>false</onUssd>
+            </ServiceCategory>
+            <ServiceCategory>
+                <Id>19</Id>
+                <Position>13</Position>
+                <Name>Ta'lim</Name>
+                <Type>0</Type>
+                <Status>true</Status>
+                <ShortName>
+                    <uz>Ta'lim</uz>
+                    <ru>Образование </ru>
+                    <en>Education</en>
+                </ShortName>
+                <onUssd>false</onUssd>
+            </ServiceCategory>
+            <ServiceCategory>
+                <Id>20</Id>
+                <Position>14</Position>
+                <Name>Fondlar</Name>
+                <Type>0</Type>
+                <Status>true</Status>
+                <ShortName>
+                    <uz>Xayriya</uz>
+                    <ru>Благотворительность</ru>
+                    <en>Charity</en>
+                </ShortName>
+                <onUssd>false</onUssd>
+            </ServiceCategory>
+            <ServiceCategory>
+                <Id>21</Id>
+                <Position>15</Position>
+                <Name>Elektron Hamyonlar </Name>
+                <Type>0</Type>
+                <Status>false</Status>
+                <ShortName/>
+                <onUssd>false</onUssd>
+            </ServiceCategory>
+        </Categories>
+        <Result>
+            <code>OK</code>
+            <Description>Xatolik yo’q</Description>
+        </Result>
+    </return>
+</ns2:getServiceCategoryListResponse>

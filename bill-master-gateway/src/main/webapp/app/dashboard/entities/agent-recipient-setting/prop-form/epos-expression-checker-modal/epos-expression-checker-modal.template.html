@@ -1,0 +1,46 @@
+<nz-spin [nzSpinning]="loading" [nzDelay]="0" nzSize="large">
+  <form (ngSubmit)="resolve()">
+    <div class="modal-header">
+      <h5 class="modal-title">
+        Выражения:
+        <span class="badge badge-info">{{ request.expression }}</span>
+      </h5>
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="activeModal.dismiss()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <bm-alert></bm-alert>
+
+      <div class="form-group">
+        <key-value id="params" name="params" [(ngModel)]="request.params"></key-value>
+      </div>
+
+      <div class="form-row" *ngIf="response">
+        <div class="form-group col-md-6">
+          <label jhiTranslate="global.request">Request</label>
+          <pre class="json-result">{{ request | json }}</pre>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label jhiTranslate="global.response">Response</label>
+          <pre class="json-result">{{ response | json }}</pre>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        nz-button
+        nzSize="large"
+        nzType="text"
+        data-dismiss="modal"
+        jhiTranslate="entity.action.cancel"
+        (click)="activeModal.dismiss()"
+      >
+        Cancel
+      </button>
+      <button nz-button nzSize="large" nzType="primary" [disabled]="!request.params" [nzLoading]="loading">
+        {{ 'entity.action.test' | translate }}
+      </button>
+    </div>
+  </form>
+</nz-spin>

@@ -1,0 +1,60 @@
+<h4 class="mb-4" jhiTranslate="global.menu.entities.pkbillmsReconcileDiscrepancy">Reconcile Discrepancy</h4>
+
+<bm-alert></bm-alert>
+
+<div class="table-responsive" *ngIf="data?.length">
+  <nz-table [nzLoading]="loading" nzSize="small" nzTemplateMode nzOuterBordered>
+    <thead>
+      <tr>
+        <th>
+          <span jhiTranslate="billMasterGwApp.pkbillmsReconcileDiscrepancy.gatewayName">Gateway Name</span>
+        </th>
+        <th>
+          <span jhiTranslate="billMasterGwApp.pkbillmsReconcileDiscrepancy.systemTransactionId">System Transaction Id</span>
+        </th>
+        <th>
+          <span jhiTranslate="billMasterGwApp.pkbillmsReconcileDiscrepancy.gatewayTransactionId">Gateway Transaction Id</span>
+        </th>
+        <th>
+          <span jhiTranslate="billMasterGwApp.pkbillmsReconcileDiscrepancy.systemAmount">System Amount</span>
+        </th>
+        <th>
+          <span jhiTranslate="billMasterGwApp.pkbillmsReconcileDiscrepancy.gatewayAmount">Gateway Amount</span>
+        </th>
+        <th>
+          <span jhiTranslate="billMasterGwApp.pkbillmsReconcileDiscrepancy.systemStatus">System Status</span>
+        </th>
+        <th>
+          <span jhiTranslate="billMasterGwApp.pkbillmsReconcileDiscrepancy.gatewayStatus">Gateway Status</span>
+        </th>
+        <th>
+          <span jhiTranslate="billMasterGwApp.pkbillmsReconcileDiscrepancy.systemDate">System Date</span>
+        </th>
+        <th>
+          <span jhiTranslate="billMasterGwApp.pkbillmsReconcileDiscrepancy.gatewayDate">Gateway Date</span>
+        </th>
+        <th>
+          <span jhiTranslate="billMasterGwApp.pkbillmsReconcileDiscrepancy.closed">Closed</span>
+        </th>
+        <th>
+          <span jhiTranslate="billMasterGwApp.pkbillmsReconcileDiscrepancy.comment">Comment</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reconcileDiscrepancy of data; trackBy: trackId">
+        <td>{{ reconcileDiscrepancy.gatewayName }}</td>
+        <td>{{ reconcileDiscrepancy.systemTransactionId }}</td>
+        <td>{{ reconcileDiscrepancy.gatewayTransactionId }}</td>
+        <td>{{ reconcileDiscrepancy.systemAmount | bmAmount }}</td>
+        <td>{{ reconcileDiscrepancy.gatewayAmount | bmAmount }}</td>
+        <td>{{ reconcileDiscrepancy.systemStatus }}</td>
+        <td>{{ reconcileDiscrepancy.gatewayStatus }}</td>
+        <td>{{ reconcileDiscrepancy.systemDate | bmDate }}</td>
+        <td>{{ reconcileDiscrepancy.gatewayDate | bmDate }}</td>
+        <td>{{ reconcileDiscrepancy.closed }}</td>
+        <td>{{ reconcileDiscrepancy.comment }}</td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>

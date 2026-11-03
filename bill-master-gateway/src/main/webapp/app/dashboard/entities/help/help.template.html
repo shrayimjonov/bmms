@@ -1,0 +1,38 @@
+<h4 class="mb-4" jhiTranslate="global.menu.entities.help">Help</h4>
+
+<bm-alert></bm-alert>
+
+<nz-layout *ngIf="categories?.length">
+
+  <nz-sider nzWidth="420px" class="bg-white">
+    <ul nz-menu nzMode="inline" class="border-0" [nzTheme]="'light'">
+      <li nz-submenu class="faq-title" [nzIcon]="category.loading ? 'loading' : null" *ngFor="let category of categories"
+          nzTitle="{{ getI18nText(category?.names) | bmEllipsis: 45 }}" (nzOpenChange)="loadFaqsByCategory(category)">
+        <ul>
+          <li nz-menu-item *ngFor="let faq of category.faqs"
+              (click)="onFaqSelected(faq)">{{ getI18nText(faq?.questions) | bmEllipsis: 55 }}</li>
+          <li nz-menu-item *ngIf="!category.faqs?.length" [nzDisabled]="true"
+              class="text-danger pl-3">{{ 'faqMsApp.faq.notFound' | translate }}</li>
+        </ul>
+      </li>
+    </ul>
+
+  </nz-sider>
+
+  <nz-layout style="background-color: white">
+    <div class="answer-container px-4 py-3 ml-4" *ngIf="selectedFaq">
+      <h4 *ngIf="!selectedFaq.answers">No answers</h4>
+<!--      <p class="fs-19 font-weight-bold text-muted">{{ getI18nText(selectedCategory.names) }}</p>-->
+      <p class="fs-18 font-weight-bold text-muted">{{ getI18nText(selectedFaq.questions) }}</p>
+<!--      <p class="fs-15 text-muted my-3">{{ getI18nText(selectedFaq.answers) }}</p>-->
+      <div [innerHTML]="html"></div>
+      <div class="mt-4 video-container" *ngIf="selectedFaq.videoUrl">
+        <iframe width="100%" height="400px" style="border-radius: 5px" [src]="selectedFaq.videoUrl | videoUrlSanitizer" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <!--      <div class="d-flex align-items-center justify-content-center mt-4 video-container" *ngIf="!selectedFaq.videoUrl">-->
+      <!--        <h4>{{ 'faqMsApp.faq.noVideo' | translate }}</h4>-->
+      <!--      </div>-->
+    </div>
+  </nz-layout>
+
+</nz-layout>

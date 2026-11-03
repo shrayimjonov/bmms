@@ -1,0 +1,13 @@
+{
+  "sender": {
+    "merchantId": 123,
+    "terminalId": 234,
+    "port": 4444
+  },
+  "recipient": {
+    "merchantId": 123,
+    "terminalId": 234,
+    "port": 4444,
+    "creditType": "UZCARD_P2P"
+  }
+}

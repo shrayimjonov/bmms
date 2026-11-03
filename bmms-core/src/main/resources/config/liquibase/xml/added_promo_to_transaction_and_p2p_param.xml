@@ -1,0 +1,24 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <changeSet author="Abdulloh" id="added_promo">
+        <addColumn tableName="transaction">
+            <column name="promo" type="varchar(128)" remarks="Короткий код латинскими буквами и цыфрами">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="p_2_p_param">
+            <column name="promo" type="varchar(128)" remarks="Короткий код латинскими буквами и цыфрами">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="update-p2p-param-111-to-promo-5mln" author="javlon" context="faker">
+        <update tableName="p_2_p_param">
+            <column name="promo" value="^5mln$"/>
+            <where>id = '111'</where>
+        </update>
+    </changeSet>
+</databaseChangeLog>

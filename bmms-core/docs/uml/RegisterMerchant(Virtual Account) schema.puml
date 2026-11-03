@@ -1,0 +1,25 @@
+@startuml
+
+'idea.partialRender
+
+title Register VirtualAccount(Merchant)
+FinBox-> BillMs:send inn, name , company name
+BillMs -> FinBox:Result VirtualAccount object(created with DEV mode)
+
+@newpage
+
+title Fill VirtualAccountDetails
+
+FinBox-> BillMs: VA.id ,mfo, inn,account ....(BK data)
+BillMs -> FinBox:Result VirtualAccountDetailsObject
+
+@newpage
+
+title Change Mode to prod
+
+FinBox-> BillMs: inn,name,company name (ewe ne tochno)
+BillMs -> FinBox: Result(changed to PROD)
+
+@enduml
+
+

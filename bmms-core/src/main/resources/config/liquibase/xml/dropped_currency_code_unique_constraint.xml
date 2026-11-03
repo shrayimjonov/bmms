@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="dropped_currency_and_code_unique_constraints" author="saahon">
+
+        <dropUniqueConstraint constraintName="ux_currency_code"
+                              schemaName="public"
+                              tableName="currency"
+                              uniqueColumns="code"/>
+
+        <dropUniqueConstraint constraintName="ux_currency_ccy"
+                              schemaName="public"
+                              tableName="currency"
+                              uniqueColumns="ccy"/>
+    </changeSet>
+</databaseChangeLog>

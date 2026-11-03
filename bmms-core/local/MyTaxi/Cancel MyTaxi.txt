@@ -1,0 +1,43 @@
+REQUEST:
+{
+	<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+	<soapenv:Body>
+	<ns1:CancelTransactionArguments xmlns:ns1="http://uws.provider.com/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:CancelTransactionArguments ">
+	<password>mYt@Xi20_15clicK</password>
+	             <username>MytaxiAPIClick2015</username>
+	<serviceId>55</serviceId>
+	<transactionId>18802</transactionId>
+	<parameters>
+	<paramKey>reason</paramKey>
+	<paramValue></paramValue>
+	</parameters>
+	</ns1:CancelTransactionArguments>
+	</soapenv:Body>
+	</soapenv:Envelope>
+}
+
+RESPONCE:
+{
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://uws.provider.com/">
+    
+<SOAP-ENV:Body>
+ 
+       <ns1:CancelTransactionResult>
+
+            <errorMsg>Ok</errorMsg>
+ 
+           <status>0</status>
+
+            <timeStamp>2018-09-12T21:44:03+05:00</timeStamp>
+ 
+           <transactionState>2</transactionState>
+
+        </ns1:CancelTransactionResult>
+
+    </SOAP-ENV:Body>
+
+</SOAP-ENV:Envelope>
+}

@@ -1,0 +1,15 @@
+{
+  "error": {
+    "title": "Xatolik!",
+    "http": {
+      "400": "No`to`g`ri so`rov.",
+      "403": "Siz bu sahifaga kirish uchun avtorizatsiyadan o`tmagansiz",
+      "404": "Sahifa mavjud emas.",
+      "405": "Siz ishlatgan HTTP so`z bu URL un mos kelmaydi.",
+      "500": "Ichki xatolik yuz berdi.",
+      "warning": "Sizning ishingizda ba'zi muammolar mavjud"
+    },
+    "concurrencyFailure": "Boshqa foydalanuvchi shu ma`lumotni siz bilan bir vaqtda o`zgartirdi. Sizning o`zgarishlariz bekor qilindi.",
+    "validation": "Server tarafda validatsiya xatoligi yuz berdi."
+  }
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <changeSet id="added_index_bill_transaction_id" author="javlon" context="dev or prod">
+        <createIndex indexName="idx_bill_tr_id" tableName="bill">
+            <column name="transaction_id" type="bigint"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>

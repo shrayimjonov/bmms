@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Entity Agent migrate to 7.1 jhipster
+    -->
+    <changeSet id="entity_Agent_migrate-1" author="zafar">
+        <!--
+            Add column phone_number
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="agent"
+                              columnName="phone_number"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column phone_number</comment>
+
+        <addColumn tableName="agent">
+            <column name="phone_number" type="varchar(32)">
+                <constraints nullable="true" />
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_Agent_migrate-2" author="zafar">
+        <!--
+           Add column inn
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="agent"
+                              columnName="inn"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column inn</comment>
+
+        <addColumn tableName="agent">
+            <column name="inn" type="varchar(32)">
+                <constraints nullable="true" />
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_Agent_migrate-3" author="zafar">
+        <!--
+          Add column org_name
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="agent"
+                              columnName="org_name"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column org_name</comment>
+
+        <addColumn tableName="agent">
+            <column name="org_name" type="varchar(64)">
+                <constraints nullable="true" />
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_Agent_migrate-4" author="zafar">
+        <!--
+           Rename column titles_id entity Agent title
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="agent_title"
+                          columnName="titles_id"/>
+        </preConditions>
+
+        <comment>Rename column titles_id entity Agent title</comment>
+
+        <renameColumn tableName="agent_title" oldColumnName="titles_id" newColumnName="title_id"/>
+    </changeSet>
+
+    <changeSet id="entity_Agent_migrate-5" author="zafar">
+        <!--
+            Rename column agents_id entity Agent title
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="agent_title"
+                          columnName="agents_id"/>
+        </preConditions>
+
+        <comment>Rename column agents_id entity Agent title</comment>
+
+        <renameColumn tableName="agent_title" oldColumnName="agents_id" newColumnName="agent_id"/>
+    </changeSet>
+
+    <changeSet id="entity_Agent_migrate-6" author="zafar">
+        <!--
+            Drop primary key agent_title
+        -->
+        <preConditions onFail="MARK_RAN">
+            <primaryKeyExists tableName="agent_title"/>
+        </preConditions>
+
+        <comment>Drop primary key agent_title</comment>
+
+        <dropPrimaryKey tableName="agent_title"
+                        dropIndex="true"/>
+    </changeSet>
+
+    <changeSet id="entity_Agent_migrate-7" author="zafar">
+        <!--
+            Rename table agent title
+        -->
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="agent_title"/>
+        </preConditions>
+
+        <comment>Rename table agent title</comment>
+
+        <renameTable oldTableName="agent_title" newTableName="rel_agent__title"/>
+    </changeSet>
+
+    <changeSet id="entity_Agent_migrate-8" author="zafar">
+        <!--
+           Add primary key recipient_title
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <primaryKeyExists tableName="rel_agent__title"/>
+            </not>
+        </preConditions>
+
+        <comment>Add primary key recipient_title</comment>
+
+        <addPrimaryKey columnNames="agent_id, title_id" tableName="rel_agent__title"/>
+    </changeSet>
+</databaseChangeLog>

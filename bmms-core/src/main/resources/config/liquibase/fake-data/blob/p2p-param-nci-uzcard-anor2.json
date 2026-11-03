@@ -1,0 +1,18 @@
+{
+  "sender": {
+    "bankAccount": "23118000000001183006",
+    "accName": "Довостребования-зачис на ПК UZCARD через Mobile приложение",
+    "bankMfo": "00491",
+    "purposeId": "634",
+    "purpose": "Перевод с счета на ПК № FIO \"PAN\"",
+
+    "tranType": "106",
+    "tax": ""
+  },
+  "recipient": {
+    "merchantId": "90631981300",
+    "terminalId": "92300140",
+    "port": 4444,
+    "creditType": "UZCARD_CREDIT"
+  }
+}

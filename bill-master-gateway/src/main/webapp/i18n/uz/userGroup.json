@@ -1,0 +1,30 @@
+{
+  "userGroup": {
+    "home": {
+      "title": "Groups",
+      "createLabel": "Yangi Group qo`shish",
+      "createOrEditLabel": "Groupni tahrirlash",
+      "notFound": "No Groups found",
+      "create": "Guruh qo'shish",
+      "update": "Guruhni o'zgartirish"
+    },
+    "created": "Guruh {{ param }} bilan qo`shildi",
+    "updated": "{{ param }}- guruhi saqlandi",
+    "deleted": "{{ param }}- guruhi o`chirildi",
+    "delete": {
+      "question": "{{ id }}- Groupni o`chirmoqchimisiz? "
+    },
+    "detail": {
+      "title": "Group"
+    },
+    "name": "Nomi",
+    "active": "Faol",
+    "details": "Izoh",
+    "authorities": "Rollar",
+    "help": {
+      "name": "Наименование",
+      "active": "Активность",
+      "details": "Описание действия"
+    }
+  }
+}

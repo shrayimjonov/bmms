@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added foreign constraint recipient to recipientFullName
+    -->
+    <changeSet id="add_foreign_constraint_recipient_to_recipient_full_name" author="zafar">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_recipient_full_name_recipients_id"
+                                            foreignKeyTableName="recipient_id"/>
+            </not>
+        </preConditions>
+
+        <comment>Add foreign constraint recipient to recipient full name</comment>
+        <addForeignKeyConstraint baseColumnNames="recipient_id"
+                                 baseTableName="rel_recipient__full_name"
+                                 constraintName="fk_recipient_full_name_recipients_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="recipient"/>
+
+    </changeSet>
+</databaseChangeLog>

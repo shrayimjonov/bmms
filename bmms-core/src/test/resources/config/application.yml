@@ -1,0 +1,535 @@
+logging:
+    level:
+        root: debug
+        jdk:
+            event:
+                security: WARN
+        com:
+            hazelcast:
+                instance:
+                    AddressPicker: WARN
+        uz.devops.bm.paynet: DEBUG
+        uz.paykap.service.abs: DEBUG
+        uz.paykap.agent.tran.CachedCbuService: WARN
+        uz.paykap.service.uzcard.UzcardCreditService: ${LOGGING_LEVEL_UZ_PAYKAP_SERVICE_UZCARD_UZCARDCREDITSERVICE}
+        uz.devops.bm.paynet.adapter: INFO
+        uz.devops.bm.upay: INFO
+
+
+# ===================================================================
+# Spring Boot configuration.
+#
+# This configuration is used for unit/integration tests.
+#
+# More information on profiles: https://www.jhipster.tech/profiles/
+# More information on configuration properties: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+spring:
+    profiles:
+    # Uncomment the following line to enable tests against production database type rather than H2, using Testcontainers
+    #active: testcontainers
+    application:
+        name: bmms
+    cloud:
+        consul:
+            discovery:
+                enabled: false
+                instanceId: ${spring.application.name}:${spring.application.instance-id:${random.value}}
+            config:
+                enabled: false
+            enabled: false
+    cache:
+        type: simple
+    datasource:
+        type: com.zaxxer.hikari.HikariDataSource
+        url: jdbc:h2:mem:bmms;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+        name:
+        username:
+        password:
+        hikari:
+            auto-commit: false
+    jackson:
+        serialization:
+            write-durations-as-timestamps: false
+    jpa:
+        database-platform: tech.jhipster.domain.util.FixedH2Dialect
+        database: H2
+        open-in-view: false
+        show-sql: false
+        hibernate:
+            ddl-auto: none
+            naming:
+                physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+                implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+        properties:
+            hibernate.id.new_generator_mappings: true
+            hibernate.connection.provider_disables_autocommit: false
+            hibernate.cache.use_second_level_cache: false
+            hibernate.cache.use_query_cache: false
+            hibernate.generate_statistics: true
+            hibernate.hbm2ddl.auto: validate
+            hibernate.jdbc.time_zone: UTC
+    liquibase:
+        contexts: test,faker
+        url: jdbc:h2:mem:bmms;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+
+    #    ############### LOCAL DB ########################
+    #    datasource:
+    #        type: com.zaxxer.hikari.HikariDataSource
+    #        url: jdbc:postgresql://localhost:5432/bm_ms_db
+    #        username: bm_ms
+    #        password: 123
+    #        hikari:
+    #            poolName: Hikari
+    #            auto-commit: false
+    #    jpa:
+    #        database-platform: tech.jhipster.domain.util.FixedPostgreSQL10Dialect
+    #        database: POSTGRESQL
+    #        open-in-view: false
+    #        show-sql: false
+    #        hibernate:
+    #            ddl-auto: none
+    #            naming:
+    #                physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    #                implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+    #        properties:
+    #            hibernate.id.new_generator_mappings: true
+    #            hibernate.connection.provider_disables_autocommit: true
+    #            hibernate.cache.use_second_level_cache: false
+    #            hibernate.cache.use_query_cache: false
+    #            hibernate.generate_statistics: true
+    #            hibernate.hbm2ddl.auto: validate
+    #            hibernate.jdbc.time_zone: UTC
+    #    liquibase:
+    #        contexts: test,faker
+    #        url: jdbc:postgresql://localhost:5432/bm_ms_db
+
+    #    https://gist.github.com/drucoder/5bd20a5370d9b278fbd14f3909b454d8
+    #    Sample yandex smtp settings
+    #    mail:
+    #        host: smtp.yandex.ru
+    #        port: 465
+    #        username: user@example.com
+    #        password: my_password
+    #        protocol: smtps
+    mail:
+        host: localhost
+        port: 25
+        username: ${USERNAME}
+        protocol: smtp
+    main:
+        allow-bean-definition-overriding: true
+    messages:
+        basename: i18n/messages
+    task:
+        execution:
+            thread-name-prefix: bmms-task-
+            pool:
+                core-size: 1
+                max-size: 50
+                queue-capacity: 10000
+        scheduling:
+            thread-name-prefix: bmms-scheduling-
+            pool:
+                size: 1
+    thymeleaf:
+        mode: HTML
+    # Allow SecurityConfiguration to initialize w/o specifying an empty issuer-uri is OK
+    security:
+        oauth2:
+            client:
+                provider:
+                    oidc:
+                        issuer-uri: ${SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI}
+                registration:
+                    oidc:
+                        client-id: ${SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_ID}
+                        client-secret: ${PRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET}
+                        scope:
+                            - openid
+                            - profile
+                            - email
+
+server:
+    port: 10344
+    address: localhost
+
+# ===================================================================
+# JHipster specific properties
+#
+# Full reference is available at: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+jhipster:
+    clientApp:
+        name: 'bmmsApp'
+    async:
+        core-pool-size: 1
+        max-pool-size: 50
+        queue-capacity: 10000
+    # To test logstash appender
+    logging:
+        # To test json console appender
+        use-json-format: false
+        logstash:
+            enabled: false
+            host: localhost
+            port: 5000
+            queue-size: 512
+    security:
+        content-security-policy: "${JHIPSTER_SECURITY_CONTENT_SECURITY_POLICY}"
+        oauth2:
+            audience:
+                - account
+                - api://default
+
+# ===================================================================
+# Application specific properties
+# Add your own application properties here, see the ApplicationProperties class
+# to have type-safe configuration, like in the JHipsterProperties above
+#
+# More documentation is available at:
+# https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+application:
+    ourMfoPattern: ['00491','00850','00954','01060','01063','01074','01097','01098','01109','01123','01166','01187','01192']
+    hold:
+        maxReholdPercent: 30
+    reconciliation:
+        enableAuto: false
+    abs:
+        serviceBeanName: absSimulationService
+#        serviceBeanName: fidoAbsService
+    #        serviceBeanName: absIsApiService
+    paynet:
+        baseUrl: null
+        fromFile: true
+        downloadImages: false
+        paynetJsonPath: ./paynet.json
+    otp:
+        simulation: true
+        timeoutSeconds: 100
+    sms:
+        simulation: true
+    transactionVerifier:
+        verificationTime: 300000
+        yellowDangerCount: 1
+        orangeDangerCount: 3
+        redDangerCount: 5
+        recipients: '998901234567'
+        pushType: PHONE
+        active: true
+    common:
+        proxyEnabled: false
+    munisAgent:
+        munisAnorProviderId: 9999
+        anorBankMFo: 00491
+        bmMunisAgentUsername: user
+        bmMunisAgentPassword: ${APPLICATION_MUNISAGENT_BMMUNISAGENTPASSWORD}
+        certificateServiceSimulate: true
+    humoDebitGateway:
+        eposMerchantId: 0121245
+        eposTerminalId: 121245
+    simulateSendFileToEmail: false
+    defaultEmailTo: ${APPLICATION_DEFAULTEMAILTO}
+    defaultEmailFrom: ${APPLICATION_DEFAULTEMAILFROM}
+    activeCheckRequestVerifier: true
+    #SharedAgentResource.statuses request limit
+    multiStatusListSize: 10
+    uzcardTokenMap.[1111]: ${APPLICATION_UZCARDTOKENMAP_1111}
+    p2pUzcard.virtualCardTokens.[NCI]: ${APPLICATION_P2PUZCARD_VIRTUALCARDTOKENS_NCI}
+    pcCreditSettings:
+        rivo-creative:
+            -   name: 'Anor bank Humo'
+                phone: '${APPLICATION_PCCREDITSETTINGS_RIVO_CREATIVE_PHONE}'
+                cardBin: 986060
+                merchantId: ${MERCHANTID}
+                terminalId: ${TERMINALID}
+                port: 1234
+            -   name: 'Anor bank UzCard'
+                phone: '${APPLICATION_PCCREDITSETTINGS_RIVO_CREATIVE_PHONE}'
+                cardBin: 860063
+                merchantId: ${MERCHANTID}
+                terminalId: ${TERMINALID}
+                port: 123
+        user:
+            -   name: 'Kapital bank UzCard'
+                phone: '${APPLICATION_PCCREDITSETTINGS_USER_PHONE}'
+                cardBin: 860049
+                merchantId: ${MERCHANTID}
+                terminalId: ${TERMINALID}
+                port: 3333
+    pcRegex:
+        UZCARD:
+            pan: "8600\\d{12}"
+            token: '${APPLICATION_PCREGEX_UZCARD_TOKEN}'
+        HUMO:
+            pan: "(9860\\d{12})|(555536\\d{10})"
+            token: "${APPLICATION_PCREGEX_HUMO_TOKEN}"
+        VISA:
+            pan: "(460294|490957)\\d{10}"
+            token: "${APPLICATION_PCREGEX_VISA_TOKEN}"
+        NCI:
+            account: "\\d{5}(000|840)\\d{12}"
+        FOREX:
+            account: "\\d{5}(840)\\d{12}"
+        DEPOSIT:
+            account: "(\\d{9})|(^[a-z0-9]+$)|(\\d{14})"
+    p2pUzcard:
+        replenishFixedDelayMilliseconds: 10800000 # 3 hours
+        replenishInitialDelayMilliseconds: 60000 # 1 minute
+        virtualCardMap.[NCI]:
+            enabled: true
+            virtualCardToken: ${APPLICATION_P2PUZCARD_VIRTUALCARDMAP_NCI_VIRTUALCARDTOKEN}
+            periodMinutes: 180
+            merchantId: ${MERCHANTID}
+            terminalId: ${TERMINALID}
+
+pusher:
+    url: ${PUSHER_URL}
+    username: ${USERNAME}
+    password: ${PUSHER_PASSWORD}
+    enabled: true
+    simulate: true
+
+paynet:
+    simulation: true
+    baseUrl: ${PAYNET_BASEURL}
+    username: ${USERNAME}
+    password: ${PAYNET_PASSWORD}
+    terminalId: ${TERMINALID}
+    requireServiceId: true
+
+hg-plugin:
+    agentID: 8
+    agentPassword: ${HG_PLUGIN_AGENTPASSWORD}
+    simulation: true
+    receive: true
+    testAccount: ${TESTACCOUNT}
+    testPayRetry: false
+    testPayRetryCount: 10
+
+cbu:
+    impl: sim
+
+bm-paynet:
+    impl: RPCv5
+    simulate: true
+    downloadImages: false
+    syncAll: false
+    syncWhiteList:
+        - UCell
+        - Beeline
+        - 'Штрафы ГУБДД'
+        - 'Yurak Amri'
+        - 'Гос-й Налог. Комитет'
+    urlParamsBlackList:
+        - PAN
+        - pan
+        - centre_id
+        - exp
+    paynetJsonPath: 'paynet-rpc-response-27.05.json'
+    ignoredRecipientPattern: '.*Paynet.*|.*[Ll]otto.*'
+    ignoredServicesPattern: 'Отправка СМС'
+    ignoredFieldPattern: 'telefon'
+    checkServicePattern: '^(Проверка|Получение).*$'
+    dataAdapterImpl: RPCv4 #  XML | JSON | RPC
+    gatewayServiceImpl: RPCv5 #  XML | JSON | RPC
+    converterType: KEY # KEY | LABEL
+    rpc:
+        url: ${BM_PAYNET_RPC_URL}
+        version: 2.0
+
+humo:
+    simulate: true
+    username: ${USERNAME}
+    password: 1234
+    bankC: '09'
+    balanceUrl: ${HUMO_BALANCEURL}
+    urlCheck: ${HUMO_URLCHECK}
+    debitUrl: ${HUMO_DEBITURL}
+    reverseUrl: ${HUMO_REVERSEURL}
+    urlHistory: ${HUMO_URLHISTORY}
+    smsInfoUrl: ${HUMO_SMSINFOURL}
+    merchantId: ${MERCHANTID}
+    terminalId: ${TERMINALID}
+    getPaymentUrl: ${HUMO_GETPAYMENTURL}
+
+issuing:
+    simulate: true
+
+munis-agent:
+    wsUrl: /munis-ws
+    namespace: http://munis.ws.uz/
+
+ncitrans:
+    helperServiceName: 'simNciHelperService'
+    cashBackAccount:
+        accBal: '22616'
+        currency: '000'
+        orderId: '001'
+        minAmountInTiyin: 100
+        maxAmountInTiyin: 1000000000
+        senderAccount: ${SENDERACCOUNT}
+    legalEntityAccount:
+        accBal: '202%%'
+        currency: '000'
+        orderId: '%%%'
+        minAmountInTiyin: 100
+        maxAmountInTiyin: 1000000000
+        senderAccount: ${SENDERACCOUNT}
+    anorHub:
+        url: ${NCITRANS_ANORHUB_URL}
+        oAuth2AccessTokenUrl: ${NCITRANS_ANORHUB_OAUTH2ACCESSTOKENURL}
+        oAuth2ClientId: ${NCITRANS_ANORHUB_OAUTH2CLIENTID}
+        oAuth2ClientSecret: ${NCITRANS_ANORHUB_OAUTH2CLIENTSECRET}
+        oAuth2ClientGrantType: password
+        oAuth2ClientUsername: billmaster
+        oAuth2ClientPassword: ${NCITRANS_ANORHUB_OAUTH2CLIENTPASSWORD}
+
+
+nci-is-api:
+    url: ${NCI_IS_API_URL}
+    name: nci-is-bank-sample
+    simulate: true
+    sign: ${NCI_IS_API_SIGN}
+    login: ${NCI_IS_API_LOGIN}
+    password: ${NCI_IS_API_PASSWORD}
+
+card-suite-tieto:
+    autoConfig: true
+    defaultGroupC: 01
+    defaultBankC: 09
+    simulate: true
+    tieto:
+        default:
+            name: card-suite-tieto
+            wsdlAddress: ${CARD_SUITE_TIETO_TIETO_DEFAULT_WSDLADDRESS}
+            portName: Issuing
+            username: ${USERNAME}
+            password: ${CARD_SUITE_TIETO_TIETO_DEFAULT_PASSWORD}
+confirm:
+    enabled: false
+    cron: '30 9 15 * * *'
+rateService:
+    impl: cbuRateService
+
+
+bm-custom-feign:
+    uaaUrl: ${BM_CUSTOM_FEIGN_UAAURL}
+    paymsUrl: ${BM_CUSTOM_FEIGN_PAYMSURL}
+    contractmsUrl: ${BM_CUSTOM_FEIGN_CONTRACTMSURL}
+
+
+http-client:
+    connection-request-timeout-in-millis: 30001
+    connect-timeout-in-millis: 30001
+    socket-timeout-in-millis: 30001
+    max-total-connections: 201
+    default-max-per-route: 49
+    default-keep-alive-time-in-millis: 300001
+    close-idle-connection-wait-time-in-millis: 480001
+    logging-enabled: false
+
+bm-payme:
+    webSocketClientUsername: user
+    webSocketClientPassword: ${BM_PAYME_WEBSOCKETCLIENTPASSWORD}
+    paymeSenderSimulate: false
+    webSocketClientUrl: ${BM_PAYME_WEBSOCKETCLIENTURL}
+
+keycloak-admin:
+    server-url: ${KEYCLOAK_ADMIN_SERVER_URL}
+    realm: ${REALM}
+    clientId: ${KEYCLOAK_ADMIN_CLIENTID}
+    clientSecret: ${KEYCLOAK_ADMIN_CLIENTSECRET}
+    username: ${USERNAME}
+    password: ${KEYCLOAK_ADMIN_PASSWORD}
+    resource: false
+    simulate: true
+
+svgate:
+    connectTimeout: 30000
+    connectionRequestTimeout: 30000
+    readTimeout: 15000
+    panPattern: 8600\d{12}|[1]{16}|1234567890123456|[0]{16}|1234567890123457|1212121212121212|9989989989989989
+    rpcBeans.[JsonRpcSvGateService]:
+        impl: simulation
+        rootPath: /api/jsonrpc
+        host: ${SVGATE_RPCBEANS_JSONRPCSVGATESERVICE_HOST}
+        username: ${USERNAME}
+        password: 123
+    rpcBeans.[JsonRpc4UniversalSvGateService]:
+        impl: simulation
+        rootPath: /api/jsonrpc
+        host: ${SVGATE_RPCBEANS_JSONRPC4UNIVERSALSVGATESERVICE_HOST}
+        username: ${USERNAME}
+        password: 123
+    rpcBeans.[JsonRpc4HistorySvGateService]:
+        impl: simulation
+        host: ${SVGATE_RPCBEANS_JSONRPC4HISTORYSVGATESERVICE_HOST}
+        rootPath: /api/jsonrpc
+        username: ${USERNAME}
+        password: 123
+    rpcBeans.[JsonRpc4OtpCardSvGateService]:
+        impl: simulation
+        host: ${SVGATE_RPCBEANS_JSONRPC4OTPCARDSVGATESERVICE_HOST}
+        rootPath: /api/jsonrpc
+        username: ${USERNAME}
+        password: 123
+
+management:
+    endpoints:
+        web:
+            base-path: /management
+            exposure:
+                include: [ 'httppool' ]
+    endpoint:
+        httppool:
+            enabled: true
+    security:
+        enabled: false
+
+ofd-feign:
+    ofdms-url: ${OFD_FEIGN_OFDMS_URL}
+
+fido-abs:
+    #  name: fido-abs-sample
+    simulate: true
+    test-realdata: false
+    constants:
+        code-filial: "00491"
+        con: 4
+    config:
+        read-timeout: 5000
+        connect-timeout: 5000
+        base-uri: ${FIDO_ABS_CONFIG_BASE_URI}
+        token: ${FIDO_ABS_CONFIG_TOKEN}
+        username: ${USERNAME}
+        password: ${FIDO_ABS_CONFIG_PASSWORD}
+    acc-card-pattern:
+        HUMO: 17403000600000491316
+        UZCARD: 17403000900000491801
+    reverse-acc-card-pattern:
+        HUMO: 23118000900000491316
+        UZCARD: 23118000500000491801
+
+bm-upay:
+    adapter.impl: V2
+    simulate: true
+    token: ${BM_UPAY_TOKEN}
+    authPassword: 123
+    authUserName: 123
+    serverUrl: ${BM_UPAY_SERVERURL}
+davr-munis:
+    name: davr-munis
+    #    endpointUrl:  http://127.0.0.1:8080
+    url: ${DAVR_MUNIS_URL}
+    simulate: true

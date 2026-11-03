@@ -1,0 +1,14 @@
+{
+    "sender": {
+        "merchantId": "promoM111",
+        "terminalId": "promoT111",
+        "port": 111
+    },
+    "recipient": {
+        "merchantId": "promoM222",
+        "terminalId": "promoT222",
+        "port": 222,
+        "creditType": "UNIVERSAL_CREDIT",
+        "paymentPurpose": "payment"
+    }
+}

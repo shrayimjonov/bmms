@@ -1,0 +1,25 @@
+{
+  "payment": {
+    "recipientsToggle": {
+      "true": "Berkitish",
+      "false": "Yana",
+      "undefined": "Yana"
+    },
+    "amountRange": "dan {{min}} gacha {{max}}",
+    "payTo": "{{categoryName}} ga to'lov",
+    "payAmount": "To'lov summasi",
+    "amountWithSuffix": "{{amount}} so'm",
+    "amountSuffix": "so'm",
+    "payByCard": "Karta orqali to'lov",
+    "payByDeposit": "Depozit orqali to'lov",
+    "pan": "Karta raqami",
+    "exp": "oo/yy",
+    "paySuccessMsg": "To'lov muvaffaqiyatli amalga oshirildi",
+    "backToMain": "Asosiy sahifaga qaytish",
+    "cheque": "Chek",
+    "paymentDetail": "To'lov ma'lumotlari",
+    "code": "Tasdiqlash kodi",
+    "code.placeholder": "SMS-kodni kiriting",
+    "redirectToRecipientUrl": "Yetkazib beruvchi saytiga qaytish"
+  }
+}

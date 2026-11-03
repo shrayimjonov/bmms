@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:getRegionsListResponse xmlns:ns2="http://st.apus.com/">
+    <return>
+        <AreasList>
+            <Title>Регион</Title>
+            <Area>
+                <Id>2</Id>
+                <Code>06</Code>
+                <Name>Бухарская область</Name>
+                <Children>
+                    <Title>Район</Title>
+                    <Area>
+                        <Id>272</Id>
+                        <Code>204</Code>
+                        <Name>Алатское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>273</Id>
+                        <Code>207</Code>
+                        <Name>Бухарское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>274</Id>
+                        <Code>212</Code>
+                        <Name>Вабкентское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>275</Id>
+                        <Code>215</Code>
+                        <Name>Гиждуванское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>276</Id>
+                        <Code>219</Code>
+                        <Name>Каганское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>277</Id>
+                        <Code>230</Code>
+                        <Name>Каракульское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>278</Id>
+                        <Code>232</Code>
+                        <Name>Караулбазарское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>279</Id>
+                        <Code>240</Code>
+                        <Name>Пешкунское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>280</Id>
+                        <Code>242</Code>
+                        <Name>Ромитанское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>281</Id>
+                        <Code>246</Code>
+                        <Name>Жондоpское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>282</Id>
+                        <Code>258</Code>
+                        <Name>Шафирканское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>283</Id>
+                        <Code>400</Code>
+                        <Name>Бухарское ПТЭС</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>284</Id>
+                        <Code>401</Code>
+                        <Name>Бухарское ГорЭСП</Name>
+                        <Children/>
+                    </Area>
+                </Children>
+            </Area>
+            <Area>
+                <Id>3</Id>
+                <Code>08</Code>
+                <Name>Джизакская область</Name>
+                <Children>
+                    <Title>Район</Title>
+                    <Area>
+                        <Id>285</Id>
+                        <Code>201</Code>
+                        <Name>Арнасайское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>286</Id>
+                        <Code>204</Code>
+                        <Name>Бахмальское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>287</Id>
+                        <Code>209</Code>
+                        <Name>Галляаральское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>288</Id>
+                        <Code>212</Code>
+                        <Name>Джизакское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>289</Id>
+                        <Code>215</Code>
+                        <Name>Дустликское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>290</Id>
+                        <Code>218</Code>
+                        <Name>Зааминское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>291</Id>
+                        <Code>220</Code>
+                        <Name>Зарбдорское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>292</Id>
+                        <Code>223</Code>
+                        <Name>Мирзачульское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>293</Id>
+                        <Code>225</Code>
+                        <Name>Зафарабадское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>294</Id>
+                        <Code>228</Code>
+                        <Name>Пахтакорское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>295</Id>
+                        <Code>235</Code>
+                        <Name>Фаришское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>296</Id>
+                        <Code>237</Code>
+                        <Name>Янгиободское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>297</Id>
+                        <Code>402</Code>
+                        <Name>Джизакское ГорЭСП</Name>
+                        <Children/>
+                    </Area>
+                </Children>
+            </Area>
+            <Area>
+                <Id>7</Id>
+                <Code>18</Code>
+                <Name>Самаркандская область</Name>
+                <Children>
+                    <Title>Район</Title>
+                    <Area>
+                        <Id>358</Id>
+                        <Code>203</Code>
+                        <Name>Акдарьинское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>359</Id>
+                        <Code>206</Code>
+                        <Name>Булунгурское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>360</Id>
+                        <Code>209</Code>
+                        <Name>Джамбайское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>361</Id>
+                        <Code>212</Code>
+                        <Name>Иштыханское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>362</Id>
+                        <Code>214</Code>
+                        <Name>Карадарьинское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>363</Id>
+                        <Code>215</Code>
+                        <Name>Каттакурганское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>364</Id>
+                        <Code>216</Code>
+                        <Name>Кошрабадское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>365</Id>
+                        <Code>218</Code>
+                        <Name>Нарпайское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>366</Id>
+                        <Code>224</Code>
+                        <Name>Пайарыкское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>367</Id>
+                        <Code>225</Code>
+                        <Name>Челекское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>368</Id>
+                        <Code>227</Code>
+                        <Name>Пастдаргомское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>369</Id>
+                        <Code>228</Code>
+                        <Name>Гузалкентское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>370</Id>
+                        <Code>230</Code>
+                        <Name>Пахтачийское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>371</Id>
+                        <Code>233</Code>
+                        <Name>Дустликское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>372</Id>
+                        <Code>234</Code>
+                        <Name>Зарафшанское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>373</Id>
+                        <Code>235</Code>
+                        <Name>Нурабадское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>374</Id>
+                        <Code>236</Code>
+                        <Name>Ургутское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>375</Id>
+                        <Code>237</Code>
+                        <Name>Дехканобадское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>376</Id>
+                        <Code>238</Code>
+                        <Name>Тайлякское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>377</Id>
+                        <Code>400</Code>
+                        <Name>Самаркандское ПТЭС</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>378</Id>
+                        <Code>405</Code>
+                        <Name>Темирйульское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>379</Id>
+                        <Code>407</Code>
+                        <Name>Сиабское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>380</Id>
+                        <Code>408</Code>
+                        <Name>Багишамальское ЭСП</Name>
+                        <Children/>
+                    </Area>
+                </Children>
+            </Area>
+        </AreasList>
+        <Result>
+            <code>OK</code>
+            <Description>Успешно</Description>
+        </Result>
+    </return>
+</ns2:getRegionsListResponse>

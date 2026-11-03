@@ -1,0 +1,44 @@
+@startuml
+
+title UzAvto-Oson **communication** diagram
+
+participant CardHolder
+participant UzAvto
+participant Oson
+participant Uzcard
+participant Munis
+
+== Authorization ==
+
+autonumber
+
+UzAvto ->o Oson: Auth Request (username, password)
+Oson --> UzAvto: Auth Response (token)
+
+== Check Payment ==
+
+autonumber
+
+CardHolder --> UzAvto: Enter card pan and expiry
+
+UzAvto ->o Oson: CheckRequest(pan, expiry, token)
+Oson -> Uzcard: ValidCardRequest(pan)
+Oson <-- Uzcard: ValidCardResponse(OK)
+UzAvto <-- Oson: CheckResponse(tranId)
+
+CardHolder <-- UzAvto: Direct user to sms entry page
+
+== Confirm Payment ==
+autonumber
+
+CardHolder <-- Oson: SendConfirmationCmsCode(code)
+UzAvto <-- CardHolder: Enter sms code and accept (code)
+
+UzAvto ->o Oson: ConfirmationRequest(code, tranId,token)
+Oson -> Uzcard: DebitRequest(pan, amount)
+Oson <-- Uzcard: DebitResponse(OK)
+Oson -> Munis: Inform about payment(???)
+Oson <-- Munis: Payment registered(OK)
+UzAvto <-- Oson: ConfirmationResponse(OK)
+
+@enduml

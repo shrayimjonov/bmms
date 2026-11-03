@@ -1,0 +1,12 @@
+{
+  "ExtId": "Test",
+  "Amount": 77,
+  "Description": "Тестовая операция без формы",
+  "CardInfo": {
+    "CardNumber": "1234123412341234",
+    "CardHolder": "TEST CARDHOLDER",
+    "ExpirationYear": 2020,
+    "ExpirationMonth": 10,
+    "CVV": "123"
+  }
+}

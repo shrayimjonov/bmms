@@ -1,0 +1,33 @@
+{
+    "name": "I18n",
+    "fields": [
+        {
+            "fieldName": "lang",
+            "fieldType": "Lang",
+            "javadoc": "Language",
+            "fieldValues": "UZ,RU,EN",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "text",
+            "fieldType": "String",
+            "javadoc": "Text of translation",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 64
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180719230918",
+    "javadoc": "Языковые Переводы",
+    "entityTableName": "i_18_n",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "bmms",
+    "applications": "*",
+    "microserviceName": "pkbillms",
+    "databaseType": "sql",
+    "enableEntityAudit": false
+}

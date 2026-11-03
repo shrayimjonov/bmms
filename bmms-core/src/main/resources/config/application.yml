@@ -1,0 +1,351 @@
+# ===================================================================
+# Spring Boot configuration.
+#
+# This configuration will be overridden by the Spring profile you use,
+# for example application-dev.yml if you use the "dev" profile.
+#
+# More information on profiles: https://www.jhipster.tech/profiles/
+# More information on configuration properties: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 10000
+
+# See https://github.com/Netflix/Hystrix/wiki/Configuration
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE
+          # See https://github.com/spring-cloud/spring-cloud-netflix/issues/1330
+          # thread:
+          #   timeoutInMilliseconds: 10000
+  shareSecurityContext: true
+
+management:
+  endpoints:
+    web:
+      base-path: /management
+      exposure:
+        include: [ 'configprops', 'env', 'health', 'info', 'jhimetrics', 'logfile', 'loggers', 'prometheus', 'threaddump', 'caches', 'liquibase' ]
+  endpoint:
+    health:
+      show-details: when_authorized
+      roles: 'ROLE_ADMIN'
+      probes:
+        enabled: true
+    jhimetrics:
+      enabled: true
+  info:
+    git:
+      mode: full
+  health:
+    group:
+      liveness:
+        include: livenessState
+      readiness:
+        include: readinessState,datasource
+    mail:
+      enabled: false # When using the MailService, configure an SMTP server and set this to true
+  metrics:
+    export:
+      # Prometheus is the default metrics backend
+      prometheus:
+        enabled: true
+        step: 60
+    enable:
+      http: true
+      jvm: true
+      logback: true
+      process: true
+      system: true
+    distribution:
+      percentiles-histogram:
+        all: true
+      percentiles:
+        all: 0, 0.5, 0.75, 0.95, 0.99, 1.0
+    tags:
+      application: ${spring.application.name}
+    web:
+      server:
+        request:
+          autotime:
+            enabled: true
+
+spring:
+  application:
+    name: bmms
+  cloud:
+    consul:
+      discovery:
+        healthCheckPath: /management/health
+        instanceId: bmms:${spring.application.instance-id:${random.value}}
+        service-name: bmms
+        catalog-services-watch-delay: 5000
+        catalog-services-watch-timeout: 5
+
+      config:
+        watch:
+          enabled: false
+  profiles:
+    # The commented value for `active` can be replaced with valid Spring profiles to load.
+    # Otherwise, it will be filled in by maven when building the JAR file
+    # Either way, it can be overridden by `--spring.profiles.active` value passed in the commandline or `-Dspring.profiles.active` set in `JAVA_OPTS`
+    active: #spring.profiles.active#
+    group:
+      dev:
+        - dev
+        - api-docs
+        # Uncomment to activate TLS for the dev profile
+        #- tls
+  jmx:
+    enabled: false
+  data:
+    jpa:
+      repositories:
+        bootstrap-mode: deferred
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate.jdbc.time_zone: UTC
+      hibernate.id.new_generator_mappings: true
+      hibernate.connection.provider_disables_autocommit: true
+      hibernate.cache.use_second_level_cache: false
+      hibernate.cache.use_query_cache: false
+      hibernate.generate_statistics: false
+      # modify batch size as necessary
+      hibernate.jdbc.batch_size: 25
+      hibernate.order_inserts: true
+      hibernate.order_updates: true
+      hibernate.query.fail_on_pagination_over_collection_fetch: true
+      hibernate.query.in_clause_parameter_padding: true
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+  messages:
+    basename: i18n/messages
+  main:
+    allow-bean-definition-overriding: true
+  task:
+    execution:
+      thread-name-prefix: bmms-task-
+      pool:
+        core-size: 2
+        max-size: 50
+        queue-capacity: 10000
+    scheduling:
+      thread-name-prefix: bmms-scheduling-
+      pool:
+        size: 2
+  thymeleaf:
+    mode: HTML
+  output:
+    ansi:
+      console-available: true
+  liquibase:
+    parameters:
+      relativeToChangelogFile: true
+  security:
+    oauth2:
+      client:
+        provider:
+          oidc:
+            issuer-uri: ${SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI}
+        registration:
+          oidc:
+            client-id: ${SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_ID}
+            client-secret: ${PRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET}
+            scope: openid,profile,email
+
+server:
+  servlet:
+    session:
+      cookie:
+        http-only: true
+
+# Properties to be exposed on the /info management endpoint
+info:
+  # Comma separated list of profiles that will trigger the ribbon to show
+  display-ribbon-on-profiles: 'dev'
+
+# ===================================================================
+# JHipster specific properties
+#
+# Full reference is available at: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+jhipster:
+  clientApp:
+    name: 'bmmsApp'
+  async:
+    core-pool-size: 2
+    max-pool-size: 50
+    queue-capacity: 10000
+    # By default CORS is disabled. Uncomment to enable.
+    #cors:
+    #allowed-origins: "*"
+    #allowed-methods: "*"
+    #allowed-headers: "*"
+    #   exposed-headers: "Authorization,Link,X-Total-Count,X-${jhipster.clientApp.name}-alert,X-${jhipster.clientApp.name}-error,X-${jhipster.clientApp.name}-params"
+    #allow-credentials: true
+    #max-age: 1800
+  mail:
+    from: user@example.com
+  #    swagger:
+  #        default-include-pattern: /api/.*
+  #        title: Bill Master API
+  #        description: Bill Master API Documentation
+  #        version: 0.1.7
+  #        terms-of-service-url:
+  #        contact-name: Javlon Eraliyev
+  #        contact-url: devops.uz
+  #        contact-email: user@example.com
+  #        license:
+  #        license-url:
+  api-docs:
+    default-include-pattern: ${server.servlet.context-path:}/api/.*
+    management-include-pattern: ${server.servlet.context-path:}/management/.*
+    title: Bill Master API
+    description: Bill Master API documentation
+    version: 0.0.1
+    terms-of-service-url:
+    contact-name:
+    contact-url:
+    contact-email:
+    license: ${JHIPSTER_API_DOCS_LICENSE}
+    license-url:
+  security:
+    content-security-policy: "${JHIPSTER_SECURITY_CONTENT_SECURITY_POLICY}"
+    oauth2:
+      audience:
+        - account
+        - api://default
+# ===================================================================
+# Application specific properties
+# Add your own application properties here, see the ApplicationProperties class
+# to have type-safe configuration, like in the JHipsterProperties above
+#
+# More documentation is available at:
+# https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+application:
+  abs:
+    serviceBeanName: absSimulationService
+  simulate-gateway-requests: false
+  paynet:
+    fromFile: true
+    paynetJsonPath: ./paynet.json
+  pcRegex:
+    UZCARD:
+      pan: "8600\\d{12}"
+      token: "${APPLICATION_PCREGEX_UZCARD_TOKEN}"
+    HUMO:
+      pan: "(9860\\d{12})|(555536\\d{10})"
+      token: "${APPLICATION_PCREGEX_HUMO_TOKEN}"
+    VISA:
+      pan: "(460294|490957)\\d{10}"
+      token: "${APPLICATION_PCREGEX_VISA_TOKEN}"
+
+bm-upay:
+  adapter.impl: V2
+  simulate: true
+  token: ${BM_UPAY_TOKEN}
+  authPassword: 123
+  authUserName: 123
+  serverUrl: ${BM_UPAY_SERVERURL}
+
+paynet:
+  simulation: true
+  baseUrl: ${PAYNET_BASEURL}
+  username: ${USERNAME}
+  password: ${PAYNET_PASSWORD}
+  terminalId: ${TERMINALID}
+  requireServiceId: true
+
+svgate:
+  host: ${SVGATE_HOST}
+  impl: simulation
+  rootPath: /api/jsonrpc
+  username: ${USERNAME}
+  password: 1
+  connectTimeout: 30000
+  connectionRequestTimeout: 30000
+  readTimeout: 15000
+  panPattern: 8600\d{12}|[1]{16}|1234567890123456|[0]{16}|1234567890123457|1212121212121212|9989989989989989
+  banks.[111111]:
+    name: Test Bank
+    cardBin: 111111
+    p2p: true
+    merchantId: ${MERCHANTID}
+    terminalId: ${TERMINALID}
+    port: 0
+    commission: 1
+
+pusher:
+  host: ${PUSHER_HOST}
+  login: ${PUSHER_LOGIN}
+  password: 123
+
+card-suite-tieto:
+  autoConfig: true
+  defaultGroupC: 01
+  defaultBankC: 09
+  simulate: true
+  tieto:
+    default:
+      name: card-suite-tieto
+      wsdlAddress: ${CARD_SUITE_TIETO_TIETO_DEFAULT_WSDLADDRESS}
+      portName: Issuing
+      username: ${USERNAME}
+      password: ${CARD_SUITE_TIETO_TIETO_DEFAULT_PASSWORD}
+
+davr-munis:
+  name: davr-munis
+  #    endpointUrl:  http://127.0.0.1:8080
+  url: ${DAVR_MUNIS_URL}
+  simulate: true
+
+entity-state-ui:
+  #  name: entity-state-ui-sample
+  simulate: false
+  packageNames:
+    - uz.devops.bmcore.enumeration
+    - uz.paykap
+    - uz.devops
+
+keycloak-admin:
+  server-url: ${KEYCLOAK_ADMIN_SERVER_URL}
+  realm: ${REALM}
+  clientId: ${KEYCLOAK_ADMIN_CLIENTID}
+  clientSecret: ${KEYCLOAK_ADMIN_CLIENTSECRET}
+  username: ${USERNAME}
+  password: ${KEYCLOAK_ADMIN_PASSWORD}
+  resource: false
+
+rateService:
+  impl: cbuRateService
+
+bm-payme:
+  webSocketClientUsername: user
+  webSocketClientPassword: ${BM_PAYME_WEBSOCKETCLIENTPASSWORD}
+  paymeSenderSimulate: false
+  webSocketClientUrl: ${BM_PAYME_WEBSOCKETCLIENTURL}
+
+ofd-feign:
+  ofdms-url: ${OFD_FEIGN_OFDMS_URL}

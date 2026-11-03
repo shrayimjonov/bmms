@@ -1,0 +1,36 @@
+<form (ngSubmit)="submit()">
+  <div class="d-flex mb-2" *ngFor="let group of array.controls; let idx = index" [formGroup]="convertGroup(group)">
+    <div style="width: 45%">
+      <nz-select nzSize="large" formControlName="label" id="label-{{ idx }}" [nzOptionOverflowSize]="15">
+        <nz-option *ngFor="let key of keys" [nzLabel]="key" [nzValue]="key" [nzHide]="isUsed(key)"></nz-option>
+      </nz-select>
+    </div>
+    <div class="ml-2" style="width: 45%">
+      <ng-template [ngIf]="true">
+        <nz-input-group [nzSuffix]="suffixTemplate" nzSize="large">
+          <input nz-input formControlName="name" />
+        </nz-input-group>
+      </ng-template>
+
+      <ng-template #suffixTemplate>
+        <button
+          type="button"
+          nz-button
+          nzSize="small"
+          (click)="openExpressionChecker(group.get('name')?.value)"
+          *ngIf="group.get('label')?.value === prop.EPOS_EX"
+        >
+          <i nz-icon nzType="check" class="icon-btn"></i>
+        </button>
+      </ng-template>
+    </div>
+    <div class="ml-2" style="width: 10%">
+      <button class="w-100" type="button" nz-button nzDanger nzSize="large" (click)="remove(idx)" [hidden]="canPush(idx)">
+        <i class="icon-btn" nz-icon nzType="minus"></i>
+      </button>
+      <button class="w-100" nz-button nzType="primary" nzSize="large" type="submit" [disabled]="group.invalid" [hidden]="!canPush(idx)">
+        <i class="icon-btn" nz-icon nzType="plus"></i>
+      </button>
+    </div>
+  </div>
+</form>

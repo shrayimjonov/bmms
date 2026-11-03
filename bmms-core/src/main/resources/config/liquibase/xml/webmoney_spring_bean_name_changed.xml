@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added the constraints for entity Deposit.
+    -->
+    <changeSet id="webmoney_bean_name_changed" author="saahon">
+        <update tableName="gateway">
+            <column name="spring_bean_name" value="webmoneyDebitGatewayService" />
+            <where>name = 'webmoneyWMZGateway'</where>
+        </update>
+
+        <update tableName="gateway">
+            <column name="spring_bean_name" value="webmoneyDebitGatewayService" />
+            <where>name = 'webmoneyWMYGateway'</where>
+        </update>
+    </changeSet>
+</databaseChangeLog>

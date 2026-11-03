@@ -1,0 +1,13 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsCashBack": {
+      "id": "ID",
+      "bankCommission": "Комиссия банка",
+      "clientCommission": "Комиссия клиента",
+      "name": "Название",
+      "type": "Тип",
+      "status": "Статус",
+      "deleted": "Кэш бэк успешно удален"
+    }
+  }
+}

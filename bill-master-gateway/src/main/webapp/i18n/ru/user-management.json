@@ -1,0 +1,40 @@
+{
+  "userManagement": {
+    "home": {
+      "title": "Пользователи",
+      "createLabel": "Создать нового пользователя",
+      "createOrEditLabel": "Создать или отредактировать пользователя",
+      "notFound": "Пользователи не найдены"
+    },
+    "created": "Новый пользователь создан с идентификатором {{ param }}",
+    "updated": "Пользователь с идентификатором {{ param }} обновлен",
+    "deleted": "Пользователь с идентификатором {{ param }} удален",
+    "delete": {
+      "question": "Вы уверены, что хотите удалить пользователя {{ login }}?"
+    },
+    "detail": {
+      "title": "Пользователь"
+    },
+    "createAuthority": "Создать роли",
+    "login": "Логин",
+    "firstName": "Имя",
+    "lastName": "Фамилия",
+    "email": "Email",
+    "activated": "Активен",
+    "deactivated": "Неактивен",
+    "popconfirmTitle": "Вы хотите <strong>{{userName}}</strong> сделать активным?",
+    "deactivatedTitle": "Вы действительно хотите выключить этого пользователя?",
+    "activatedTitle": "Вы действительно хотите активировать этого пользователя?",
+    "profiles": "Профили",
+    "langKey": "Язык",
+    "createdBy": "Создал",
+    "createdDate": "Дата создания",
+    "lastModifiedBy": "Изменено",
+    "lastModifiedDate": "Дата изменения",
+    "password": "Пароль",
+    "phoneNumber": "Номер телефона",
+    "profilePhoto": "Фото профиля",
+    "loadProfilePhoto": "Загрузить фото профиля",
+    "temporary": "Временный пароль"
+  }
+}

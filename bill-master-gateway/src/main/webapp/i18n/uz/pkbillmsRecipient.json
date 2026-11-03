@@ -1,0 +1,85 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsRecipient": {
+      "home": {
+        "title": "Qabul qiluvchilar",
+        "createLabel": "Yangi qabul qiluvchi qo`shish",
+        "createOrEditLabel": "Qabul qiluvchini tahrirlash",
+        "notFound": "Xech qanday qabul qiluvchi topilmadi"
+      },
+      "delete": {
+        "question": "{{ id }}- Qabul qiluvchini o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "Recipient"
+      },
+      "shortNameChangeNote": "Изменение этого поля может повлиять на отчетность",
+      "shortName": "Qisqa nomi",
+      "serviceId": "Servis Id",
+      "thumbnail": "Eskiz",
+      "logo": "Logo",
+      "login": "Login",
+      "amountRatio": "Miqdor nisbati",
+      "ccy": "Valyuta",
+      "minAmount": "Min. limit",
+      "maxAmount": "Maks. limit",
+      "limitRatio": "Limit nisbati",
+      "commission": "Kommissiya",
+      "fee": "Maosh",
+      "systemCommission": "Tizim haqi",
+      "systemFee": "Tizim maoshi",
+      "senderCommission": "Jo'natuvchi haqi",
+      "ord": "Tartib",
+      "active": "Aktiv",
+      "check": "Tekchiruv",
+      "pay": "To'lov",
+      "status": "Status",
+      "cancel": "Qaytarmoq",
+      "canDeposit": "Depozit",
+      "eposPort": "Epos Port",
+      "eposMerchant": "Epos Hamkor",
+      "eposTerminal": "Epos Terminal",
+      "settlementAccount": "Hisob raqami",
+      "type": "Turi",
+      "mfo": "Mfo",
+      "inn": "Inn",
+      "reconcile": "Tasdiqlash",
+      "gateway": "Gateway",
+      "category": "Kategoriya",
+      "title": "Sarlavha",
+      "fullName": "To'liq nomi",
+      "phoneNumber": "Telefon raqami",
+      "help": {
+        "login": "Login",
+        "shortName": "Уникальное название в шлюзе",
+        "serviceId": "Service id, for inner business logic",
+        "thumbnail": "Thumbnail file path or url",
+        "logo": "Logo file path or url",
+        "amountRatio": "Использумая разрядность суммы в шлюзе получателя, 1 - сум, 100 - тийин",
+        "ccy": "Валюта получателя",
+        "minAmount": "Минимальная сумма платежа, разрядность зависит от recipient.limitRatio",
+        "maxAmount": "Максимальная сумма платежа, разрядность зависит от recipient.limitRatio",
+        "limitRatio": "Разрядность макс. и мин. суммы платежа",
+        "commission": "Комиссия получателя",
+        "fee": "Вознаграждение получателя",
+        "systemCommission": "Комиссия системы от получателя",
+        "systemFee": "Вознаграждение системы от получателя",
+        "senderCommission": "Вознаграждение поставшику (если участвует как отправитель средств)",
+        "ord": "Display order",
+        "eposPort": "Параметр Port для соединения с SvGate",
+        "eposMerchant": "Параметр Merchant Id для соединения с SvGate",
+        "eposTerminal": "Параметр Terminal Id для соединения с SvGate",
+        "settlementAccount": "Расчетный счет поставщика",
+        "mfo": "МФО счет поставщика",
+        "inn": "Инн счет поставщика"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsRecipient": {
+      "created": "Recipient {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- Recipient saqlandi",
+      "deleted": "{{ param }}- Recipient o`chirildi"
+    }
+  }
+}

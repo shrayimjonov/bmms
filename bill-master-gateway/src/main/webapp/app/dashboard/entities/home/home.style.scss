@@ -1,0 +1,57 @@
+@import 'src/main/webapp/content/scss/bootstrap-variables';
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.widget-container {
+  height: 18rem;
+  min-height: 18rem;
+  max-height: 18rem;
+}
+
+.counter {
+  padding: 15px 0;
+  font-size: 45px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.percent {
+  color: #80ba55;
+  font-weight: bold;
+  margin-top: 1.25rem;
+  margin-bottom: 0;
+}
+
+//.percent_status {
+//  border: 1px solid #80ba55;
+//  background-color: #80ba55;
+//  width: 100%;
+//  height: 12px;
+//  margin: auto auto 0;
+//  border-radius: 0 0 $border-radius $border-radius;
+//  align-items: center;
+//}
+
+//.top-item-content {
+//  padding: 0 56px;
+//  margin-bottom: 1.5rem;
+//  overflow: auto;
+//
+//  &::-webkit-scrollbar {
+//    display: none;
+//  }
+//}
+
+//.top-item-counter {
+//  min-width: 22px !important;
+//  height: 22px !important;
+//  line-height: 22px;
+//  text-align: center;
+//  background-color: $primary;
+//  border-radius: 50%;
+//  color: white;
+//  font-size: 11px;
+//}

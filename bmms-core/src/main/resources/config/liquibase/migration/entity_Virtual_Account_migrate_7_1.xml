@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Entity VirtualAccount migrate to 7.1 jhipster
+    -->
+    <changeSet id="entity_Virtual_Account_migrate-1" author="zafar">
+        <!--
+            Rename column jhi_uid
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="virtual_account"
+                          columnName="jhi_uid"/>
+        </preConditions>
+
+        <comment>Rename column jhi_uid</comment>
+
+        <renameColumn tableName="virtual_account" oldColumnName="jhi_uid" newColumnName="uid"/>
+    </changeSet>
+
+    <changeSet id="entity_Virtual_Account_migrate-2" author="zafar">
+        <!--
+            Rename column jhi_mode
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="virtual_account"
+                          columnName="jhi_mode"/>
+        </preConditions>
+
+        <comment>Rename column jhi_mode</comment>
+
+        <renameColumn tableName="virtual_account" oldColumnName="jhi_mode" newColumnName="mode"/>
+    </changeSet>
+
+    <changeSet id="entity_Virtual_Account_migrate-3" author="zafar">
+        <!--
+          Add column created_by
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="virtual_account"
+                              columnName="created_by"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column created_by</comment>
+
+        <addColumn tableName="virtual_account">
+            <column name="created_by" type="varchar(50)" defaultValue="system">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_Virtual_Account_migrate-4" author="zafar">
+        <!--
+           Add column created_date
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="virtual_account"
+                              columnName="created_date"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column created_date</comment>
+
+        <addColumn tableName="virtual_account">
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_Virtual_Account_migrate-5" author="zafar">
+        <!--
+          Add column last_modified_by
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="virtual_account"
+                              columnName="last_modified_by"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column last_modified_by</comment>
+
+        <addColumn tableName="virtual_account">
+            <column name="last_modified_by" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_Virtual_Account_migrate-6" author="zafar">
+        <!--
+         Add column last_modified_date
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="virtual_account"
+                              columnName="last_modified_date"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column last_modified_date</comment>
+
+        <addColumn tableName="virtual_account">
+            <column name="last_modified_date" type="timestamp"/>
+        </addColumn>
+
+    </changeSet>
+</databaseChangeLog>

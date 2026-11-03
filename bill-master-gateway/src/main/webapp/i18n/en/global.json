@@ -1,0 +1,367 @@
+{
+  "global": {
+    "title": "Bill Master",
+    "browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
+    "uploadFile": "Upload file",
+    "file": "File",
+    "key": "Key",
+    "value": "Value",
+    "request": "Request",
+    "response": "Response",
+    "entity-view": "View {{id}}",
+    "not-show-role": "You do not have access to view",
+    "showJson": "Show JSON",
+    "paymentCheckout": "Payment checkout",
+    "data": {
+      "saved": "Data was successfully saved",
+      "notSaved": "Data was not saved",
+      "updated": "Data was successfully updated",
+      "notUpdated": "Data was not updated",
+      "notFound": "Data not found"
+    },
+    "size": {
+      "default": "default",
+      "small": "small",
+      "medium": "medium",
+      "large": "large"
+    },
+    "langKey": {
+      "uz": "O`zbekcha",
+      "ru": "Русский",
+      "en": "English"
+    },
+    "amountRatio": {
+      "null": "null",
+      "1": "Sum",
+      "100": "Tiyin"
+    },
+    "action": {
+      "all": "All",
+      "today": "Today",
+      "week": "Week",
+      "month": "Month",
+      "totalItems": "Total items: ",
+      "itemsPerPage": "Items Per Page"
+    },
+    "boolean": {
+      "": "No",
+      "undefined": "No",
+      "null": "No",
+      "true": "Yes",
+      "false": "No"
+    },
+    "success": {
+      "true": "Success",
+      "false": "Failed"
+    },
+    "active": {
+      "true": "Activated",
+      "false": "Deactivated"
+    },
+    "block": {
+      "true": "Blocked",
+      "false": "Unblocked"
+    },
+    "limit": {
+      "true": "Limited",
+      "false": "Unlimited"
+    },
+    "question": {
+      "delete": "Do you want to delete this element?"
+    },
+    "adapter": {
+      "title": "Adapters",
+      "sync": {
+        "success": "Adapter sync was successful",
+        "error": "Adapter sync error"
+      },
+      "notFound": "No adapters found, please try again",
+      "historyNotFound": "History not found",
+      "history": "History for <strong>{{ adapterName }}</strong>"
+    },
+    "menu": {
+      "home": "Home",
+      "language": "Language",
+      "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
+      "entities": {
+        "main": "Entities",
+        "userManagement": "User management",
+        "payment": "Payment",
+        "cashBack": "Cashback",
+        "pkbillmsTransaction": "Transactions",
+        "pkuaaGroup": "Groups",
+        "pkuaaAuthority": "Roles",
+        "pkbillmsAgent": "Agents",
+        "pkbillmsAgentDeposit": "My deposit",
+        "pkbillmsCategory": "Categories",
+        "pkbillmsField": "Fields",
+        "pkbillmsRecipient": "Recipients",
+        "pkbillmsGateway": "Gateways",
+        "pkbillmsPrefix": "Prefixes",
+        "pkbillmsFieldValue": "Field Values",
+        "pkbillmsBill": "Bills",
+        "pkbillmsGatewayParam": "Gateway Params",
+        "reportmsReport": "Reports",
+        "pkbillmsSetting": "Recipient settings",
+        "pkbillmsP2PCommission": "Commission",
+        "pkbillmsP2PCondition": "Condition",
+        "pkbillmsP2PAgentParam": "Agent Param",
+        "pkbillmsP2PParam": "Param",
+        "pkbillmsResponseField": "Response Field",
+        "pkbillmsRedoc": "Redoc",
+        "p2p": "P2P",
+        "recipient": "Service Recipients",
+        "serviceSettings": "Service Settings",
+        "pkbillmsBookkeepingTransaction": "Bookkeeping transactions",
+        "pkbillmsReconcileSummary": "Reconciliation of payments",
+        "reconcileTerminal": "Reconcile by terminal",
+        "reconcileP2P": "Reconcile by P2P",
+        "pkbillmsRecipientGroup": "Recipient Group",
+        "pkbillmsAgentRecipient": "Agent Recipient",
+        "pkbillmsDepositTransaction": "Deposit Transaction",
+        "pkbillmsDeposit": "Deposit",
+        "pkbillmsBookkeepingTemplate": "Bookkeeping template",
+        "pkbillmsReconcileDiscrepancy": "Reconcile Discrepancy",
+        "bmmsRecipientFileSchema": "Recipient File Schema",
+        "jsonForm": "Json Form",
+        "bmmsTransaction": "Transaction",
+        "bmmsCurrency": "Currency",
+        "pkbillmsPcBin": "Card bins",
+        "faqCategory": "Category",
+        "faq": "FAQ",
+        "help": "Help",
+        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+      },
+      "account": {
+        "main": "Account",
+        "mainSettings": "Main settings",
+        "changePassword": "Change password",
+        "otherSettings": "Other settings",
+        "settings": "Settings",
+        "password": "Password",
+        "sessions": "Sessions",
+        "login": "Sign in",
+        "logout": "Sign out",
+        "register": "Register"
+      },
+      "admin": {
+        "main": "Administration",
+        "gateway": "Gateway",
+        "userManagement": "Users",
+        "profile": "Profile",
+        "tracker": "User tracker",
+        "metrics": "Metrics",
+        "health": "Health",
+        "configuration": "Configuration",
+        "logs": "Logs",
+        "audits": "Audits",
+        "cashBack": "Cash Back",
+        "apidocs": "API",
+        "database": "Database",
+        "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
+      },
+      "submenu": {
+        "agent": {
+          "main": "Agent",
+          "agents": "Agents",
+          "deposits": "Deposits",
+          "depositOperations": "Deposit transactions"
+        },
+        "gateway": {
+          "main": "Gateway",
+          "gateways": "Gateways",
+          "bills": "Bills",
+          "params": "Params"
+        },
+        "recipient": {
+          "main": "Recipient",
+          "categories": "Categories",
+          "available": "Agent recipients",
+          "groups": "Groups",
+          "settings": "Settings",
+          "schemas": "Schemas"
+        },
+        "field": {
+          "main": "Field",
+          "fields": "Recipient fields",
+          "responseFields": "Response fields",
+          "values": "Values",
+          "prefixes": "Prefixes"
+        },
+        "bookkeeping": {
+          "main": "Bookkeeping",
+          "operations": "Bookkeeping transactions",
+          "templates": "Templates"
+        },
+        "other": {
+          "main": "Other",
+          "adapters": "Adapters",
+          "currencies": "Currencies",
+          "api": "API"
+        }
+      },
+      "reconcile": {
+        "main": "Reconcile",
+        "PAYMENT": "By payments",
+        "TERMINAL": "By terminals",
+        "P2P": "By P2P"
+      }
+    },
+    "form": {
+      "username.label": "Username",
+      "username.placeholder": "Your username",
+      "currentpassword.label": "Current password",
+      "currentpassword.placeholder": "Current password",
+      "newpassword.label": "New password",
+      "newpassword.placeholder": "New password",
+      "confirmpassword.label": "New password confirmation",
+      "confirmpassword.placeholder": "Confirm the new password",
+      "email.label": "Email",
+      "email.placeholder": "Your email",
+      "file.placeholder": "Choose file",
+      "search.placeholder": "Search...",
+      "date.placeholder": "Select date"
+    },
+    "messages": {
+      "info": {
+        "authenticated": {
+          "prefix": "If you want to ",
+          "link": "sign in",
+          "suffix": ", you can try the default accounts:<br/>- Administrator (login=\"admin\" and password=\"admin\") <br/>- User (login=\"user\" and password=\"user\")."
+        },
+        "register": {
+          "noaccount": "You don't have an account yet?",
+          "link": "Register a new account"
+        }
+      },
+      "error": {
+        "dontmatch": "The password and its confirmation do not match!"
+      },
+      "validate": {
+        "newpassword": {
+          "required": "Your password is required.",
+          "minlength": "Your password is required to be at least 4 characters.",
+          "maxlength": "Your password cannot be longer than 50 characters.",
+          "strength": "Password strength:"
+        },
+        "confirmpassword": {
+          "required": "Your confirmation password is required.",
+          "minlength": "Your confirmation password is required to be at least 4 characters.",
+          "maxlength": "Your confirmation password cannot be longer than 50 characters."
+        },
+        "email": {
+          "required": "Your email is required.",
+          "invalid": "Your email is invalid.",
+          "minlength": "Your email is required to be at least 5 characters.",
+          "maxlength": "Your email cannot be longer than 50 characters."
+        }
+      }
+    },
+    "field": {
+      "id": "ID",
+      "password": "Password",
+      "name": "Name",
+      "startDate": "Start date",
+      "endDate": "End date",
+      "fromDate": "From date",
+      "toDate": "To date",
+      "account": "Account",
+      "service": "Service",
+      "amount": "Amount",
+      "success": "Success",
+      "date": "Date",
+      "status": "Status",
+      "bill": "Bill",
+      "currency": "Currency",
+      "type": "Type"
+    },
+    "ribbon": {
+      "dev": "Development"
+    },
+    "totalItems": "Total items {{totalItems}}",
+    "itemsPerPage": "items per page",
+    "item-count": "Showing {{first}} - {{second}} of {{total}} items.",
+    "version": "Version: {{version}}"
+  },
+  "entity": {
+    "action": {
+      "addblob": "Add blob",
+      "addimage": "Add image",
+      "back": "Back",
+      "cancel": "Cancel",
+      "close": "Close",
+      "delete": "Delete",
+      "filter": "Filter",
+      "edit": "Edit",
+      "open": "Open",
+      "save": "Save",
+      "view": "View",
+      "add": "Add",
+      "fill": "Replenish",
+      "search": "Search",
+      "pay": "Pay",
+      "sync": "Sync",
+      "history": "History",
+      "uploadFile": "Upload file",
+      "download": "Download",
+      "clear": "Clear",
+      "test": "Test",
+      "confirm": "Confirm",
+      "duplicate": "Duplicate"
+    },
+    "detail": {
+      "field": "Field",
+      "value": "Value"
+    },
+    "delete": {
+      "title": "Confirm delete operation"
+    },
+    "validation": {
+      "required": "This field is required.",
+      "minlength": "This field is required to be at least <strong>{{ min }}</strong> characters.",
+      "maxlength": "This field cannot be longer than <strong>{{ max }}</strong> characters.",
+      "min": "This field should be at least <strong>{{ min }}</strong>.",
+      "max": "This field cannot be more than <strong>{{ max }}</strong>.",
+      "minbytes": "This field should be at least <strong>{{ min }}</strong> bytes.",
+      "maxbytes": "This field cannot be more than <strong>{{ max }}</strong> bytes.",
+      "pattern": "This field should follow pattern for <strong>{{ pattern }}</strong>.",
+      "number": "This field should be a number.",
+      "datetimelocal": "This field should be a date and time.",
+      "patternLogin": "This field can only contain letters, digits and e-mail addresses.",
+      "notFilled": "You did not fill the required fields",
+      "payment.not.possible": "Payment is not possible with this card"
+    }
+  },
+  "error": {
+    "internalServerError": "Internal server error",
+    "server.not.reachable": "Server not reachable",
+    "url.not.found": "Not found",
+    "NotNull": "Field {{ fieldName }} cannot be empty!",
+    "Size": "Field {{ fieldName }} does not meet min/max size requirements!",
+    "userexists": "Login name already used!",
+    "emailexists": "Email is already in use!",
+    "idexists": "A new {{ entityName }} cannot already have an ID",
+    "idnull": "Invalid ID",
+    "file": {
+      "could.not.extract": "Could not extract file",
+      "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
+    }
+  },
+  "footer": "This is your footer",
+  "download": {
+    "excel": "Export as Excel",
+    "onePage": "One Page",
+    "all": "All Page",
+    "custom": "Manually input",
+    "confirm": {
+      "modal": {
+        "title": "Excel export",
+        "message": "This process can take a long time and loads the base. Do you want to carry out this process ?",
+        "totalItems": "Total items"
+      }
+    }
+  },
+  "tooltip": {
+    "message": "Must be only in English"
+  }
+}

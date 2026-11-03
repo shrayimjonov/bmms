@@ -1,0 +1,53 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsAgent": {
+      "home": {
+        "title": "Agentlar",
+        "createOrEditLabel": "Agentni tahrirlash",
+        "createLabel": "Yangi agent yaratish"
+      },
+      "delete": {
+        "question": "{{ id }}- Agentni o`chirmoqchimisiz?"
+      },
+      "detail": {
+        "title": "Agent haqida ma'lumot"
+      },
+      "shortName": "Qisqa Nomi",
+      "amountRatio": "Summa nisbati",
+      "apiKey": "Api Kaliti",
+      "currencies": "Valyutalar",
+      "ipAddresses": "Ip-Manzillar",
+      "logo": "Logo",
+      "login": "Login",
+      "ord": "Tartib",
+      "oneHundred": "100 (tiyin)",
+      "one": "1 (so'm)",
+      "value": "Ma'no",
+      "active": "Faollik",
+      "phoneNumber": "Telefon Raqami",
+      "inn": "INN",
+      "orgName": "Org Nomi",
+      "title": "Sarlavha",
+      "titles": "Sarlavhalar",
+      "deposit": "Depozit",
+      "help": {
+        "shortName": "Qisqa nomi namoyon UI",
+        "amountRatio": "Доля суммы, 1 - сум, 100 - тийин",
+        "apiKey": "Agent&#39;s api key, keladi so'rov uchun shaxsiy biri",
+        "currencies": "Валюта разрешенных запросов",
+        "ipAddresses": "Ip manzillar uchun filtrlash",
+        "logo": "Logo fayl yo'lini yoki url",
+        "login": "Login",
+        "ord": "Tartibi",
+        "inn": "Soliq raqami (INN, QQS) to'lovchi shaxs. qarang : https://en.wikipedia.org/wiki/VAT_identification_number"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsAgent": {
+      "created": "Agent {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- Agent saqlandi",
+      "deleted": "{{ param }}- Agent o`chirildi"
+    }
+  }
+}

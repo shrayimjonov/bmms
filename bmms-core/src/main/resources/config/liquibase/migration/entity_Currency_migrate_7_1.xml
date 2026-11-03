@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Entity Currency migrate to 7.1 jhipster
+    -->
+    <changeSet id="entity_Currency_migrate-1" author="zafar">
+
+        <!--
+         Rename column jhi_date
+         -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="currency"
+                          columnName="jhi_date"/>
+        </preConditions>
+
+        <comment>Rename column jhi_date</comment>
+
+        <renameColumn tableName="currency" oldColumnName="jhi_date" newColumnName="date"/>
+
+    </changeSet>
+
+    <changeSet id="entity_Currency_migrate-2" author="zafar">
+
+    <!--
+         Add column buy_rate
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="currency"
+                              columnName="buy_rate"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column buy_rate</comment>
+
+        <addColumn tableName="currency">
+            <column name="buy_rate" type="decimal(10,2)" remarks="Курс покупки">
+                <constraints nullable="true" />
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_Currency_migrate-3" author="zafar">
+        <!--
+       Add column sell_rate
+      -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="currency"
+                              columnName="sell_rate"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column sell_rate</comment>
+
+        <addColumn tableName="currency">
+            <column name="sell_rate" type="decimal(10,2)" remarks="Курс продажи">
+                <constraints nullable="true" />
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_Currency_migrate-4" author="zafar">
+
+        <!--
+          Add column created_by
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="currency"
+                              columnName="created_by"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column created_by</comment>
+
+        <addColumn tableName="currency">
+            <column name="created_by" type="varchar(50)" defaultValue="system">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_Currency_migrate-5" author="zafar">
+        <!--
+           Add column created_date
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="currency"
+                              columnName="created_date"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column created_date</comment>
+
+        <addColumn tableName="currency">
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_Currency_migrate-6" author="zafar">
+        <!--
+          Add column last_modified_by
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="currency"
+                              columnName="last_modified_by"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column last_modified_by</comment>
+
+        <addColumn tableName="currency">
+            <column name="last_modified_by" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_Currency_migrate-7" author="zafar">
+        <!--
+         Add column last_modified_date
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="currency"
+                              columnName="last_modified_date"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column last_modified_date</comment>
+
+        <addColumn tableName="currency">
+            <column name="last_modified_date" type="timestamp"/>
+        </addColumn>
+
+    </changeSet>
+</databaseChangeLog>

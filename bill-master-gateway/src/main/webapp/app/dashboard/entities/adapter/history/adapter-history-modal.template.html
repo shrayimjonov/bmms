@@ -1,0 +1,49 @@
+<div>
+  <div class="modal-header border-bottom-0 pb-0">
+    <h5 class="modal-title" jhiTranslate="global.adapter.history"
+        [translateValues]="{adapterName: adapterName}">{{ adapterName }}</h5>
+
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            (click)="close()">&times;
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <nz-list nzBordered nzSize="small">
+      <nz-list-item>
+        <span class="font-weight-bold" jhiTranslate="global.field.name">Name</span>
+        <span class="badge badge-info">{{ history.name }}</span>
+      </nz-list-item>
+      <nz-list-item>
+        <span class="font-weight-bold" jhiTranslate="userManagement.createdBy">Created By</span>
+        <span>{{ history.creator }}</span>
+      </nz-list-item>
+      <nz-list-item>
+        <span class="font-weight-bold" jhiTranslate="userManagement.createdDate">Created Date</span>
+        <span>{{ history.createdTime | date: 'dd.MM.yyyy HH:mm' }}</span>
+      </nz-list-item>
+      <nz-list-item>
+        <span class="font-weight-bold" jhiTranslate="userManagement.lastModifiedBy">Last Modified By</span>
+        <span>{{ history.modifiedBy }}</span>
+      </nz-list-item>
+      <nz-list-item>
+        <span class="font-weight-bold" jhiTranslate="userManagement.lastModifiedDate">Last Modified Date</span>
+        <span>{{ history.modifiedTime | date: 'dd.MM.yyyy HH:mm' }}</span>
+      </nz-list-item>
+      <nz-list-item>
+        <span class="font-weight-bold" jhiTranslate="global.field.startDate">Start Date</span>
+        <span>{{ details['startDate'] | date: 'dd.MM.yyyy HH:mm:ss' }}</span>
+      </nz-list-item>
+      <nz-list-item>
+        <span class="font-weight-bold" jhiTranslate="global.field.endDate">End Date</span>
+        <span>{{ details['endDate'] | date: 'dd.MM.yyyy HH:mm:ss' }}</span>
+      </nz-list-item>
+    </nz-list>
+  </div>
+
+  <div class="modal-footer border-top-0 pt-0">
+    <button type="button" nz-button nzSize="large" jhiTranslate="entity.action.back" (click)="close()">
+      Back
+    </button>
+  </div>
+</div>

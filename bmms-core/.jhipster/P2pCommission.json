@@ -1,0 +1,55 @@
+{
+  "name": "P2pCommission",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "javadoc": "Наименование",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "up",
+      "fieldType": "Double",
+      "javadoc": "Комиссия сверху суммы",
+      "fieldValidateRules": ["min", "max"],
+      "fieldValidateRulesMin": "0",
+      "fieldValidateRulesMax": "100"
+    },
+    {
+      "fieldName": "down",
+      "fieldType": "Double",
+      "javadoc": "Комиссия с суммы",
+      "fieldValidateRules": ["min", "max"],
+      "fieldValidateRulesMin": "0",
+      "fieldValidateRulesMax": "100"
+    },
+    {
+      "fieldName": "fee",
+      "fieldType": "Double",
+      "javadoc": "Вознаграждение",
+      "fieldValidateRules": ["min", "max"],
+      "fieldValidateRulesMin": "0",
+      "fieldValidateRulesMax": "100"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "javadoc": "Описание"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20210113143542",
+  "entityTableName": "p_2_p_commission",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "bmms",
+  "applications": "*",
+  "microserviceName": "pkbillms",
+  "enableEntityAudit": true,
+  "databaseType": "sql"
+}

@@ -1,0 +1,42 @@
+{
+  "name": "GroupSetting",
+  "fields": [
+    {
+      "fieldName": "requestGroup",
+      "javadoc": "Группа - clearingNumber of terminal",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": 64
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "relationshipName": "settingType",
+      "otherEntityName": "settingType",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "relationshipValidateRules": "required",
+      "otherEntityRelationshipName": "",
+      "relationshipName": "prop",
+      "otherEntityName": "settingProperty",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20190403230920",
+  "javadoc": "Тип настройки",
+  "entityTableName": "group_setting",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "clientRootFolder": "bmms",
+  "applications": "*",
+  "microserviceName": "pkbillms",
+  "enableEntityAudit": true,
+  "databaseType": "sql"
+}

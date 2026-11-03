@@ -1,0 +1,264 @@
+<form [formGroup]="editForm" (ngSubmit)="save()">
+  <div class="modal-header">
+    <h4 class="modal-title" jhiTranslate="billMasterGwApp.pkbillmsTransaction.home.createOrEditLabel">Create Or Edit Label</h4>
+
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="close()">&times;</button>
+  </div>
+
+  <div class="modal-body">
+    <bm-alert></bm-alert>
+
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsRecipient.category"></label>
+        <input nz-input nzSize="large" formControlName="category" input-validator />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.promo">Promo</label>
+        <input nz-input nzSize="large" formControlName="promo" input-validator />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.requestAmount" for="field_requestAmount"></label>
+        <input type="number" nz-input nzSize="large" formControlName="requestAmount" id="field_requestAmount" input-validator />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.requestCcy"></label>
+        <input type="number" nz-input nzSize="large" formControlName="requestCcy" input-validator />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.senderServiceId"></label>
+        <input type="number" nz-input nzSize="large" formControlName="senderServiceId" input-validator />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.senderCcy"></label>
+        <input type="number" nz-input nzSize="large" formControlName="senderCcy" input-validator />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.senderAmount"></label>
+        <input type="number" nz-input nzSize="large" formControlName="senderAmount" input-validator />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.senderBillId"></label>
+        <input type="number" nz-input nzSize="large" formControlName="senderBillId" input-validator />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.gatewayAmount"></label>
+        <input type="number" nz-input nzSize="large" formControlName="gatewayAmount" input-validator />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.recipientServiceId"></label>
+        <input type="number" nz-input nzSize="large" formControlName="recipientServiceId" input-validator />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.recipientAmount"></label>
+        <input type="number" nz-input nzSize="large" formControlName="recipientAmount" input-validator />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.recipientCcy"></label>
+        <input type="number" nz-input nzSize="large" formControlName="recipientCcy" input-validator />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.recipientBillId"></label>
+        <input type="number" nz-input nzSize="large" formControlName="recipientBillId" input-validator />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.systemFeeAmount"></label>
+        <input type="number" nz-input nzSize="large" formControlName="systemFeeAmount" input-validator />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.agentFeeAmount"></label>
+        <input type="number" nz-input nzSize="large" formControlName="agentFeeAmount" input-validator />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.roundAmount"></label>
+        <input type="number" nz-input nzSize="large" formControlName="roundAmount" input-validator />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.systemFee"></label>
+        <input type="number" nz-input nzSize="large" formControlName="systemFee" input-validator />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.systemCurrency"></label>
+        <input type="number" nz-input nzSize="large" formControlName="systemCurrency" input-validator />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.ccyRate"></label>
+        <input type="number" nz-input nzSize="large" formControlName="ccyRate" input-validator />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.recipientTrId"></label>
+        <input nz-input nzSize="large" formControlName="recipientTrId" input-validator />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.senderTrId"></label>
+        <input nz-input nzSize="large" formControlName="senderTrId" input-validator />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsTransaction.requestTrId"></label>
+        <input nz-input nzSize="large" formControlName="requestTrId" input-validator />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.systemCommissionUpAmount"></label>
+        <input type="number" nz-input nzSize="large" formControlName="systemCommissionUpAmount" input-validator />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.systemCommissionDownAmount"></label>
+        <input type="number" nz-input nzSize="large" formControlName="systemCommissionDownAmount" input-validator />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsTransaction.requestLogin"></label>
+        <input nz-input nzSize="large" formControlName="requestLogin" input-validator />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.requestGroup"></label>
+        <input nz-input nzSize="large" formControlName="requestGroup" input-validator />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.senderName"></label>
+        <input nz-input nzSize="large" formControlName="senderName" input-validator />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.senderAccount"></label>
+        <input nz-input nzSize="large" formControlName="senderAccount" input-validator />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.senderStatusText"></label>
+        <input nz-input nzSize="large" formControlName="senderStatusText" input-validator />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.senderStatus"></label>
+        <input nz-input nzSize="large" formControlName="senderStatus" input-validator />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.senderDate"></label>
+        <nz-date-picker formControlName="senderDate" nzSize="large" nzFormat="dd.MM.yyyy" nzInputReadOnly></nz-date-picker>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.senderGateway"></label>
+        <input nz-input nzSize="large" formControlName="senderGateway" input-validator />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.recipientName"></label>
+        <input nz-input nzSize="large" formControlName="recipientName" input-validator />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.recipientAccount"></label>
+        <input nz-input nzSize="large" formControlName="recipientAccount" input-validator />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.recipientStatusText"></label>
+        <input nz-input nzSize="large" formControlName="recipientStatusText" input-validator />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.recipientStatus"></label>
+        <input nz-input nzSize="large" formControlName="recipientStatus" input-validator />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.recipientDate"></label>
+        <nz-date-picker formControlName="recipientDate" nzSize="large" nzFormat="dd.MM.yyyy" nzInputReadOnly></nz-date-picker>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.recipientGateway"></label>
+        <input nz-input nzSize="large" formControlName="recipientGateway" input-validator />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.status">Status</label>
+        <bm-select-input formControlName="status" [data]="transactionStatus"></bm-select-input>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsTransaction.payType">Pay Type</label>
+        <bm-select-input formControlName="payType" [data]="payTypes"></bm-select-input>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsTransaction.comment"></label>
+        <input nz-input nzSize="large" formControlName="comment" input-validator />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.requestSubAccount"></label>
+        <input nz-input nzSize="large" formControlName="requestSubAccount" input-validator />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.eposMerchant"></label>
+        <input nz-input nzSize="large" formControlName="eposMerchant" input-validator />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.eposTerminal"></label>
+        <input nz-input nzSize="large" formControlName="eposTerminal" input-validator />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsTransaction.amountRatio"></label>
+        <input nz-input nzSize="large" formControlName="amountRatio" input-validator />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsTransaction.senderBean"></label>
+        <input nz-input nzSize="large" formControlName="senderBean" input-validator />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label nz-checkbox formControlName="senderSuccess">{{ 'billMasterGwApp.pkbillmsTransaction.senderSuccess' | translate }}</label>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label nz-checkbox formControlName="recipientSuccess">{{
+          'billMasterGwApp.pkbillmsTransaction.recipientSuccess' | translate
+          }}</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" nz-button nzSize="large" nzType="text" jhiTranslate="entity.action.cancel" (click)="close()">Cancel</button>
+    <button nz-button nzSize="large" nzType="primary" [nzLoading]="loading" [input-validator-button]="editForm">
+      {{ 'entity.action.save' | translate }}
+    </button>
+  </div>
+</form>

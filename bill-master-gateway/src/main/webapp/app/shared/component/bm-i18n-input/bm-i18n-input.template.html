@@ -1,0 +1,5 @@
+<form #editForm="ngForm">
+  <nz-input-group *ngFor="let i18n of i18ns" class="mb-1" nzSize="large" nzAddOnBefore="{{i18n.lang}}">
+    <input nz-input name="{{i18n.lang}}" [(ngModel)]="i18n.text" required input-validator/>
+  </nz-input-group>
+</form>

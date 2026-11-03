@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Entity Category constraints migrate to 7.1 jhipster
+    -->
+    <changeSet id="entity_Category_constraints_migrate-1" author="zafar">
+        <!--
+            Drop foreign constraint categoryName to category
+        -->
+        <preConditions onFail="MARK_RAN">
+            <foreignKeyConstraintExists foreignKeyName="fk_category_name_categories_id"/>
+        </preConditions>
+
+        <comment> Drop foreign constraint categoryName to category</comment>
+
+        <dropForeignKeyConstraint baseTableName="rel_category__name"
+                                  constraintName = "fk_category_name_categories_id"/>
+    </changeSet>
+
+    <changeSet id="entity_Category_constraints_migrate-2" author="zafar">
+        <!--
+            Add foreign constraint categoryName to category
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_category_name_categories_id"
+                                            foreignKeyTableName="category"/>
+            </not>
+        </preConditions>
+
+        <comment>Add foreign constraint categoryName to category</comment>
+
+        <addForeignKeyConstraint baseColumnNames="category_id"
+                                 baseTableName="rel_category__name"
+                                 constraintName="fk_category_name_categories_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="category"/>
+    </changeSet>
+
+    <changeSet id="entity_Category_constraints_migrate-3" author="zafar">
+        <!--
+            Drop foreign constraint categoryName to i18n
+        -->
+        <preConditions onFail="MARK_RAN">
+            <foreignKeyConstraintExists foreignKeyName="fk_category_name_names_id"/>
+        </preConditions>
+
+        <comment> Drop foreign constraint categoryName to i18n</comment>
+
+        <dropForeignKeyConstraint baseTableName="rel_category__name"
+                                  constraintName = "fk_category_name_names_id"/>
+    </changeSet>
+
+    <changeSet id="entity_Category_constraints_migrate-4" author="zafar">
+        <!--
+            Add foreign constraint categoryName to i18n
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_category_name_names_id"
+                                            foreignKeyTableName="i_18_n"/>
+            </not>
+        </preConditions>
+
+        <comment>Add foreign constraint categoryName to i18n</comment>
+
+        <addForeignKeyConstraint baseColumnNames="name_id"
+                                 baseTableName="rel_category__name"
+                                 constraintName="fk_category_name_names_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="i_18_n"/>
+
+    </changeSet>
+</databaseChangeLog>

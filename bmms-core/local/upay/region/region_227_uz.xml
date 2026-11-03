@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:getRegionsListResponse xmlns:ns2="http://st.apus.com/">
+    <return>
+        <AreasList>
+            <Title>Hudud</Title>
+            <Area>
+                <Id>2</Id>
+                <Code>06</Code>
+                <Name>Buxoro viloyati</Name>
+                <Children>
+                    <Title>Tuman</Title>
+                    <Area>
+                        <Id>272</Id>
+                        <Code>204</Code>
+                        <Name>Olot ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>273</Id>
+                        <Code>207</Code>
+                        <Name>Buxoro ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>274</Id>
+                        <Code>212</Code>
+                        <Name>Vobkent ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>275</Id>
+                        <Code>215</Code>
+                        <Name>G`ijduvon ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>276</Id>
+                        <Code>219</Code>
+                        <Name>Kogon JShI</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>277</Id>
+                        <Code>230</Code>
+                        <Name>Qorako`l JShI</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>278</Id>
+                        <Code>232</Code>
+                        <Name>Qorovulbozor JShI</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>279</Id>
+                        <Code>240</Code>
+                        <Name>Peshku ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>280</Id>
+                        <Code>242</Code>
+                        <Name>Romiton ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>281</Id>
+                        <Code>246</Code>
+                        <Name>Jondor ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>282</Id>
+                        <Code>258</Code>
+                        <Name>Shofirkon ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>283</Id>
+                        <Code>400</Code>
+                        <Name>Buxoro XETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>284</Id>
+                        <Code>401</Code>
+                        <Name>Buxoro shahar ETK</Name>
+                        <Children/>
+                    </Area>
+                </Children>
+            </Area>
+            <Area>
+                <Id>3</Id>
+                <Code>08</Code>
+                <Name>Jizzax viloyati</Name>
+                <Children>
+                    <Title>Tuman</Title>
+                    <Area>
+                        <Id>285</Id>
+                        <Code>201</Code>
+                        <Name>Arnasoy ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>286</Id>
+                        <Code>204</Code>
+                        <Name>Baxmal ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>287</Id>
+                        <Code>209</Code>
+                        <Name>G`allaorol ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>288</Id>
+                        <Code>212</Code>
+                        <Name>Jizzax ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>289</Id>
+                        <Code>215</Code>
+                        <Name>Do'stlik ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>290</Id>
+                        <Code>218</Code>
+                        <Name>Zomin ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>291</Id>
+                        <Code>220</Code>
+                        <Name>Zarbdor ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>292</Id>
+                        <Code>223</Code>
+                        <Name>Mirzacho`l ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>293</Id>
+                        <Code>225</Code>
+                        <Name>Zafarobod ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>294</Id>
+                        <Code>228</Code>
+                        <Name>Paxtakor ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>295</Id>
+                        <Code>235</Code>
+                        <Name>Forish ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>296</Id>
+                        <Code>237</Code>
+                        <Name>Yangiobod ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>297</Id>
+                        <Code>402</Code>
+                        <Name>Jizzax shahar ETK</Name>
+                        <Children/>
+                    </Area>
+                </Children>
+            </Area>
+            <Area>
+                <Id>7</Id>
+                <Code>18</Code>
+                <Name>Samarqand viloyati</Name>
+                <Children>
+                    <Title>Tuman</Title>
+                    <Area>
+                        <Id>358</Id>
+                        <Code>203</Code>
+                        <Name>Oqdaryo ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>359</Id>
+                        <Code>206</Code>
+                        <Name>Bulung`ur ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>360</Id>
+                        <Code>209</Code>
+                        <Name>Jomboy ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>361</Id>
+                        <Code>212</Code>
+                        <Name>Ishtixon ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>362</Id>
+                        <Code>214</Code>
+                        <Name>Qoradaryo ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>363</Id>
+                        <Code>215</Code>
+                        <Name>Kattaqo`rg`on ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>364</Id>
+                        <Code>216</Code>
+                        <Name>Qo`shrabot ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>365</Id>
+                        <Code>218</Code>
+                        <Name>Narpay ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>366</Id>
+                        <Code>224</Code>
+                        <Name>Payariq ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>367</Id>
+                        <Code>225</Code>
+                        <Name>Chelak ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>368</Id>
+                        <Code>227</Code>
+                        <Name>Pastdarg`om ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>369</Id>
+                        <Code>228</Code>
+                        <Name>G`azalkent ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>370</Id>
+                        <Code>230</Code>
+                        <Name>Paxtachi ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>371</Id>
+                        <Code>233</Code>
+                        <Name>Do`stlik ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>372</Id>
+                        <Code>234</Code>
+                        <Name>Zarafshon ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>373</Id>
+                        <Code>235</Code>
+                        <Name>Nurobod ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>374</Id>
+                        <Code>236</Code>
+                        <Name>Urgut ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>375</Id>
+                        <Code>237</Code>
+                        <Name>Dehqonobod ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>376</Id>
+                        <Code>238</Code>
+                        <Name>Toyloq ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>377</Id>
+                        <Code>400</Code>
+                        <Name>Samarqand TETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>378</Id>
+                        <Code>405</Code>
+                        <Name>Temiryo`l ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>379</Id>
+                        <Code>407</Code>
+                        <Name>Siyob ETK</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>380</Id>
+                        <Code>408</Code>
+                        <Name>Bog`ishamol ETK</Name>
+                        <Children/>
+                    </Area>
+                </Children>
+            </Area>
+        </AreasList>
+        <Result>
+            <code>OK</code>
+            <Description>Xatolik yo’q</Description>
+        </Result>
+    </return>
+</ns2:getRegionsListResponse>

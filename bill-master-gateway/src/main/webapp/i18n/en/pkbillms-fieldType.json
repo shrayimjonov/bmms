@@ -1,0 +1,10 @@
+{
+  "billMasterGwApp": {
+    "FieldType": {
+      "null": "",
+      "ACCOUNT": "ACCOUNT",
+      "AMOUNT": "AMOUNT",
+      "OTHER": "OTHER"
+    }
+  }
+}

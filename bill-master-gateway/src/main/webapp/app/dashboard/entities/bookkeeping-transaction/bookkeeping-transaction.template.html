@@ -1,0 +1,166 @@
+<div>
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <nz-badge [nzCount]="iconTpl">
+      <h4 class="mb-0 mr-3" jhiTranslate="global.menu.submenu.bookkeeping.operations">Operations</h4>
+
+      <ng-template #iconTpl>
+        <i
+          nz-icon
+          nzType="question-circle"
+          class="ant-scroll-number-custom-component cursor-pointer"
+          nz-tooltip="{{ 'billMasterGwApp.pkbillmsBookkeepingTransaction.note' | translate }}"
+          nzTooltipPlacement="rightTop"
+          [nzTooltipOverlayStyle]="{ width: 'fit-content', 'max-width': '1000px' }"
+        >
+        </i>
+      </ng-template>
+    </nz-badge>
+
+    <nz-badge [nzCount]="filterRef.querySize">
+      <button nz-button nzSize="large" jhiTranslate="entity.action.filter" (click)="showFilter = !showFilter">Filter</button>
+    </nz-badge>
+  </div>
+
+  <nz-tabset nzSize="large">
+    <ng-container *ngFor="let tab of tabs">
+      <nz-tab *jhiHasAnyAuthority="tab.authorities" [nzTitle]="titleTpl" (nzClick)="onChangeTab(tab.value)">
+        <ng-container [ngTemplateOutlet]="tableTpl"></ng-container>
+
+        <ng-template #titleTpl>
+          <div class="d-flex align-items-center">
+            <i nz-icon nzType="{{ tab.icon }}" class="mb-1"></i>
+            <span jhiTranslate="{{ tab.title }}">{{ tab.title }}</span>
+          </div>
+        </ng-template>
+      </nz-tab>
+    </ng-container>
+  </nz-tabset>
+
+  <div class="mt-2">
+    <ngl-filter-field [hidden]="!showFilter" [fields]="filterFields" (onFilter)="setQuery($event); loadPage()" #filterRef></ngl-filter-field>
+  </div>
+
+  <bm-alert></bm-alert>
+
+  <ng-template #tableTpl>
+    <ng-container *ngIf="data?.length">
+      <div class="table-responsive">
+        <nz-table [nzLoading]="loading" nzSize="small" nzTemplateMode nzOuterBordered>
+          <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+              <th jhiSortBy="id">
+                <span jhiTranslate="global.field.id">ID</span>
+                <sort-icon icon="sort"></sort-icon>
+              </th>
+              <th jhiSortBy="type">
+                <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTransaction.type">Status</span>
+                <sort-icon icon="sort"></sort-icon>
+              </th>
+              <th jhiSortBy="recipient">
+                <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTransaction.recipient">Recipient Short Name</span>
+                <sort-icon icon="sort"></sort-icon>
+              </th>
+              <th jhiSortBy="gateway">
+                <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTransaction.gateway">Gateway</span>
+                <sort-icon icon="sort"></sort-icon>
+              </th>
+              <th jhiSortBy="sMfo">
+                <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTransaction.sMfo">Sender MFO</span>
+                <sort-icon icon="sort"></sort-icon>
+              </th>
+              <th jhiSortBy="rMfo">
+                <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTransaction.rMfo">Recipient MFO</span>
+                <sort-icon icon="sort"></sort-icon>
+              </th>
+              <th jhiSortBy="sAccount">
+                <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTransaction.sAccount">Sender Account</span>
+                <sort-icon icon="sort"></sort-icon>
+              </th>
+              <th jhiSortBy="rAccount">
+                <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTransaction.rAccount">Recipient Account</span>
+                <sort-icon icon="sort"></sort-icon>
+              </th>
+              <th jhiSortBy="amount">
+                <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTransaction.amount">Amount</span>
+                <sort-icon icon="sort"></sort-icon>
+              </th>
+              <th jhiSortBy="createTime">
+                <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTransaction.createTime">Create Time</span>
+                <sort-icon icon="sort"></sort-icon>
+              </th>
+              <th jhiSortBy="confirmTime">
+                <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTransaction.confirmTime">Confirm Time</span>
+                <sort-icon icon="sort"></sort-icon>
+              </th>
+              <th jhiSortBy="sendUserID">
+                <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTransaction.sendUserID">Send User ID</span>
+                <sort-icon icon="sort"></sort-icon>
+              </th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let bookkeepingTransaction of data; trackBy: trackId">
+              <td>
+                <a href="javascript:void(0)" (click)="bookkeepingTransactionService.openView(bookkeepingTransaction)">{{
+                  bookkeepingTransaction.id
+                }}</a>
+              </td>
+              <td>
+                <span
+                  class="badge bookkeeping-transaction-status {{ bookkeepingTransaction.type }}"
+                  jhiTranslate="billMasterGwApp.BookkeepingTransactionStatus.{{ bookkeepingTransaction.type }}"
+                >
+                  {{ bookkeepingTransaction.type }}
+                </span>
+              </td>
+              <td>{{ bookkeepingTransaction.recipientShortName }}</td>
+              <td>{{ bookkeepingTransaction.gatewayName }}</td>
+              <td>{{ bookkeepingTransaction.sMfo }}</td>
+              <td>{{ bookkeepingTransaction.rMfo }}</td>
+              <td>{{ bookkeepingTransaction.sAccount }}</td>
+              <td>{{ bookkeepingTransaction.rAccount }}</td>
+              <td>{{ bookkeepingTransaction.amount | bmAmount }}</td>
+              <td>{{ bookkeepingTransaction.createTime | bmDate }}</td>
+              <td>{{ bookkeepingTransaction.confirmTime | bmDate }}</td>
+              <td>{{ bookkeepingTransaction.sendUserID }}</td>
+              <td width="10" class="text-right">
+                <nz-button-group nzSize="small">
+                  <button
+                    nz-button
+                    (click)="bookkeepingTransactionService.openHistory(bookkeepingTransaction.id)"
+                    title="{{ 'entity.action.history' | translate }}"
+                  >
+                    <i nz-icon nzType="history" class="icon-btn"></i>
+                  </button>
+                  <button
+                    nz-button
+                    (click)="bookkeepingTransactionService.openView(bookkeepingTransaction)"
+                    title="{{ 'entity.action.view' | translate }}"
+                  >
+                    <i nz-icon nzType="eye" class="icon-btn"></i>
+                  </button>
+                  <!--                        <button type="submit" nz-button (click)="enterIbs(bookkeepingTransaction.id)" title="{{'entity.action.edit' | translate}}">-->
+                  <!--                            <i nz-icon nzType="edit" class="icon-btn"></i>-->
+                  <!--                        </button>-->
+                  <!--              <button type="submit" nz-button (click)="bookkeepingTransactionService.openDelete(bookkeepingTransaction.id)" title="{{ 'entity.action.delete' | translate }}">-->
+                  <!--                <i nz-icon nzType="delete" class="icon-btn"></i>-->
+                  <!--              </button>-->
+                </nz-button-group>
+              </td>
+            </tr>
+          </tbody>
+        </nz-table>
+      </div>
+      <div class="d-flex justify-content-center mt-3">
+        <nz-pagination
+          [nzPageIndex]="ngbPaginationPage"
+          [nzTotal]="totalItems"
+          [nzPageSize]="itemsPerPage"
+          (nzPageIndexChange)="loadPage($event)"
+        >
+        </nz-pagination>
+      </div>
+    </ng-container>
+  </ng-template>
+</div>

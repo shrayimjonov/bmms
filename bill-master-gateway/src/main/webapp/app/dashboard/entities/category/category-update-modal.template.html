@@ -1,0 +1,62 @@
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <div class="modal-header">
+    <h5 class="modal-title" jhiTranslate="billMasterGwApp.pkbillmsCategory.home.createOrEditLabel">Create Or Edit Label</h5>
+
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal()">&times;</button>
+  </div>
+
+  <div class="modal-body">
+    <bm-alert></bm-alert>
+
+    <div class="form-row">
+      <div class="form-group col-md-9">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsCategory.shortName">Short Name</label>
+        <input nz-input nzSize="large" formControlName="shortName" id="field_shortName" input-validator />
+      </div>
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsCategory.ord">Ord</label>
+        <nz-input-number nzSize="large" formControlName="ord" id="field_ord" input-validator></nz-input-number>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsCategory.logo">Logo</label>
+        <input nz-input nzSize="large" formControlName="logo" id="field_logo" input-validator />
+      </div>
+
+      <div class="form-group col-md-6">
+        <label jhiTranslate="billMasterGwApp.pkbillmsCategory.parent">Parent</label>
+        <bm-select-input
+          formControlName="parent"
+          id="field_parent"
+          bmLabelField="shortName"
+          [bmShowSearch]="true"
+          [bmServerSearch]="true"
+          [requestUrl]="categoryService.resourceUrl"
+        >
+        </bm-select-input>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsCategory.name">Names</label>
+      <bm-i18n-input formControlName="names" [duplicate]="duplicate" input-validator></bm-i18n-input>
+    </div>
+
+    <nz-switch
+      id="field_active"
+      formControlName="active"
+      nzCheckedChildren="{{ 'global.active.true' | translate }}"
+      nzUnCheckedChildren="{{ 'global.active.false' | translate }}"
+    >
+    </nz-switch>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" nz-button nzSize="large" nzType="text" jhiTranslate="entity.action.cancel" (click)="closeModal()">
+      Cancel
+    </button>
+    <button nz-button nzSize="large" nzType="primary" [nzLoading]="loading" [input-validator-button]="editForm">
+      {{ 'entity.action.save' | translate }}
+    </button>
+  </div>
+</form>

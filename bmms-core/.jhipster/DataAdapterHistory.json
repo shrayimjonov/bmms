@@ -1,0 +1,30 @@
+{
+    "name": "DataAdapterHistory",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "details",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 256
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180828131733",
+    "entityTableName": "data_adapter_history",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "bmms",
+    "applications": "*",
+    "microserviceName": "pkbillms",
+    "enableEntityAudit": true,
+    "databaseType": "sql"
+}

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:getRegionsListResponse xmlns:ns2="http://st.apus.com/">
+    <return>
+        <AreasList>
+            <Title>Регион</Title>
+            <Area>
+                <Id>1</Id>
+                <Code>1</Code>
+                <Name>г.Ташкент</Name>
+                <Children>
+                    <Title>Район</Title>
+                    <Area>
+                        <Id>12</Id>
+                        <Code>101</Code>
+                        <Name>Мирободский район</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>13</Id>
+                        <Code>102</Code>
+                        <Name>М. Улугбекский район</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>14</Id>
+                        <Code>103</Code>
+                        <Name>Яккасарайский район</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>15</Id>
+                        <Code>104</Code>
+                        <Name>Алмазарский район</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>16</Id>
+                        <Code>105</Code>
+                        <Name>Юнусабадский район</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>17</Id>
+                        <Code>106</Code>
+                        <Name>Чилонзарский район</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>18</Id>
+                        <Code>107</Code>
+                        <Name>Учтепинский район</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>19</Id>
+                        <Code>108</Code>
+                        <Name>Сергелийский район</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>20</Id>
+                        <Code>109</Code>
+                        <Name>Яшнабадский район</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>21</Id>
+                        <Code>110</Code>
+                        <Name>Шайхантаурский район</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>22</Id>
+                        <Code>111</Code>
+                        <Name>Бектемирский район</Name>
+                        <Children/>
+                    </Area>
+                </Children>
+            </Area>
+        </AreasList>
+        <Result>
+            <code>OK</code>
+            <Description>Успешно</Description>
+        </Result>
+    </return>
+</ns2:getRegionsListResponse>

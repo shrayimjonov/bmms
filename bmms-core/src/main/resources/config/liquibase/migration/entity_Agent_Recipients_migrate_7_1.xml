@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Entity Agent migrate to 7.1 jhipster
+    -->
+    <changeSet id="entity_Agent_Recipients_migrate-1" author="zafar">
+        <!--
+            Add column epos_port
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="agent_recipient"
+                              columnName="epos_port"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column epos_port</comment>
+
+        <addColumn tableName="agent_recipient">
+            <column name="epos_port" type="integer" remarks="Параметр Port для соединения с SvGate">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_Agent_Recipients_migrate-2" author="zafar">
+        <!--
+           Add column epos_merchant
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="agent_recipient"
+                              columnName="epos_merchant"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column epos_merchant</comment>
+
+        <addColumn tableName="agent_recipient">
+            <column name="epos_merchant" type="varchar(32)" remarks="Параметр Merchant Id для соединения с SvGate">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_Agent_Recipients_migrate-3" author="zafar">
+        <!--
+          Add column epos_terminal
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="agent_recipient"
+                              columnName="epos_terminal"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column epos_terminal</comment>
+
+        <addColumn tableName="agent_recipient">
+            <column name="epos_terminal" type="varchar(32)" remarks="Параметр Terminal Id для соединения с SvGate">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_Agent_Recipients_migrate-4" author="zafar">
+        <!--
+          Add column json_params
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="agent_recipient"
+                              columnName="json_params"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column json_params</comment>
+
+        <addColumn tableName="agent_recipient">
+            <column name="json_params" type="clob" remarks="Дополнительные параметры в виде json">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_Agent_Recipients_migrate-5" author="zafar">
+        <!--
+          Add column recipient_group_id
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="agent_recipient"
+                              columnName="recipient_group_id"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column recipient_group_id</comment>
+
+        <addColumn tableName="agent_recipient">
+            <column name="recipient_group_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_Agent_Recipients_migrate-6" author="zafar">
+        <!--
+          Add column setting_id
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="agent_recipient"
+                              columnName="setting_id"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column setting_id</comment>
+
+        <addColumn tableName="agent_recipient">
+            <column name="setting_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_Agent_Recipients_migrate-7" author="zafar">
+        <!--
+          Add column request_group
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="agent_recipient"
+                              columnName="request_group"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column request_group</comment>
+
+        <addColumn tableName="agent_recipient">
+            <column name="request_group" type="varchar(64)">
+                <constraints nullable="true" />
+            </column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

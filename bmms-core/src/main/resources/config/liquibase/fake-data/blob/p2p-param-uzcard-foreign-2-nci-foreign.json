@@ -1,0 +1,25 @@
+{
+    "sender": {
+        "merchantId": 123,
+        "terminalId": 234,
+        "port": 4444
+    },
+    "recipient": {
+        "bankAccount": "17403000900000491013",
+        "bankMfo": "00491",
+        "accName": "Транзитный счет Анорбанк",
+
+        "tranType": "106",
+        "tax": "",
+        "commission": {
+            "bankAccount": "45294000000000491574",
+            "bankMfo": "00491",
+            "accName": "Доходный счет по Uzcard др банк - счет в другой банк",
+            "purposeId": "00667",
+            "purpose": "Доход от перевода с ПК № \"${senderAccount}\" на счет (ANOR) ${recipientName}",
+
+            "tranType": "106",
+            "tax": ""
+        }
+    }
+}

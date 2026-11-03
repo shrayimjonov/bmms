@@ -1,0 +1,26 @@
+{
+  "sender": {
+    "bankAccount": "29896000200000491087",
+    "accName": "Учёт обяз. банка по зачис. с юр.лиц на ПК физ.лиц (Humo)",
+    "bankCo": "00491",
+    "purposeId": "00634",
+    "purpose": "Перевода со счета ЮЛ \"${senderName}\" на ПК ${recipientAccount} от суммы ${requestAmount}",
+    "bankMfo": "00491",
+    "tranType": "106",
+    "tax": "",
+    "commission": {
+      "bankAccount": "45249000200000491028",
+      "accName": "Комисс. дох. по перев. с ЮЛ на ПК ФЛ - E-Pos (Humo)",
+      "bankMfo": "00491",
+      "purposeId": "00667",
+      "purpose": "00667Доход от перевода со счета ЮЛ \"${senderName}\" на ПК ${recipientAccount} от суммы ${requestAmount} (${commission}%)",
+      "tranType": "106",
+      "tax": ""
+    }
+  },
+  "recipient": {
+    "merchantId": "90631981524",
+    "terminalId": "92300282",
+    "port": 7
+  }
+}

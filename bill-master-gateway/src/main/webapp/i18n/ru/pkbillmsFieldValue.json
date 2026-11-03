@@ -1,0 +1,38 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsFieldValue": {
+      "home": {
+        "title": "Значения полей",
+        "createLabel": "Создать новый Значения полей",
+        "createOrEditLabel": "Создать или отредактировать Значения полей",
+        "notFound": "Значения полей не найдены"
+      },
+      "delete": {
+        "question": "Вы уверены что хотите удалить Значения полей {{ id }}?"
+      },
+      "detail": {
+        "title": "Значения полей"
+      },
+      "value": "Значение",
+      "amount": "Сумма",
+      "filterBy": "Фильтр по",
+      "ord": "Порядок",
+      "field": "Поле",
+      "title": "Заголовок",
+      "description": "Описание",
+      "help": {
+        "value": "Param value to send to server",
+        "amount": "Price of selected value",
+        "filterBy": "Filter the values (field.type=select) by parent field",
+        "ord": "Display order"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsFieldValue": {
+      "created": "Новый Значения полей создан с идентификатором {{ param }}",
+      "updated": "Значения полей обновлен с идентификатором {{ param }}",
+      "deleted": "Значения полей удален с идентификатором {{ param }}"
+    }
+  }
+}

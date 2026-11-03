@@ -1,0 +1,48 @@
+<form [formGroup]="editForm" (ngSubmit)="save()">
+  <div class="modal-header">
+    <h5 class="modal-title" jhiTranslate="billMasterGwApp.pkbillmsDeposit.replenishDeposit">Create Fill Deposit</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="cancel()">&times;</button>
+  </div>
+
+  <div class="modal-body">
+    <div class="div-row form-group">
+      <span style="font-weight: 600" jhiTranslate="billMasterGwApp.pkbillmsDeposit.agentName">Agent Name</span>
+      <span class="badge badge-info" style="margin-left: 9px; margin-top: 2px; font-size: 17px">{{ deposit.agent?.shortName }}</span>
+    </div>
+    <hr />
+    <bm-alert></bm-alert>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsDeposit.doc" for="doc">doc</label>
+        <input nz-input nzSize="large" formControlName="doc" id="doc" type="text" input-validator />
+      </div>
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsDeposit.overdraftLimit" for="field_overdraftLimit">overdraftLimit</label>
+        <input nz-input nzSize="large" formControlName="overdraftLimit" id="field_overdraftLimit" type="number" input-validator />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsDeposit.balanceAmount" for="field_balanceAmount">Balance Amount</label>
+        <input nz-input nzSize="large" formControlName="balanceAmount" mask="separator.2" id="field_balanceAmount" autocomplete="off" input-validator />
+      </div>
+
+      <!--Amount Formatter-->
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsDeposit.payerTaxnr" for="payerTaxnr">payerTaxnr</label>
+        <input nz-input nzSize="large" formControlName="payerTaxnr" id="payerTaxnr" input-validator />
+      </div>
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsDeposit.recipientTaxnr" for="recipientTaxnr">recipientTaxnr</label>
+        <input nz-input nzSize="large" formControlName="recipientTaxnr" id="recipientTaxnr" input-validator />
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" nz-button nzSize="large" nzType="text" jhiTranslate="entity.action.cancel" (click)="cancel()">Cancel</button>
+    <button nz-button nzSize="large" nzType="primary" [nzLoading]="loading" [disabled]="editForm.invalid">
+      {{ 'entity.action.save' | translate }}
+    </button>
+  </div>
+</form>

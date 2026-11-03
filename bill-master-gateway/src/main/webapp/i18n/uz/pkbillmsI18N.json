@@ -1,0 +1,27 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsI18N": {
+      "home": {
+        "title": "I 18 Ns",
+        "createLabel": "Yangi I 18 N qo`shish",
+        "createOrEditLabel": "I 18 Nni tahrirlash",
+        "notFound": "No I 18 Ns found"
+      },
+      "delete": {
+        "question": "{{ id }}- I 18 Nni o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "I 18 N"
+      },
+      "lang": "Lang",
+      "text": "Text"
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsI18N": {
+      "created": "I 18 N {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- I 18 N saqlandi",
+      "deleted": "{{ param }}- I 18 N o`chirildi"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+:devBaseUrl: http://127.0.0.1:8080
+:prodBaseUrl: Уточните у администртора
+
+WARNING: Документация находится в стадии разработки
+
+==== Базовый URL
+===== Тестовый сервер : {devBaseUrl}
+===== Боевой : {prodBaseUrl}
+
+=== Аутентификация и авторизация
+
+[source,html]
+POST /auth/login
+Content-Type application/json
+
+==== Параметры Запроса
+
+|===
+|Параметр |Тип |Описание
+
+|username
+|String
+|Имя пользователя
+
+|password
+|String
+|Пароль
+
+|===
+
+==== Пример Запроса (cURL)
+[subs="attributes"]
+----
+include::./../agent_examples/curl_req/login.txt[]
+----
+
+==== Ответ
+
+|===
+|Параметр |Тип |Описание
+
+|access_token
+|String
+|Токен доступа, передаётся в следуюших запросах в загаловке
+
+|===
+
+==== Пример загаловка авторизации
+
+[source,html]
+Authorization: Bearer xxx
+

@@ -1,0 +1,103 @@
+<div>
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="m-0" jhiTranslate="global.menu.entities.cashBack">Cash Backs</h2>
+
+    <div class="d-flex" style="gap: 5px">
+      <!--      <button class="ml-2" (click)="loadPage()" nz-button nzSize="large" nzType="default" [disabled]="loading">-->
+      <!--        <i nz-icon nzType="refresh" [nzSpin]="loading"></i>-->
+      <!--        <span jhiTranslate="entity.action.refresh">Refresh List</span>-->
+      <!--      </button>-->
+
+      <!--      <ngl-export-as-->
+      <!--        *ngIf="data?.length"-->
+      <!--        class="ml-2"-->
+      <!--        [data]="data"-->
+      <!--        requestUrl="{{ cashBackService.resourceUrl }}"-->
+      <!--        [requestOption]="getOption"-->
+      <!--        translationPrefix="billMasterGwApp-->
+      <!--        .pkbillmsCashBack"-->
+      <!--        fileName="{{ 'global.menu.entities.pkbillmsCashBack' | translate }}"-->
+      <!--      >-->
+      <!--      </ngl-export-as>-->
+
+      <button
+        class="ml-2"
+        type="button"
+        nz-button
+        nzSize="large"
+        nzType="primary"
+        jhiTranslate="entity.action.add"
+        (click)="cashBackService.openUpdate()"
+      >
+        Add
+      </button>
+      <button class="ml-auto" type="button" nz-button nzSize="large" jhiTranslate="entity.action.filter" (click)="showFilter = !showFilter">
+        Filter
+      </button>
+    </div>
+  </div>
+
+  <div class="mb-4" [hidden]="!showFilter">
+    <ngl-filter-field [fields]="filterFields" (onFilter)="setQuery($event); loadPage()"></ngl-filter-field>
+  </div>
+
+  <bm-alert></bm-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="data?.length === 0">
+    <span
+      jhiTranslate="billMasterGwApp
+    .pkbillmsCashBack.home.notFound"
+      >No cashBacks found</span
+    >
+  </div>
+
+  <div class="table-responsive">
+    <nz-table [nzLoading]="loading" [nzShowPagination]="false" [nzSize]="'small'" nzOuterBordered nzTemplateMode>
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending">
+          <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span></th>
+          <th jhiSortBy="bankCommission">
+            <span jhiTranslate="billMasterGwApp.pkbillmsCashBack.bankCommission">Bank Commission</span>
+          </th>
+          <th jhiSortBy="clientCommission">
+            <span jhiTranslate="billMasterGwApp.pkbillmsCashBack.clientCommission">Client Commission</span>
+          </th>
+          <th jhiSortBy="name"><span jhiTranslate="billMasterGwApp.pkbillmsCashBack.name">Name</span></th>
+          <th jhiSortBy="type"><span jhiTranslate="billMasterGwApp.pkbillmsCashBack.type">Type</span></th>
+          <th jhiSortBy="status"><span jhiTranslate="billMasterGwApp.pkbillmsCashBack.status">Status</span></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cashBack of data; trackBy: trackId">
+          <td>
+            <a href="javascript:void(0)" (click)="cashBackService.openView(cashBack)" style="cursor: pointer">{{ cashBack.id }}</a>
+          </td>
+          <td style="cursor: pointer">{{ cashBack.bankCommission }}</td>
+          <td style="cursor: pointer">{{ cashBack.clientCommission }}</td>
+          <td style="cursor: pointer">{{ cashBack.name }}</td>
+          <td>{{ cashBack.type }}</td>
+          <td>{{ cashBack.status }}</td>
+          <td class="d-flex justify-content-end">
+            <nz-button-group [nzSize]="'small'">
+              <button nz-button (click)="cashBackService.openView(cashBack)">
+                <i nz-icon nzType="eye" class="icon-btn"></i>
+              </button>
+              <button nz-button (click)="cashBackService.openUpdate(cashBack)">
+                <i nz-icon nzType="edit" class="icon-btn"></i>
+              </button>
+
+              <button nz-button (click)="cashBackService.openDelete(cashBack.id)">
+                <i nz-icon nzType="delete" class="icon-btn"></i>
+              </button>
+            </nz-button-group>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+  <div class="d-flex justify-content-center mt-3">
+    <!--    <nz-pagination [nzPageIndex]="page" [nzTotal]="totalItems" [nzPageSize]="itemsPerPage" (nzPageIndexChange)="loadPage($event)">-->
+    <!--    </nz-pagination>-->
+  </div>
+</div>

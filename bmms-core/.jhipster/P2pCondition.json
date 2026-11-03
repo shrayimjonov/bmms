@@ -1,0 +1,32 @@
+{
+  "name": "P2pCondition",
+  "fields": [
+    {
+      "fieldName": "value",
+      "fieldType": "String",
+      "javadoc": "Значение",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "javadoc": "Описание"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20210113143442",
+  "javadoc": "Условия для P2P параметров\\n\\n@author Javlon",
+  "entityTableName": "p_2_p_condition",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "bmms",
+  "applications": "*",
+  "microserviceName": "pkbillms",
+  "enableEntityAudit": true,
+  "databaseType": "sql"
+}

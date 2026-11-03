@@ -1,0 +1,39 @@
+$primary: #8b0037;
+$border-color: rgba(139, 0, 55, 0.75);
+
+.anorbank-logo {
+  content: url('../../../content/images/anorbank-logo.png');
+}
+
+:host ::ng-deep .ant-btn:active,
+.ant-btn:focus {
+  border-color: $primary;
+}
+
+button[nzType='primary'] {
+  background-color: $primary;
+  border-color: $primary;
+  color: white;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+// for nz-input-group
+:host ::ng-deep .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover,
+.ant-input-affix-wrapper-focused,
+.ant-input-affix-wrapper:focus,
+.ant-input:hover,
+.ant-input-focused,
+.ant-input:focus {
+  border-color: $border-color;
+}
+
+// on focus
+:host ::ng-deep .ant-input-affix-wrapper-focused,
+.ant-input-affix-wrapper:focus,
+.ant-input-focused,
+.ant-input:focus {
+  box-shadow: 0 0 0 2px rgb(139 0 55 / 20%);
+}

@@ -1,0 +1,54 @@
+<nz-spin [nzSpinning]="loading" [nzDelay]="0" nzSize="large">
+  <!--Search box-->
+  <div class="mt-3 mb-5 search-box">
+    <nz-input-group [nzSuffix]="inputClearTpl" nzSize="large">
+      <input nz-input nzSize="large" placeholder="{{ 'entity.action.search' | translate }}" [(ngModel)]="searchText" auto-focus />
+    </nz-input-group>
+    <ng-template #inputClearTpl>
+      <i nz-icon nzType="close-circle" class="ant-input-clear-icon" nzTheme="fill" [hidden]="!searchText" (click)="searchText = null"></i>
+    </ng-template>
+  </div>
+
+  <!--Categories-->
+  <div class="mb-5 fade-in" *ngFor="let category of categories">
+    <!--Counts and show more-->
+    <div class="d-flex align-items-center mb-4">
+      <nz-badge [nzCount]="category.recipients?.length">
+        <h5 class="mb-0 mr-3">{{ category.names[lang] }}</h5>
+      </nz-badge>
+
+      <button
+        type="button"
+        class="ml-4"
+        nz-button
+        nzType="default"
+        nzSize="small"
+        (click)="category.more = !category.more"
+        *ngIf="category.recipients?.length > 6"
+      >
+        {{ 'payment.recipientsToggle.' + category.more | translate }}
+      </button>
+    </div>
+
+    <!--Recipients-->
+    <div class="d-flex flex-wrap p-0">
+      <ng-container *ngFor="let recipient of category.recipients; let i = index">
+        <div class="p-1 p-lg-2">
+          <div
+            class="payment-recipient rounded bg-white fade-in"
+            [hidden]="!category.more && i >= 6"
+            (click)="openRecipient(recipient, category.names[lang])"
+            nz-tooltip
+            nzTooltipTitle="{{ recipient.shortName }}"
+          >
+            <div class="d-flex flex-column p-2 p-sm-3 h-100">
+              <div class="my-auto position-relative">
+                <img class="w-100 h-100" src="{{ paymentService.getRecipientLogoUrl(recipient.logo) }}" alt="image" image-loader />
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</nz-spin>

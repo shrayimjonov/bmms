@@ -1,0 +1,50 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsReconcileDiscrepancy": {
+      "home": {
+        "title": "Tafouvutlar",
+        "createLabel": "Yangi Reconcile Discrepancy qo`shish",
+        "createOrEditLabel": "Reconcile Discrepancyni tahrirlash",
+        "notFound": "Xech qanday tafovutlar topilmadi"
+      },
+      "delete": {
+        "question": "{{ id }}- Reconcile Discrepancyni o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "Reconcile Discrepancy"
+      },
+      "gatewayName": "Gateway Nomi",
+      "systemTransactionId": "Sistema Tranzaksiya Id",
+      "gatewayTransactionId": "Gateway Tranzaksiya Id",
+      "systemAmount": "Sistema Summasi",
+      "gatewayAmount": "Gateway Summasi",
+      "systemStatus": "Sistema Status",
+      "gatewayStatus": "Gateway Status",
+      "systemDate": "Tizim sanasi",
+      "gatewayDate": "Gateway sanasi",
+      "closed": "Yopiq",
+      "comment": "Izoh",
+      "reconcileSummary": "Solishtirish",
+      "help": {
+        "gatewayName": "Уникальное название шлюза",
+        "systemTransactionId": "Номер платежа в системе",
+        "gatewayTransactionId": "Номер платежа в шлюзе",
+        "systemAmount": "Сумма платежа в системе",
+        "gatewayAmount": "Сумма платежа в шлюзе",
+        "systemStatus": "Статус транзакции в системе",
+        "gatewayStatus": "Статус транзакции в шлюзе",
+        "systemDate": "Дата транзакции в системе",
+        "gatewayDate": "Дата транзакции в шлюзе",
+        "closed": "Финальный статус проблемы",
+        "comment": "Дополнительная информация"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsReconcileDiscrepancy": {
+      "created": "Reconcile Discrepancy {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- Reconcile Discrepancy saqlandi",
+      "deleted": "{{ param }}- Reconcile Discrepancy o`chirildi"
+    }
+  }
+}

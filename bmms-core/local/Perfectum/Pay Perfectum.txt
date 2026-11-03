@@ -1,0 +1,21 @@
+REQUEST:
+{
+https://127.0.0.1/pay_net_v1.php?
+act=0&
+username=kapitalbank&
+password=${PASSWORD}&
+amount=500&
+phone=981503888&
+pay_id=23702
+}
+
+RESPONCE
+{
+<200,<?xml version="1.0" encoding="windows-1251"?>
+			<response>
+				<status_code>0</status_code>
+				<error_text></error_text>
+				<pay_id>23702</pay_id>
+				<time_stamp>12.09.2018 21:28:35</time_stamp>
+			</response>
+}

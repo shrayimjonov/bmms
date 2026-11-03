@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Entity Transaction migrate to 7.1 jhipster
+    -->
+    <changeSet id="entity_Transaction_migrate-1" author="zafar">
+        <!--
+            Rename column jhi_comment
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="transaction"
+                          columnName="jhi_comment"/>
+        </preConditions>
+
+        <comment>Rename column jhi_comment</comment>
+
+        <renameColumn tableName="transaction" oldColumnName="jhi_comment" newColumnName="comment"/>
+    </changeSet>
+
+    <changeSet id="entity_Transaction_migrate-2" author="zafar">
+        <!--
+          Rename column jhi_date
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="transaction"
+                          columnName="jhi_date"/>
+        </preConditions>
+
+        <comment>Rename column jhi_date</comment>
+
+        <renameColumn tableName="transaction" oldColumnName="jhi_date" newColumnName="date"/>
+
+        <dropDefaultValue tableName="transaction" columnName="date" columnDataType="datetime"/>
+    </changeSet>
+</databaseChangeLog>

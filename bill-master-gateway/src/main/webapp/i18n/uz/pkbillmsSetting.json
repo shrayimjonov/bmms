@@ -1,0 +1,37 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsSetting": {
+      "home": {
+        "title": "Yetkazib beruvchi sozlamalari",
+        "createLabel": "Yangi yetkazib beruvchi sozlama qo`shish",
+        "createOrEditLabel": "Yetkazib beruvchi sozlamalarini tahrirlash",
+        "notFound": "Xech qanday yetkazib beruvchi sozlamalari topilmadi"
+      },
+      "delete": {
+        "question": "{{ id }}- Yetkazib beruvchi sozlamalarini o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "Yetkazib beruvchi sozlamalari"
+      },
+      "shortName": "Qisqa nomi",
+      "ord": "Tartib",
+      "active": "Аktiv",
+      "prop": "Xususiyat",
+      "parentSettingId": "Sozlama turkumi",
+      "help": {
+        "shortName": "Short name to show in UI",
+        "ord": "Порядковый номер"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsSetting": {
+      "created": "Yetkazib beruvchi sozlamalari {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- Yetkazib beruvchi sozlamalari saqlandi",
+      "deleted": "{{ param }}- Yetkazib beruvchi sozlamalari o`chirildi"
+    }
+  },
+  "confirmationModal": {
+    "headerTitle": "Operatsiyani tasdiqlash"
+  }
+}

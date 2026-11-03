@@ -1,0 +1,170 @@
+{
+    "name": "Field",
+    "fields": [
+        {
+            "fieldName": "name",
+            "javadoc": "Field (merchant param) name; account_id, phone, login, ...",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "extId",
+            "javadoc": "External id, optional",
+            "fieldType": "Long",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "FieldType",
+            "fieldValues": "ACCOUNT,AMOUNT,OTHER",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "controlType",
+            "fieldType": "ControlType",
+            "fieldValues": "TEXT,SELECT",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "content",
+            "javadoc": "Type of content for frontend usage; phone, email, text",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "validation",
+            "javadoc": "Java regexp pattern to validate before sending to server",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 128
+        },
+        {
+            "fieldName": "placeholder",
+            "javadoc": "Field placeholder for UI input box",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 128
+        },
+        {
+            "fieldName": "mask",
+            "javadoc": "UI input mask",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 256
+        },
+        {
+            "fieldName": "maskSymbol",
+            "javadoc": "UI input mask symbol",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 2
+        },
+        {
+            "fieldName": "lengthMin",
+            "javadoc": "Min length for text fields",
+            "fieldType": "Integer",
+            "fieldValidateRules": ["min", "max"],
+            "fieldValidateRulesMin": 0,
+            "fieldValidateRulesMax": 256
+        },
+        {
+            "fieldName": "lengthMax",
+            "javadoc": "Max length for text fields",
+            "fieldType": "Integer",
+            "fieldValidateRules": ["min", "max"],
+            "fieldValidateRulesMin": 0,
+            "fieldValidateRulesMax": 256
+        },
+        {
+            "fieldName": "requireField",
+            "javadoc": "Require parent field to draw this one",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "filterBy",
+            "javadoc": "Filter showing by previous selected field",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 16
+        },
+        {
+            "fieldName": "optional",
+            "javadoc": "Is field optional to fill",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "output",
+            "javadoc": "Need to send the value to server",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "visibility",
+            "javadoc": "Visible in UI, can be used for hidden static fields",
+            "fieldType": "Visibility",
+            "fieldValues": "HIDDEN,PRINTER,MONITOR,ALL"
+        },
+        {
+            "fieldName": "ord",
+            "javadoc": "Display order",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "requestType",
+            "javadoc": "Define to which of CHECK,PAY,STATUS,CANCEL,DEPOSIT belongs that field",
+            "fieldType": "RequestType",
+            "fieldValues": "CHECK,PAY,STATUS,CANCEL,DEPOSIT"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "recipient",
+            "otherEntityName": "recipient",
+            "otherEntityField": "shortName"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipValidateRules": "required",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "title",
+            "otherEntityName": "i18n",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "description",
+            "otherEntityName": "i18n",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "value",
+            "otherEntityName": "fieldValue",
+            "otherEntityRelationshipName": "field"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "prefix",
+            "otherEntityName": "prefix",
+            "otherEntityRelationshipName": "field"
+        }
+    ],
+    "changelogDate": "20180719230924",
+    "entityTableName": "field",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "bmms",
+    "applications": "*",
+    "microserviceName": "pkbillms",
+    "databaseType": "sql",
+    "enableEntityAudit": true
+}

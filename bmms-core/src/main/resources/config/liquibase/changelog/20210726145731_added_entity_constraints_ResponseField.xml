@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added the constraints for entity ResponseField.
+    -->
+    <changeSet id="20210726145731-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="recipient_id"
+                                 baseTableName="response_field"
+                                 constraintName="fk_response_field_recipient_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="recipient"/>
+
+        <addForeignKeyConstraint baseColumnNames="response_fields_id"
+                                 baseTableName="response_field_label"
+                                 constraintName="fk_response_field_label_response_fields_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="response_field"/>
+        <addForeignKeyConstraint baseColumnNames="labels_id"
+                                 baseTableName="response_field_label"
+                                 constraintName="fk_response_field_label_labels_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="i_18_n"/>
+
+    </changeSet>
+</databaseChangeLog>

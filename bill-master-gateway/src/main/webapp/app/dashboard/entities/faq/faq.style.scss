@@ -1,0 +1,25 @@
+:host ::ng-deep .NgxEditor {
+  border: 1px solid #f0f0f0 !important;
+  border-radius: 0;
+}
+
+:host ::ng-deep .ant-tabs-nav {
+  margin-bottom: 0 !important;
+}
+
+:host ::ng-deep .NgxEditor__MenuBar {
+  border-left: 1px solid #f0f0f0 !important;
+  border-right: 1px solid #f0f0f0 !important;
+}
+
+:host ::ng-deep .ant-tabs-tab {
+  background-color: white !important;
+}
+
+:host ::ng-deep .ant-tabs {
+  overflow: inherit !important;
+}
+
+:host {
+  border: unset !important;
+}

@@ -1,0 +1,10 @@
+{
+  "billMasterGwApp": {
+    "PrefixType": {
+      "null": "",
+      "STATIC": "STATIC",
+      "SELECT": "SELECT",
+      "REQUIRE": "REQUIRE"
+    }
+  }
+}

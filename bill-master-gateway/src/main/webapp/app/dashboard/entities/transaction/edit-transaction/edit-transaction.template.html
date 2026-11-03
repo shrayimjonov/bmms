@@ -1,0 +1,295 @@
+<nz-spin [nzSpinning]="loading" [nzDelay]="0" nzSize="large">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="mb-0" jhiTranslate="billMasterGwApp.pkbillmsTransaction.editTransaction">Edit Transaction</h4>
+    <button
+      nz-button
+      nzSize="large"
+      nz-dropdown
+      jhiTranslate="billMasterGwApp.pkbillmsTransaction.actions"
+      [nzPlacement]="'bottomCenter'"
+      [nzDropdownMenu]="menu"
+    >
+      Action
+    </button>
+    <nz-dropdown-menu #menu="nzDropdownMenu">
+      <ul nz-menu>
+        <li nz-menu-item (click)="cancelPay()">{{ 'billMasterGwApp.pkbillmsTransaction.cancelWithRequest' | translate }} (DEFAULT)</li>
+
+        <ng-container *ngFor="let action of actions">
+          <ng-container
+            *ngTemplateOutlet="action.confirmable ? confirmable : notConfirmable; context: { $implicit: action }"
+          ></ng-container>
+        </ng-container>
+
+        <ng-template #confirmable let-action>
+          <li
+            nz-menu-item
+            nz-popconfirm
+            [nzPopconfirmTitle]="confirmTitleTmp"
+            nzPopconfirmPlacement="topLeft"
+            (nzOnConfirm)="executeAction(action)"
+            [bm-i18n]="action['title']"
+          >
+            {{ action.title }}
+          </li>
+
+          <ng-template #confirmTitleTmp>
+            <span [bm-i18n]="action.confirmationText">{{ action.confirmationText }}</span>
+          </ng-template>
+        </ng-template>
+
+        <ng-template #notConfirmable let-action>
+          <li nz-menu-item (click)="executeAction(action)" [bm-i18n]="action['title']">{{ action.title }}</li>
+        </ng-template>
+      </ul>
+    </nz-dropdown-menu>
+  </div>
+
+  <bm-alert></bm-alert>
+
+  <div class="form-row">
+    <div class="col-md-4 form-row-mb">
+      <nz-list class="form-row-mb" nzBordered nzSize="small" nzHeader="ИНФОРМАЦИЯ О ПЛАТЕЖЕ">
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="billMasterGwApp.pkbillmsTransaction.id">ID</span>
+          <span>{{ transaction.id }}</span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="billMasterGwApp.pkbillmsTransaction.createdDate">Created Date</span>
+          <span>{{ transaction.date | bmDate }}</span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="billMasterGwApp.pkbillmsTransaction.confirmedDate">Confirmed Date</span>
+          <span>{{ transaction.recipientDate | bmDate }}</span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="billMasterGwApp.pkbillmsTransaction.requestLogin">Request Login</span>
+          <a href="javascript:void(0)" (click)="viewAgent(transaction.requestLogin)">{{ transaction.requestLogin }}</a>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="billMasterGwApp.pkbillmsTransaction.status">Status</span>
+          <span
+            class="badge transaction-status {{ transaction.status }}"
+            [nz-tooltip]="'Отправитель: ' + transaction.senderStatusText + ', Получатель: ' + transaction.recipientStatusText"
+          >
+            {{ transaction.status }}
+          </span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="billMasterGwApp.pkbillmsTransaction.clientAmount">Client Amount</span>
+          <span>{{ transaction.requestAmount | bmAmount: transaction.amountRatio }}</span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="billMasterGwApp.pkbillmsTransaction.gatewayAmount">Gateway Amount</span>
+          <span>{{ transaction.gatewayAmount | bmAmount: transaction.amountRatio }}</span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="billMasterGwApp.pkbillmsTransaction.payType">Pay Type</span>
+          <span jhiTranslate="billMasterGwApp.PayType.{{ transaction.payType }}">{{ transaction.payType }}</span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="billMasterGwApp.pkbillmsTransaction.eposMerchant">Epos Merchant</span>
+          <span>{{ transaction.eposMerchant }}</span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="billMasterGwApp.pkbillmsTransaction.eposTerminal">Epos Terminal</span>
+          <span>{{ transaction.eposTerminal }}</span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="billMasterGwApp.pkbillmsTransaction.promo">Promo</span>
+          <span>{{ transaction.promo }}</span>
+        </nz-list-item>
+      </nz-list>
+      <nz-list nzBordered nzSize="small" nzHeader="КОМИСИИ">
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="billMasterGwApp.pkbillmsTransaction.agentCommission"
+            >System Commission Up Amount</span
+          >
+          <span>{{ transaction.systemCommissionUpAmount | bmAmount: transaction.amountRatio }}</span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="billMasterGwApp.pkbillmsTransaction.systemCommissionUpAmount"
+            >System Commission Down Amount</span
+          >
+          <span>{{ transaction.systemCommissionDownAmount | bmAmount: transaction.amountRatio }}</span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="billMasterGwApp.pkbillmsTransaction.systemFee">System Fee</span>
+          <span>{{ transaction.systemFee | bmAmount: transaction.amountRatio }}</span>
+        </nz-list-item>
+      </nz-list>
+    </div>
+    <div class="col-md-4 form-row-mb">
+      <nz-list class="mb-3" nzBordered nzSize="small" nzHeader="ОТПРАВИТЕЛЬ">
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="global.field.id">ID</span>
+          <span>{{ transaction.senderTrId }}</span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="global.field.name">Name</span>
+          <span>{{ transaction.senderName }}</span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="global.menu.submenu.gateway.main">Gateway</span>
+          <a href="javascript:void(0)" (click)="viewGateway(transaction.senderGateway)">{{ transaction.senderGateway }}</a>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="global.field.account">Account</span>
+          <span>{{ transaction.senderAccount }}</span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="global.field.service">Service</span>
+          <span>{{ transaction.senderServiceId }}</span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="global.field.amount">Amount</span>
+          <span>{{ transaction.senderAmount | bmAmount }}</span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="global.field.success">Success</span>
+          <span [bm-boolean-badge]="transaction.senderSuccess" bmType="success">{{ transaction.senderSuccess }}</span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="global.field.date">Date</span>
+          <span>{{ transaction.senderDate | bmDate }}</span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="global.field.status">Status</span>
+          <span>{{ transaction.senderStatus }}</span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="billMasterGwApp.pkbillmsTransaction.statusText">Status Text</span>
+          <span>{{ transaction.senderStatusText }}</span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="global.field.bill">Bill</span>
+          <a href="javascript:void(0)" (click)="viewBill(transaction.senderBillId)">{{ transaction.senderBillId }}</a>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="global.field.currency">Currency</span>
+          <span>{{ transaction.senderCcy }}</span>
+        </nz-list-item>
+      </nz-list>
+    </div>
+    <div class="col-md-4 form-row-mb">
+      <nz-list class="mb-3" nzBordered nzSize="small" nzHeader="ПОЛУЧАТЕЛЬ">
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="global.field.id">ID</span>
+          <span>{{ transaction.recipientTrId }}</span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="global.field.name">Name</span>
+          <a href="javascript:void(0)" (click)="viewRecipient(transaction.recipientServiceId)">{{ transaction.recipientName }}</a>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="global.menu.submenu.gateway.main">Recipient Gateway</span>
+          <a href="javascript:void(0)" (click)="viewGateway(transaction.recipientGateway)">{{ transaction.recipientGateway }}</a>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="global.field.account">Account</span>
+          <span>{{ transaction.recipientAccount }}</span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="global.field.service">Service</span>
+          <span>{{ transaction.recipientServiceId }}</span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="global.field.amount">Amount</span>
+          <span>{{ transaction.recipientAmount | bmAmount }}</span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="global.field.success">Success</span>
+          <span [bm-boolean-badge]="transaction.recipientSuccess" bmType="success">{{ transaction.recipientSuccess }}</span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="global.field.date">Date</span>
+          <span>{{ transaction.recipientDate | bmDate }}</span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="global.field.status">Status</span>
+          <span>{{ transaction.recipientStatus }}</span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="billMasterGwApp.pkbillmsTransaction.statusText">Status Text</span>
+          <span>{{ transaction.recipientStatusText }}</span>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="global.field.bill">Bill</span>
+          <a href="javascript:void(0)" (click)="viewBill(transaction.recipientBillId)">{{ transaction.recipientBillId }}</a>
+        </nz-list-item>
+        <nz-list-item>
+          <span class="font-weight-bold" jhiTranslate="global.field.currency">Currency</span>
+          <span>{{ transaction.recipientCcy }}</span>
+        </nz-list-item>
+      </nz-list>
+    </div>
+  </div>
+
+  <nz-collapse>
+    <nz-collapse-panel nzHeader="СВЯЗАННЫЕ ЧЕКИ ПО ПЛАТЕЖУ" [nzDisabled]="!transactionBills.bills?.length">
+      <transaction-bills [transactionId]="transaction.id" #transactionBills></transaction-bills>
+    </nz-collapse-panel>
+    <nz-collapse-panel nzHeader="СВЯЗАННЫЕ ТРАНЗАКЦИИ ПО ПЛАТЕЖУ" [nzDisabled]="!relatedTransactions?.length">
+      <div class="table-responsive">
+        <nz-table [nzData]="relatedTransactions" nzSize="small" [nzShowPagination]="false">
+          <thead>
+            <tr>
+              <th>
+                <span jhiTranslate="global.field.id">ID</span>
+              </th>
+              <th>
+                <span jhiTranslate="billMasterGwApp.pkbillmsTransaction.requestLogin">Request Login</span>
+              </th>
+              <th>
+                <span jhiTranslate="billMasterGwApp.pkbillmsTransaction.date">Date</span>
+              </th>
+              <th>
+                <span jhiTranslate="billMasterGwApp.pkbillmsTransaction.status">Status</span>
+              </th>
+              <th>
+                <span jhiTranslate="billMasterGwApp.pkbillmsTransaction.recipientName">Recipient Name</span>
+              </th>
+              <th>
+                <span jhiTranslate="billMasterGwApp.pkbillmsTransaction.recipientAccount">Recipient Account</span>
+              </th>
+              <th>
+                <span jhiTranslate="billMasterGwApp.pkbillmsTransaction.payType">Pay Type</span>
+              </th>
+              <th>
+                <span jhiTranslate="billMasterGwApp.pkbillmsTransaction.senderAmount">Sender Amount</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let relatedTransaction of relatedTransactions; trackBy: trackId">
+              <td>{{ relatedTransaction.id }}</td>
+              <td>
+                <a href="javascript:void(0)" (click)="viewAgent(relatedTransaction.requestLogin)">{{ relatedTransaction.requestLogin }}</a>
+              </td>
+              <td>{{ relatedTransaction.date | bmDate }}</td>
+              <td>
+                <span
+                  class="badge transaction-status {{ relatedTransaction.status }}"
+                  [nz-tooltip]="'Отправитель: ' + transaction.senderStatusText + ', Получатель: ' + transaction.recipientStatusText"
+                  jhiTranslate="billMasterGwApp.TransactionStatus.{{ relatedTransaction.status }}"
+                >
+                  {{ relatedTransaction.status }}
+                </span>
+              </td>
+              <td>
+                <a href="javascript:void(0)" (click)="viewRecipient(relatedTransaction.recipientServiceId)"
+                  >{{ relatedTransaction.recipientName }}</a
+                >
+              </td>
+              <td>{{ relatedTransaction.recipientAccount }}</td>
+              <td>
+                <span jhiTranslate="billMasterGwApp.PayType.{{ relatedTransaction.payType }}">{{ relatedTransaction.payType }}</span>
+              </td>
+              <td>{{ relatedTransaction.senderAmount | bmAmount: relatedTransaction.amountRatio }}</td>
+            </tr>
+          </tbody>
+        </nz-table>
+      </div>
+    </nz-collapse-panel>
+  </nz-collapse>
+</nz-spin>

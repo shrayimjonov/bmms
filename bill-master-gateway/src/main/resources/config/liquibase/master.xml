@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql, mariadb"/>
+    <property name="clobType" value="longvarchar" dbms="h2"/>
+    <property name="clobType" value="clob" dbms="mysql, oracle, mssql, mariadb, postgresql"/>
+    <property name="uuidType" value="uuid" dbms="h2, postgresql"/>
+    <property name="datetimeType" value="datetime(6)" dbms="mysql, mariadb"/>
+    <property name="datetimeType" value="datetime" dbms="oracle, mssql, postgresql, h2"/>
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210831100652_added_entity_UserGroup.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/added_relationship_userGroup_with_authority.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/added_relationship_userGroup_with_user.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/added_authorities_data.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/added_group_data.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/added_user_group_authorities_data.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/added_user_group_user_data.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/added_phoneNumber_into_User.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/added_details_to_Authority.xml" relativeToChangelogFile="false"/>
+
+    <include file="config/liquibase/changelog/20211102110011_added_entity_JsonForm.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/added_keycloak_changes.xml" relativeToChangelogFile="false" />
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/added_table_JsonFormUser.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211102110011_added_entity_constraints_JsonForm.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/added_audit_into_JsonForm.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/remove_not_null_constraint_JsonForm_audit.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+    <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
+</databaseChangeLog>

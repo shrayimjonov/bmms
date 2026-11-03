@@ -1,0 +1,46 @@
+{
+  "billMasterGwApp": {
+    "bmmsCurrency": {
+      "home": {
+        "title": "Valyutalar",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Yangi Valyuta qo`shish",
+        "createOrEditLabel": "Valyutani tahrirlash",
+        "notFound": "Valyutalar topilmadi"
+      },
+      "delete": {
+        "question": "{{ id }}- Valyutani o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "Valyutalar"
+      },
+      "id": "Id",
+      "code": "Kod",
+      "ccy": "Valyuta",
+      "nameRu": "Nom Ru",
+      "rate": "Stavka",
+      "sellRate": "Sotuv stavkasi",
+      "buyRate": "Sotib olish stavkasi",
+      "date": "Sana",
+      "active": "Aktiv",
+      "ccyGroup": "Ccy Guruhi",
+      "help": {
+        "code": "Числовой код валюты (digit-3) из ISO_4217. Например: 840, 978, 643 и др",
+        "ccy": "Символьный код валюты (альфа-3) из ISO_4217. Например: USD, EUR, RUB и др",
+        "nameRu": "Наименование валюты на русском языке",
+        "rate": "Курс валюты",
+        "sellRate": "Курс валюты продажи",
+        "buyRate": "Курс валюты покупки",
+        "date": "Дата активизации",
+        "active": "Activeness"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "bmmsCurrency": {
+      "created": "Currency {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- Currency saqlandi",
+      "deleted": "{{ param }}- Currency o`chirildi"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity JsonForm.
+    -->
+    <changeSet id="20211102110011-2" author="abdurahim">
+
+        <addForeignKeyConstraint baseColumnNames="json_form_id"
+                                 baseTableName="rel_json_form__user"
+                                 constraintName="fk_rel_json_form__user__json_form_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="json_form"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="rel_json_form__user"
+                                 constraintName="fk_rel_json_form__user__user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,42 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsResponseField": {
+      "home": {
+        "title": "Поле ответа",
+        "createLabel": "Create a new Response Field",
+        "createOrEditLabel": "Create or edit a Response Field",
+        "notFound": "Поля ответа не найдены"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Response Field {{ id }}?"
+      },
+      "detail": {
+        "title": "Response Field"
+      },
+      "name": "Название",
+      "visibility": "Видимость",
+      "ord": "Порядок",
+      "requestType": "Тип запроса",
+      "recipientShortName": "Краткое имя получателя",
+      "recipientId": "Получатель",
+      "labels": "Ярлыки",
+      "type": "Тип",
+      "help": {
+        "name": "Name",
+        "visibility": "Visibility",
+        "ord": "Порядок",
+        "requestType": "Request type",
+        "recipientShortName": "Recipient short name",
+        "recipientId": "Recipient",
+        "labels": "Labels"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsResponseField": {
+      "created": "A new Response Field is created with identifier {{ param }}",
+      "updated": "A Response Field is updated with identifier {{ param }}",
+      "deleted": "A Response Field is deleted with identifier {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,121 @@
+= Developer Guide
+Javlon Eraliyev
+
+:icons: font
+:page-watermark-image: image:watermark[opacity=50%]
+
+== Naming
+
+=== Термины
+
+`Snake case` - snake_case, рус. змеиный_регистр
+
+`Kebab Case` - kebab-case
+
+=== Name @RequestMapping with `kebab-case`
+
+=== Name .json files with `kebab-case`
+
+=== Do `String.valueOf(str)`, Do not `str.toString()`
+
+== Common Gateway Services
+
+=== Name Recipients with `kebab-case`, eg. `my-taxi`
+
+WARNING: Документ в разработке
+
+=== Термины
+
+`Common` - обычный, простой, обшепринятый.
+
+`Postman` - Программа для построения и проверок запросов.
+
+WARNING: Прежде всего нужно определить является ли биллинг поставшика простым.
+
+=== Добавление нового
+
+После изучения и проверки в `Postman`,
+надо в `/src/main/resources/commons` создать файл с наименованием одинаковым с
+коротким названием постасвшика (`Recipient.shortName`).
+Например, `/src/main/resources/commons/prime-media.json`.
+
+==== Пример файла
+[source,json]
+include::./../../../main/resources/commons/prime-media.json[]
+
+=== Симуляция ответов (`Mock up`)
+
+После изучения и проверки в `Postman`, запросы и ответы нужно записать
+в файл для далнейшего симулирования запросов в тестовом или разработческой среде.
+
+Для этого, создаём файл в `src/test/resources/simulation/` с наименованием одинаковым с
+коротким названием постасвшика (`Recipient.shortName`) где даем описание и макет данных.
+Например, `src/test/resources/simulation/prime-media.json`.
+
+==== Пример файла
+[source,json]
+include::./../../../test/resources/simulation/prime-media.json[]
+
+=== Тестирование и разработка
+
+Если предидушие шаги зделаны провильно все тесты и сервисы будут работать из коробки.
+
+TIP: для ознакомления можно посмотреть классы : `CommonGatewayServiceTest` и `CommonSenderSimulation`
+
+=== Боевой запуск
+
+WARNING: Все настроено из коробки
+
+== Добавление нового поставшика (GatewayServiceV3 - вывод как библиотеку)
+
+=== Создайте проект
+
+[WARNING]
+===============================
+**Наименование папки должен быть в формате 'spring-boot-bm-[recipient]'.** **Пакет должен быть 'uz.devops'.** **Пакет должен быть в формате 'Bm[Recipient]'.**
+===============================
+
+**На пример Paynet это поставшик которого нужно интегрировать.**
+
+[source,shell]
+----
+npm i -g generator-spring-boot-plugin
+mkdir spring-boot-bm-paynet
+cd spring-boot-bm-paynet
+yo spring-boot-plugin
+
+? Give a name for plugin :  BmPaynet
+? What package do you want to use :  uz.devops
+? Add Spring Boot Starters and dependencies to your application
+>( ) Secure your application via spring-security
+ (*) Full-stack web development with Tomcat and Spring MVC
+ ( ) Java Persistence API including spring-data-jpa, spring-orm and Hibernate
+ ( ) Common spring-integration modules
+ (*) Lombok
+ (*) Spring testing
+----
+
+=== Отредактируйте pom.xml
+
+==== Добавте в <properties>
+
+    <javlon-ms-commons.version>1.3.0</javlon-ms-commons.version>
+    <bm-core.version>0.2.2</bm-core.version>
+
+WARNING: Версии могут быть уже другими
+
+==== Добавте в <dependencies>
+
+    <dependency>
+        <groupId>uz.javlon</groupId>
+        <artifactId>javlon-ms-commons</artifactId>
+        <version>${javlon-ms-commons.version}</version>
+        <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+        <groupId>uz.devops</groupId>
+        <artifactId>bm-core</artifactId>
+        <version>${bm-core.version}</version>
+        <!--<scope>provided</scope>-->
+    </dependency>

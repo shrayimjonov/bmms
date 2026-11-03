@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:getRegionsListResponse xmlns:ns2="http://st.apus.com/">
+    <return>
+        <AreasList>
+            <Title>Рестораны</Title>
+            <Area>
+                <Id>55</Id>
+                <Code>333600001</Code>
+                <Name>Famous Доставка</Name>
+                <Children/>
+            </Area>
+        </AreasList>
+        <Result>
+            <code>OK</code>
+            <Description>Успешно</Description>
+        </Result>
+    </return>
+</ns2:getRegionsListResponse>

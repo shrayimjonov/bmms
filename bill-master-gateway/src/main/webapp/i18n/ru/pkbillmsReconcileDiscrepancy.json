@@ -1,0 +1,50 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsReconcileDiscrepancy": {
+      "home": {
+        "title": "Reconcile Discrepancies",
+        "createLabel": "Создать новый Согласование расхождений",
+        "createOrEditLabel": "Создать или отредактировать Согласование расхождений",
+        "notFound": "Согласование расхождений не найдены"
+      },
+      "delete": {
+        "question": "Вы уверены что хотите удалить Согласование расхождений {{ id }}?"
+      },
+      "detail": {
+        "title": "Согласование расхождений"
+      },
+      "gatewayName": "Название шлюза",
+      "systemTransactionId": "Ид системной транзакции",
+      "gatewayTransactionId": "Ид транзакции шлюза",
+      "systemAmount": "Сумма системы",
+      "gatewayAmount": "Сумма шлюза",
+      "systemStatus": "Статус системы",
+      "gatewayStatus": "Статус Шлюза",
+      "systemDate": "Дата системы",
+      "gatewayDate": "Дата Шлюза",
+      "closed": "Закрыто",
+      "comment": "Комментарий",
+      "reconcileSummary": "Сводка по сверке",
+      "help": {
+        "gatewayName": "Уникальное название шлюза",
+        "systemTransactionId": "Номер платежа в системе",
+        "gatewayTransactionId": "Номер платежа в шлюзе",
+        "systemAmount": "Сумма платежа в системе",
+        "gatewayAmount": "Сумма платежа в шлюзе",
+        "systemStatus": "Статус транзакции в системе",
+        "gatewayStatus": "Статус транзакции в шлюзе",
+        "systemDate": "Дата транзакции в системе",
+        "gatewayDate": "Дата транзакции в шлюзе",
+        "closed": "Финальный статус проблемы",
+        "comment": "Дополнительная информация"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsReconcileDiscrepancy": {
+      "created": "Новый Согласование расхождений создан с идентификатором {{ param }}",
+      "updated": "Согласование расхождений обновлен с идентификатором {{ param }}",
+      "deleted": "Согласование расхождений удален с идентификатором {{ param }}"
+    }
+  }
+}

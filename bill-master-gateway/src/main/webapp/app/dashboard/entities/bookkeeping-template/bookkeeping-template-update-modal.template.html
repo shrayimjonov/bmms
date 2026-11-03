@@ -1,0 +1,181 @@
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <div class="modal-header">
+    <h4 class="modal-title" jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.home.createOrEditLabel">Create Or Edit Label</h4>
+
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal()">&times;</button>
+  </div>
+
+  <div class="modal-body">
+    <bm-alert></bm-alert>
+
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.groupId"
+               for="field_groupId">groupId</label>
+        <input nz-input nzSize="large" formControlName="groupId" id="field_groupId" type="number" />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.sMfo" for="field_sMfo">sMfo</label>
+        <input nz-input nzSize="large" formControlName="sMfo" id="field_sMfo" />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.sInn" for="field_sInn">sInn</label>
+        <input nz-input nzSize="large" formControlName="sInn" id="field_sInn" />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.sAccount"
+               for="field_sAccount">sAccount</label>
+        <input nz-input nzSize="large" formControlName="sAccount" id="field_sAccount" />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.rMfo" for="field_rMfo">rMfo</label>
+        <input nz-input nzSize="large" formControlName="rMfo" id="field_rMfo" />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.rInn" for="field_rInn">rInn</label>
+        <input nz-input nzSize="large" formControlName="rInn" id="field_rInn" />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.rAccount"
+               for="field_rAccount">rAccount</label>
+        <input nz-input nzSize="large" formControlName="rAccount" id="field_rAccount" />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.calculateAmountRule"
+               for="field_calculateAmountRule"
+        >calculateAmountRule</label
+        >
+        <input nz-input nzSize="large" formControlName="calculateAmountRule" id="field_calculateAmountRule" />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.period"
+               for="field_period">period</label>
+        <bm-select-input formControlName="period" id="field_period" [data]="periods"></bm-select-input>
+      </div>
+
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.payTypes"
+               for="field_payTypes">payTypes</label>
+        <bm-select-input formControlName="payTypes" id="field_payTypes" [data]="payTypes" bmMode="multiple"></bm-select-input>
+      </div>
+
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.sType"
+               for="field_sType">sType</label>
+        <input nz-input nzSize="large" formControlName="sType" id="field_sType" type="number" />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.sTypeIds"
+               for="field_sTypeIds">sTypeIds</label>
+        <input nz-input nzSize="large" formControlName="sTypeIds" id="field_sTypeIds" type="number" />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.bookkeepingType"
+               for="field_bookkeepingType"
+        >bookkeepingType</label
+        >
+        <bm-select-input formControlName="bookkeepingType" id="field_bookkeepingType" [data]="bookkeepingTypes"></bm-select-input>
+      </div>
+
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.name" for="field_name">name</label>
+        <input nz-input nzSize="large" formControlName="name" id="field_name" />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.amountCalculateType"
+               for="field_amountCalculateType"
+        >amountCalculateType</label
+        >
+        <bm-select-input
+          formControlName="amountCalculateType"
+          id="field_amountCalculateType"
+          [data]="amountCalculateTypes"
+        ></bm-select-input>
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.gateway" for="field_gateway">Gateway</label>
+        <bm-select-input
+          formControlName="gateway"
+          id="field_gateway"
+          [bmShowSearch]="true"
+          [bmServerSearch]="true"
+          [requestUrl]="gatewayService.resourceUrl"
+          bmLabelField="name"
+        ></bm-select-input>
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.recipient" for="field_recipient">Recipient</label>
+        <bm-select-input
+          formControlName="recipient"
+          id="field_recipient"
+          [bmShowSearch]="true"
+          [bmServerSearch]="true"
+          [requestUrl]="recipientService.resourceUrl"
+          bmLabelField="shortName"
+        ></bm-select-input>
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.docType" for="field_docType">docType</label>
+        <input nz-input nzSize="large" formControlName="docType" id="field_docType" />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.docCode" for="field_docCode">docCode</label>
+        <input nz-input nzSize="large" formControlName="docCode" id="field_docCode" />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.docTaskCode" for="field_docTaskCode">docTaskCode</label>
+        <input nz-input nzSize="large" formControlName="docTaskCode" id="field_docTaskCode" />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.rAccountName" for="field_rAccountName">rAccountName</label>
+        <input nz-input nzSize="large" formControlName="rAccountName" id="field_rAccountName" />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.bookkeepingPayType" for="field_bookkeepingPayType"
+          >bookkeepingPayType</label
+        >
+        <bm-select-input formControlName="bookkeepingPayType" id="field_bookkeepingPayType" [data]="bookkeepingPayTypes"></bm-select-input>
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.groupIds" for="field_groupIds">groupIds</label>
+        <input nz-input nzSize="large" formControlName="groupIds" id="field_groupIds" />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.control" for="field_control">control</label>
+        <input nz-input nzSize="large" formControlName="control" id="field_control" type="number" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.desc" for="field_desc">Desc</label>
+      <textarea nz-input rows="3" id="field_desc" formControlName="desc"></textarea>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" nz-button nzSize="large" nzType="text" jhiTranslate="entity.action.cancel" (click)="closeModal()">Cancel</button>
+    <button nz-button nzSize="large" nzType="primary" [nzLoading]="loading" [disabled]="editForm.invalid">
+      {{ 'entity.action.save' | translate }}
+    </button>
+  </div>
+</form>

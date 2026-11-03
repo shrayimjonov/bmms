@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Entity Recipient Group constraints migrate to 7.1 jhipster
+    -->
+    <changeSet id="entity_RecipientGroup_constraints_migrate-1" author="zafar">
+        <!--
+          Drop foreign constraint RecipientGroupRecipient to RecipientGroup
+        -->
+        <preConditions onFail="MARK_RAN">
+            <foreignKeyConstraintExists foreignKeyName="fk_recipient_group_recipient_recipient_groups_id"/>
+        </preConditions>
+
+        <comment>Drop foreign constraint GroupSettingProp to GroupSetting</comment>
+
+        <dropForeignKeyConstraint baseTableName="rel_recipient_group__recipient"
+                                  constraintName = "fk_recipient_group_recipient_recipient_groups_id"/>
+    </changeSet>
+
+    <changeSet id="entity_RecipientGroup_constraints_migrate-2" author="zafar">
+        <!--
+            Add foreign constraint RecipientGroupRecipient to RecipientGroup
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_recipient_group_recipient_recipient_groups_id"
+                                            foreignKeyTableName="recipient_group"/>
+            </not>
+        </preConditions>
+
+        <comment>Add foreign constraint RecipientGroupRecipient to RecipientGroup</comment>
+
+        <addForeignKeyConstraint baseColumnNames="recipient_group_id"
+                                 baseTableName="rel_recipient_group__recipient"
+                                 constraintName="fk_recipient_group_recipient_recipient_groups_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="recipient_group"/>
+    </changeSet>
+
+    <changeSet id="entity_RecipientGroup_constraints_migrate-3" author="zafar">
+        <!--
+            Drop foreign constraint RecipientGroupRecipient to Recipient
+        -->
+        <preConditions onFail="MARK_RAN">
+            <foreignKeyConstraintExists foreignKeyName="fk_recipient_group_recipient_recipients_id"/>
+        </preConditions>
+
+        <comment>Drop foreign constraint RecipientGroupRecipient to Recipient</comment>
+
+        <dropForeignKeyConstraint baseTableName="rel_recipient_group__recipient"
+                                  constraintName = "fk_recipient_group_recipient_recipients_id"/>
+    </changeSet>
+
+    <changeSet id="entity_RecipientGroup_constraints_migrate-4" author="zafar">
+        <!--
+            Add foreign constraint RecipientGroupRecipient to Recipient
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_recipient_group_recipient_recipients_id"
+                                            foreignKeyTableName="recipient"/>
+            </not>
+        </preConditions>
+
+        <comment>Add foreign constraint RecipientGroupRecipient to Recipient</comment>
+
+        <addForeignKeyConstraint baseColumnNames="recipient_id"
+                                 baseTableName="rel_recipient_group__recipient"
+                                 constraintName="fk_recipient_group_recipient_recipients_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="recipient"/>
+
+
+    </changeSet>
+</databaseChangeLog>

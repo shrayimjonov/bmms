@@ -1,0 +1,34 @@
+@startuml
+
+title Проверка счета получателя
+Агент-> BillMaster: Запрос\t\t\t\t
+hnote over BillMaster : NEW
+
+group #Pink 1. Не правильные настройки шлюза\n2. Агент указал не разрешённую валюту\n3. Сумма указана вне лимита макс/мин
+    hnote over BillMaster : CHECK_FAIL
+    BillMaster -> Агент: Ошибка
+end
+
+hnote over BillMaster : CHECKING
+BillMaster -> Шлюз : Запрос в шлюз поставщика
+
+group #Pink Шлюзе вернул не успешный ответ при проверке счета
+    BillMaster x<[#red]-- Шлюз : Не успешный ответ
+    hnote over BillMaster : CHECK_FAIL
+    BillMaster -> Агент: Ошибка
+end
+
+group #khaki Превышена время ожидания ответа
+    BillMaster x<[#red]-- Шлюз : Timeout
+    hnote over BillMaster : CHECK_FAIL
+    BillMaster -> Агент: Ошибка
+end
+
+BillMaster <[#green]- Шлюз : Успешный ответ
+hnote over BillMaster : CHECK_ОК
+title Проверка счета получателя
+BillMaster -> Агент: Ответ
+
+@enduml
+
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:getRegionsListResponse xmlns:ns2="http://st.apus.com/">
+    <return>
+        <AreasList/>
+        <Result>
+            <code>OK</code>
+            <Description>Успешно</Description>
+        </Result>
+    </return>
+</ns2:getRegionsListResponse>

@@ -1,0 +1,8 @@
+{
+    "recipientId": 1110,
+    "account": "974415655",
+    "amount": 510,
+    "params": {
+        "otherParam": "xxx"
+    }
+}

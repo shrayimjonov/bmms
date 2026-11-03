@@ -1,0 +1,35 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsPcBin": {
+      "home": {
+        "title": "Card Bins",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Card Bins",
+        "createOrEditLabel": "Create or edit a Card Bins",
+        "notFound": "No Card Bins found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Pc Bin {{ id }}?"
+      },
+      "detail": {
+        "title": "Card Bins"
+      },
+      "id": "ID",
+      "bin": "Bin",
+      "bankName": "Bank name",
+      "pcType": "Processing type",
+      "useCredit": "Credit",
+      "useDebit": "Debit",
+      "useReverse": "Reverse",
+      "useReconcile": "Reconcile",
+      "comment": "Comment"
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsPcBin": {
+      "created": "New Card Bins is created with identifier {{ param }}",
+      "updated": "Card Bins is updated with identifier {{ param }}",
+      "deleted": "Card Bins is deleted with identifier {{ param }}"
+    }
+  }
+}

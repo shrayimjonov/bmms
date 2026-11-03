@@ -1,0 +1,69 @@
+<nz-spin [nzSpinning]="loading" [nzDelay]="0" nzSize="small">
+  <div class="table-responsive mb-2" *ngIf="bills?.length" style="overflow: unset">
+    <nz-table [nzShowPagination]="false" nzSize="small" nzTemplateMode nzOuterBordered>
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadBills.bind(this)">
+          <th jhiSortBy="id">
+            <span jhiTranslate="global.field.id">ID</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th>
+            <span jhiTranslate="billMasterGwApp.pkbillmsBill.recipientShortName">Recipient Short Name</span>
+          </th>
+          <th>
+            <span jhiTranslate="billMasterGwApp.pkbillmsBill.account">Account</span>
+          </th>
+          <th>
+            <span jhiTranslate="billMasterGwApp.pkbillmsBill.amount">Amount</span>
+          </th>
+          <th>
+            <span jhiTranslate="billMasterGwApp.pkbillmsBill.sessionId">Session Id</span>
+          </th>
+          <th>
+            <span jhiTranslate="billMasterGwApp.pkbillmsBill.type">Type</span>
+          </th>
+          <th>
+            <span jhiTranslate="billMasterGwApp.pkbillmsBill.extId">Ext Id</span>
+          </th>
+          <th>
+            <span jhiTranslate="billMasterGwApp.pkbillmsBill.success">Success</span>
+          </th>
+          <th>
+            <span jhiTranslate="billMasterGwApp.pkbillmsBill.requestTime">Request Time</span>
+          </th>
+          <th>
+            <span jhiTranslate="billMasterGwApp.pkbillmsBill.responseTime">Response Time</span>
+          </th>
+          <th>
+            <span jhiTranslate="billMasterGwApp.pkbillmsBill.login">Login</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bill of bills">
+          <td>
+            <a href="javascript:void(0)" (click)="viewBill(bill)">{{ bill.id }}</a>
+          </td>
+          <td>
+            <a href="javascript:void(0)" (click)="viewRecipient(bill.recipientId)">{{ bill.recipientShortName }}</a>
+          </td>
+          <td>{{ bill.account }}</td>
+          <td>{{ bill.amount | bmAmount: bill.amountRatio }}</td>
+          <td>{{ bill.sessionId }}</td>
+          <td>
+            <span class="badge bill-type {{ bill.type }}" jhiTranslate="billMasterGwApp.RequestType.{{ bill.type }}">{{ bill.type }}</span>
+          </td>
+          <td>{{ bill.extId }}</td>
+          <td>
+            <span [bm-boolean-badge]="bill.success" bmType="success">{{ bill.success }}</span>
+          </td>
+          <td>{{ bill.requestTime | bmDate }}</td>
+          <td>{{ bill.responseTime | bmDate }}</td>
+          <td>
+            <a href="javascript:void(0)" (click)="viewAgent(bill.login)">{{ bill.login }}</a>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</nz-spin>

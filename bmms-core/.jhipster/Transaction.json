@@ -1,0 +1,308 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "bmms",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "requestAmount",
+            "javadoc": "Сумма запроса по валюте запроса, разряд зависит от настроек агента (agent.amountRatio)",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "requestCcy",
+            "javadoc": "Валюта запроса, значения могут быть ограничены в зависомести от настроек агента",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "requestTrId",
+            "fieldType": "String",
+            "javadoc": "Ид. запроса, отправляет агент",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 72
+        },
+        {
+            "fieldName": "requestLogin",
+            "fieldType": "String",
+            "javadoc": "Логин от которого приходит запрос, система сама определяет значение от имени пользователя",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "requestGroup",
+            "fieldType": "String",
+            "javadoc": "Используется для групировки запросов",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "senderName",
+            "javadoc": "Наименование отправителя средств",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 32
+        },
+        {
+            "fieldName": "senderAccount",
+            "javadoc": "Номер счета с которого снимаются средства",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "senderServiceId",
+            "javadoc": "Ид. сервиса отправителя средст",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "senderAmount",
+            "javadoc": "Снимаюшаяся сумма по валюте отправителя, разряд зависит от настроек отправителя (recipient.amountRatio)",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "senderCcy",
+            "javadoc": "Валюта отправителя (recipient.ccy)",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "senderTrId",
+            "javadoc": "Ид. транзакции в системе отправителя",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "senderSuccess",
+            "javadoc": "Успешность запроса из системы отправителя",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "senderDate",
+            "javadoc": "Дата в системе отправителя, нужен для сверок",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "senderStatus",
+            "javadoc": "Статус запроса в системе отправителя, нужен для резалюции статуса транзакции",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 16
+        },
+        {
+            "fieldName": "senderStatusText",
+            "javadoc": "Текст статус запроса в системе отправителя, для админа",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 128
+        },
+        {
+            "fieldName": "senderBillId",
+            "javadoc": "Ид. чека отправителя из таблицы bill (bill.id)",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "senderGateway",
+            "javadoc": "Наименование шлюза отправителя",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gatewayAmount",
+            "javadoc": "Поступаюшая сумма по валюте получателя, разряд и валюта зависит от настроек получателя (recipient.amountRatio и recipient.ccy)",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "recipientName",
+            "javadoc": "Наименование получателя средств",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 32
+        },
+        {
+            "fieldName": "recipientAccount",
+            "javadoc": "Номер счета на которую поступают средства",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "recipientServiceId",
+            "javadoc": "Ид. сервиса получателя средст",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "recipientAmount",
+            "javadoc": "Поступаюшая сумма по валюте получателя, разряд зависит от настроек получателя (recipient.amountRatio)",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "recipientCcy",
+            "javadoc": "Валюта получателя (recipient.ccy)",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "recipientTrId",
+            "javadoc": "Ид. транзакции в системе получателя",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "recipientSuccess",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "recipientDate",
+            "javadoc": "Дата в системе получателя, нужен для сверок",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "recipientStatus",
+            "javadoc": "Статус запроса в системе получателя, нужен для резалюции статуса транзакции",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 16
+        },
+        {
+            "fieldName": "recipientStatusText",
+            "javadoc": "Текст статус запроса в системе получателя, для админа",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 128
+        },
+        {
+            "fieldName": "recipientBillId",
+            "javadoc": "Ид. чека получателя из таблицы bill (bill.id)",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "recipientGateway",
+            "javadoc": "Наименование шлюза получателя",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "systemCommissionUpAmount",
+            "javadoc": "Комиссия системы сверху суммы",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "systemCommissionDownAmount",
+            "javadoc": "Комиссия системы с суммы",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "systemFeeAmount",
+            "javadoc": "Сумма всех вознограждений системы за эту транзакцию",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "agentFeeAmount",
+            "javadoc": "Сумма вознограждения агента",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "roundAmount",
+            "javadoc": "Сумма округлениия gatewayAmount после сотячных дроби, amount = 12.34567 -> gatewayAmount = 12.34, roundAmount = 0.00567",
+            "fieldType": "Double",
+            "fieldValidateRules": ["min"],
+            "fieldValidateRulesMin": 0
+        },
+        {
+            "fieldName": "systemFee",
+            "javadoc": "Процент вознограждений системы за эту транзакцию",
+            "fieldType": "Double",
+            "fieldValidateRules": ["max", "min"],
+            "fieldValidateRulesMax": 100,
+            "fieldValidateRulesMin": 0
+        },
+        {
+            "fieldName": "systemCurrency",
+            "javadoc": "Валюта всех значений сум, относяшихся к системе",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "ccyRate",
+            "javadoc": "Курс валюты в копейках",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "status",
+            "javadoc": "Статус транзакции",
+            "fieldType": "TransactionStatus",
+            "fieldValues": "NEW,CHECK_OK,CHECK_FAIL,WAITING,SUCCESS,FAILED,CANCELLED,REVERSED,INVOICE_SENDING,INVOICE_SENT,INVOICE_PAID,FINISHED,EXPIRED,INVOICE_REJECTED,OTHER"
+        },
+        {
+            "fieldName": "comment",
+            "javadoc": "Коментарии к транзакции",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 128
+        },
+        {
+            "fieldName": "date",
+            "javadoc": "Дата транзакции",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "payType",
+            "fieldType": "PayType",
+            "fieldValues": "CASH,UZCARD,VISA,AGENT,UNKNOWN,PAYME,HUMO,PC",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "requestSubAccount",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 32
+        },
+        {
+            "fieldName": "eposMerchant",
+            "javadoc": "Параметр Merchant Id для соединения с SvGate",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 32
+        },
+        {
+            "fieldName": "eposTerminal",
+            "javadoc": "Параметр Terminal Id для соединения с SvGate",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 32
+        },
+        {
+            "fieldName": "main",
+            "javadoc": "Главная транзакция",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "amountRatio",
+            "fieldType": "Integer",
+            "javadoc": "Разрядность суммы, 1 - сум, 100 - тийин",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "senderBean",
+            "fieldType": "String",
+            "javadoc": "Название бина отправителя",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 32
+        },
+        {
+            "fieldName": "category",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "promo",
+            "javadoc": "Короткий код латинскими буквами и цыфрами",
+            "fieldType": "String",
+            "fieldValidateRulesMaxlength": 128
+        }
+    ],
+    "changelogDate": "20180719230929",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceClass",
+    "entityTableName": "transaction",
+    "jpaMetamodelFiltering": true,
+    "pagination": "pagination",
+    "microserviceName": "pkbillms",
+    "enableEntityAudit": true,
+    "databaseType": "sql",
+    "name": "Transaction"
+}

@@ -1,0 +1,175 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <nz-badge [nzCount]="iconTpl">
+    <h4 class="mb-0 mr-3" jhiTranslate="global.menu.entities.pkbillmsTransaction">Transactions</h4>
+
+    <ng-template #iconTpl>
+      <i
+        nz-icon
+        nzType="question-circle"
+        class="ant-scroll-number-custom-component cursor-pointer"
+        nz-tooltip="{{ 'billMasterGwApp.pkbillmsTransaction.note' | translate }}"
+        nzTooltipPlacement="rightTop"
+        [nzTooltipOverlayStyle]="{ width: 'fit-content', 'max-width': '1000px' }"
+      >
+      </i>
+    </ng-template>
+  </nz-badge>
+
+  <div>
+    <button nz-button nzSize="large" [nzLoading]="loading" (click)="loadPage()">
+      {{ 'billMasterGwApp.pkbillmsPcBin.home.refreshListLabel' | translate }}
+    </button>
+    <nz-badge [nzCount]="filterRef.querySize">
+      <button nz-button nzSize="large" class="mx-1" jhiTranslate="entity.action.filter" (click)="showFilter = !showFilter">Filter</button>
+    </nz-badge>
+
+    <ngl-export-as
+      *ngIf="data?.length"
+      [data]="data"
+      requestUrl="{{ transactionService.resourceUrl }}"
+      [requestOption]="getOption"
+      fileName="transactions"
+      translationPrefix="billMasterGwApp.pkbillmsTransaction"
+    >
+    </ngl-export-as>
+  </div>
+</div>
+
+<ngl-filter-field [hidden]="!showFilter" [fields]="filterFields" (onFilter)="setQuery($event); loadPage()" #filterRef></ngl-filter-field>
+
+<bm-alert></bm-alert>
+
+<ng-container *ngIf="data?.length">
+  <bm-table-widget [(size)]="size" [(itemsPerPage)]="itemsPerPage" (itemsPerPageChange)="loadPage()"></bm-table-widget>
+
+  <div class="table-responsive" #scrollableRef>
+    <nz-table [nzLoading]="loading" [nzSize]="size" nzTemplateMode nzOuterBordered>
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th jhiSortBy="id">
+            <span jhiTranslate="billMasterGwApp.pkbillmsTransaction.id">ID</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="requestLogin">
+            <span jhiTranslate="billMasterGwApp.pkbillmsTransaction.requestLogin">Request Login</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="status">
+            <span jhiTranslate="billMasterGwApp.pkbillmsTransaction.status">Status</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="date">
+            <span jhiTranslate="billMasterGwApp.pkbillmsTransaction.date">Date</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="senderAccount">
+            <span jhiTranslate="billMasterGwApp.pkbillmsTransaction.senderAccount">Operator</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="requestAmount">
+            <span jhiTranslate="billMasterGwApp.pkbillmsTransaction.requestAmount">Request Amount</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="recipientName">
+            <span jhiTranslate="billMasterGwApp.pkbillmsTransaction.recipientName">Recipient</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="recipientAccount">
+            <span jhiTranslate="billMasterGwApp.pkbillmsTransaction.recipientAccount">Recipient Account</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="category">
+            <span jhiTranslate="billMasterGwApp.pkbillmsRecipient.category">Category</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let transaction of data; trackBy: trackId">
+          <tr>
+            <td
+              class="text-nowrap"
+              [nzShowExpand]="showExpand"
+              [nzExpand]="expandSet.has(transaction.id)"
+              (nzExpandChange)="onExpandChange(transaction.id, $event)"
+            >
+              <a href="javascript:void(0)" [routerLink]="['./', transaction.id, 'edit']">{{ transaction.id }}</a>
+            </td>
+            <td>
+              <a href="javascript:void(0)" (click)="viewAgent(transaction.requestSubAccount)">{{ transaction.requestSubAccount }}</a>
+            </td>
+            <td>
+              <span
+                class="badge transaction-status {{ transaction.status }}"
+                [nz-tooltip]="'Отправитель: ' + transaction.senderStatusText + ', Получатель: ' + transaction.recipientStatusText"
+              >
+                {{ transaction.status }}
+              </span>
+            </td>
+            <td>{{ transaction.date | bmDate }}</td>
+            <td>
+              <a href="javascript:void(0)" (click)="billView(transaction.senderBillId)">
+                <span nz-tooltip="{{ transaction.senderGateway }}">{{ transaction.senderAccount | tokenMask }}</span>
+              </a>
+            </td>
+            <td nowrap>{{ transaction.requestAmount | bmAmount }}</td>
+            <td>{{ transaction.recipientName }}</td>
+            <td>
+              <a href="javascript:void(0)" (click)="billView(transaction.recipientBillId)">
+                <span nz-tooltip="{{ transaction.recipientAccount }}">{{ transaction.recipientAccount | panMask | bmEllipsis: 16 }}</span>
+              </a>
+            </td>
+            <td nz-tooltip="{{ transaction.category }}">{{ transaction.category | bmEllipsis: 18 }}</td>
+            <td width="10" class="text-right">
+              <nz-button-group [nzSize]="size">
+                <button
+                  *jhiHasAnyAuthority="[authority.TRANSACTION_SHARE_TELEGRAM]"
+                  nz-button
+                  (click)="shareInfoToTelegram(transaction)"
+                  title="Поделиться"
+                >
+                  <i nz-icon nzType="paper-plane" class="icon-btn"></i>
+                </button>
+
+                <button
+                  *jhiHasAnyAuthority="[authority.TRANSACTION_WRITE]"
+                  nz-button
+                  (click)="transactionService.openHistory(transaction.id)"
+                  title="{{ 'entity.action.history' | translate }}"
+                >
+                  <i nz-icon nzType="history" class="icon-btn"></i>
+                </button>
+                <button
+                  *jhiHasAnyAuthority="[authority.TRANSACTION_EDIT]"
+                  nz-button
+                  (click)="transactionService.openUpdate(transaction)"
+                  title="{{ 'entity.action.edit' | translate }}"
+                >
+                  <i nz-icon nzType="edit" class="icon-btn"></i>
+                </button>
+              </nz-button-group>
+            </td>
+          </tr>
+          <tr [nzExpand]="expandSet.has(transaction.id)">
+            <h6 class="font-weight-bold mb-0 mt-1 fs-14">СВЯЗАННЫЕ ЧЕКИ ПО ПЛАТЕЖУ</h6>
+            <div class="mt-2" *ngIf="expandSet.has(transaction.id)">
+              <transaction-bills [transactionId]="transaction.id"></transaction-bills>
+            </div>
+          </tr>
+        </ng-container>
+      </tbody>
+    </nz-table>
+  </div>
+  <ngl-sticky-scroll-x [scrollableElementRef]="scrollableRef"></ngl-sticky-scroll-x>
+
+  <div class="d-flex justify-content-center">
+    <nz-pagination
+      [nzPageIndex]="ngbPaginationPage"
+      [nzTotal]="totalItems"
+      [nzPageSize]="itemsPerPage"
+      (nzPageIndexChange)="loadPage($event)"
+    >
+    </nz-pagination>
+  </div>
+</ng-container>

@@ -1,0 +1,11 @@
+{
+  "billMasterGwApp": {
+    "Visibility": {
+      "null": "",
+      "HIDDEN": "HIDDEN",
+      "PRINTER": "PRINTER",
+      "MONITOR": "MONITOR",
+      "ALL": "ALL"
+    }
+  }
+}

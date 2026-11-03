@@ -1,0 +1,170 @@
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <div class="modal-header">
+    <h4 class="modal-title" jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.home.createOrEditLabel">Create or edit a Gateway Param</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal()">&times;</button>
+  </div>
+
+  <div class="modal-body">
+    <bm-alert></bm-alert>
+
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.url" for="field_url">Url</label>
+        <input nz-input nzSize="large" id="field_url" formControlName="url" input-validator auto-focus />
+      </div>
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.httpMethodType" for="field_httpMethodType"
+          >Http Method Type</label
+        >
+        <bm-select-input
+          id="field_httpMethodType"
+          [data]="httpMethodType"
+          formControlName="httpMethodType"
+          input-validator
+        ></bm-select-input>
+      </div>
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.type" for="field_type">Request Type</label>
+        <bm-select-input id="field_type" [data]="requestTypes" formControlName="type" input-validator></bm-select-input>
+      </div>
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.mode" for="field_mode">Mode</label>
+        <bm-select-input id="field_mode" [data]="mode" formControlName="mode" input-validator></bm-select-input>
+      </div>
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.protocol" for="field_protocol">Protocol</label>
+        <bm-select-input id="field_protocol" [data]="protocol" formControlName="protocol" input-validator></bm-select-input>
+      </div>
+      <div class="form-group col-md-4">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.username" for="field_username">Username</label>
+        <input nz-input nzSize="large" formControlName="username" id="field_username" input-validator />
+      </div>
+      <div class="form-group col-md-4">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.password" for="field_password">Password</label>
+        <input nz-input nzSize="large" id="field_password" formControlName="password" input-validator />
+      </div>
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.recipient" for="field_recipient">Recipient</label>
+        <bm-select-input
+          id="field_recipient"
+          [bmShowSearch]="true"
+          [bmServerSearch]="true"
+          [requestUrl]="recipientService.resourceUrl"
+          bmLabelField="shortName"
+          formControlName="recipient"
+          input-validator
+        ></bm-select-input>
+      </div>
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.statusQuery" for="field_statusQuery">Status Query</label>
+        <input
+          nz-input
+          nzSize="large"
+          id="field_statusQuery"
+          formControlName="statusQuery"
+          [readOnly]="editForm.get('successOn2xx')?.value"
+        />
+      </div>
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.messageQuery" for="field_messageQuery">Message Query</label>
+        <input
+          nz-input
+          nzSize="large"
+          id="field_messageQuery"
+          formControlName="messageQuery"
+          [readOnly]="editForm.get('successOn2xx')?.value"
+        />
+      </div>
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.token" for="field_token">Token</label>
+        <input nz-input nzSize="large" id="field_token" formControlName="token" />
+      </div>
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.successCode" for="field_successCode">Success Code</label>
+        <input
+          nz-input
+          nzSize="large"
+          id="field_successCode"
+          formControlName="successCode"
+          [readOnly]="editForm.get('successOn2xx')?.value"
+        />
+      </div>
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.callback" for="field_callback">Callback</label>
+        <input nz-input nzSize="large" id="field_callback" formControlName="callback" />
+      </div>
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.timeout" for="field_callback">Timeout</label>
+        <input nz-input nzSize="large" id="field_timeout" formControlName="timeout" type="number" />
+      </div>
+      <div class="form-group col-md-3">
+        <label
+          [ngClass]="editForm.get('successOn2xx')?.value === false ? 'label-required' : ''"
+          jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.requestMediaType"
+          for="field_requestMediaType"
+          >Request Media Type</label
+        >
+        <input nz-input nzSize="large" id="field_requestMediaType" formControlName="requestMediaType" />
+      </div>
+      <div class="form-group col-md-3">
+        <label
+          [ngClass]="editForm.get('successOn2xx')?.value === false ? 'label-required' : ''"
+          jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.responseMediaType"
+          for="field_responseMediaType"
+          >Response Media Type</label
+        >
+        <input
+          nz-input
+          nzSize="large"
+          id="field_responseMediaType"
+          formControlName="responseMediaType"
+          [readOnly]="editForm.get('successOn2xx')?.value"
+        />
+      </div>
+      <div class="form-group col-md-12">
+        <label jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.extIdQuery" for="field_extIdQuery">Ext Id Query</label>
+        <input nz-input nzSize="large" id="field_extIdQuery" formControlName="extIdQuery" />
+      </div>
+      <div class="form-group col-md-12">
+        <label jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.body" for="field_body">Body</label>
+        <textarea nz-input rows="3" id="field_body" formControlName="body"></textarea>
+      </div>
+      <div class="form-group col-md-12">
+        <label jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.headers" for="field_headers">Headers</label>
+        <key-value id="field_headers" formControlName="headers"></key-value>
+      </div>
+
+      <div class="form-group col-md-12">
+        <label jhiTranslate="billMasterGwApp.pkbillmsGatewayParam.dataQueries" for="field_dataQueries">Data Queries</label>
+        <key-value id="field_dataQueries" formControlName="dataQueries"></key-value>
+      </div>
+
+      <div class="col-auto">
+        <nz-switch
+          id="field_success"
+          formControlName="successOn2xx"
+          nzCheckedChildren="{{ 'global.success.true' | translate }}"
+          nzUnCheckedChildren="{{ 'global.success.false' | translate }}"
+        >
+        </nz-switch>
+
+        <nz-switch
+          class="ml-2"
+          id="field_active"
+          formControlName="active"
+          nzCheckedChildren="{{ 'global.active.true' | translate }}"
+          nzUnCheckedChildren="{{ 'global.active.false' | translate }}"
+        >
+        </nz-switch>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" nz-button nzSize="large" jhiTranslate="entity.action.cancel" (click)="closeModal()">Cancel</button>
+
+    <button nz-button nzSize="large" nzType="primary" [nzLoading]="loading" [disabled]="editForm.invalid">
+      {{ 'entity.action.save' | translate }}
+    </button>
+  </div>
+</form>

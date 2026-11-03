@@ -1,0 +1,51 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsBookkeepingTemplate": {
+      "home": {
+        "title": "Buxgalteriya hisobi shablon",
+        "createLabel": "Yangi buxgalteriya shabloni yaratish",
+        "createOrEditLabel": "Buxgalteriya shabloni yaratish yoki yangilash",
+        "notFound": "Xech qanday buxgalteriya shabloni topilmadi"
+      },
+      "delete": {
+        "question": "Вы уверены что хотите удалить Bookkeeping Template {{ id }}?"
+      },
+      "detail": {
+        "title": "Buxgalteriya hisobi shablon"
+      },
+      "groupId": "Guruh Id",
+      "sMfo": "Yuboruvchi MFO",
+      "sInn": "Yuboruvchi INN",
+      "sAccount": "Yuboruvchi Account",
+      "rMfo": "Oluvchi MFO",
+      "rInn": "Oluvchi INN",
+      "rAccount": "Oluvchi Account",
+      "amount": "Summa",
+      "period": "Davr",
+      "bookkeepingType": "Buxgalteriya turi",
+      "docType": "Hujjat turi",
+      "docCode": "Hujjat Kodi",
+      "docTaskCode": "Topshiriq kodi",
+      "rAccountName": "Oluvchi account nomi",
+      "control": "Control",
+      "groupIds": "Guruh Ids",
+      "bookkeepingPayType": "Buxgalteriya to'lovi turi",
+      "gateway": "Gateway",
+      "recipient": "Oluvchi",
+      "calculateAmountRule": "Summani hisoblash",
+      "payTypes": "To'lov turi",
+      "sType": "Yuboruvchi turi",
+      "sTypeIds": "Yuboruvchi turi Id",
+      "name": "Nomi",
+      "amountCalculateType": "Summani hisoblash turi",
+      "desc": "Desc"
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsBookkeepingTemplate": {
+      "created": "Новый Bookkeeping Template создан с идентификатором {{ param }}",
+      "updated": "Bookkeeping Template обновлен с идентификатором {{ param }}",
+      "deleted": "Bookkeeping Template удален с идентификатором {{ param }}"
+    }
+  }
+}

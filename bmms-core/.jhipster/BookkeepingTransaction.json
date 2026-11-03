@@ -1,0 +1,259 @@
+{
+    "name": "BookkeepingTransaction",
+    "fields": [
+        {
+            "fieldName": "groupId",
+            "javadoc": "Группа",
+            "fieldType": "Long",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "sMfo",
+            "javadoc": "МФО Отправителя",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 8
+        },
+        {
+            "fieldName": "sInn",
+            "javadoc": "ИНН Отправителя",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 16
+        },
+        {
+            "fieldName": "sAccount",
+            "javadoc": "Р/С Отправителя",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 32
+        },
+        {
+            "fieldName": "rMfo",
+            "javadoc": "МФО Получателя",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 8
+        },
+        {
+            "fieldName": "rInn",
+            "javadoc": "ИНН Получателя",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 16
+        },
+        {
+            "fieldName": "rAccount",
+            "javadoc": "Р/С Получателя",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 32
+        },
+        {
+            "fieldName": "amount",
+            "javadoc": "Сумма на отправку",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "period",
+            "javadoc": "Периоды : день, неделя, месяц",
+            "fieldType": "BktPeriod",
+            "fieldValues": "DAY,WEEK,MONTH",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "bookkeepingType",
+            "fieldType": "BookkeepingTransactionType",
+            "javadoc": "Тип бух. проводки : внутренний (внутри банка,межфилиальный) и внешний (поставщикам и т.д.)",
+            "fieldValues": "INTERNAL,EXTERNAL",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "success",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "details",
+            "javadoc": "Детали",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 256
+        },
+        {
+            "fieldName": "docType",
+            "javadoc": "Тип документа",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 8
+        },
+        {
+            "fieldName": "docCode",
+            "javadoc": "Код платежа",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 16
+        },
+        {
+            "fieldName": "docTaskCode",
+            "javadoc": "Код задачи",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 8
+        },
+        {
+            "fieldName": "rAccountName",
+            "javadoc": "Наименование",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "confirmUserID",
+            "fieldType": "String",
+            "javadoc": "Пользовтель , который подтвердил проводку",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 128
+        },
+        {
+            "fieldName": "sendUserID",
+            "fieldType": "String",
+            "javadoc": "Пользовтель , который успешно провел проводку",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 128
+        },
+        {
+            "fieldName": "cancelUserID",
+            "javadoc": "Пользовтель , который отменил проводку",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 128
+        },
+        {
+            "fieldName": "createTime",
+            "javadoc": "Время создания проводки",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "confirmTime",
+            "javadoc": "Время подтвреждения проводки",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "sendTime",
+            "javadoc": "Время успешной обработки проводки",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "cancelTime",
+            "javadoc": "Время отмены проводки",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "absId",
+            "javadoc": "Номер документа в АБС (НСИ)",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "docId",
+            "javadoc": "Номер документа в АБС (биллинга)",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "templateId",
+            "javadoc": "Уникальный номер шаблона",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "control",
+            "javadoc": "Порядковый номер проведения проводки",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "responseText",
+            "fieldType": "String",
+            "javadoc": "Ответ от АБС , статус проводки в АБС",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 128
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "BookkeepingTransactionStatus",
+            "javadoc": "Статус проводки",
+            "fieldValues": "NEW,CONFIRMED,SUCCESS,FAILED,CANCELED",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "unionId",
+            "javadoc": "Уникальный номер для проведения провобки в АБС",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "groupIds",
+            "javadoc": "Уникальные номера групп",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 256
+        },
+        {
+            "fieldName": "subRecipient",
+            "javadoc": "Регион поставщика",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 128
+        },
+        {
+            "fieldName": "subRecipientId",
+            "javadoc": "Уникальный номер региона поставщика",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "comment",
+            "javadoc": "Комментарий",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 256
+        },
+        {
+            "fieldName": "bookkeepingPayType",
+            "javadoc": "Тип платежа проводки : за контракт , акт , поставщику и т.д.",
+            "fieldType": "BookkeepingPayType",
+            "fieldValues": "CONTRACT,ACT,GATEWAY"
+        },
+        {
+            "fieldName": "params",
+            "fieldType": "String",
+            "javadoc": "Параметры проводки",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 256
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "gateway",
+            "otherEntityName": "gateway",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "recipient",
+            "otherEntityName": "recipient",
+            "otherEntityField": "shortName"
+        }
+    ],
+    "changelogDate": "20180813204929",
+    "javadoc": "Данная форма предназначена для создания проводок в разрезе групп",
+    "entityTableName": "bookkeeping_transaction",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "bmms",
+    "applications": "*",
+    "microserviceName": "pkbillms",
+    "enableEntityAudit": true,
+    "databaseType": "sql"
+}

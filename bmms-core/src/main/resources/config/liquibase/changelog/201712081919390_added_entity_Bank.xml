@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Bank.
+    -->
+    <changeSet id="20171208191939-1" author="jhipster">
+        <createTable tableName="bank">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="phone" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="card_bin" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="merchant_bin" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="mfo" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="card_limit_in" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="card_limit_out" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="logo" type="longblob">
+                <constraints nullable="true" />
+            </column>
+            <column name="logo_content_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="oferta" type="longblob">
+                <constraints nullable="true" />
+            </column>
+            <column name="oferta_content_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="oferta_url" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="p_2_p" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="commission" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="min_transfer" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="max_transfer" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="merchant_id" type="varchar(50)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="terminal_id" type="varchar(50)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="port" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+
+    </changeSet>
+</databaseChangeLog>

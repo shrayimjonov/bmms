@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added the constraints for entity Deposit.
+    -->
+    <changeSet id="added_agent_recipient_epos_columns" author="zafar">
+
+        <addColumn tableName="transaction">
+
+            <!--<column name="pay_type" type="varchar(255)">-->
+                <!--<constraints nullable="false" />-->
+            <!--</column>-->
+
+            <!--<column name="request_sub_account" type="varchar(32)">-->
+                <!--<constraints nullable="true" />-->
+            <!--</column>-->
+
+            <column name="epos_merchant" type="varchar(32)" remarks="Параметр Merchant Id для соединения с SvGate">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="epos_terminal" type="varchar(32)" remarks="Параметр Terminal Id для соединения с SvGate">
+                <constraints nullable="true" />
+            </column>
+
+        </addColumn>
+
+    </changeSet>
+</databaseChangeLog>

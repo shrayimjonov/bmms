@@ -1,0 +1,60 @@
+{
+    "name": "AgentParams",
+    "fields": [
+        {
+            "fieldName": "callBackUrl",
+            "javadoc": "Agent url to callback",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 512
+        },
+        {
+            "fieldName": "username",
+            "javadoc": "Username",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 128
+        },
+        {
+            "fieldName": "password",
+            "javadoc": "password",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 128
+        },
+        {
+            "fieldName": "bankClientId",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "minlength", "unique"],
+            "fieldValidateRulesMaxlength": 20,
+            "fieldValidateRulesMinlength": 7
+        },
+        {
+            "fieldName": "bankAccountPrefix",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 64
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "agent",
+            "otherEntityName": "agent",
+            "otherEntityField": "shortName"
+        }
+    ],
+    "changelogDate": "20190101010000",
+    "javadoc": "Настройки для обратной связи с агентом",
+    "entityTableName": "agent_params",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "bmms",
+    "applications": "*",
+    "microserviceName": "pkbillms",
+    "enableEntityAudit": true,
+    "databaseType": "sql"
+}

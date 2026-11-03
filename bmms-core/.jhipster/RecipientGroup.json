@@ -1,0 +1,47 @@
+{
+  "name": "RecipientGroup",
+  "fields": [
+    {
+      "fieldName": "name",
+      "javadoc": "Название",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": 64
+    },
+    {
+      "fieldName": "active",
+      "javadoc": "Активность",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "more",
+      "javadoc": "Дополнительная информация",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "relationshipValidateRules": "required",
+      "otherEntityRelationshipName": "",
+      "relationshipName": "recipient",
+      "otherEntityName": "recipient",
+      "otherEntityField": "shortName",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20191111230920",
+  "javadoc": "Группа поставщиков",
+  "entityTableName": "recipient_group",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "clientRootFolder": "bmms",
+  "applications": "*",
+  "microserviceName": "pkbillms",
+  "enableEntityAudit": true,
+  "databaseType": "sql"
+}

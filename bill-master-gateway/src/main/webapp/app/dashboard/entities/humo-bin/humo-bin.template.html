@@ -1,0 +1,133 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h4 class="m-0" jhiTranslate="global.menu.entities.pkbillmsPcBin">Pc Bin</h4>
+
+  <div>
+    <nz-badge [nzCount]="filterRef.querySize">
+      <button nz-button nzSize="large" jhiTranslate="entity.action.filter" (click)="showFilter = !showFilter">Filter</button>
+    </nz-badge>
+
+    <ngl-export-as
+      *ngIf="data?.length"
+      class="ml-2"
+      [data]="data"
+      requestUrl="{{ humoBinService.resourceUrl }}"
+      [requestOption]="getOption"
+      translationPrefix="billMasterGwApp.pkbillmsPcBin"
+      fileName="pc_bins"
+    >
+    </ngl-export-as>
+
+    <button
+      class="ml-2"
+      type="button"
+      nz-button
+      nzSize="large"
+      nzType="primary"
+      jhiTranslate="entity.action.add"
+      (click)="humoBinService.openUpdate()"
+      *jhiHasAnyAuthority="[authority.HUMO_BIN_WRITE]"
+    >
+      Add
+    </button>
+  </div>
+</div>
+
+<ngl-filter-field [hidden]="!showFilter" [fields]="filterFields" (onFilter)="setQuery($event); loadPage()" #filterRef></ngl-filter-field>
+
+<bm-alert></bm-alert>
+
+<ng-container *ngIf="data?.length">
+  <div class="table-responsive">
+    <nz-table [nzLoading]="loading" nzSize="small" nzTemplateMode nzOuterBordered>
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th jhiSortBy="id">
+            <span jhiTranslate="global.field.id">ID</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="bin">
+            <span jhiTranslate="billMasterGwApp.pkbillmsPcBin.bin">Bin</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="bankName">
+            <span jhiTranslate="billMasterGwApp.pkbillmsPcBin.bankName">Bank Name</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="comment">
+            <span jhiTranslate="billMasterGwApp.pkbillmsPcBin.comment">Comment</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="pcType">
+            <span jhiTranslate="billMasterGwApp.pkbillmsPcBin.pcType">Pc Type</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="useCredit">
+            <span jhiTranslate="billMasterGwApp.pkbillmsPcBin.useCredit">Use Credit</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="useDebit">
+            <span jhiTranslate="billMasterGwApp.pkbillmsPcBin.useDebit">Use Debit</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="useReverse">
+            <span jhiTranslate="billMasterGwApp.pkbillmsPcBin.useReverse">Use Reverse</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="useReconcile">
+            <span jhiTranslate="billMasterGwApp.pkbillmsPcBin.useReconcile">Use Reconcile</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let humoBin of data; trackBy: trackId">
+          <td>
+            <a href="javascript:void(0)" (click)="humoBinService.openView(humoBin)">{{ humoBin.id }}</a>
+          </td>
+          <td>{{ humoBin.bin }}</td>
+          <td>{{ humoBin.bankName }}</td>
+          <td>
+            <span nz-tooltip="{{ humoBin.comment }}">{{ humoBin.comment | bmEllipsis: 15 }}</span>
+          </td>
+          <td jhiTranslate="{{ 'billMasterGwApp.BinPcType.' + humoBin.pcType }}">{{ humoBin.pcType }}</td>
+          <td>{{ humoBin.useCredit }}</td>
+          <td>{{ humoBin.useDebit }}</td>
+          <td>{{ humoBin.useReverse }}</td>
+          <td>{{ humoBin.useReconcile }}</td>
+          <td width="10" class="text-right">
+            <nz-button-group nzSize="small">
+              <button nz-button (click)="humoBinService.openHistory(humoBin.id)" title="{{ 'entity.action.history' | translate }}">
+                <i nz-icon nzType="history" class="icon-btn"></i>
+              </button>
+              <button nz-button (click)="humoBinService.openView(humoBin)" title="{{ 'entity.action.view' | translate }}">
+                <i nz-icon nzType="eye" class="icon-btn"></i>
+              </button>
+              <ng-container *jhiHasAnyAuthority="[authority.HUMO_BIN_WRITE]">
+                <button nz-button (click)="humoBinService.openUpdate(humoBin, true)" title="{{ 'entity.action.duplicate' | translate }}">
+                  <i nz-icon nzType="copy" class="icon-btn"></i>
+                </button>
+                <button nz-button (click)="humoBinService.openUpdate(humoBin)" title="{{ 'entity.action.edit' | translate }}">
+                  <i nz-icon nzType="edit" class="icon-btn"></i>
+                </button>
+                <button nz-button (click)="humoBinService.openDelete(humoBin.id)" title="{{ 'entity.action.delete' | translate }}">
+                  <i nz-icon nzType="delete" class="icon-btn"></i>
+                </button>
+              </ng-container>
+            </nz-button-group>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+
+  <div class="d-flex justify-content-center mt-3">
+    <nz-pagination
+      [nzPageIndex]="ngbPaginationPage"
+      [nzTotal]="totalItems"
+      [nzPageSize]="itemsPerPage"
+      (nzPageIndexChange)="loadPage($event)"
+    >
+    </nz-pagination>
+  </div>
+</ng-container>

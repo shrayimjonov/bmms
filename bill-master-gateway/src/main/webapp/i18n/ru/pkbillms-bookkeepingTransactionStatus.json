@@ -1,0 +1,12 @@
+{
+  "billMasterGwApp": {
+    "BookkeepingTransactionStatus": {
+      "null": "",
+      "NEW": "Новый",
+      "CONFIRMED": "Подтвержден",
+      "SUCCESS": "Успешный",
+      "FAILED": "Ошибочный",
+      "CANCELED": "Отменен"
+    }
+  }
+}

@@ -1,0 +1,249 @@
+{
+    "recipient": {
+        "shortName": "uzmobile-cdma",
+        "ccy": 860,
+        "logo": "uzmobile_small.png",
+        "thumbnail":"uzmobile_cdma.png",
+        "amountRatio": 1,
+        "minAmount": 500,
+        "maxAmount": 500000,
+        "commission": 0.0,
+        "fee": 0.0,
+        "systemCommission": 0.0,
+        "systemFee": 0.0,
+        "ord": 1,
+        "active": true,
+        "check": true,
+        "pay": true,
+        "status": false,
+        "cancel": false,
+        "canDeposit": null,
+        "serviceId": "0",
+        "titles": [
+            {
+                "lang": "UZ",
+                "text": "UZTELECOM UzMobile CDMA"
+            },
+            {
+                "lang": "RU",
+                "text": "UZTELECOM UzMobile CDMA"
+            },
+            {
+                "lang": "EN",
+                "text": "UZTELECOM UzMobile CDMA"
+            }
+        ],
+        "fullNames": [
+            {
+                "lang": "UZ",
+                "text": "UZTELECOM UzMobile CDMA"
+            },
+            {
+                "lang": "RU",
+                "text": "UZTELECOM UzMobile CDMA"
+            },
+            {
+                "lang": "EN",
+                "text": "UZTELECOM UzMobile CDMA"
+            }
+        ]
+    },
+    "fields": [
+        {
+            "name": "phone",
+            "extId": 0,
+            "type": "ACCOUNT",
+            "controlType": "TEXT",
+            "content": null,
+            "validation": "",
+            "placeholder": null,
+            "mask": "+998 ({95}) ddd-dd-dd",
+            "maskSymbol": null,
+            "lengthMin": 9,
+            "lengthMax": 9,
+            "requireField": null,
+            "filterBy": null,
+            "optional": false,
+            "output": true,
+            "visibility": "ALL",
+            "ord": 1,
+            "requestType": null,
+            "titles": [
+                {
+                    "lang": "UZ",
+                    "text": "Телефон раками"
+                },
+                {
+                    "lang": "RU",
+                    "text": "Номер телефона"
+                },
+                {
+                    "lang": "EN",
+                    "text": "Phone number"
+                }
+            ],
+            "descriptions": [
+                {
+                    "lang": "UZ",
+                    "text": "Оператор кодини (95, 99) ва телефон ракамини киритинг."
+                },
+                {
+                    "lang": "RU",
+                    "text": "Введите код оператора (95, 99) и номер телефона."
+                },
+                {
+                    "lang": "EN",
+                    "text": "Enter operator code (95, 99) and phone number."
+                }
+            ],
+            "values": [],
+            "prefixes": [
+                {
+                    "type": "STATIC",
+                    "value": "95",
+                    "output": true,
+                    "requireField": null
+                }
+            ]
+        },
+        {
+            "name": "amount",
+            "extId": 0,
+            "type": "AMOUNT",
+            "controlType": "TEXT",
+            "content": null,
+            "validation": "",
+            "placeholder": null,
+            "mask": "ddddDD",
+            "maskSymbol": null,
+            "lengthMin": 4,
+            "lengthMax": 6,
+            "requireField": null,
+            "filterBy": null,
+            "optional": false,
+            "output": true,
+            "visibility": "ALL",
+            "ord": 2,
+            "requestType": null,
+            "titles": [
+                {
+                    "lang": "UZ",
+                    "text": "Сумма"
+                },
+                {
+                    "lang": "RU",
+                    "text": "Сумма"
+                },
+                {
+                    "lang": "EN",
+                    "text": "Amount"
+                }
+            ],
+            "descriptions": [
+                {
+                    "lang": "UZ",
+                    "text": "Сумма"
+                },
+                {
+                    "lang": "RU",
+                    "text": "Сумма"
+                },
+                {
+                    "lang": "EN",
+                    "text": "Amount"
+                }
+            ],
+            "values": [],
+            "prefixes": []
+        }
+    ],
+    "gatewayParams": [
+        {
+            "url": "https://127.0.0.1:443/pay_net_v2.php?act=4&phone=${account}&username=${username}&password=${PASSWORD}",
+            "type": "CHECK",
+            "username": "kapitalbank",
+            "password": "",
+            "token": null,
+            "body": null,
+            "statusQuery": "//*[local-name()='status_code']",
+            "messageQuery": "//*[local-name()='error_text']",
+            "successCode": "0",
+            "callback": null,
+            "timeout": 5000,
+            "headers": null,
+            "dataQueries": null,
+            "httpMethodType": "GET",
+            "protocol": null,
+            "requestMediaType": null,
+            "responseMediaType": "text/xml",
+            "active": true,
+            "mode": null,
+            "extIdQuery": null
+        },
+        {
+            "url": "https://127.0.0.1:443/pay_net_v2.php?act=0&amount=${amount}&phone=${account}&username=${username}&password=${PASSWORD}&pay_id=${tranId}",
+            "type": "PAY",
+            "username": "kapitalbank",
+            "password": "",
+            "token": null,
+            "body": null,
+            "statusQuery": "//*[local-name()='status_code']",
+            "messageQuery": "//*[local-name()='error_text']",
+            "successCode": "0",
+            "callback": null,
+            "timeout": 10000,
+            "headers": null,
+            "dataQueries": null,
+            "httpMethodType": "GET",
+            "protocol": null,
+            "requestMediaType": null,
+            "responseMediaType": "text/xml",
+            "active": true,
+            "mode": null,
+            "extIdQuery": null
+        },
+        {
+            "url": "https://127.0.0.1:443/pay_net_v2.php?act=2&username=${username}&password=${PASSWORD}&verification_date=${date}",
+            "type": "RECONCILE",
+            "username": "kapitalbank",
+            "password": "",
+            "token": null,
+            "body": null,
+            "statusQuery": "//*[local-name()='status_code']",
+            "messageQuery": "//*[local-name()='error_text']",
+            "successCode": "0",
+            "callback": null,
+            "timeout": 5000,
+            "headers": null,
+            "dataQueries": "{\"fieldSeparator\": \";\",\"groupSeparator\":\"\\n\",\"queryAmount\": \"2\",\"queryAccount\":\"1\",\"queryTranId\": \"3\",\"queryExtTime\": \"4\",\"requestDateFormat\": \"dd.MM.yyyy\"}",
+            "httpMethodType": "GET",
+            "protocol": null,
+            "requestMediaType": null,
+            "responseMediaType": "text/plain",
+            "active": true,
+            "mode": null,
+            "extIdQuery": null
+        }
+    ],
+    "category": {
+        "shortName": "Мобильные операторы",
+        "thumbnail": "mobile.png",
+        "logo": "mobile.png",
+        "ord": 1,
+        "active": true,
+        "names": [
+            {
+                "lang": "UZ",
+                "text": "Mobil operatorlar"
+            },
+            {
+                "lang": "RU",
+                "text": "Мобильные операторы"
+            },
+            {
+                "lang": "EN",
+                "text": "Mobile operators"
+            }
+        ]
+    }
+}

@@ -1,0 +1,28 @@
+<form (ngSubmit)="save()">
+  <div class="modal-header">
+    <h5 class="modal-title font-weight-bold">{{ adapterName }}</h5>
+
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            (click)="close()">&times;
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <bm-alert></bm-alert>
+
+    <div>
+      <label for="field_file" jhiTranslate="global.file">File</label>
+      <bm-file [bmAccept]="null" id="field_file" name="file" [(ngModel)]="file"></bm-file>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" nz-button nzSize="large" nzType="text" jhiTranslate="entity.action.cancel" (click)="close()">
+      Cancel
+    </button>
+
+    <button nz-button nzSize="large" nzType="primary" [disabled]="!file" [nzLoading]="loading">
+      {{ 'entity.action.save' | translate }}
+    </button>
+  </div>
+</form>

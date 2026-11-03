@@ -1,0 +1,193 @@
+{
+    "recipient": {
+        "shortName": "prime-media",
+        "ccy": 860,
+        "logo": "prime-media.png",
+        "amountRatio": 100,
+        "minAmount": 500,
+        "maxAmount": 100000,
+        "commission": 0.0,
+        "fee": 0.0,
+        "systemCommission": 0.0,
+        "systemFee": 0.0,
+        "ord": 1,
+        "active": true,
+        "check": true,
+        "pay": true,
+        "status": null,
+        "cancel": null,
+        "canDeposit": null,
+        "serviceId": "0",
+        "titles": [],
+        "fullNames": []
+    },
+    "fields": [
+        {
+            "name": "account",
+            "extId": 0,
+            "type": "ACCOUNT",
+            "controlType": "TEXT",
+            "content": null,
+            "validation": "",
+            "placeholder": null,
+            "mask": null,
+            "maskSymbol": null,
+            "lengthMin": 9,
+            "lengthMax": 9,
+            "requireField": null,
+            "filterBy": null,
+            "optional": false,
+            "output": true,
+            "visibility": "ALL",
+            "ord": 1,
+            "requestType": null,
+            "titles": [
+                {
+                    "lang": "UZ",
+                    "text": "Telefon raqami"
+                },
+                {
+                    "lang": "RU",
+                    "text": "Номер телефона"
+                },
+                {
+                    "lang": "EN",
+                    "text": "Phone number"
+                }
+            ],
+            "descriptions": [
+                {
+                    "lang": "UZ",
+                    "text": "Telefon raqami kirgizing"
+                },
+                {
+                    "lang": "RU",
+                    "text": "Введите номер телефона"
+                },
+                {
+                    "lang": "EN",
+                    "text": "Input phone number"
+                }
+            ],
+            "values": [],
+            "prefixes": []
+        },
+        {
+            "name": "amount",
+            "extId": 0,
+            "type": "AMOUNT",
+            "controlType": "TEXT",
+            "content": null,
+            "validation": "",
+            "placeholder": null,
+            "mask": "d",
+            "maskSymbol": null,
+            "lengthMin": 1,
+            "lengthMax": 15,
+            "requireField": null,
+            "filterBy": null,
+            "optional": false,
+            "output": true,
+            "visibility": "ALL",
+            "ord": 2,
+            "requestType": null,
+            "titles": [
+                {
+                    "lang": "UZ",
+                    "text": "Summa"
+                },
+                {
+                    "lang": "RU",
+                    "text": "Сумма"
+                },
+                {
+                    "lang": "EN",
+                    "text": "Amount"
+                }
+            ],
+            "descriptions": [
+                {
+                    "lang": "UZ",
+                    "text": "Summa"
+                },
+                {
+                    "lang": "RU",
+                    "text": "Сумма"
+                },
+                {
+                    "lang": "EN",
+                    "text": "Amount"
+                }
+            ],
+            "values": [],
+            "prefixes": []
+        }
+    ],
+    "gatewayParams": [
+        {
+            "url": "https://billing.media.uz/generic/odnoklassniki?mode=test",
+            "type": "CHECK",
+            "username": "Kapitalbank",
+            "password": "",
+            "token": null,
+            "body": "{\"method\": \"CheckPerformTransaction\",\"params\": {\"amount\": ${amount},\"account\": \"${account}\"}}",
+            "statusQuery": "$.result.allow",
+            "messageQuery": "$.error.message",
+            "successCode": "true",
+            "callback": null,
+            "timeout": 10000,
+            "headers": "{\"Authorization\":\"Basic REDACTED\"}",
+            "dataQueries": null,
+            "httpMethodType": "POST",
+            "protocol": null,
+            "requestMediaType": "application/json",
+            "responseMediaType": "application/json",
+            "active": true,
+            "mode": null,
+            "extIdQuery": null
+        },
+        {
+            "url": "https://billing.media.uz/generic/odnoklassniki?mode=test",
+            "type": "PAY",
+            "username": "Kapitalbank",
+            "password": "",
+            "token": null,
+            "body": "{\"method\": \"PerformTransaction\",\"params\": {\"id\": ${tranId},\"time\": ${timestamp},\"amount\": ${amount},\"account\": \"${account}\"}}",
+            "statusQuery": "$.result.state",
+            "messageQuery": "$.error.message",
+            "successCode": "4",
+            "callback": null,
+            "timeout": 10000,
+            "headers": "{\"Authorization\":\"Basic REDACTED\"}",
+            "dataQueries": null,
+            "httpMethodType": "POST",
+            "protocol": null,
+            "requestMediaType": "application/json",
+            "responseMediaType": "application/json",
+            "active": true,
+            "mode": null,
+            "extIdQuery": "$.result.transaction"
+        }
+    ],
+    "category": {
+        "shortName": "Услуги",
+        "thumbnail": "uslugi.png",
+        "logo": "uslugi.png",
+        "ord": 1,
+        "active": true,
+        "names": [
+            {
+                "lang": "UZ",
+                "text": "Xizmatlar"
+            },
+            {
+                "lang": "RU",
+                "text": "Услуги"
+            },
+            {
+                "lang": "EN",
+                "text": "Services"
+            }
+        ]
+    }
+}

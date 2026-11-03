@@ -1,0 +1,18 @@
+{
+    "sender": {
+        "account": "17403000900000491801",
+        "codeFilial": "00491",
+        "purpose": "${operationCode} Списание с карты ${accCo} на ПК Mastercard №${maskedPan} (Мобильный конверсия Humo)",
+        "con": "4",
+        "paymentType": "HUMO",
+        "indicator": "CONVERSE",
+        "rollbackIs": "0",
+        "isMasked": "Y",
+        "operationCode": "71041"
+    },
+    "recipient": {
+        "merchantId": 456,
+        "terminalId": 567,
+        "port": 5555
+    }
+}

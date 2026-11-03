@@ -1,0 +1,11 @@
+id;code;ccy;name_ru;rate;sell_rate;buy_rate;date;active
+1;arc;tra;SAS invoice withdrawal;7279;3830;67106;2021-06-28;false
+2;IB ;Adm;Wyoming invoice;62862;58071;55385;2021-06-28;false
+3;Mar;Bea;Identity enable;81048;26105;91501;2021-06-28;false
+4;Avo;For;National;95354;13270;78612;2021-06-28;true
+5;Dal;Bik;Borders Applications AGP;21304;2089;83430;2021-06-28;false
+6;gen;Sum;compelling utilize online;37924;7948;64594;2021-06-27;false
+7;com;ove;Cross-platform HDD;88329;91270;73433;2021-06-28;false
+8;pay;Ark;deposit Consultant Course;53295;8789;80649;2021-06-28;false
+9;Pro;XSS;Bhutan;18069;77957;72187;2021-06-27;true
+10;inv;Buc;recontextualize Future Georgia;19492;95015;69826;2021-06-28;false

@@ -1,0 +1,46 @@
+<form [formGroup]="editForm" (ngSubmit)="save()">
+  <div class="modal-header">
+    <h4 class="modal-title" jhiTranslate="userGroup.home.{{ data.id ? 'update' : 'create' }}">Create or Update</h4>
+
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal()">&times;</button>
+  </div>
+
+  <div class="modal-body">
+    <bm-alert></bm-alert>
+
+    <div class="form-row">
+      <div class="form-group col-12">
+        <label class="label-required" for="field_name" jhiTranslate="userGroup.name">Name</label>
+        <input nz-input nzSize="large" id="field_name" formControlName="name" maxlength="64" input-validator auto-focus />
+      </div>
+
+      <div class="form-group col-12">
+        <label for="field_details" jhiTranslate="userGroup.details">Details</label>
+        <textarea nz-input nzSize="large" rows="3" id="field_details" formControlName="details"></textarea>
+      </div>
+
+      <div class="col-12">
+        <label class="label-required" for="field_authorities" jhiTranslate="userGroup.authorities">Authorities</label>
+        <bm-select-input
+          bmMode="multiple"
+          id="field_authorities"
+          formControlName="authorities"
+          [data]="authorities"
+          [bmMaxTagCount]="10"
+          (bmOnSearch)="loadAuthorities($event)"
+          input-validator
+        ></bm-select-input>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" nz-button nzType="text" nzSize="large" jhiTranslate="entity.action.cancel" (click)="closeModal()">
+      Cancel
+    </button>
+
+    <button type="submit" nz-button nzType="primary" nzSize="large" [nzLoading]="loading" [input-validator-button]="editForm">
+      {{ 'entity.action.save' | translate }}
+    </button>
+  </div>
+</form>

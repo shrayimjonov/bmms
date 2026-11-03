@@ -1,0 +1,209 @@
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <div class="modal-header">
+    <h4 class="modal-title" jhiTranslate="billMasterGwApp.pkbillmsField.home.createOrEditLabel">Create or edit a Field</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal()">&times;</button>
+  </div>
+
+  <div class="modal-body">
+    <bm-alert></bm-alert>
+
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsField.name" for="field_name">Name</label>
+        <input
+          nz-input
+          nzSize="large"
+          formControlName="name"
+          id="field_name"
+          input-validator
+          nz-tooltip="{{'tooltip.message' | translate}}"
+          nzTooltipPlacement="top"
+          [nzTooltipColor]="'#f84938'"
+          [nzTooltipVisible]="!!editForm.get('name')?.errors?.pattern"
+          [nzTooltipTrigger]="null"
+        />
+      </div>
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsField.extId" for="field_extId">extId</label>
+        <input type="number" nz-input nzSize="large" formControlName="extId" id="field_extId" input-validator />
+      </div>
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsField.recipient" for="field_recipient">recipient</label>
+        <bm-select-input
+          [bmServerSearch]="true"
+          [bmShowSearch]="true"
+          [requestUrl]="recipientService.resourceUrl"
+          formControlName="recipient"
+          id="field_recipient"
+          bmLabelField="shortName"
+          input-validator
+        ></bm-select-input>
+      </div>
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsField.type" for="field_type">type</label>
+        <bm-select-input [data]="types" formControlName="type" id="field_type" input-validator></bm-select-input>
+      </div>
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsField.requestType" for="field_requestType">requestType</label>
+        <bm-select-input [data]="requestTypes" formControlName="requestType" id="field_requestType"></bm-select-input>
+      </div>
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsField.controlType" for="field_controlType">controlType</label>
+        <bm-select-input [data]="controlTypes" formControlName="controlType" id="field_controlType" input-validator></bm-select-input>
+      </div>
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsField.visibility" for="field_visibility">visibility</label>
+        <bm-select-input [data]="visibilities" formControlName="visibility" id="field_visibility"></bm-select-input>
+      </div>
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsField.content" for="field_content">content</label>
+        <bm-select-input [data]="contents" formControlName="content" id="field_content"></bm-select-input>
+      </div>
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsField.validation" for="field_validation">validation</label>
+        <input nz-input nzSize="large" formControlName="validation" id="field_validation" [max]="128" input-validator />
+      </div>
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsField.placeholder" for="field_placeholder">placeholder</label>
+        <input nz-input nzSize="large" formControlName="placeholder" id="field_placeholder" [max]="128" input-validator />
+      </div>
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsField.mask" for="field_mask">mask</label>
+        <input nz-input nzSize="large" formControlName="mask" id="field_mask" [max]="256" input-validator />
+      </div>
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsField.maskSymbol" for="field_maskSymbol">maskSymbol</label>
+        <input nz-input nzSize="large" formControlName="maskSymbol" id="field_maskSymbol" maxlength="2" />
+      </div>
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsField.requireField" for="field_requireField">requireField</label>
+        <input nz-input nzSize="large" formControlName="requireField" id="field_requireField" [max]="64" />
+      </div>
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsField.filterBy" for="field_filterBy">filterBy</label>
+        <input nz-input nzSize="large" formControlName="filterBy" id="field_filterBy" [max]="64" input-validator />
+      </div>
+      <div class="form-group col-md-2">
+        <label jhiTranslate="billMasterGwApp.pkbillmsField.lengthMin" for="field_lengthMin">lengthMin</label>
+        <input nz-input nzSize="large" formControlName="lengthMin" id="field_lengthMin" type="number" [max]="256" input-validator />
+      </div>
+      <div class="form-group col-md-2">
+        <label jhiTranslate="billMasterGwApp.pkbillmsField.lengthMax" for="field_lengthMax">lengthMax</label>
+        <input nz-input nzSize="large" formControlName="lengthMax" id="field_lengthMax" type="number" [max]="256" input-validator />
+      </div>
+      <div class="form-group col-md-2">
+        <label jhiTranslate="billMasterGwApp.pkbillmsField.ord" for="field_ord">ord</label>
+        <input nz-input nzSize="large" formControlName="ord" id="field_ord" type="number" />
+      </div>
+      <div class="form-group col-md-10">
+        <label jhiTranslate="global.menu.entities.pkbillmsPrefix">Prefixes</label>
+        <nz-select
+          nzMode="multiple"
+          (nzOnSearch)="registerToPrefixModify($event)"
+          nzSize="large"
+          nzAllowClear
+          [nzShowArrow]="true"
+          nzShowSearch
+          [compareWith]="comparePrefixes"
+          formControlName="prefixes"
+          input-validator
+        >
+          <nz-option *ngFor="let prefix of prefixes" [nzValue]="prefix" [nzLabel]="prefix.value">{{ prefix.value }}</nz-option>
+        </nz-select>
+      </div>
+      <button
+        class="col-md-2"
+        style="margin-top: 24px"
+        type="button"
+        nz-button
+        nzSize="large"
+        nzType="primary"
+        jhiTranslate="entity.action.add"
+        *jhiHasAnyAuthority="[authority.PREFIX_WRITE]"
+        (click)="prefixService.openUpdate()"
+      >
+        Add
+      </button>
+      <div class="form-group col-md-10">
+        <label jhiTranslate="global.menu.entities.pkbillmsFieldValue">Field Values</label>
+        <nz-select
+          nzMode="multiple"
+          (nzOnSearch)="loadFieldValuesModification($event)"
+          nzSize="large"
+          nzAllowClear
+          [nzShowArrow]="true"
+          nzShowSearch
+          [compareWith]="compareFieldValues"
+          formControlName="values"
+          input-validator
+        >
+          <nz-option *ngFor="let fieldValue of fieldValues" [nzValue]="fieldValue" [nzLabel]="fieldValue.value"
+            >{{ fieldValue.value }}</nz-option
+          >
+        </nz-select>
+      </div>
+      <button
+        class="col-md-2"
+        style="margin-top: 24px"
+        type="button"
+        nz-button
+        nzSize="large"
+        nzType="primary"
+        jhiTranslate="entity.action.add"
+        *jhiHasAnyAuthority="[authority.FIELD_VALUE_WRITE]"
+        (click)="fieldValueService.openUpdate()"
+      >
+        Add
+      </button>
+      <div class="form-group col-md-6">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsAgent.title">Titles</label>
+        <bm-i18n-input formControlName="titles" [duplicate]="duplicate" input-validator></bm-i18n-input>
+      </div>
+      <div class="form-group col-md-6">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsField.description">Descriptions</label>
+        <bm-i18n-input formControlName="descriptions" [duplicate]="duplicate" input-validator></bm-i18n-input>
+      </div>
+    </div>
+
+    <div class="d-flex">
+      <nz-switch
+        id="field_optional"
+        formControlName="optional"
+        nzCheckedChildren="{{ 'billMasterGwApp.pkbillmsField.optional' | translate }}"
+        nzUnCheckedChildren="{{ 'billMasterGwApp.pkbillmsField.optional' | translate }}"
+      >
+      </nz-switch>
+      <nz-switch
+        id="field_output"
+        class="ml-3"
+        formControlName="output"
+        nzCheckedChildren="{{ 'billMasterGwApp.pkbillmsField.output' | translate }}"
+        nzUnCheckedChildren="{{ 'billMasterGwApp.pkbillmsField.output' | translate }}"
+      >
+      </nz-switch>
+      <nz-switch
+        id="field_fromRequest"
+        class="ml-3"
+        formControlName="fromRequest"
+        nzCheckedChildren="{{ 'billMasterGwApp.pkbillmsField.fromRequest' | translate }}"
+        nzUnCheckedChildren="{{ 'billMasterGwApp.pkbillmsField.fromRequest' | translate }}"
+      >
+      </nz-switch>
+      <nz-switch
+        id="field_fromResponse"
+        class="ml-3"
+        formControlName="fromResponse"
+        nzCheckedChildren="{{ 'billMasterGwApp.pkbillmsField.fromResponse' | translate }}"
+        nzUnCheckedChildren="{{ 'billMasterGwApp.pkbillmsField.fromResponse' | translate }}"
+      >
+      </nz-switch>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" nz-button nzSize="large" nzType="text" jhiTranslate="entity.action.cancel" (click)="closeModal()">Cancel</button>
+    <button nz-button nzSize="large" nzType="primary" [nzLoading]="loading" [input-validator-button]="editForm">
+      {{ 'entity.action.save' | translate }}
+    </button>
+  </div>
+</form>

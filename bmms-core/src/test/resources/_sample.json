@@ -1,0 +1,60 @@
+{
+    "check": {
+        "account": "",
+        "amount": 0,
+        "success": {
+            "request": {
+                "url": "",
+                "body": "",
+                "headers": {
+                    "h1": "v1"
+                }
+            },
+            "response": {
+                "status": "",
+                "body": ""
+            }
+        },
+        "fail": {
+            "request": {
+                "url": "",
+                "body": "",
+                "headers": {
+                    "h1": "v1"
+                }
+            },
+            "response": {
+                "status": "",
+                "body": ""
+            }
+        }
+    },
+    "pay": {
+        "success": {
+            "request": {
+                "url": "",
+                "body": "",
+                "headers": {
+                    "h1": "v1"
+                }
+            },
+            "response": {
+                "status": "",
+                "body": ""
+            }
+        },
+        "fail": {
+            "request": {
+                "url": "",
+                "body": "",
+                "headers": {
+                    "h1": "v1"
+                }
+            },
+            "response": {
+                "status": "",
+                "body": ""
+            }
+        }
+    }
+}

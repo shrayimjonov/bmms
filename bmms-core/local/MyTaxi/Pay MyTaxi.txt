@@ -1,0 +1,41 @@
+REQUEST:
+<<x:Envelope xmlns:x="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.payment.uzbilling">
+    <x:Header/>
+    <x:Body>
+        <uws:PerformTransactionArguments xmlns:uws="http://uws.provider.com/">
+        	 <password>mYt@Xi20_15clicK</password>
+             <username>MytaxiAPIClick2015</username>
+             <amount>500</amount>
+             <parameters>
+                <paramKey>clientid</paramKey>
+                <paramValue>2078</paramValue>
+            </parameters>
+            <serviceId>55</serviceId>
+            <transactionId>22602</transactionId>
+            <transactionTime>1536764367</transactionTime>
+        </uws:PerformTransactionArguments>
+    </x:Body>
+</x:Envelope>,{Content-Type=[text/xml; charset=utf-8]}>
+
+RESPONCE:
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://uws.provider.com/">
+
+    <SOAP-ENV:Body>
+
+        <ns1:PerformTransactionResult>
+
+            <errorMsg>Ok</errorMsg>
+
+            <status>0</status>
+
+            <timeStamp>2018-09-12T21:41:30+05:00</timeStamp>
+
+            <providerTrnId>8829589</providerTrnId>
+
+        </ns1:PerformTransactionResult>
+
+    </SOAP-ENV:Body>
+
+</SOAP-ENV:Envelope>

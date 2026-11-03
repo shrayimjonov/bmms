@@ -1,0 +1,35 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsPcBin": {
+      "home": {
+        "title": "Karta binlari",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Yangi karta bin qo`shish",
+        "createOrEditLabel": "Karta binni tahrirlash",
+        "notFound": "Karta binlari topilmadi"
+      },
+      "delete": {
+        "question": "{{ id }}- Karta Binni o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "Karta binlari"
+      },
+      "id": "ID",
+      "bin": "Bin",
+      "bankName": "Bank nomi",
+      "pcType": "Jarayon turi",
+      "useCredit": "Kredit",
+      "useDebit": "Debit",
+      "useReverse": "Revers",
+      "useReconcile": "Solishtiruv",
+      "comment": "Izoh"
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsPcBin": {
+      "created": "Karta bin {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- Karta bin saqlandi",
+      "deleted": "{{ param }}- Karta bin o`chirildi"
+    }
+  }
+}

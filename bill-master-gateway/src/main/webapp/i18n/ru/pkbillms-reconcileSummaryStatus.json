@@ -1,0 +1,11 @@
+{
+  "billMasterGwApp": {
+    "ReconcileSummaryStatus": {
+      "null": "",
+      "COMPARED_OK": "COMPARED_OK",
+      "COMPARED_FALSE": "COMPARED_FALSE",
+      "FILE_UPLOADED": "FILE_UPLOADED",
+      "STATUS_RECEIVED": "STATUS_RECEIVED"
+    }
+  }
+}

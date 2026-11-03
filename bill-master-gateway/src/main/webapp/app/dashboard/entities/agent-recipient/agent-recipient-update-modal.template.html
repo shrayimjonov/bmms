@@ -1,0 +1,165 @@
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <div class="modal-header">
+    <h5 class="modal-title" jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.home.createOrEditLabel">
+      Create or edit a Agent Recipient
+    </h5>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal()">&times;</button>
+  </div>
+
+  <div class="modal-body">
+    <bm-alert></bm-alert>
+
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.agent" for="field_agent">Agent</label>
+        <bm-select-input
+          [bmServerSearch]="true"
+          [requestUrl]="agentService.resourceUrl"
+          [bmShowSearch]="true"
+          formControlName="agent"
+          id="field_agent"
+          bmLabelField="shortName"
+          input-validator
+        ></bm-select-input>
+      </div>
+      <div class="form-group col-md-4">
+        <label
+          [ngClass]="{ 'label-required': !editForm.get('recipientGroup')?.value }"
+          jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.recipient"
+          for="field_recipientId"
+          >Recipient Id</label
+        >
+        <bm-select-input
+          formControlName="recipient"
+          id="field_recipientId"
+          bmLabelField="shortName"
+          [bmShowSearch]="true"
+          [bmServerSearch]="true"
+          [requestUrl]="recipientService.resourceUrl"
+          input-validator
+        >
+        </bm-select-input>
+      </div>
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.setting" for="field_settingId">Setting Id</label>
+        <bm-select-input
+          formControlName="setting"
+          id="field_settingId"
+          [bmServerSearch]="true"
+          [requestUrl]="settingService.resourceUrl"
+          bmLabelField="shortName"
+          [bmShowSearch]="true"
+        ></bm-select-input>
+      </div>
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.recipientGroup" for="field_recipientGroup">recipientGroup</label>
+        <bm-select-input
+          [bmServerSearch]="true"
+          [requestUrl]="recipientGroupService.resourceUrl"
+          formControlName="recipientGroup"
+          id="field_recipientGroup"
+          bmLabelField="name"
+          [bmShowSearch]="true"
+        ></bm-select-input>
+      </div>
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.requestGroup" for="field_requestGroup">requestGroup</label>
+        <input nz-input nzSize="large" formControlName="requestGroup" id="field_requestGroup" maxlength="64" input-validator />
+      </div>
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.systemFee" for="field_systemFee">systemFee</label>
+        <input
+          nz-input
+          nzSize="large"
+          formControlName="systemFee"
+          id="field_systemFee"
+          type="number"
+          min="0"
+          max="100"
+          placeholder="0"
+          input-validator
+        />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.eposPort" for="field_eposPort">Epos Port</label>
+        <input type="number" nz-input nzSize="large" formControlName="eposPort" id="field_eposPort" />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.eposMerchant" for="field_eposMerchant">Epos Merchant</label>
+        <input nz-input nzSize="large" formControlName="eposMerchant" id="field_eposMerchant" />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.eposTerminal" for="field_eposTerminal">Epos Terminal</label>
+        <input nz-input nzSize="large" formControlName="eposTerminal" id="field_eposTerminal" />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.agentCommission" for="field_agentCommission">agentCommission</label>
+        <input
+          nz-input
+          nzSize="large"
+          formControlName="agentCommission"
+          id="field_agentCommission"
+          type="number"
+          placeholder="0"
+          input-validator
+        />
+      </div>
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.systemCommissionUp" for="field_systemCommissionUp"
+          >systemCommissionUp</label
+        >
+        <input
+          nz-input
+          nzSize="large"
+          formControlName="systemCommissionUp"
+          id="field_systemCommissionUp"
+          type="number"
+          placeholder="0"
+          input-validator
+        />
+      </div>
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.systemCommissionDown" for="field_systemCommissionDown"
+          >systemCommissionDown</label
+        >
+        <input
+          nz-input
+          nzSize="large"
+          formControlName="systemCommissionDown"
+          id="field_systemCommissionDown"
+          type="number"
+          placeholder="0"
+          input-validator
+        />
+      </div>
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.agentFee" for="field_agentFee">agentFee</label>
+        <input nz-input nzSize="large" formControlName="agentFee" id="field_agentFee" placeholder="0" type="number" input-validator />
+      </div>
+
+      <nz-switch
+        class="form-group col-md-3"
+        id="field_active"
+        formControlName="active"
+        nzCheckedChildren="{{ 'global.active.true' | translate }}"
+        nzUnCheckedChildren="{{ 'global.active.false' | translate }}"
+      >
+      </nz-switch>
+
+      <div class="col-md-12">
+        <json-editor [options]="editorOptions" formControlName="jsonParams" style="min-height: 300px"></json-editor>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" nz-button nzSize="large" nzType="text" jhiTranslate="entity.action.cancel" (click)="closeModal()">Cancel</button>
+    <button type="submit" nz-button nzSize="large" nzType="primary" [nzLoading]="loading" [input-validator-button]="editForm">
+      {{ 'entity.action.save' | translate }}
+    </button>
+  </div>
+</form>

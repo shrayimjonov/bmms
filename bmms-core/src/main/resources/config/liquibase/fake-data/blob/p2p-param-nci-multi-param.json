@@ -1,0 +1,34 @@
+{
+    "sender": {
+        "bankAccount": "-",
+        "multiTranParams": [
+            {
+                "order": "1",
+                "CL": "${s.account}",
+                "CO": "29896000600001183444",
+                "SUM": "${t.requestAmount}",
+                "PUR": "Пополнения депозитного счета согласно договору № ${t.id}   от ${t.date} агента ${senderNciId}"
+            },
+            {
+                "order": "2",
+                "CL": "29896000600001183444",
+                "CO": "29896000100001183117",
+                "SUM": "${t.requestAmount}",
+                "PUR": "Пополнения карты ${fio} ${r.account} через агента ${senderNciId}"
+            },
+            {
+                "order": "3",
+                "CL": "29896000600001183444",
+                "CO": "45249000100001183031",
+                "SUM": "${t.systemCommissionUpAmount}",
+                "PUR": "Комиссия банка ${commission}% за пополнения карты ${fio} ${r.account} через агента ${senderNciId}"
+            }
+        ]
+    },
+    "recipient": {
+        "merchantId": "123",
+        "terminalId": "234",
+        "port": "4444",
+        "creditType": "UNIVERSAL_CREDIT"
+    }
+}

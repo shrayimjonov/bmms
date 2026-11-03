@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="rename_column_gatewayId_to_gatewayName_entity_reconcile_discrepancy" author="zafar">
+
+        <renameColumn
+            tableName="reconcile_discrepancy"
+            oldColumnName="gateway_id"
+            newColumnName="gateway_name"
+        />
+
+    </changeSet>
+</databaseChangeLog>

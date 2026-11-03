@@ -1,0 +1,118 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h4 class="mb-0" jhiTranslate="global.menu.entities.pkbillmsGateway">Gateway</h4>
+
+  <div>
+    <nz-badge [nzCount]="filterRef.querySize">
+      <button nz-button nzSize="large" jhiTranslate="entity.action.filter" (click)="showFilter = !showFilter">Filter</button>
+    </nz-badge>
+
+    <ngl-export-as
+      *ngIf="data?.length"
+      class="ml-2"
+      [data]="data"
+      requestUrl="{{ gatewayService.resourceUrl }}"
+      [requestOption]="getOption"
+      translationPrefix="billMasterGwApp.pkbillmsGateway"
+      fileName="gateways"
+    >
+    </ngl-export-as>
+
+    <button
+      class="ml-2"
+      type="button"
+      nz-button
+      nzSize="large"
+      nzType="primary"
+      jhiTranslate="entity.action.add"
+      *jhiHasAnyAuthority="[authority.GATEWAY_WRITE]"
+      (click)="gatewayService.openUpdate()"
+    >
+      Add
+    </button>
+  </div>
+</div>
+
+<ngl-filter-field [hidden]="!showFilter" [fields]="filterFields" (onFilter)="setQuery($event); loadPage()" #filterRef></ngl-filter-field>
+
+<bm-alert></bm-alert>
+
+<ng-container *ngIf="data?.length">
+  <div class="table-responsive">
+    <nz-table [nzLoading]="loading" nzSize="small" nzTemplateMode nzOuterBordered>
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th jhiSortBy="id">
+            <span jhiTranslate="global.field.id">ID</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="name">
+            <span jhiTranslate="billMasterGwApp.pkbillmsGateway.name">Name</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="org">
+            <span jhiTranslate="billMasterGwApp.pkbillmsGateway.org">Org</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="taxnr">
+            <span jhiTranslate="billMasterGwApp.pkbillmsGateway.taxnr">INN</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="springBeanName">
+            <span jhiTranslate="billMasterGwApp.pkbillmsGateway.springBeanName">Spring Bean Name</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="active">
+            <span jhiTranslate="billMasterGwApp.pkbillmsGateway.active">Active</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let gateway of data; trackBy: trackId">
+          <td>
+            <a href="javascript:void(0)" (click)="gatewayService.openView(gateway)">{{ gateway.id }}</a>
+          </td>
+          <td>{{ gateway.name }}</td>
+          <td>{{ gateway.org }}</td>
+          <td>{{ gateway.taxnr }}</td>
+          <td>{{ gateway.springBeanName }}</td>
+          <td>
+            <span [bm-boolean-badge]="gateway.active" bmType="active">{{ gateway.active }}</span>
+          </td>
+          <td width="10" class="text-right">
+            <nz-button-group nzSize="small">
+              <button nz-button (click)="gatewayService.openHistory(gateway.id)" title="{{ 'entity.action.history' | translate }}">
+                <i nz-icon nzType="history" class="icon-btn"></i>
+              </button>
+              <button nz-button (click)="gatewayService.openView(gateway)" title="{{ 'entity.action.view' | translate }}">
+                <i nz-icon nzType="eye" class="icon-btn"></i>
+              </button>
+              <ng-container *jhiHasAnyAuthority="[authority.GATEWAY_WRITE]">
+                <button nz-button (click)="gatewayService.openUpdate(gateway, true)" title="{{ 'entity.action.duplicate' | translate }}">
+                  <i nz-icon nzType="copy" class="icon-btn"></i>
+                </button>
+                <button nz-button (click)="gatewayService.openUpdate(gateway)" title="{{ 'entity.action.edit' | translate }}">
+                  <i nz-icon nzType="edit" class="icon-btn"></i>
+                </button>
+                <button nz-button (click)="gatewayService.openDelete(gateway.id)" title="{{ 'entity.action.delete' | translate }}">
+                  <i nz-icon nzType="delete" class="icon-btn"></i>
+                </button>
+              </ng-container>
+            </nz-button-group>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+
+  <div class="d-flex justify-content-center mt-3">
+    <nz-pagination
+      [nzPageIndex]="ngbPaginationPage"
+      [nzTotal]="totalItems"
+      [nzPageSize]="itemsPerPage"
+      (nzPageIndexChange)="loadPage($event)"
+    >
+    </nz-pagination>
+  </div>
+</ng-container>

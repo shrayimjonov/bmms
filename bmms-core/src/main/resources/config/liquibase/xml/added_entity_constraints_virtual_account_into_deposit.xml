@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added the constraints for entity ReconcileDiscrepancy.
+    -->
+    <changeSet id="added_entity_constraints_virtual_account_into_deposit" author="zafar">
+
+        <addColumn tableName="deposit">
+            <column name="virtual_account_id" type="bigint">
+                <constraints unique="true" nullable="true"/>
+            </column>
+        </addColumn>
+        <addForeignKeyConstraint baseColumnNames="virtual_account_id"
+                                 baseTableName="deposit"
+                                 constraintName="fk_deposit_virtual_account_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="virtual_account"/>
+
+    </changeSet>
+</databaseChangeLog>

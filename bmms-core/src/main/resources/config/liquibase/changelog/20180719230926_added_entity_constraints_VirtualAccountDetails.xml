@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added the constraints for entity VirtualAccountDetails.
+    -->
+    <changeSet id="20180719230926-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="virtual_account_id"
+                                 baseTableName="virtual_account_details"
+                                 constraintName="fk_virtual_account_details_virtual_account_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="virtual_account"/>
+
+    </changeSet>
+</databaseChangeLog>

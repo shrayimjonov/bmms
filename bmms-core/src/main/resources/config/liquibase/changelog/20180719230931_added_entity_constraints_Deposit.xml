@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added the constraints for entity Deposit.
+    -->
+    <changeSet id="20180719230931-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="recipient_id"
+                                 baseTableName="deposit"
+                                 constraintName="fk_deposit_recipient_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="recipient"/>
+
+        <addForeignKeyConstraint baseColumnNames="agent_id"
+                                 baseTableName="deposit"
+                                 constraintName="fk_deposit_agent_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="agent"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Entity ReconcileSummary migrate to 7.1 jhipster
+    -->
+    <changeSet id="entity_ReconcileSummary_migrate_7_1" author="zafar">
+        <!--
+            Rename column jhi_date
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="reconcile_summary"
+                          columnName="jhi_date"/>
+        </preConditions>
+
+        <comment>Rename column jhi_date</comment>
+
+        <renameColumn tableName="reconcile_summary" oldColumnName="jhi_date" newColumnName="date"/>
+
+    </changeSet>
+</databaseChangeLog>

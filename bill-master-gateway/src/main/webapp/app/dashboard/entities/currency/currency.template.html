@@ -1,0 +1,140 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h4 class="mb-0" jhiTranslate="billMasterGwApp.bmmsCurrency.home.title">Currencies</h4>
+
+  <div>
+    <button
+      nz-button
+      nzSize="large"
+      nzType="default"
+      class="ml-2"
+      jhiTranslate="billMasterGwApp.bmmsCurrency.home.refreshListLabel"
+      (click)="loadPage()"
+      [disabled]="loading"
+      [nzLoading]="loading"
+    >
+      Refresh List
+    </button>
+
+    <nz-badge [nzCount]="filterRef.querySize">
+      <button nz-button nzSize="large" jhiTranslate="entity.action.filter" (click)="showFilter = !showFilter">Filter</button>
+    </nz-badge>
+
+    <button
+      class="ml-2"
+      type="button"
+      nz-button
+      nzSize="large"
+      nzType="primary"
+      jhiTranslate="entity.action.add"
+      *jhiHasAnyAuthority="[authority.CURRENCY_WRITE]"
+      (click)="currencyService.openUpdate()"
+    >
+      Add
+    </button>
+  </div>
+</div>
+
+<ngl-filter-field [hidden]="!showFilter" [fields]="filterFields" (onFilter)="setQuery($event); loadPage()" #filterRef></ngl-filter-field>
+
+<bm-alert></bm-alert>
+
+<ng-container *ngIf="data?.length">
+  <div class="table-responsive">
+    <nz-table [nzLoading]="loading" nzSize="small" nzTemplateMode nzOuterBordered>
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th scope="col" jhiSortBy="id">
+            <span jhiTranslate="global.field.id">ID</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th scope="col" jhiSortBy="code">
+            <span jhiTranslate="billMasterGwApp.bmmsCurrency.code">Code</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th scope="col" jhiSortBy="ccy">
+            <span jhiTranslate="billMasterGwApp.bmmsCurrency.ccy">Ccy</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th scope="col" jhiSortBy="nameRu">
+            <span jhiTranslate="billMasterGwApp.bmmsCurrency.nameRu">Name Ru</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th scope="col" jhiSortBy="rate">
+            <span jhiTranslate="billMasterGwApp.bmmsCurrency.rate">Rate</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th scope="col" jhiSortBy="sellRate">
+            <span jhiTranslate="billMasterGwApp.bmmsCurrency.sellRate">Sell Rate</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th scope="col" jhiSortBy="buyRate">
+            <span jhiTranslate="billMasterGwApp.bmmsCurrency.buyRate">Buy Rate</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th scope="col" jhiSortBy="date">
+            <span jhiTranslate="billMasterGwApp.bmmsCurrency.date">Date</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th scope="col" jhiSortBy="active">
+            <span jhiTranslate="billMasterGwApp.bmmsCurrency.active">Active</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th scope="col" jhiSortBy="ccyGroup">
+            <span jhiTranslate="billMasterGwApp.bmmsCurrency.ccyGroup">Ccy Group</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let currency of data; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a href="javascript:void(0)" (click)="currencyService.openView(currency)">{{ currency.id }}</a>
+          </td>
+          <td>{{ currency.code }}</td>
+          <td>{{ currency.ccy }}</td>
+          <td>{{ currency.nameRu }}</td>
+          <td>{{ currency.rate }}</td>
+          <td>{{ currency.sellRate }}</td>
+          <td>{{ currency.buyRate }}</td>
+          <td>{{ currency.lastModifiedDate | bmDate }}</td>
+          <td>{{ currency.active }}</td>
+          <td>{{ currency.ccyGroup }}</td>
+          <td width="10" class="text-right">
+            <nz-button-group nzSize="small">
+              <button nz-button (click)="currencyService.openHistory(currency.id)" title="{{ 'entity.action.history' | translate }}">
+                <i nz-icon nzType="history" class="icon-btn"></i>
+              </button>
+              <button nz-button (click)="currencyService.openView(currency)" title="{{ 'entity.action.view' | translate }}">
+                <i nz-icon nzType="eye" class="icon-btn"></i>
+              </button>
+              <ng-container *jhiHasAnyAuthority="[authority.CURRENCY_WRITE]">
+                <button nz-button (click)="currencyService.openUpdate(currency, true)" title="{{ 'entity.action.duplicate' | translate }}">
+                  <i nz-icon nzType="copy" class="icon-btn"></i>
+                </button>
+                <button nz-button (click)="currencyService.openUpdate(currency)" title="{{ 'entity.action.edit' | translate }}">
+                  <i nz-icon nzType="edit" class="icon-btn"></i>
+                </button>
+                <button nz-button (click)="currencyService.openDelete(currency.id)" title="{{ 'entity.action.delete' | translate }}">
+                  <i nz-icon nzType="delete" class="icon-btn"></i>
+                </button>
+              </ng-container>
+            </nz-button-group>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="d-flex justify-content-center mt-3">
+      <nz-pagination
+        [nzPageIndex]="ngbPaginationPage"
+        [nzTotal]="totalItems"
+        [nzPageSize]="itemsPerPage"
+        (nzPageIndexChange)="loadPage($event)"
+      >
+      </nz-pagination>
+    </div>
+  </div>
+</ng-container>

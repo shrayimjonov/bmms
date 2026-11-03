@@ -1,0 +1,46 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsDepositTransaction": {
+      "home": {
+        "title": "Депозитные операции",
+        "createLabel": "Создать новый Депозитные операции",
+        "createOrEditLabel": "Создать или отредактировать Депозитные операции",
+        "notFound": "Депозитные операции не найдены"
+      },
+      "delete": {
+        "question": "Вы уверены что хотите удалить Депозитные операции {{ id }}?"
+      },
+      "detail": {
+        "title": "Депозитные операции"
+      },
+      "payerTaxnr": "Плательщик  тахнр",
+      "recipientTaxnr": "Поставшик тахнр",
+      "amount": "Сумма",
+      "updateDate": "Дата обновления",
+      "comment": "Комментарий",
+      "doc": "Документ",
+      "totalAmount": "Баланс",
+      "income": "Доход",
+      "turnover": "Оборот",
+      "enterAmount": "Введите сумму",
+      "period": {
+        "TODAY": "Сегодня",
+        "WEEK": "Неделя",
+        "MONTH": "Месяц",
+        "YEAR": "Год",
+        "ALL": "Все"
+      },
+      "help": {
+        "payerTaxnr": "Tax number (INN, VAT) of payer. see : https://en.wikipedia.org/wiki/VAT_identification_number",
+        "recipientTaxnr": "Tax number (INN, VAT) of payer. see : https://en.wikipedia.org/wiki/VAT_identification_number"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsDepositTransaction": {
+      "created": "Новый Депозитные операции создан с идентификатором {{ param }}",
+      "updated": "Депозитные операции обновлен с идентификатором {{ param }}",
+      "deleted": "Депозитные операции удален с идентификатором {{ param }}"
+    }
+  }
+}

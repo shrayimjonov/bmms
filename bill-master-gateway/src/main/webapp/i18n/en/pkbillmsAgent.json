@@ -1,0 +1,56 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsAgent": {
+      "home": {
+        "title": "Agents",
+        "createLabel": "Create a new Agent",
+        "createOrEditLabel": "Create or edit a Agent",
+        "notFound": "No Agents found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Agent {{ id }}?"
+      },
+      "detail": {
+        "title": "Agent"
+      },
+      "shortName": "Short Name",
+      "amountRatio": "Amount Ratio",
+      "apiKey": "Api Key",
+      "currencies": "Currencies",
+      "ipAddresses": "Ip Addresses",
+      "logo": "Logo",
+      "login": "Login",
+      "ord": "Ord",
+      "active": "Active",
+      "phoneNumber": "Phone Number",
+      "inn": "Inn",
+      "orgName": "Org Name",
+      "activityType": "Activity Type",
+      "email": "E-mail",
+      "bankId": "Bank Id",
+      "generalContractNumber": "General contract number",
+      "contractDate": "Contract Date",
+
+      "title": "Title",
+      "deposit": "Deposit",
+      "help": {
+        "shortName": "Short name to show in UI",
+        "amountRatio": "mount ratio",
+        "apiKey": "API key",
+        "currencies": "Currency of allowed requests",
+        "ipAddresses": "Ip addresses for filtering",
+        "logo": "Logo file path or url",
+        "login": "Login",
+        "ord": "Display order",
+        "inn": "Tax number (INN, VAT) of payer. see : https://en.wikipedia.org/wiki/VAT_identification_number"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsAgent": {
+      "created": "A new Agent is created with identifier {{ param }}",
+      "updated": "A Agent is updated with identifier {{ param }}",
+      "deleted": "A Agent is deleted with identifier {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsBill": {
+      "billWithId": "Запрос {{ id }}",
+      "home": {
+        "title": "Билл",
+        "createLabel": "Создать новый Билл",
+        "createOrEditLabel": "Создать или отредактировать Билл",
+        "notFound": "Чеки не найдены"
+      },
+      "delete": {
+        "question": "Вы уверены, что хотите удалить Билл {{id}}?"
+      },
+      "detail": {
+        "title": "Билл"
+      },
+      "recipientId": "ID услуги",
+      "recipientShortName": "Наим. услуги",
+      "sessionId": "ID сессии",
+      "type": "Тип",
+      "amountRatio": "Единица суммы",
+      "amount": "Сумма",
+      "profit": "Прибыль",
+      "account": "Счет получателя",
+      "params": "Params",
+      "currency": "Валюта",
+      "extId": "Внешний ID",
+      "checkId": "Check ID",
+      "payId": "Pay ID",
+      "transactionId": "ID транзакции",
+      "requestTime": "Время запроса",
+      "requestTimeFrom": "Время запроса (с)",
+      "requestTimeTo": "Время запроса (по)",
+      "requestJson": "Запрос Json",
+      "responseJson": "Ответ Json",
+      "responseTime": "Время ответа",
+      "responseTimeFrom": "Время отклика (с)",
+      "responseTimeTo": "Время отклика (по)",
+      "responseCode": "Код ответа",
+      "responseText": "Текст ответа",
+      "success": "Статус",
+      "login": "Инициатор",
+      "fraudId": "Идентификатор мошенничества",
+      "840": "доллар",
+      "860": "сум",
+      "978": "eвро",
+      "643": "рубл",
+      "156": "юан",
+      "null": " ",
+      "": " ",
+      "help": {
+        "amountRatio": "Разрядность суммы, 1 - сум, 100 - тийин"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsBill": {
+      "created": "Новый Билл создан с идентификатором {{param}}",
+      "updated": "Билл обновлен с идентификатором {{param}}",
+      "deleted": "Билл удален с идентификатором {{param}}"
+    }
+  }
+}

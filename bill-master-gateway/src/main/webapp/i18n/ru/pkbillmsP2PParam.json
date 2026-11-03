@@ -1,0 +1,42 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsP2PParam": {
+      "home": {
+        "title": "P2P параметры",
+        "createLabel": "Создать новый P2P параметр",
+        "createOrEditLabel": "Создать или отредактировать P2P параметр",
+        "notFound": "P2P параметры не найдены"
+      },
+      "delete": {
+        "question": "Вы уверены что хотите удалить P2P параметр {{ id }}?"
+      },
+      "detail": {
+        "title": "P2P параметр"
+      },
+      "priority": "Приоритет",
+      "promo": "Промо код",
+      "active": "Активный",
+      "senderPc": "ПЦ отправителя",
+      "recipientPc": "ПЦ получателя",
+      "value": "Json параметры",
+      "senderCondition": "Условие отправителя",
+      "recipientCondition": "Условие получателя",
+      "senderPercent": "Процент отправителя",
+      "recipientPercent": "Процент получателя",
+      "help": {
+        "priority": "Приоритет",
+        "active": "Активный",
+        "senderPc": "ПЦ отправителя",
+        "recipientPc": "ПЦ получателя",
+        "value": "Json параметры"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsP2PParam": {
+      "created": "Новый P2P параметр создан с идентификатором {{ param }}",
+      "updated": "P2P параметр обновлен с идентификатором {{ param }}",
+      "deleted": "P2P параметр удален с идентификатором {{ param }}"
+    }
+  }
+}

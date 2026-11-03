@@ -1,0 +1,129 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h4 class="mb-0" jhiTranslate="global.menu.entities.pkbillmsCategory">Category</h4>
+
+  <div>
+    <nz-badge [nzCount]="filterRef.querySize">
+      <button nz-button nzSize="large" jhiTranslate="entity.action.filter" (click)="showFilter = !showFilter">Filter</button>
+    </nz-badge>
+
+    <ngl-export-as
+      class="ml-2"
+      *ngIf="data?.length"
+      [data]="data"
+      [requestOption]="getOption"
+      requestUrl="{{ categoryService.resourceUrl }}"
+      translationPrefix="billMasterGwApp.pkbillmsCategory"
+      fileName="categories"
+    >
+    </ngl-export-as>
+
+    <button
+      class="ml-2"
+      type="button"
+      nz-button
+      nzSize="large"
+      nzType="primary"
+      jhiTranslate="entity.action.add"
+      *jhiHasAnyAuthority="[authority.CATEGORY_WRITE]"
+      (click)="categoryService.openUpdate()"
+    >
+      Add
+    </button>
+  </div>
+</div>
+
+<ngl-filter-field [hidden]="!showFilter" [fields]="filterFields" (onFilter)="setQuery($event); loadPage()" #filterRef></ngl-filter-field>
+
+<bm-alert></bm-alert>
+
+<ng-container *ngIf="data?.length">
+  <div class="table-responsive">
+    <nz-table [nzLoading]="loading" nzSize="small" nzTemplateMode nzOuterBordered>
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th jhiSortBy="id">
+            <span jhiTranslate="global.field.id">ID</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="logo">
+            <span jhiTranslate="billMasterGwApp.pkbillmsCategory.logo">Logo</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="shortName">
+            <span jhiTranslate="billMasterGwApp.pkbillmsCategory.shortName">ShortName</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="ord">
+            <span jhiTranslate="billMasterGwApp.pkbillmsCategory.ord">Ord</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="parent">
+            <span jhiTranslate="billMasterGwApp.pkbillmsCategory.parent">Parent</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="parent">
+            <span jhiTranslate="billMasterGwApp.pkbillmsCategory.active">Active</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of data; trackBy: trackId">
+          <td>
+            <a href="javascript:void(0)" (click)="categoryService.openView(category)">{{ category.id }}</a>
+          </td>
+          <td>{{ category.logo }}</td>
+          <td>{{ category.shortName }}</td>
+          <td>{{ category.ord }}</td>
+          <td>
+            <a href="javascript:void(0)" (click)="categoryService.openView(category.parent)">{{ category.parent?.shortName }}</a>
+          </td>
+          <td>
+            <span [bm-boolean-badge]="category.active" bmType="active">{{ category.active }}</span>
+          </td>
+          <td width="10" class="text-right">
+            <nz-button-group nzSize="small">
+              <button
+                nz-button
+                routerLink="../recipient"
+                jhiTranslate="global.menu.entities.pkbillmsRecipient"
+                [queryParams]="{'categoryId.equals': category.id}"
+              >
+                Recipient
+              </button>
+
+              <button nz-button (click)="categoryService.openHistory(category.id)" title="{{ 'entity.action.history' | translate }}">
+                <i nz-icon nzType="history" class="icon-btn"></i>
+              </button>
+              <button nz-button (click)="categoryService.openView(category)" title="{{ 'entity.action.view' | translate }}">
+                <i nz-icon nzType="eye" class="icon-btn"></i>
+              </button>
+              <ng-container *jhiHasAnyAuthority="[authority.CATEGORY_WRITE]">
+                <button nz-button (click)="categoryService.openUpdate(category, true)" title="{{ 'entity.action.duplicate' | translate }}">
+                  <i nz-icon nzType="copy" class="icon-btn"></i>
+                </button>
+                <button nz-button (click)="categoryService.openUpdate(category)" title="{{ 'entity.action.edit' | translate }}">
+                  <i nz-icon nzType="edit" class="icon-btn"></i>
+                </button>
+                <button nz-button (click)="categoryService.openDelete(category.id)" title="{{ 'entity.action.delete' | translate }}">
+                  <i nz-icon nzType="delete" class="icon-btn"></i>
+                </button>
+              </ng-container>
+            </nz-button-group>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+
+  <div class="d-flex justify-content-center mt-3">
+    <nz-pagination
+      [nzPageIndex]="ngbPaginationPage"
+      [nzTotal]="totalItems"
+      [nzPageSize]="itemsPerPage"
+      (nzPageIndexChange)="loadPage($event)"
+    >
+    </nz-pagination>
+  </div>
+</ng-container>

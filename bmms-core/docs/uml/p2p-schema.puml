@@ -1,0 +1,90 @@
+@startuml
+
+title P2P операция
+Агент-> BillMaster: Запрос\t\t\t\t\t
+
+group #Pink 1. Агент не авторизован\n2. Счет отправителя или получателя не указан
+    BillMaster -> Агент: Ошибка
+end
+
+hnote over BillMaster : NEW
+
+group #Pink 1. Не поддерживается счет отправителя\n2. Не поддерживается счет получателя
+    hnote over BillMaster : FAILED
+    BillMaster -> Агент: Ошибка
+end
+
+hnote over BillMaster : CHECKING
+
+BillMaster -> ПЦПолучатель : Запрос на проверку счета получателя
+
+group #Pink 1. ПЦПолучатель вернул не успешный ответ при проверке счета\n2. Превышена время ожидания ответа от ПЦПолучателя
+    BillMaster x<[#red]-- ПЦПолучатель : Не успешный ответ
+    hnote over BillMaster : FAILED
+    BillMaster -> Агент: Ошибка
+end
+
+BillMaster <[#green]- ПЦПолучатель : Успешный ответ
+hnote over BillMaster : CHECK_ОК
+
+group #Pink Не поддерживается операция между данными счетами
+    hnote over BillMaster : FAILED
+    BillMaster -> Агент: Ошибка
+end
+
+hnote over BillMaster : PAYING
+
+BillMaster -> ПЦОтправитель : Снятие средств\t\t\t\t\t\t
+
+group #Pink ПЦОтправитель вернул не успешный ответ на снятие средств
+    BillMaster x<[#red]-- ПЦОтправитель : Не успешный ответ
+    hnote over BillMaster : FAILED
+    BillMaster -> Агент: Ошибка
+end
+
+group #khaki Превышена время ожидания ответа от ПЦПолучателя
+    BillMaster x<[#red]-- ПЦОтправитель  : Timeout
+    hnote over BillMaster : S_NEED_CONFIRM
+    BillMaster -> Агент: Ошибка
+end
+
+BillMaster <[#green]- ПЦОтправитель : Успешный ответ
+hnote over BillMaster : DEBITED\nHOLD_SUCCESS
+
+BillMaster -> ПЦПолучатель : Проведение оплаты в ПЦПолучателя
+
+group #Pink ПЦПолучатель вернул не успешный ответ при подтверждении оплаты
+    BillMaster x<[#red]-- ПЦПолучатель : Не успешный ответ
+    hnote over BillMaster : FAILED
+    BillMaster -> ПЦОтправитель : Отмена снятия средств
+
+    group #Pink Произошла ошибка в отмене снятие средств в ПЦПолучателя
+        BillMaster x<[#red]-- ПЦОтправитель : Не успешный ответ
+        hnote over BillMaster : S_CANCEL_FAILED
+        BillMaster -> Агент: Ошибка
+    end
+
+    group #khaki Превышена время ожидания ответа отмены
+        BillMaster x<[#red]-- ПЦОтправитель  : Timeout
+        hnote over BillMaster : S_NEED_CONFIRM
+        BillMaster -> Агент: Ошибка
+    end
+
+    hnote over BillMaster : CANCELLED\nREVERSED
+    BillMaster -> Агент: Ошибка
+end
+
+group #khaki Превышена время ожидания ответа шлюза
+    BillMaster x<[#red]-- ПЦОтправитель  : Timeout
+    hnote over BillMaster : R_NEED_CONFIRM
+    BillMaster -> Агент: Ошибка
+end
+
+BillMaster <[#green]- ПЦПолучатель : Успешный ответ
+hnote over BillMaster : SUCCESS
+'title Проверка счета получателя
+BillMaster -> Агент: Ответ
+
+@enduml
+
+

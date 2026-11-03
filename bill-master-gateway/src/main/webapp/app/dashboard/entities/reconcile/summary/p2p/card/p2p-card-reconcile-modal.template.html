@@ -1,0 +1,39 @@
+<form [formGroup]="editForm" (ngSubmit)="save()">
+  <div class="modal-header">
+    <h5 class="modal-title" jhiTranslate="billMasterGwApp.pkbillmsReconcileSummary.runReconcile">Run Reconcile</h5>
+
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="activeModal.dismiss('close')">
+      &times;
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <bm-alert></bm-alert>
+
+    <div class="form-group">
+      <label for="field_type" jhiTranslate="global.field.type">Type</label>
+      <bm-select-input formControlName="type" id="field_type" [data]="types" [bmAllowClear]="false"></bm-select-input>
+    </div>
+
+    <div class="form-group">
+      <label for="field_fromDate" jhiTranslate="global.field.fromDate">From Date</label>
+      <nz-date-picker formControlName="fromDate" id="field_fromDate" nzSize="large" nzFormat="dd.MM.yyyy HH:mm" nzInputReadOnly nzShowTime></nz-date-picker>
+    </div>
+
+    <div class="form-group">
+      <label for="field_toDate" jhiTranslate="global.field.toDate">To Date</label>
+      <nz-date-picker formControlName="toDate" id="field_toDate" nzSize="large" nzFormat="dd.MM.yyyy HH:mm" nzInputReadOnly nzShowTime></nz-date-picker>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" nz-button nzSize="large" nzType="text" jhiTranslate="entity.action.cancel"
+            (click)="activeModal.dismiss('close')">
+      Cancel
+    </button>
+
+    <button nz-button nzSize="large" nzType="primary" [nzLoading]="loading" [input-validator-button]="editForm">
+      {{ 'entity.action.save' | translate }}
+    </button>
+  </div>
+</form>

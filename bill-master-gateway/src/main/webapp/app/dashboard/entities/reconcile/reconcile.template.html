@@ -1,0 +1,37 @@
+<nz-badge [nzCount]="iconTpl">
+  <h4 class="mb-4 mr-3" jhiTranslate="global.menu.reconcile.main">Reconcile</h4>
+
+  <ng-template #iconTpl>
+    <i
+      nz-icon
+      nzType="question-circle"
+      class="ant-scroll-number-custom-component cursor-pointer"
+      nz-tooltip="{{ 'billMasterGwApp.pkbillmsReconcileSummary.note' | translate }}"
+      nzTooltipPlacement="rightTop"
+      [nzTooltipOverlayStyle]="{ width: 'fit-content', 'max-width': '1000px' }"
+    >
+    </i>
+  </ng-template>
+</nz-badge>
+
+<nz-tabset nzLinkRouter nzSize="large">
+  <ng-container *ngFor="let tab of tabs">
+    <nz-tab *jhiHasAnyAuthority="tab.authorities">
+      <a
+        class="d-flex align-items-center"
+        *nzTabLink
+        nz-tab-link
+        routerLink="{{ tab.routerLink }}"
+        queryParamsHandling="merge"
+        [replaceUrl]="true"
+      >
+        <i nz-icon nzType="{{ tab.icon }}"></i>
+        <span jhiTranslate="{{ tab.title }}">{{ tab.title }}</span>
+      </a>
+    </nz-tab>
+  </ng-container>
+</nz-tabset>
+
+<div class="mt-2">
+  <router-outlet></router-outlet>
+</div>

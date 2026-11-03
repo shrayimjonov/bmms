@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Entity ResponseField constraints migrate to 7.1 jhipster
+    -->
+    <changeSet id="entity_ResponseField_constraints_migrate-1" author="zafar">
+        <!--
+          Drop foreign constraint ResponseFieldLabel to ResponseField
+        -->
+        <preConditions onFail="MARK_RAN">
+            <foreignKeyConstraintExists foreignKeyName="fk_response_field_label_response_fields_id"/>
+        </preConditions>
+
+        <comment>Drop foreign constraint ResponseFieldLabel to ResponseField</comment>
+
+        <dropForeignKeyConstraint baseTableName="rel_response_field__label"
+                                  constraintName = "fk_response_field_label_response_fields_id"/>
+    </changeSet>
+
+    <changeSet id="entity_ResponseField_constraints_migrate-2" author="zafar">
+        <!--
+            Add foreign constraint ResponseFieldLabel to ResponseField
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_response_field_label_response_fields_id"
+                                            foreignKeyTableName="response_field"/>
+            </not>
+        </preConditions>
+
+        <comment>Add foreign constraint ResponseFieldLabel to ResponseField</comment>
+        <addForeignKeyConstraint baseColumnNames="response_field_id"
+                                 baseTableName="rel_response_field__label"
+                                 constraintName="fk_response_field_label_response_fields_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="response_field"/>
+    </changeSet>
+
+    <changeSet id="entity_ResponseField_constraints_migrate-3" author="zafar">
+        <!--
+            Drop foreign constraint ResponseFieldLabel to i18n
+        -->
+        <preConditions onFail="MARK_RAN">
+            <foreignKeyConstraintExists foreignKeyName="fk_response_field_label_labels_id"/>
+        </preConditions>
+
+        <comment>Drop foreign constraint ResponseFieldLabel to i18n</comment>
+
+        <dropForeignKeyConstraint baseTableName="rel_response_field__label"
+                                  constraintName = "fk_response_field_label_labels_id"/>
+    </changeSet>
+
+    <changeSet id="entity_ResponseField_constraints_migrate-4" author="zafar">
+        <!--
+            Add foreign constraint ResponseFieldLabel to i18n
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_response_field_label_labels_id"
+                                            foreignKeyTableName="i_18_n"/>
+            </not>
+        </preConditions>
+
+        <comment>Add foreign constraint ResponseFieldLabel to i18n</comment>
+
+        <addForeignKeyConstraint baseColumnNames="label_id"
+                                 baseTableName="rel_response_field__label"
+                                 constraintName="fk_response_field_label_labels_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="i_18_n"/>
+
+    </changeSet>
+</databaseChangeLog>

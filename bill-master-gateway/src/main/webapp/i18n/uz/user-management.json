@@ -1,0 +1,40 @@
+{
+  "userManagement": {
+    "home": {
+      "title": "Foydalanuvchi",
+      "createLabel": "Yangi foydalanuvchi qo'shish",
+      "createOrEditLabel": "Foydalanuvchini tahrirlash",
+      "notFound": "Xech qanday foydalanuvchi topilmadi"
+    },
+    "created": "Yangi foydalanuvchi {{ param }} bilan qo`shildi",
+    "updated": "{{ param }} - foydalanuvchi saqlandi",
+    "deleted": "{{ param }} - foydalanuvchi o'chirildi",
+    "delete": {
+      "question": "Foydalanuvchi {{ login }} o'chirishni hoxlaysizmi?"
+    },
+    "detail": {
+      "title": "Foydalanuvchi"
+    },
+    "createAuthority": "Ro'l qo'shish",
+    "login": "Login",
+    "firstName": "Ismi",
+    "lastName": "Familiyasi",
+    "email": "Email",
+    "activated": "Faol",
+    "deactivated": "Faol emas",
+    "popconfirmTitle": "Siz haqiqatdan ham ushbu <strong>{{userName}}</strong>ni aktiv qilishni hohlaysizmi?",
+    "deactivatedTitle": "Ushbu foydalanuvchini faolsizlantirishni xohlaysizmi?",
+    "activatedTitle": "Ushbu foydalanuvchini faollashtirmoqchimisiz?",
+    "profiles": "Profili",
+    "langKey": "Tili",
+    "createdBy": "Qo'shgan",
+    "createdDate": "Qo'shilgan vaqti",
+    "lastModifiedBy": "O'zgartirgan",
+    "lastModifiedDate": "O'zgartirilgan sanasi",
+    "password": "Parol",
+    "phoneNumber": "Telefon raqami",
+    "profilePhoto": "Profil rasmi",
+    "loadProfilePhoto": "Profil rasmini yuklash",
+    "temporary": "Vaqtinchalik parol"
+  }
+}

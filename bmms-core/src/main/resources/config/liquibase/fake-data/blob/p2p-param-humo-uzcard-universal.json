@@ -1,0 +1,13 @@
+{
+    "sender": {
+        "merchantId": "uzcard-123",
+        "terminalId": "uzcard-234",
+        "port": 4444
+    },
+    "recipient": {
+        "merchantId": "uzcard-345",
+        "terminalId": "uzcard-456",
+        "port": 4444,
+        "creditType": "UNIVERSAL"
+    }
+}

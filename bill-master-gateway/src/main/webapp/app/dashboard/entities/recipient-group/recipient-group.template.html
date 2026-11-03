@@ -1,0 +1,133 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h4 class="mb-0" jhiTranslate="global.menu.entities.pkbillmsRecipientGroup">Recipient Groups</h4>
+
+  <div>
+    <nz-badge [nzCount]="filterRef.querySize">
+      <button nz-button nzSize="large" jhiTranslate="entity.action.filter" (click)="showFilter = !showFilter">Filter</button>
+    </nz-badge>
+
+    <ngl-export-as
+      *ngIf="data?.length"
+      class="ml-2"
+      [data]="data"
+      requestUrl="{{ recipientGroupService.resourceUrl }}"
+      [requestOption]="getOption"
+      [exclude]="exclude"
+      translationPrefix="billMasterGwApp.pkbillmsRecipientGroup"
+      fileName="recipient_groups"
+    >
+    </ngl-export-as>
+
+    <button
+      class="ml-2"
+      type="button"
+      nz-button
+      nzSize="large"
+      nzType="primary"
+      jhiTranslate="entity.action.add"
+      *jhiHasAnyAuthority="[authority.RECIPIENT_GROUP_WRITE]"
+      (click)="recipientGroupService.openUpdate()"
+    >
+      Add
+    </button>
+  </div>
+</div>
+
+<ngl-filter-field [hidden]="!showFilter" [fields]="filterFields" (onFilter)="setQuery($event); loadPage()" #filterRef></ngl-filter-field>
+
+<bm-alert></bm-alert>
+
+<ng-container *ngIf="data?.length">
+  <div class="table-responsive">
+    <nz-table [nzLoading]="loading" nzSize="small" nzTemplateMode nzOuterBordered>
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th jhiSortBy="id">
+            <span jhiTranslate="global.field.id">ID</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="name">
+            <span jhiTranslate="billMasterGwApp.pkbillmsRecipientGroup.name">Name</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th>
+            <span jhiTranslate="billMasterGwApp.pkbillmsRecipientGroup.recipient">Recipients</span>
+          </th>
+          <th jhiSortBy="more">
+            <span jhiTranslate="billMasterGwApp.pkbillmsRecipientGroup.more">More</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="active">
+            <span jhiTranslate="billMasterGwApp.pkbillmsRecipientGroup.active">Active</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let recipientGroup of data; trackBy: trackId">
+          <td>
+            <a href="javascript:void(0)" (click)="recipientGroupService.openView(recipientGroup)">{{ recipientGroup.id }}</a>
+          </td>
+          <td>{{ recipientGroup.name }}</td>
+          <td>
+            <a
+              href="javascript:void(0)"
+              class="mr-2"
+              *ngFor="let recipient of recipientGroup.recipients"
+              (click)="recipientService.openView(recipient)"
+              >{{ recipient.shortName }},</a
+            >
+          </td>
+          <td>{{ recipientGroup.more }}</td>
+          <td>
+            <span [bm-boolean-badge]="recipientGroup.active" bmType="active">{{ recipientGroup.active }}</span>
+          </td>
+          <td width="10" class="text-right">
+            <nz-button-group nzSize="small">
+              <button
+                nz-button
+                (click)="recipientGroupService.openHistory(recipientGroup.id)"
+                title="{{ 'entity.action.history' | translate }}"
+              >
+                <i nz-icon nzType="history" class="icon-btn"></i>
+              </button>
+              <button nz-button (click)="recipientGroupService.openView(recipientGroup)" title="{{ 'entity.action.view' | translate }}">
+                <i nz-icon nzType="eye" class="icon-btn"></i>
+              </button>
+              <ng-container *jhiHasAnyAuthority="[authority.RECIPIENT_GROUP_WRITE]">
+                <button
+                  nz-button
+                  (click)="recipientGroupService.openUpdate(recipientGroup, true)"
+                  title="{{ 'entity.action.duplicate' | translate }}"
+                >
+                  <i nz-icon nzType="copy" class="icon-btn"></i>
+                </button>
+                <button nz-button (click)="recipientGroupService.openUpdate(recipientGroup)" title="{{ 'entity.action.edit' | translate }}">
+                  <i nz-icon nzType="edit" class="icon-btn"></i>
+                </button>
+                <button
+                  nz-button
+                  (click)="recipientGroupService.openDelete(recipientGroup.id)"
+                  title="{{ 'entity.action.delete' | translate }}"
+                >
+                  <i nz-icon nzType="delete" class="icon-btn"></i>
+                </button>
+              </ng-container>
+            </nz-button-group>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+
+  <div class="d-flex justify-content-center mt-3">
+    <nz-pagination
+      [nzPageIndex]="ngbPaginationPage"
+      [nzTotal]="totalItems"
+      [nzPageSize]="itemsPerPage"
+      (nzPageIndexChange)="loadPage($event)"
+    >
+    </nz-pagination>
+  </div>
+</ng-container>

@@ -1,0 +1,85 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsRecipient": {
+      "home": {
+        "title": "Recipients",
+        "createLabel": "Create a new Recipient",
+        "createOrEditLabel": "Create or edit a Recipient",
+        "notFound": "No Recipients found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Recipient {{ id }}?"
+      },
+      "detail": {
+        "title": "Recipient"
+      },
+      "shortNameChangeNote": "Изменение этого поля может повлиять на отчетность",
+      "shortName": "Short Name",
+      "serviceId": "Service Id",
+      "thumbnail": "Thumbnail",
+      "logo": "Logo",
+      "login": "Login",
+      "amountRatio": "Amount Ratio",
+      "ccy": "Ccy",
+      "minAmount": "Min Limit Amount",
+      "maxAmount": "Max Limit Amount",
+      "limitRatio": "Limit Ratio",
+      "commission": "Commission",
+      "fee": "Fee",
+      "systemCommission": "System Commission",
+      "systemFee": "System Fee",
+      "senderCommission": "Sender Commission",
+      "ord": "Ord",
+      "active": "Active",
+      "check": "Check",
+      "pay": "Pay",
+      "status": "Status",
+      "cancel": "Cancel",
+      "canDeposit": "Can Deposit",
+      "eposPort": "Epos Port",
+      "eposMerchant": "Epos Merchant",
+      "eposTerminal": "Epos Terminal",
+      "settlementAccount": "Settlement Account",
+      "type": "Type",
+      "mfo": "Mfo",
+      "inn": "Inn",
+      "reconcile": "Reconcile",
+      "gateway": "Gateway",
+      "category": "Category",
+      "title": "Title",
+      "fullName": "Full Name",
+      "phoneNumber": "Phone Number",
+      "help": {
+        "shortName": "Уникальное название в шлюзе",
+        "serviceId": "Service id, for inner business logic",
+        "thumbnail": "Thumbnail file path or url",
+        "logo": "Logo file path or url",
+        "amountRatio": "Использумая разрядность суммы в шлюзе получателя, 1 - сум, 100 - тийин",
+        "ccy": "Валюта получателя",
+        "login": "Login",
+        "minAmount": "Минимальная сумма платежа, разрядность зависит от recipient.limitRatio",
+        "maxAmount": "Максимальная сумма платежа, разрядность зависит от recipient.limitRatio",
+        "limitRatio": "Разрядность макс. и мин. суммы платежа",
+        "commission": "Комиссия получателя",
+        "fee": "Вознаграждение получателя",
+        "systemCommission": "Комиссия системы от получателя",
+        "systemFee": "Вознаграждение системы от получателя",
+        "senderCommission": "Вознаграждение поставшику (если участвует как отправитель средств)",
+        "ord": "Display order",
+        "eposPort": "Параметр Port для соединения с SvGate",
+        "eposMerchant": "Параметр Merchant Id для соединения с SvGate",
+        "eposTerminal": "Параметр Terminal Id для соединения с SvGate",
+        "settlementAccount": "Расчетный счет поставщика",
+        "mfo": "МФО счет поставщика",
+        "inn": "Инн счет поставщика"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsRecipient": {
+      "created": "A new Recipient is created with identifier {{ param }}",
+      "updated": "A Recipient is updated with identifier {{ param }}",
+      "deleted": "A Recipient is deleted with identifier {{ param }}"
+    }
+  }
+}

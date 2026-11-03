@@ -1,0 +1,46 @@
+<nz-spin [nzSpinning]="loading" [nzDelay]="0" nzSize="large">
+  <div>
+    <div class="modal-header">
+      <div class="d-flex align-items-baseline">
+        <h4 class="mr-2" jhiTranslate="entityAudit.detail.title">Audit Details</h4>
+        <h5 class="d-none d-md-block d-lg-block d-xl-block">({{ qualifiedName }} : {{ entityId }})</h5>
+      </div>
+      <button class="close" type="button" (click)="close()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <span *ngIf="!commits || commits.length == 0" jhiTranslate="entityAudit.result.noDataFound">No data</span>
+
+      <ul *ngIf="commits && commits.length > 0" class="timeline">
+        <li *ngFor="let commit of commits" [class]="commit.type">
+          <a
+            jhiTranslate="{{ 'entityAudit.info.' + commit.type }}"
+            [translateValues]="{ author: commit.commitMetadata.author, duration: commit.duration }"
+            nz-tooltip="{{ commit.commitMetadata.commitDate | date: 'dd.MM.yyyy HH:mm:ss' }}"
+          ></a>
+          <!--         [routerLink]="['admin/user-management', commit.commitMetadata.author, 'view']" target="_blank"></a>-->
+          <div>
+            <ul>
+              <li *ngFor="let prop of commit.diff | keyvalue">
+                {{
+                  ((prop.key !== 'id' ? i18nPrefix + '.' + prop.key : 'global.field.id') | translate) +
+                    ' : ' +
+                    getJsonString(prop.value['left']) +
+                    ' -> ' +
+                    getJsonString(prop.value['right']) +
+                    ''
+                }}
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="modal-footer">
+      <button nz-button nzSize="large" jhiTranslate="entity.action.close" (click)="close()">Close</button>
+    </div>
+  </div>
+</nz-spin>

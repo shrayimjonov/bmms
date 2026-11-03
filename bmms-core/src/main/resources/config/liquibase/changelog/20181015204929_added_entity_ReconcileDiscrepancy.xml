@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity ReconcileDiscrepancy.
+    -->
+    <changeSet id="20181015204929-1" author="jhipster">
+        <createTable tableName="reconcile_discrepancy" remarks="Данная форма предназначена для хранения данных о транзакции при сверке">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="gateway_id" type="bigint" remarks="Уникальный номер шлюза">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="system_transaction_id" type="bigint" remarks="Номер платежа в системе">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="gateway_transaction_id" type="bigint" remarks="Номер платежа в шлюзе">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="system_amount" type="bigint" remarks="Сумма платежа в системе">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="gateway_amount" type="bigint" remarks="Сумма платежа в шлюзе">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="system_status" type="boolean" remarks="Статус транзакции в системе">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="gateway_status" type="boolean" remarks="Статус транзакции в шлюзе">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="system_date" type="datetime" remarks="Дата транзакции в системе">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="gateway_date" type="datetime" remarks="Дата транзакции в шлюзе">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="closed" type="boolean" remarks="Финальный статус проблемы">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="jhi_comment" type="varchar(255)" remarks="Дополнительная информация">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="reconcile_discrepancy" columnName="system_date" columnDataType="datetime"/>
+        <dropDefaultValue tableName="reconcile_discrepancy" columnName="gateway_date" columnDataType="datetime"/>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

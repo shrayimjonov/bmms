@@ -1,0 +1,220 @@
+{
+    "recipient": {
+        "shortName": "comnet",
+        "ccy": 860,
+        "logo": "comnet_small.png",
+        "thumbnail":"comnet.png",
+        "amountRatio": 1,
+        "minAmount": 500,
+        "maxAmount": 500000,
+        "commission": 0.0,
+        "fee": 0.0,
+        "systemCommission": 0.0,
+        "systemFee": 0.0,
+        "ord": 1,
+        "active": true,
+        "check": true,
+        "pay": true,
+        "status": false,
+        "cancel": false,
+        "canDeposit": null,
+        "serviceId": "0",
+        "titles": [
+            {
+                "lang": "UZ",
+                "text": "Comnet"
+            },
+            {
+                "lang": "RU",
+                "text": "Comnet"
+            },
+            {
+                "lang": "EN",
+                "text": "Comnet"
+            }
+        ],
+        "fullNames": [
+            {
+                "lang": "UZ",
+                "text": "Comnet"
+            },
+            {
+                "lang": "RU",
+                "text": "Comnet"
+            },
+            {
+                "lang": "EN",
+                "text": "Comnet"
+            }
+        ]
+    },
+    "fields": [
+        {
+            "name": "account",
+            "extId": 0,
+            "type": "ACCOUNT",
+            "controlType": "TEXT",
+            "content": null,
+            "validation": "",
+            "placeholder": null,
+            "mask": null,
+            "maskSymbol": null,
+            "lengthMin": 1,
+            "lengthMax": 25,
+            "requireField": null,
+            "filterBy": null,
+            "optional": false,
+            "output": true,
+            "visibility": "MONITOR",
+            "ord": 1,
+            "requestType": null,
+            "titles": [
+                {
+                    "lang": "UZ",
+                    "text": "Логин"
+                },
+                {
+                    "lang": "RU",
+                    "text": "Логин"
+                },
+                {
+                    "lang": "EN",
+                    "text": "Login"
+                }
+            ],
+            "descriptions": [
+                {
+                    "lang": "UZ",
+                    "text": "Логинни киритинг."
+                },
+                {
+                    "lang": "RU",
+                    "text": "Введите логин."
+                },
+                {
+                    "lang": "EN",
+                    "text": "Enter login."
+                }
+            ],
+            "values": [],
+            "prefixes": []
+        },
+        {
+            "name": "amount",
+            "extId": 0,
+            "type": "AMOUNT",
+            "controlType": "TEXT",
+            "content": null,
+            "validation": "",
+            "placeholder": null,
+            "mask": "ddddDD",
+            "maskSymbol": null,
+            "lengthMin": 4,
+            "lengthMax": 6,
+            "requireField": null,
+            "filterBy": null,
+            "optional": false,
+            "output": true,
+            "visibility": "ALL",
+            "ord": 2,
+            "requestType": null,
+            "titles": [
+                {
+                    "lang": "UZ",
+                    "text": "Сумма"
+                },
+                {
+                    "lang": "RU",
+                    "text": "Сумма"
+                },
+                {
+                    "lang": "EN",
+                    "text": "Amount"
+                }
+            ],
+            "descriptions": [
+                {
+                    "lang": "UZ",
+                    "text": "Сумма"
+                },
+                {
+                    "lang": "RU",
+                    "text": "Сумма"
+                },
+                {
+                    "lang": "EN",
+                    "text": "Amount"
+                }
+            ],
+            "values": [],
+            "prefixes": []
+        }
+    ],
+    "gatewayParams": [
+        {
+            "url": "https://127.0.0.1/paysys_check.cgi?command=check&account=${account}&sum=${amount}",
+            "type": "CHECK",
+            "username": null,
+            "password": null,
+            "token": null,
+            "body": null,
+            "statusQuery": "//*[local-name()='result']",
+            "messageQuery": "//*[local-name()='comment']",
+            "successCode": "0",
+            "callback": null,
+            "timeout": 5000,
+            "headers": null,
+            "dataQueries": null,
+            "httpMethodType": "GET",
+            "protocol": null,
+            "requestMediaType": null,
+            "responseMediaType": "text/xml",
+            "active": true,
+            "mode": null,
+            "extIdQuery": null
+        },
+        {
+            "url": "https://127.0.0.1/paysys_check.cgi?command=pay&txn_id=${tranId}&txn_date=${timestamp}&account=${account}&sum=${amount}",
+            "type": "PAY",
+            "username": null,
+            "password": null,
+            "token": null,
+            "body": null,
+            "statusQuery": "//*[local-name()='result']",
+            "messageQuery": "//*[local-name()='comment']",
+            "successCode": "0",
+            "callback": null,
+            "timeout": 10000,
+            "headers": null,
+            "dataQueries": null,
+            "httpMethodType": "GET",
+            "protocol": null,
+            "requestMediaType": null,
+            "responseMediaType": "text/xml",
+            "active": true,
+            "mode": null,
+            "extIdQuery": null
+        }
+    ],
+    "category": {
+        "shortName": "Интернет провайдеры",
+        "thumbnail": "internet.png",
+        "logo": "internet.png",
+        "ord": 1,
+        "active": true,
+        "names": [
+            {
+                "lang": "UZ",
+                "text": "Internet provayderlari"
+            },
+            {
+                "lang": "RU",
+                "text": "Интернет провайдеры"
+            },
+            {
+                "lang": "EN",
+                "text": "Internet providers"
+            }
+        ]
+    }
+}

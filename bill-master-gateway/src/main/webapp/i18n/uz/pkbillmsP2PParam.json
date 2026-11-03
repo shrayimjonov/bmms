@@ -1,0 +1,42 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsP2PParam": {
+      "home": {
+        "title": "P2P Params",
+        "createLabel": "Yangi P2P Param qo`shish",
+        "createOrEditLabel": "P2P Paramni tahrirlash",
+        "notFound": "Xech qanday P2P parametrlar topilmadi"
+      },
+      "delete": {
+        "question": "{{ id }}- P2P Paramni o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "P2P Param"
+      },
+      "priority": "Ustuvorlik",
+      "promo": "Promo kod",
+      "active": "Aktiv",
+      "senderPc": "Yuboruvchi Pc",
+      "recipientPc": "Qabul qiluvchi Pc",
+      "value": "Json param",
+      "senderCondition": "Yuboruvchi holati",
+      "recipientCondition": "Qabul qiluvchi holati",
+      "senderPercent": "Yuboruvchi foizi",
+      "recipientPercent": "Qabul qiluvchi foizi",
+      "help": {
+        "priority": "Ustuvorlik",
+        "active": "Aktiv",
+        "senderPc": "Yuboruvchi Pc",
+        "recipientPc": "Qabul qiluvchi Pc",
+        "value": "Json param"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsP2PParam": {
+      "created": "P2P Param {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- P2P Param saqlandi",
+      "deleted": "{{ param }}- P2P Param o`chirildi"
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "name": "ReconcileDiscrepancy",
+  "fields": [
+    {
+      "fieldName": "gatewayName",
+      "javadoc": "Уникальное название шлюза",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": 64
+    },
+    {
+      "fieldName": "systemTransactionId",
+      "javadoc": "Номер платежа в системе",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "gatewayTransactionId",
+      "javadoc": "Номер платежа в шлюзе",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "systemAmount",
+      "javadoc": "Сумма платежа в системе",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gatewayAmount",
+      "javadoc": "Сумма платежа в шлюзе",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "systemStatus",
+      "javadoc": "Статус транзакции в системе",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "gatewayStatus",
+      "javadoc": "Статус транзакции в шлюзе",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "systemDate",
+      "javadoc": "Дата транзакции в системе",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "gatewayDate",
+      "javadoc": "Дата транзакции в шлюзе",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "closed",
+      "javadoc": "Финальный статус проблемы",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "comment",
+      "javadoc": "Дополнительная информация",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "relationshipName": "reconcileSummary",
+      "otherEntityName": "reconcileSummary",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20181015204929",
+  "javadoc": "Данная форма предназначена для хранения данных о транзакции при сверке",
+  "entityTableName": "reconcile_discrepancy",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "clientRootFolder": "bmms",
+  "applications": "*",
+  "microserviceName": "pkbillms",
+  "enableEntityAudit": true,
+  "databaseType": "sql"
+}

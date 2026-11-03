@@ -1,0 +1,12 @@
+<form [formGroup]="editForm" (ngSubmit)="pay()">
+  <h6 class="mb-4 font-weight-bold" jhiTranslate="payment.payByDeposit">Pay by Deposit</h6>
+
+  <div class="form-group">
+    <label for="field_deposit">Ваш депозит</label>
+    <input nz-input nzSize="large" autocomplete="off" id="field_deposit" formControlName="deposit" readonly />
+  </div>
+
+  <button class="w-100" nz-button nzSize="large" nzType="primary" [nzLoading]="loading">
+    {{ 'entity.action.pay' | translate }}
+  </button>
+</form>

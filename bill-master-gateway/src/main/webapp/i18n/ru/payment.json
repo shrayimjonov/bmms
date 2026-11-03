@@ -1,0 +1,25 @@
+{
+  "payment": {
+    "recipientsToggle": {
+      "true": "Скрыть",
+      "false": "Еще",
+      "undefined": "Еще"
+    },
+    "amountRange": "от {{min}} до {{max}}",
+    "payTo": "Оплата за {{categoryName}}",
+    "payAmount": "Сумма платежа",
+    "amountWithSuffix": "{{amount}} сум",
+    "amountSuffix": "сум",
+    "payByCard": "Оплата через карты",
+    "payByDeposit": "Оплата через депозит",
+    "pan": "Номер карты",
+    "exp": "мм/гг",
+    "paySuccessMsg": "Оплата прошла успешно",
+    "backToMain": "Вернуться на главную",
+    "cheque": "Чек",
+    "paymentDetail": "Детали платежа",
+    "code": "Код подтверждения",
+    "code.placeholder": "Введите СМС-код",
+    "redirectToRecipientUrl": "Вернуться на сайт поставщика"
+  }
+}

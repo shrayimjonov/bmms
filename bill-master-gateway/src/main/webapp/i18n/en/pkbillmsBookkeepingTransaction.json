@@ -1,0 +1,105 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsBookkeepingTransaction": {
+      "transactionType": {
+        "INTERNAL": "Internal bookkeeping transactions",
+        "EXTERNAL": "External bookkeeping transactions"
+      },
+      "note": "This form is designed for selecting accounting entries, for mutual settlements with service providers. These entries are not automatically generated in the ABS, so you need to perform a number of functions to display them in the ABS. First of all make sure that the day in the ABS is open and on the balance of your account there is enough money to make the postings. Also, make sure that there are no other reasons for rejecting the entries. When all factors are eliminated, you need to approve the posting. This is also where you need to make sure that the amount of the posting is correct. After the postings are approved, you need to run them. If there are no errors, and an ID is received confirming that the posting was successful, you can proceed to process the next posting. If any error occurs, carefully check all parameters once again and try to repeat the operation. If there is an error here as well, contact the Administrator to resolve the problem.",
+      "home": {
+        "title": "Bookkeeping Transactions",
+        "createLabel": "Create a new Bookkeeping Transaction",
+        "createOrEditLabel": "Create or edit a Bookkeeping Transaction",
+        "notFound": "No Bookkeeping Transactions found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Bookkeeping Transaction {{ id }}?"
+      },
+      "detail": {
+        "title": "Bookkeeping Transaction"
+      },
+      "groupId": "Group Id",
+      "sMfo": "S Mfo",
+      "sInn": "S Inn",
+      "sAccount": "S Account",
+      "rMfo": "R Mfo",
+      "rInn": "R Inn",
+      "rAccount": "R Account",
+      "amount": "Amount",
+      "period": "Period",
+      "bookkeepingType": "Bookkeeping Type",
+      "success": "Success",
+      "details": "Details",
+      "docType": "Doc Type",
+      "docCode": "Doc Code",
+      "docTaskCode": "Doc Task Code",
+      "rAccountName": "R Account Name",
+      "confirmUserID": "Confirm User ID",
+      "sendUserID": "Send User ID",
+      "cancelUserID": "Cancel User ID",
+      "createTime": "Create Time",
+      "confirmTime": "Confirm Time",
+      "sendTime": "Send Time",
+      "cancelTime": "Cancel Time",
+      "absId": "Abs Id",
+      "docId": "Doc Id",
+      "templateId": "Template Id",
+      "control": "Control",
+      "responseText": "Response Text",
+      "type": "Status",
+      "unionId": "Union Id",
+      "groupIds": "Group Ids",
+      "subRecipient": "Sub Recipient",
+      "subRecipientId": "Sub Recipient Id",
+      "comment": "Comment",
+      "bookkeepingPayType": "Bookkeeping Pay Type",
+      "params": "Params",
+      "gateway": "Gateway",
+      "recipient": "Recipient",
+      "help": {
+        "groupId": "Группа",
+        "sMfo": "МФО Отправителя",
+        "sInn": "ИНН Отправителя",
+        "sAccount": "Р/С Отправителя",
+        "rMfo": "МФО Получателя",
+        "rInn": "ИНН Получателя",
+        "rAccount": "Р/С Получателя",
+        "amount": "Сумма на отправку",
+        "period": "Периоды : день, неделя, месяц",
+        "bookkeepingType": "Тип бух. проводки : внутренний (внутри банка,межфилиальный) и внешний (поставщикам и т.д.)",
+        "details": "Детали",
+        "docType": "Тип документа",
+        "docCode": "Код платежа",
+        "docTaskCode": "Код задачи",
+        "rAccountName": "Наименование",
+        "confirmUserID": "Пользовтель , который подтвердил проводку",
+        "sendUserID": "Пользовтель , который успешно провел проводку",
+        "cancelUserID": "Пользовтель , который отменил проводку",
+        "createTime": "Время создания проводки",
+        "confirmTime": "Время подтвреждения проводки",
+        "sendTime": "Время успешной обработки проводки",
+        "cancelTime": "Время отмены проводки",
+        "absId": "Номер документа в АБС (НСИ)",
+        "docId": "Номер документа в АБС (биллинга)",
+        "templateId": "Уникальный номер шаблона",
+        "control": "Порядковый номер проведения проводки",
+        "responseText": "Ответ от АБС , статус проводки в АБС",
+        "type": "Статус проводки",
+        "unionId": "Уникальный номер для проведения провобки в АБС",
+        "groupIds": "Уникальные номера групп",
+        "subRecipient": "Регион поставщика",
+        "subRecipientId": "Уникальный номер региона поставщика",
+        "comment": "Комментарий",
+        "bookkeepingPayType": "Тип платежа проводки : за контракт , акт , поставщику и т.д.",
+        "params": "Параметры проводки"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsBookkeepingTransaction": {
+      "created": "A new Bookkeeping Transaction is created with identifier {{ param }}",
+      "updated": "A Bookkeeping Transaction is updated with identifier {{ param }}",
+      "deleted": "A Bookkeeping Transaction is deleted with identifier {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+REQUEST:
+{
+
+	"un":"UPAY",
+
+	"pwd":"",
+
+	"loan_id":"009749316",
+ 
+	"terminal_id":103
+
+}
+
+
+RESPONCE:

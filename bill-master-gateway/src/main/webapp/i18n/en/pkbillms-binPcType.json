@@ -1,0 +1,23 @@
+{
+  "billMasterGwApp": {
+    "BinPcType": {
+      "null": "",
+      "UZCARD": "UZCARD",
+      "HUMO": "HUMO",
+      "VISA": "VISA",
+      "NCI": "NCI",
+      "FOREX": "FOREX",
+      "ANOR": "ANOR",
+      "TKB": "TKB",
+      "TINKOFF": "TINKOFF",
+      "MASTER_CARD": "MASTER_CARD",
+      "MIR": "MIR",
+      "UNION_PAY": "UNION_PAY",
+      "WALLET": "WALLET",
+      "WALLET_UZS": "WALLET_UZS",
+      "WALLET_USD": "WALLET_USD",
+      "WALLET_RUB": "WALLET_RUB",
+      "OTHER": "OTHER"
+    }
+  }
+}

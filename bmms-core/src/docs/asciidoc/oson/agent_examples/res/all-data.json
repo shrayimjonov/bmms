@@ -1,0 +1,310 @@
+{
+    "categories": [
+        {
+            "id": 951,
+            "logo": "1.png",
+            "ord": 1,
+            "parentId": null,
+            "parentShortName": null,
+            "names": {
+                "en": "Mobile phone",
+                "uz": "Uyali aloqa",
+                "ru": "Сотовые операторы"
+            }
+        },
+        {
+            "id": 953,
+            "logo": "3.png",
+            "ord": 3,
+            "parentId": null,
+            "parentShortName": null,
+            "names": {
+                "en": "Internet",
+                "uz": "Internet",
+                "ru": "Интернет"
+            }
+        }
+    ],
+    "recipients": [
+        {
+            "id": 1052,
+            "logo": "9.png",
+            "amountRatio": 1,
+            "minAmount": 500,
+            "maxAmount": 1500000,
+            "ord": 1,
+            "categoryId": 951,
+            "categoryShortName": "Сотовые операторы",
+            "titles": {
+                "uz": "Beeline",
+                "ru": "Beeline",
+                "en": "Beeline"
+            },
+            "fullNames": {
+                "ru": "OOO “UNITEL”",
+                "uz": "OOO “UNITEL”",
+                "en": "OOO “UNITEL”"
+            }
+        },
+        {
+            "id": 1063,
+            "logo": "1.png",
+            "amountRatio": 1,
+            "minAmount": 500,
+            "maxAmount": 100000,
+            "ord": 3,
+            "categoryId": 951,
+            "categoryShortName": "Сотовые операторы",
+            "titles": {
+                "uz": "UMS",
+                "ru": "UMS",
+                "en": "UMS"
+            },
+            "fullNames": {
+                "ru": "ООО \"UNIVERSAL MOBILE SYSTEMS\"",
+                "uz": "ООО \"UNIVERSAL MOBILE SYSTEMS\"",
+                "en": "ООО \"UNIVERSAL MOBILE SYSTEMS\""
+            }
+        },
+        {
+            "id": 1082,
+            "logo": "457.png",
+            "amountRatio": 1,
+            "minAmount": 100,
+            "maxAmount": 500000,
+            "ord": 7,
+            "categoryId": 953,
+            "categoryShortName": "Интернет",
+            "titles": {
+                "en": "Uzonline",
+                "uz": "Uzonline",
+                "ru": "Uzonline"
+            },
+            "fullNames": {
+                "ru": "АК \"Узбектелеком\"",
+                "uz": "АК \"Узбектелеком\"",
+                "en": "АК \"Узбектелеком\""
+            }
+        }
+    ],
+    "fields": [
+        {
+            "id": 2404,
+            "name": "summa",
+            "type": "TEXT",
+            "content": "MONEY",
+            "validation": null,
+            "placeholder": null,
+            "mask": null,
+            "maskSymbol": "*",
+            "lengthMin": null,
+            "lengthMax": 7,
+            "requireField": null,
+            "optional": false,
+            "output": true,
+            "visibility": "ALL",
+            "ord": 2,
+            "recipientId": 1052,
+            "recipientShortName": "OOO “UNITEL”",
+            "filterBy": null,
+            "prefixes": [],
+            "values": [],
+            "titles": {
+                "en": "Amount",
+                "ru": "Сумма",
+                "uz": "Summa"
+            },
+            "descriptions": {
+                "en": "Amount",
+                "ru": "Сумма",
+                "uz": "Summa"
+            }
+        },
+        {
+            "id": 2203,
+            "name": "phone_number",
+            "type": "TEXT",
+            "content": "PHONE",
+            "validation": null,
+            "placeholder": null,
+            "mask": null,
+            "maskSymbol": "*",
+            "lengthMin": null,
+            "lengthMax": 7,
+            "requireField": null,
+            "optional": false,
+            "output": true,
+            "visibility": "ALL",
+            "ord": 1,
+            "recipientId": 1052,
+            "recipientShortName": "OOO “UNITEL”",
+            "filterBy": null,
+            "prefixes": [
+                {
+                    "type": "SELECT",
+                    "value": "90",
+                    "output": true,
+                    "requireField": null,
+                    "fieldId": 2203,
+                    "fieldName": "phone_number"
+                },
+                {
+                    "type": "SELECT",
+                    "value": "91",
+                    "output": true,
+                    "requireField": null,
+                    "fieldId": 2203,
+                    "fieldName": "phone_number"
+                }
+            ],
+            "values": [],
+            "titles": {
+                "en": "Phone number",
+                "uz": "Telefon raqami",
+                "ru": "Номер телефона"
+            },
+            "descriptions": {
+                "ru": "Phone number",
+                "en": "Номер телефона",
+                "uz": "Telefon raqami"
+            }
+        },
+        {
+            "id": 2202,
+            "name": "clientid",
+            "type": "TEXT",
+            "content": "PHONE",
+            "validation": null,
+            "placeholder": null,
+            "mask": null,
+            "maskSymbol": "*",
+            "lengthMin": null,
+            "lengthMax": 7,
+            "requireField": null,
+            "optional": false,
+            "output": true,
+            "visibility": "ALL",
+            "ord": 1,
+            "recipientId": 1063,
+            "recipientShortName": "ООО \"UNIVERSAL MOBILE SYSTEMS\"",
+            "filterBy": null,
+            "prefixes": [
+                {
+                    "type": "STATIC",
+                    "value": "97",
+                    "output": true,
+                    "requireField": null,
+                    "fieldId": 2202,
+                    "fieldName": "clientid"
+                }
+            ],
+            "values": [],
+            "titles": {
+                "ru": "Номер телефона",
+                "uz": "Telefon raqami",
+                "en": "Phone number"
+            },
+            "descriptions": {
+                "ru": "Номер телефона",
+                "en": "Phone number",
+                "uz": "Telefon raqami"
+            }
+        },
+        {
+            "id": 2403,
+            "name": "amount",
+            "type": "TEXT",
+            "content": "MONEY",
+            "validation": null,
+            "placeholder": null,
+            "mask": null,
+            "maskSymbol": "*",
+            "lengthMin": null,
+            "lengthMax": 7,
+            "requireField": null,
+            "optional": false,
+            "output": true,
+            "visibility": "ALL",
+            "ord": 2,
+            "recipientId": 1063,
+            "recipientShortName": "ООО \"UNIVERSAL MOBILE SYSTEMS\"",
+            "filterBy": null,
+            "prefixes": [],
+            "values": [],
+            "titles": {
+                "en": "Amount",
+                "uz": "Summa",
+                "ru": "Сумма"
+            },
+            "descriptions": {
+                "uz": "Summa",
+                "en": "Amount",
+                "ru": "Сумма"
+            }
+        },
+        {
+            "id": 2213,
+            "name": "phone_number",
+            "type": "TEXT",
+            "content": "REGEXBOX",
+            "validation": "\\d{3,7}",
+            "placeholder": null,
+            "mask": null,
+            "maskSymbol": "*",
+            "lengthMin": null,
+            "lengthMax": 10,
+            "requireField": null,
+            "optional": false,
+            "output": true,
+            "visibility": "ALL",
+            "ord": 1,
+            "recipientId": 1082,
+            "recipientShortName": "АК \"Узбектелеком\"",
+            "filterBy": null,
+            "prefixes": [],
+            "values": [],
+            "titles": {
+                "ru": "Номер счета",
+                "en": "Account number",
+                "uz": "Hisob raqami"
+            },
+            "descriptions": {
+                "uz": "Hisob raqami",
+                "ru": "Номер счета",
+                "en": "Account number"
+            }
+        },
+        {
+            "id": 2417,
+            "name": "summa",
+            "type": "TEXT",
+            "content": "MONEY",
+            "validation": null,
+            "placeholder": null,
+            "mask": null,
+            "maskSymbol": "*",
+            "lengthMin": null,
+            "lengthMax": 7,
+            "requireField": null,
+            "optional": false,
+            "output": true,
+            "visibility": "ALL",
+            "ord": 2,
+            "recipientId": 1082,
+            "recipientShortName": "АК \"Узбектелеком\"",
+            "filterBy": null,
+            "prefixes": [],
+            "values": [],
+            "titles": {
+                "ru": "Сумма",
+                "uz": "Summa",
+                "en": "Amount"
+            },
+            "descriptions": {
+                "ru": "Сумма",
+                "en": "Amount",
+                "uz": "Summa"
+            }
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsRecipientGroup": {
+      "home": {
+        "title": "Recipient Groups",
+        "createLabel": "Create a new Recipient Group",
+        "createOrEditLabel": "Create or edit a Recipient Group",
+        "notFound": "No Recipient Groups found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Recipient Group {{ id }}?"
+      },
+      "detail": {
+        "title": "Recipient Group"
+      },
+      "name": "Name",
+      "active": "Active",
+      "more": "More",
+      "recipient": "Recipient",
+      "help": {
+        "name": "Название",
+        "active": "Активность",
+        "more": "Дополнительная информация"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsRecipientGroup": {
+      "created": "A new Recipient Group is created with identifier {{ param }}",
+      "updated": "A Recipient Group is updated with identifier {{ param }}",
+      "deleted": "A Recipient Group is deleted with identifier {{ param }}"
+    }
+  }
+}

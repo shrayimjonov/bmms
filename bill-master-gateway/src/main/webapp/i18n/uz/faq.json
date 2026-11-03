@@ -1,0 +1,37 @@
+{
+  "billMasterGwApp": {
+    "faq": {
+      "home": {
+        "title": "FAQ",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Yangi FAQ qo`shish",
+        "createOrEditLabel": "FAQni tahrirlash",
+        "notFound": "No Faqs found"
+      },
+      "delete": {
+        "question": "{{ id }}- Faqni o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "Faq"
+      },
+      "id": "ID",
+      "active": "Active",
+      "video": "Video link",
+      "category": "Toifa",
+      "question": "Savol",
+      "answer": "Javob",
+      "help": {
+        "active": "Активный"
+      }
+    }
+  },
+  "faqMsApp": {
+    "faq": {
+      "created": "Faq {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- Faq saqlandi",
+      "deleted": "{{ param }}- Faq o`chirildi",
+      "notFound": "Ushbu kategoriya bo'yicha savollar topilmadi",
+      "noVideo": "Hozircha video mavjud emas"
+    }
+  }
+}

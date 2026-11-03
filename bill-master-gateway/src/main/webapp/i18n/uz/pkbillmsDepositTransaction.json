@@ -1,0 +1,46 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsDepositTransaction": {
+      "home": {
+        "title": "Depozit tranzaksiyalar",
+        "createLabel": "Yangi Deposit Transaction qo`shish",
+        "createOrEditLabel": "Deposit Transactionni tahrirlash",
+        "notFound": "Deposit tranzaksiyalar topilmadi"
+      },
+      "delete": {
+        "question": "{{ id }}- Deposit Transactionni o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "Deposit Transaction"
+      },
+      "payerTaxnr": "To'lovchi Taxnr",
+      "recipientTaxnr": "Oluvchi Taxnr",
+      "amount": "Summa",
+      "updateDate": "Yangilangan sana",
+      "comment": "Izoh",
+      "doc": "Hujjat",
+      "totalAmount": "Balans",
+      "income": "Foyda",
+      "turnover": "Aylanma",
+      "enterAmount": "Summani kiriting",
+      "period": {
+        "TODAY": "Bugun",
+        "WEEK": "Hafta",
+        "MONTH": "Oy",
+        "YEAR": "Yil",
+        "ALL": "Hammasi"
+      },
+      "help": {
+        "payerTaxnr": "Tax number (INN, VAT) of payer. see : https://en.wikipedia.org/wiki/VAT_identification_number",
+        "recipientTaxnr": "Tax number (INN, VAT) of payer. see : https://en.wikipedia.org/wiki/VAT_identification_number"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsDepositTransaction": {
+      "created": "Deposit Transaction {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- Deposit Transaction saqlandi",
+      "deleted": "{{ param }}- Deposit Transaction o`chirildi"
+    }
+  }
+}

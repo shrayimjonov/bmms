@@ -1,0 +1,41 @@
+<h4 class="mb-4" jhiTranslate="global.adapter.title">Adapters</h4>
+
+<div class="mb-3" [style.max-width]="'350px'">
+  <nz-input-group nzSize="large" [nzPrefix]="prefixTemplateUser" [nzSuffix]="searchText ? suffixTemplateInfo : null">
+    <input nz-input [(ngModel)]="searchText" placeholder="{{ 'global.form.search.placeholder' | translate }}" auto-focus />
+  </nz-input-group>
+  <ng-template #prefixTemplateUser><i nz-icon nzType="search" class="mr-2"></i></ng-template>
+  <ng-template #suffixTemplateInfo>
+    <i nz-icon nzType="close-circle" (click)="searchText = ''"></i>
+  </ng-template>
+</div>
+
+<bm-alert></bm-alert>
+
+<div class="table-responsive">
+  <nz-table [nzLoading]="loading" nzSize="small" [nzShowPagination]="false" nzTemplateMode nzOuterBordered>
+    <tbody>
+      <tr *ngFor="let adapter of adapters | filterBy: 'name':searchText">
+        <td>{{ adapter.name }}</td>
+        <td width="10" class="text-right">
+          <div class="btn-group" *jhiHasAnyAuthority="[authority.ADAPTER_WRITE]">
+            <button
+              class="ml-1"
+              *ngIf="adapter['supportsFileUpload']"
+              nz-button
+              nzType="dashed"
+              jhiTranslate="entity.action.uploadFile"
+              (click)="uploadFile(adapter.name)"
+            >
+              Upload FIle
+            </button>
+            <button class="ml-1" nz-button nzType="primary" [nzLoading]="adapter['loading']" (click)="sync(adapter)">
+              {{ 'entity.action.sync' | translate }}
+            </button>
+            <button class="ml-1" nz-button jhiTranslate="entity.action.history" (click)="viewHistory(adapter.name)">History</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>

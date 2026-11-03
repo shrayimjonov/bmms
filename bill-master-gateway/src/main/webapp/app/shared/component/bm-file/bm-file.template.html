@@ -1,0 +1,20 @@
+<div>
+  <button type="button" nz-button nzSize="large" nzType="dashed" [disabled]="loading" (click)="fileSelectRef.click()">
+    <i nz-icon nzType="upload" class="ml-0"></i>{{ 'global.uploadFile' | translate }}
+  </button>
+
+  <input type="file" accept="{{bmAccept}}" hidden #fileSelectRef (change)="onSelected($event)">
+
+  <div class="border rounded p-2 mt-2" *ngIf="file?.content">
+    <div class="d-flex align-items-center">
+      <img class="rounded" [src]="getImageSrc()" style="height: 45px; width: 50px" alt=""/>
+
+      <div class="d-flex align-items-center justify-content-between w-100 pl-3 pr-2">
+        <span style="word-break: break-all">{{ file.name }}</span>
+        <button type="button" nz-button nzType="text" nzSize="small" (click)="delete(fileSelectRef)">
+          <i class="icon-btn" nz-icon nzType="delete"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

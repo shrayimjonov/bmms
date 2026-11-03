@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:getRegionsListResponse xmlns:ns2="http://st.apus.com/">
+    <return>
+        <AreasList>
+            <Title>Hudud</Title>
+            <Area>
+                <Id>1</Id>
+                <Code>1</Code>
+                <Name>Toshkent shahri</Name>
+                <Children>
+                    <Title>Tuman</Title>
+                    <Area>
+                        <Id>12</Id>
+                        <Code>101</Code>
+                        <Name>Mirobod tumani</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>13</Id>
+                        <Code>102</Code>
+                        <Name>Mirzo Ulug'bek tumani</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>14</Id>
+                        <Code>103</Code>
+                        <Name>Yakkasaroy tumani</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>15</Id>
+                        <Code>104</Code>
+                        <Name>Olmazor tumani</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>16</Id>
+                        <Code>105</Code>
+                        <Name>Yunusobod tumani</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>17</Id>
+                        <Code>106</Code>
+                        <Name>Chilonzor tumani</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>18</Id>
+                        <Code>107</Code>
+                        <Name>Uchtepa tumani</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>19</Id>
+                        <Code>108</Code>
+                        <Name>Sergeli tumani</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>20</Id>
+                        <Code>109</Code>
+                        <Name>Yashnobod tumani</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>21</Id>
+                        <Code>110</Code>
+                        <Name>Shayxontohur tumani</Name>
+                        <Children/>
+                    </Area>
+                    <Area>
+                        <Id>22</Id>
+                        <Code>111</Code>
+                        <Name>Bektemir tumani</Name>
+                        <Children/>
+                    </Area>
+                </Children>
+            </Area>
+        </AreasList>
+        <Result>
+            <code>OK</code>
+            <Description>Xatolik yo’q</Description>
+        </Result>
+    </return>
+</ns2:getRegionsListResponse>

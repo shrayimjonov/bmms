@@ -1,0 +1,18 @@
+{
+    "sender": {
+        "bankAccount": "23504000900000491408",
+        "accName": "Транзитный счет Анорбанк",
+        "purposeId": "00634",
+        "purpose": "Перевод с ПК № \"PAN\" на кошелек FIO",
+
+        "tranType": "106",
+        "tax": ""
+    },
+    "recipient": {
+        "merchantId": 123,
+        "terminalId": 234,
+        "port": 4444,
+        "virtualCardToken": "AAAAAAAAAA",
+        "creditType": "UNIVERSAL_CREDIT"
+    }
+}

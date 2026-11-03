@@ -1,0 +1,32 @@
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+
+  <div class="modal-header">
+    <h4 class="modal-title" jhiTranslate="billMasterGwApp.faqCategory.home.createOrEditLabel">Create or edit a Field</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal()">&times;</button>
+  </div>
+
+  <div class="modal-body">
+    <bm-alert></bm-alert>
+
+    <div class="form-row">
+
+      <div class="form-group col-md-12">
+        <label class="label-required" jhiTranslate="billMasterGwApp.faqCategory.name">Names</label>
+        <bm-i18n-input formControlName="names" [duplicate]="duplicate" input-validator></bm-i18n-input>
+      </div>
+
+      <div class="form-group col-md-2">
+        <label nz-checkbox formControlName="active">{{ 'billMasterGwApp.faq.active' | translate }}</label>
+      </div>
+
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" nz-button nzSize="large" nzType="text" jhiTranslate="entity.action.cancel" (click)="closeModal()">
+      Cancel
+    </button>
+    <button nz-button nzSize="large" nzType="primary" [nzLoading]="loading" [input-validator-button]="editForm">
+      {{ 'entity.action.save' | translate }}
+    </button>
+  </div>
+</form>

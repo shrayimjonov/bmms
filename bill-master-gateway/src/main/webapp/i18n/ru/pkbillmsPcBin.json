@@ -1,0 +1,35 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsPcBin": {
+      "home": {
+        "title": "Бин карты",
+        "refreshListLabel": "Обновить список",
+        "createLabel": "Создать новый бин карты",
+        "createOrEditLabel": "Создать или отредактировать бин карты",
+        "notFound": "Бин карты не найдено"
+      },
+      "delete": {
+        "question": "Вы уверены что хотите удалить бин карты {{ id }}?"
+      },
+      "detail": {
+        "title": "Бин карты"
+      },
+      "id": "ID",
+      "bin": "Бин",
+      "bankName": "Название банка",
+      "pcType": "Тип процесс",
+      "useCredit": "Кредит",
+      "useDebit": "Дебет",
+      "useReverse": "Реверс",
+      "useReconcile": "Сверка",
+      "comment": "Комментарий"
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsPcBin": {
+      "created": "Новый бин карты создан с идентификатором {{ param }}",
+      "updated": "Бин карты обновлен с идентификатором {{ param }}",
+      "deleted": "Бин карты удален с идентификатором {{ param }}"
+    }
+  }
+}

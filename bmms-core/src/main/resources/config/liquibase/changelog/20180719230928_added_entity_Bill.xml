@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Bill.
+    -->
+    <changeSet id="20180719230928-1" author="jhipster">
+        <createTable tableName="bill">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="recipient_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="recipient_short_name" type="varchar(64)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="session_id" type="varchar(32)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="jhi_type" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="amount_ratio" type="integer" remarks="Разрядность суммы, 1 - сум, 100 - тийин">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="amount" type="bigint">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="profit" type="bigint">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="jhi_account" type="varchar(64)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="params" type="varchar(256)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="currency" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ext_id" type="varchar(32)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="check_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="pay_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="request_time" type="datetime">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="request_json" type="varchar(512)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="response_json" type="varchar(512)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="response_time" type="datetime">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="response_code" type="varchar(32)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="response_text" type="varchar(128)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="success" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="login" type="varchar(64)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="fraud_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="bill" columnName="request_time" columnDataType="datetime"/>
+        <dropDefaultValue tableName="bill" columnName="response_time" columnDataType="datetime"/>
+
+    </changeSet>
+
+    <!-- Added the entity audit columns -->
+    <changeSet id="20180823174713-audit-1" author="jhipster-entity-audit">
+        <addColumn tableName="bill">
+            <column name="created_by" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="varchar(50)"/>
+            <column name="last_modified_date" type="timestamp"/>
+        </addColumn>
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

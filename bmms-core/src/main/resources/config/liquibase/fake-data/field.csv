@@ -1,0 +1,11 @@
+id;name;ext_id;type;control_type;content;validation;placeholder;mask;mask_symbol;length_min;length_max;require_field;filter_by;optional;output;visibility;ord;request_type;recipient_id
+1;Regional;7336;ACCOUNT;SELECT;Uruguay;Steel Investment matrix;black user-facing;tan;mo;218;38;hierarchy;e-services Grani;false;true;MONITOR;59987;STATUS;1
+2;Forward Place;46824;OTHER;TEXT;Rial;transform application;frame Tasty monitoring;Automotive;iv;10;82;bleeding-edge;Spring web-enabl;false;false;PRINTER;60552;PAY;2
+3;turn-key;72502;OTHER;TEXT;Vision-oriented system JBOD;monitoring generating virtual;architectures synthesize content;Personal blue;Mi;184;19;Incredible Ball;Corporate Accoun;true;true;HIDDEN;29893;CHECK;3
+4;Health;70446;ACCOUNT;TEXT;cross-platform;Dynamic;Gloves compressing Minnesota;Car hacking Bike;Im;134;253;array Dynamic interface;drive Borders Co;false;false;MONITOR;36266;CANCEL;4
+5;relationships experiences Gloves;38628;OTHER;TEXT;haptic circuit Trace;Developer analyzer Steel;Associate New;mint wireless;Ta;173;49;Unbranded strategize;monitor;true;true;HIDDEN;32467;STATUS;5
+6;Officer Cambridgeshire evolve;89227;OTHER;TEXT;Paradigm monetize Liaison;paradigms;interactive synthesizing Toys;deposit;AD;8;153;Games Market Steel;Barbados magneti;true;true;HIDDEN;58714;CANCEL;6
+7;withdrawal;93719;AMOUNT;TEXT;Enterprise-wide Wooden;Implementation syndicate;Shirt Pants;deposit;us;92;58;Principal cohesive Uganda;Grass-roots Avon;true;true;PRINTER;1176;PAY;7
+8;engineer Beauty;50907;AMOUNT;SELECT;connect;Concrete sticky solid;open time-frame Avon;Sports;ba;154;197;Frozen Sleek Cambridgeshire;white mobile Ass;false;true;ALL;93267;DEPOSIT;8
+9;Liaison;46967;OTHER;SELECT;invoice AGP;Pants target Pennsylvania;hacking;integrate transmitting;Ru;15;93;Human productivity Louisiana;SSL Reunion Acco;false;true;MONITOR;95340;STATUS;9
+10;Sleek;9502;ACCOUNT;TEXT;Movies hack;Dollar bypass Investor;Lira Factors withdrawal;Salad Borders;Be;127;127;systematic Handmade Bedfordshire;asynchronous;true;true;PRINTER;92933;PAY;10

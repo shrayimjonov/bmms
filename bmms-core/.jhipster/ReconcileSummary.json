@@ -1,0 +1,92 @@
+{
+  "name": "ReconcileSummary",
+  "fields": [
+    {
+      "fieldName": "gatewayId",
+      "javadoc": "Уникальный номер шлюза",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "systemAmount",
+      "javadoc": "Общая сумма системы",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "gatewayAmount",
+      "javadoc": "Общая сумма шляза",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "systemCount",
+      "javadoc": "Общее количество транзакций в системе",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "gatewayCount",
+      "javadoc": "Общее количество транзакций у шлюза",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "date",
+      "javadoc": "Дата",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "ReconcileSummaryStatus",
+      "fieldValues": "COMPARED_OK,COMPARED_FALSE,FILE_UPLOADED,STATUS_RECEIVED,PROCESSING"
+    },
+    {
+      "fieldName": "success",
+      "javadoc": "Успешна ли сверка",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "period",
+      "javadoc": "Период (день , месяц) и т.д.",
+      "fieldType": "ReconcilePeriod",
+      "fieldValues": "DAY,MONTH,HALF_DAY,HOUR,MINUTE,SECOND"
+    },
+    {
+      "fieldName": "gatewayName",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 64
+    },
+    {
+      "fieldName": "fromDate",
+      "javadoc": "с Дата",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "toDate",
+      "javadoc": "до Дата",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "type",
+      "javadoc": "Тип",
+      "fieldType": "ReconcileSummaryType",
+      "fieldValues": "PAYMENT, TERMINAL, P2P"
+    }
+  ],
+  "changelogDate": "20181012204929",
+  "javadoc": "Данная форма предназначена для хранения общих данных о сверке",
+  "entityTableName": "reconcile_summary",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "clientRootFolder": "bmms",
+  "applications": "*",
+  "microserviceName": "pkbillms",
+  "enableEntityAudit": true,
+  "databaseType": "sql",
+  "relationships": []
+}

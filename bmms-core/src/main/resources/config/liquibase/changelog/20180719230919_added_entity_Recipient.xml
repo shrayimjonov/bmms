@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Recipient.
+    -->
+    <changeSet id="20180719230919-1" author="jhipster">
+        <createTable tableName="recipient" remarks="Получатель денежных средств, поставшик услуг">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="short_name" type="varchar(64)" remarks="Уникальное название в шлюзе">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="service_id" type="varchar(64)" remarks="Service id, for inner business logic">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="thumbnail" type="varchar(64)" remarks="Thumbnail file path or url">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="logo" type="varchar(64)" remarks="Logo file path or url">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="amount_ratio" type="integer" remarks="Использумая разрядность суммы в шлюзе получателя, 1 - сум, 100 - тийин">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="ccy" type="integer" remarks="Валюта получателя">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="min_amount" type="bigint" remarks="Минимальная сумма платежа, разрядность зависит от recipient.amountRatio">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="max_amount" type="bigint" remarks="Максимальная сумма платежа, разрядность зависит от recipient.amountRatio">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="commission" type="double" remarks="Комиссия получателя">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="fee" type="double" remarks="Вознаграждение получателя">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="system_commission" type="double" remarks="Комиссия системы от получателя">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="system_fee" type="double" remarks="Вознаграждение системы от получателя">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="sender_commission" type="double" remarks="Вознаграждение поставшику (если участвует как отправитель средств)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ord" type="integer" remarks="Display order">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="active" type="boolean">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="jhi_check" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="pay" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="status" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="jhi_cancel" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="can_deposit" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="gateway_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="category_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        
+        <createTable tableName="recipient_title">
+            <column name="titles_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="recipients_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="recipients_id, titles_id" tableName="recipient_title"/>
+        
+        <createTable tableName="recipient_full_name">
+            <column name="full_names_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="recipients_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="recipients_id, full_names_id" tableName="recipient_full_name"/>
+        
+        <addUniqueConstraint
+            columnNames="short_name, gateway_id"
+            constraintName="recipient_name_gateway_unique"
+            tableName="recipient"
+        />
+
+    </changeSet>
+    
+    <!-- Added the entity audit columns -->
+    <changeSet id="20180719230919-audit-1" author="jhipster-entity-audit">
+        <addColumn tableName="recipient">
+            <column name="created_by" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="varchar(50)"/>
+            <column name="last_modified_date" type="timestamp"/>
+        </addColumn>
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

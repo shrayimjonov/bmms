@@ -1,0 +1,231 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h4 class="mb-0" jhiTranslate="global.menu.entities.pkbillmsBookkeepingTemplate">Bookkeeping Template</h4>
+
+  <div>
+    <nz-badge [nzCount]="filterRef.querySize">
+      <button nz-button nzSize="large" jhiTranslate="entity.action.filter" (click)="showFilter = !showFilter">Filter</button>
+    </nz-badge>
+
+    <ngl-export-as
+      *ngIf="data?.length"
+      class="ml-2"
+      [data]="data"
+      [requestOption]="getOption"
+      translationPrefix="billMasterGwApp.pkbillmsBookkeepingTemplate"
+      fileName="bk_templates"
+    >
+    </ngl-export-as>
+
+    <button
+      class="ml-2"
+      type="button"
+      nz-button
+      nzSize="large"
+      nzType="primary"
+      jhiTranslate="entity.action.add"
+      *jhiHasAnyAuthority="[authority.BOOKKEEPING_TEMPLATE_WRITE]"
+      (click)="bookkeepingTemplateService.openUpdate()"
+    >
+      Add
+    </button>
+  </div>
+</div>
+
+<ngl-filter-field [hidden]="!showFilter" [fields]="filterFields" (onFilter)="setQuery($event); loadPage()" #filterRef></ngl-filter-field>
+
+<bm-alert></bm-alert>
+
+<ng-container *ngIf="data?.length">
+  <div class="table-responsive" #scrollableRef>
+    <nz-table [nzLoading]="loading" nzSize="small" nzTemplateMode nzOuterBordered>
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th jhiSortBy="id">
+            <span jhiTranslate="global.field.id">ID</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="sMfo">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.sMfo">sMfo</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="sInn">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.sInn">sInn</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="sAccount">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.sAccount">sAccount</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="rMfo">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.rMfo">rMfo</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="rInn">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.rInn">rInn</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="rAccount">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.rAccount">rAccount</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="calculateAmountRule">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.calculateAmountRule">calculateAmountRule</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="period">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.period">period</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="payTypes">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.payTypes">payTypes</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="desc">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.desc">desc</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="sType">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.sType">sType</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="sTypeIds">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.sTypeIds">sTypeIds</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="bookkeepingType">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.bookkeepingType">bookkeepingType</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="name">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.name">name</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="amountCalculateType">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.amountCalculateType">amountCalculateType</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="gateway">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.gateway">gatewayId</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="recipient">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.recipient">recipientId</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="docType">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.docType">docType</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="docCode">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.docCode">docCode</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="docTaskCode">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.docTaskCode">docTaskCode</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="rAccountName">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.rAccountName">rAccountName</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="bookkeepingPayType">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.bookkeepingPayType">bookkeepingPayType</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="groupIds">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.groupIds">groupIds</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="control">
+            <span jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.control">control</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bookkeepingTemplate of data; trackBy: trackId">
+          <td>
+            <a href="javascript:void(0)" (click)="bookkeepingTemplateService.openView(bookkeepingTemplate)">{{ bookkeepingTemplate.id }}</a>
+          </td>
+          <td>{{ bookkeepingTemplate.sMfo }}</td>
+          <td>{{ bookkeepingTemplate.sInn }}</td>
+          <td>{{ bookkeepingTemplate.sAccount }}</td>
+          <td>{{ bookkeepingTemplate.rMfo }}</td>
+          <td>{{ bookkeepingTemplate.rInn }}</td>
+          <td>{{ bookkeepingTemplate.rAccount }}</td>
+          <td>{{ bookkeepingTemplate.calculateAmountRule }}</td>
+          <td>{{ bookkeepingTemplate.period }}</td>
+          <td>{{ bookkeepingTemplate.payTypes }}</td>
+          <td>{{ bookkeepingTemplate.desc }}</td>
+          <td>{{ bookkeepingTemplate.sType }}</td>
+          <td>{{ bookkeepingTemplate.sTypeIds }}</td>
+          <td>{{ bookkeepingTemplate.bookkeepingType }}</td>
+          <td>{{ bookkeepingTemplate.name }}</td>
+          <td>{{ bookkeepingTemplate.amountCalculateType }}</td>
+          <td>{{ bookkeepingTemplate.gateway?.name }}</td>
+          <td>{{ bookkeepingTemplate.recipient?.shortName }}</td>
+          <td>{{ bookkeepingTemplate.docType }}</td>
+          <td>{{ bookkeepingTemplate.docCode }}</td>
+          <td>{{ bookkeepingTemplate.docTaskCode }}</td>
+          <td>{{ bookkeepingTemplate.rAccountName }}</td>
+          <td>{{ bookkeepingTemplate.bookkeepingPayType }}</td>
+          <td>{{ bookkeepingTemplate.groupIds }}</td>
+          <td>{{ bookkeepingTemplate.control }}</td>
+          <td width="10" class="text-right">
+            <nz-button-group nzSize="small">
+              <button
+                nz-button
+                (click)="bookkeepingTemplateService.openHistory(bookkeepingTemplate.id)"
+                title="{{ 'entity.action.history' | translate }}"
+              >
+                <i nz-icon nzType="history" class="icon-btn"></i>
+              </button>
+              <button
+                nz-button
+                (click)="bookkeepingTemplateService.openView(bookkeepingTemplate)"
+                title="{{ 'entity.action.view' | translate }}"
+              >
+                <i nz-icon nzType="eye" class="icon-btn"></i>
+              </button>
+              <ng-container *jhiHasAnyAuthority="[authority.BOOKKEEPING_TEMPLATE_WRITE]">
+                <button
+                  nz-button
+                  (click)="bookkeepingTemplateService.openUpdate(bookkeepingTemplate, true)"
+                  title="{{ 'entity.action.duplicate' | translate }}"
+                >
+                  <i nz-icon nzType="copy" class="icon-btn"></i>
+                </button>
+                <button
+                  nz-button
+                  (click)="bookkeepingTemplateService.openUpdate(bookkeepingTemplate)"
+                  title="{{ 'entity.action.edit' | translate }}"
+                >
+                  <i nz-icon nzType="edit" class="icon-btn"></i>
+                </button>
+                <button
+                  nz-button
+                  (click)="bookkeepingTemplateService.openDelete(bookkeepingTemplate.id)"
+                  title="{{ 'entity.action.delete' | translate }}"
+                >
+                  <i nz-icon nzType="delete" class="icon-btn"></i>
+                </button>
+              </ng-container>
+            </nz-button-group>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+  <ngl-sticky-scroll-x [scrollableElementRef]="scrollableRef"></ngl-sticky-scroll-x>
+
+  <div class="d-flex justify-content-center">
+    <nz-pagination
+      [nzPageIndex]="ngbPaginationPage"
+      [nzTotal]="totalItems"
+      [nzPageSize]="itemsPerPage"
+      (nzPageIndexChange)="loadPage($event)"
+    >
+    </nz-pagination>
+  </div>
+</ng-container>

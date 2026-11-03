@@ -1,0 +1,6 @@
+@import '../content/scss/bootstrap-variables';
+@import '../content/scss/ng-zorro/ng-zorro-overrides';
+
+::ng-deep .modal-content {
+  border-radius: $border-radius;
+}

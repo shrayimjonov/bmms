@@ -1,0 +1,81 @@
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <div class="modal-header">
+    <h5 class="modal-title" jhiTranslate="billMasterGwApp.pkbillmsDeposit.home.createOrEditLabel">Create or edit a Deposit</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal()">&times;</button>
+  </div>
+
+  <div class="modal-body">
+    <bm-alert></bm-alert>
+
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsDeposit.gateway" for="field_gatewayId">Gateway</label>
+        <bm-select-input
+          [bmServerSearch]="true"
+          [bmShowSearch]="true"
+          [requestUrl]="gatewayService.resourceUrl"
+          bmLabelField="name"
+          formControlName="gateway"
+          id="field_gatewayId"
+        ></bm-select-input>
+      </div>
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsDeposit.agent" for="field_agentId">Agent</label>
+        <bm-select-input
+          [bmServerSearch]="true"
+          [bmShowSearch]="true"
+          requestUrl="{{ agentService.resourceUrl }}?state.notEquals=DELETED"
+          bmLabelField="shortName"
+          formControlName="agent"
+          id="field_agentId"
+        ></bm-select-input>
+      </div>
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsDeposit.contactGroup" for="field_contactGroup">contactGroup</label>
+        <input nz-input nzSize="large" formControlName="contactGroup" id="field_contactGroup" input-validator />
+      </div>
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsDeposit.overdraftLimit" for="field_overdraftLimit">overdraftLimit</label>
+        <input nz-input nzSize="large" formControlName="overdraftLimit" id="field_overdraftLimit" type="number" input-validator />
+      </div>
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsDeposit.balance" for="field_balance">balance</label>
+        <input nz-input nzSize="large" formControlName="balance" id="field_balance" type="number" input-validator />
+      </div>
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsDeposit.balanceCcy" for="field_balanceCcy">balanceCcy</label>
+        <input nz-input nzSize="large" formControlName="balanceCcy" id="field_balanceCcy" type="number" input-validator />
+      </div>
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsDeposit.bookedBalance" for="field_bookedBalance">bookedBalance</label>
+        <input nz-input nzSize="large" formControlName="bookedBalance" id="field_bookedBalance" type="number" input-validator />
+      </div>
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsDeposit.limitInform" for="field_limitInform">limitInform</label>
+        <input nz-input nzSize="large" formControlName="limitInform" id="field_limitInform" type="number" input-validator />
+      </div>
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsDeposit.limitDisable" for="field_limitDisable">limitDisable</label>
+        <input nz-input nzSize="large" formControlName="limitDisable" id="field_limitDisable" type="number" input-validator />
+      </div>
+      <!--            <div class="form-group">-->
+      <!--                <label jhiTranslate="billMasterGwApp.pkbillmsDeposit.virtualAccount" for="field_virtualAccountId">VirtualAccount</label>-->
+      <!--                <input nz-input nzSize="large" formControlName="virtualAccountId" id="field_virtualAccountId" type="number" input-validator>-->
+      <!--            </div>-->
+
+      <div class="form-group col-md-4" style="margin-top: 22px">
+        <label nz-checkbox formControlName="blocked">{{ 'global.block.' + editForm.get('blocked')?.value | translate }}</label>
+      </div>
+      <div class="form-group col-md-4" style="margin-top: 22px">
+        <label nz-checkbox formControlName="unlimit">{{ 'global.limit.' + editForm.get('unlimit')?.value | translate }}</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" nz-button nzSize="large" nzType="text" jhiTranslate="entity.action.cancel" (click)="closeModal()">Cancel</button>
+    <button nz-button nzSize="large" nzType="primary" [nzLoading]="loading" [disabled]="editForm.invalid">
+      {{ 'entity.action.save' | translate }}
+    </button>
+  </div>
+</form>

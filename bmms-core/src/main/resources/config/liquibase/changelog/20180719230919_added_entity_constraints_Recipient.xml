@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added the constraints for entity Recipient.
+    -->
+    <changeSet id="20180719230919-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="gateway_id"
+                                 baseTableName="recipient"
+                                 constraintName="fk_recipient_gateway_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="gateway"/>
+
+        <addForeignKeyConstraint baseColumnNames="category_id"
+                                 baseTableName="recipient"
+                                 constraintName="fk_recipient_category_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="category"/>
+
+        <addForeignKeyConstraint baseColumnNames="recipients_id"
+                                 baseTableName="recipient_title"
+                                 constraintName="fk_recipient_title_recipients_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="recipient"/>
+        <addForeignKeyConstraint baseColumnNames="titles_id"
+                                 baseTableName="recipient_title"
+                                 constraintName="fk_recipient_title_titles_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="i_18_n"/>
+        
+        <addForeignKeyConstraint baseColumnNames="recipients_id"
+                                 baseTableName="recipient_full_name"
+                                 constraintName="fk_recipient_full_name_recipients_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="recipient"/>
+        <addForeignKeyConstraint baseColumnNames="full_names_id"
+                                 baseTableName="recipient_full_name"
+                                 constraintName="fk_recipient_full_name_full_names_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="i_18_n"/>
+        
+    </changeSet>
+</databaseChangeLog>

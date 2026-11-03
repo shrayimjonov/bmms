@@ -1,0 +1,372 @@
+{
+  "global": {
+    "title": "Bill Master",
+    "browsehappy": "Ваш браузер <strong>устарел</strong>. Пожалуйста <a href=\"http://browsehappy.com/?locale=ru\">обновите ваш браузер</a>.",
+    "uploadFile": "Загрузить файл",
+    "file": "Файл",
+    "key": "Названия",
+    "value": "Значение",
+    "request": "Запрос",
+    "response": "Ответ",
+    "entity-view": "Просмотр {{id}}",
+    "not-show-role": "У вас нет дуступа к просмотру",
+    "showJson": "Показать JSON",
+    "paymentCheckout": "Оформление платежа",
+    "data": {
+      "saved": "Данные успешно сохранены",
+      "notSaved": "Данные не сохранены",
+      "updated": "Данные успешно обновлены",
+      "notUpdated": "Данные не обновлены",
+      "notFound": "Данные не найдены"
+    },
+    "size": {
+      "default": "по умолчанию",
+      "small": "маленький",
+      "medium": "средний",
+      "large": "большой"
+    },
+    "langKey": {
+      "uz": "O`zbekcha",
+      "ru": "Русский",
+      "en": "English"
+    },
+    "amountRatio": {
+      "null": "null",
+      "1": "Сум",
+      "100": "Тийин"
+    },
+    "action": {
+      "all": "Все",
+      "today": "Сегодня",
+      "week": "Неделю",
+      "month": "Месяц",
+      "totalItems": "Всего: ",
+      "itemsPerPage": "На странице"
+    },
+    "boolean": {
+      "": "Нет",
+      "undefined": "Нет",
+      "null": "Нет",
+      "false": "Нет",
+      "true": "Да"
+    },
+    "success": {
+      "": "Не успешно",
+      "undefined": "Не успешно",
+      "null": "Не успешно",
+      "false": "Не успешно",
+      "true": "Успешно"
+    },
+    "active": {
+      "": "Неактивен",
+      "undefined": "Неактивен",
+      "null": "Неактивен",
+      "false": "Неактивен",
+      "true": "Активен"
+    },
+    "block": {
+      "true": "Заблокировано",
+      "false": "Pазблокированo"
+    },
+    "limit": {
+      "true": "Ограничение",
+      "false": "Безограничения"
+    },
+    "question": {
+      "delete": "Вы действительно хотите удалить этот элемент?"
+    },
+    "adapter": {
+      "title": "Адаптеры",
+      "sync": {
+        "success": "Синхронизация адаптера прошла успешно",
+        "error": "Ошибка при синхронизации адаптера"
+      },
+      "notFound": "Адаптеры не найдены, повторите попытку",
+      "historyNotFound": "История не найдена",
+      "history": "История для <strong>{{ adapterName }}</strong>"
+    },
+    "menu": {
+      "home": "Главная",
+      "language": "Язык",
+      "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
+      "entities": {
+        "main": "Сущности",
+        "userManagement": "Управление пользователями",
+        "payment": "Оплата",
+        "pkbillmsTransaction": "Транзакции",
+        "pkuaaGroup": "Группы",
+        "pkuaaAuthority": "Роли",
+        "pkbillmsAgent": "Агенты",
+        "pkbillmsAgentDeposit": "Мой депозит",
+        "pkbillmsCategory": "Категории поставщиков",
+        "pkbillmsField": "Поля поставщиков",
+        "pkbillmsRecipient": "Поставщики",
+        "pkbillmsGateway": "Шлюзы",
+        "pkbillmsPrefix": "Префиксы полей",
+        "pkbillmsFieldValue": "Значения полей",
+        "pkbillmsBill": "Чеки от шлюз",
+        "pkbillmsGatewayParam": "Параметры шлюзов",
+        "reportmsReport": "Отчеты",
+        "pkbillmsSetting": "Настройка поставщиков",
+        "pkbillmsP2PCommission": "Комиссии",
+        "pkbillmsP2PCondition": "Условия",
+        "pkbillmsP2PAgentParam": "Агент Парам",
+        "pkbillmsP2PParam": "Параметры",
+        "pkbillmsResponseField": "Поля ответа",
+        "recipient": "Услуги поставшиков",
+        "p2p": "P2P",
+        "serviceSettings": "Настройки услуг",
+        "pkbillmsBookkeepingTransaction": "Проводки",
+        "pkbillmsAgentRecipient": "Доступные поставщики",
+        "pkbillmsReconcileSummary": "Сверка по платежам",
+        "reconcileTerminal": "Сверка по терминалу",
+        "reconcileP2P": "Сверка по P2P",
+        "pkbillmsRecipientGroup": "Группа поставшиков",
+        "pkbillmsDepositTransaction": "Депозитные операции",
+        "pkbillmsDeposit": "Депозиты",
+        "pkbillmsRedoc": "Redoc",
+        "pkbillmsBookkeepingTemplate": "Шаблон проводок",
+        "pkbillmsReconcileDiscrepancy": "Reconcile Discrepancy",
+        "bmmsRecipientFileSchema": "Схема файлов получателей",
+        "jsonForm": "Json Form",
+        "cashBack": "Кэш бэк",
+        "bmmsTransaction": "Transaction",
+        "bmmsCurrency": "Валюты",
+        "pkbillmsPcBin": "Бин карты",
+        "faqCategory": "Категория",
+        "faq": "FAQ",
+        "help": "Помощь",
+        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+      },
+      "account": {
+        "main": "Профиль",
+        "mainSettings": "Основные настройки",
+        "changePassword": "Сменить пароль",
+        "otherSettings": "Другие настройки",
+        "settings": "Настройки",
+        "password": "Пароль",
+        "sessions": "Сессии",
+        "login": "Войти",
+        "logout": "Выйти",
+        "register": "Зарегистрироваться"
+      },
+      "admin": {
+        "main": "Администрирование",
+        "gateway": "Шлюз",
+        "userManagement": "Пользователи",
+        "profile": "Профиль",
+        "tracker": "Трекер польз.",
+        "metrics": "Метрики",
+        "health": "Состояние",
+        "configuration": "Настройки",
+        "logs": "Логи",
+        "cashBack": "Кэш бэк",
+        "audits": "Аудит",
+        "apidocs": "API",
+        "database": "База данных",
+        "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
+      },
+      "submenu": {
+        "agent": {
+          "main": "Агент",
+          "agents": "Агенты",
+          "deposits": "Депозиты",
+          "depositOperations": "Депозитные операции"
+        },
+        "gateway": {
+          "main": "Шлюз",
+          "gateways": "Шлюзы",
+          "bills": "Чеки",
+          "params": "Параметры"
+        },
+        "recipient": {
+          "main": "Поставщик",
+          "categories": "Категории",
+          "available": "Доступные поставщики",
+          "groups": "Группы",
+          "settings": "Настройки",
+          "schemas": "Схемы"
+        },
+        "field": {
+          "main": "Поля",
+          "fields": "Поля поставщиков",
+          "responseFields": "Поля ответа",
+          "values": "Значении",
+          "prefixes": "Префиксы"
+        },
+        "bookkeeping": {
+          "main": "Проводок",
+          "operations": "Проводки",
+          "templates": "Шаблоны"
+        },
+        "other": {
+          "main": "Другие",
+          "adapters": "Адаптеры",
+          "currencies": "Валюты",
+          "api": "API"
+        }
+      },
+      "reconcile": {
+        "main": "Сверка",
+        "PAYMENT": "По платежам",
+        "TERMINAL": "По терминалу",
+        "P2P": "По P2P"
+      }
+    },
+    "form": {
+      "username.label": "Логин",
+      "username.placeholder": "Ваш логин",
+      "currentpassword.label": "Текущий пароль",
+      "currentpassword.placeholder": "Текущий пароль",
+      "newpassword.label": "Новый пароль",
+      "newpassword.placeholder": "Новый пароль",
+      "confirmpassword.label": "Подтверждение нового пароля",
+      "confirmpassword.placeholder": "Подтвердите новый пароль",
+      "email.label": "Email",
+      "email.placeholder": "Ваш email",
+      "file.placeholder": "Выберите файл",
+      "search.placeholder": "Поиск...",
+      "date.placeholder": "Выберите дату"
+    },
+    "messages": {
+      "info": {
+        "authenticated": {
+          "prefix": "Если вы хотите ",
+          "link": "авторизироваться",
+          "suffix": ", вы можете попробовать аккаунты по умолчанию:<br/>- Администратор (логин=\"admin\" и пароль=\"admin\") <br/>- Пользователь (логин=\"user\" и пароль=\"user\")."
+        },
+        "register": {
+          "noaccount": "У вас нет аккаунта?",
+          "link": "Создать новый аккаунт"
+        }
+      },
+      "error": {
+        "dontmatch": "Пароль и его подтверждение не совпадают!"
+      },
+      "validate": {
+        "newpassword": {
+          "required": "Пароль должен быть указан.",
+          "minlength": "Длина пароля должна быть хотя-бы 4 символов",
+          "maxlength": "Пароль не может быть длиннее чем 50 символов",
+          "strength": "Сложность пароля:"
+        },
+        "confirmpassword": {
+          "required": "подтверждение пароля должно быть указано.",
+          "minlength": "Длина подтверждения пароля должна быть хотя-бы 4 символов",
+          "maxlength": "Подтверждение пароля не может быть больше чем 50 символов"
+        },
+        "email": {
+          "required": "Email должен быть указан.",
+          "invalid": "Email не верен.",
+          "minlength": "Длина email должна быть хотя-бы 5 символов",
+          "maxlength": "Email не может быть длиннее чем 50 символов"
+        }
+      }
+    },
+    "field": {
+      "id": "ID",
+      "password": "Пароль",
+      "name": "Название",
+      "startDate": "Дата начала",
+      "endDate": "Дата окончания",
+      "fromDate": "Дата с",
+      "toDate": "Дата по",
+      "account": "Счет",
+      "service": "Сервис",
+      "amount": "Сумма",
+      "success": "Успешность",
+      "date": "Дата",
+      "status": "Статус",
+      "bill": "Чек",
+      "currency": "Валюта",
+      "type": "Тип"
+    },
+    "ribbon": {
+      "dev": "Разработка"
+    },
+    "totalItems": "Всего {{totalItems}}",
+    "itemsPerPage": "на странице",
+    "item-count": "{{first}} - {{second}} из {{total}}",
+    "version": "Версия: {{version}}"
+  },
+  "entity": {
+    "action": {
+      "addblob": "Добавить двоичный объект",
+      "addimage": "Добавить изображение",
+      "back": "Назад",
+      "cancel": "Отмена",
+      "close": "Закрыть",
+      "filter": "Фильтр",
+      "delete": "Удалить",
+      "edit": "Изменить",
+      "open": "Открыть",
+      "save": "Сохранить",
+      "view": "Просмотр",
+      "add": "Добавить",
+      "fill": "Пополнить",
+      "search": "Поиск",
+      "pay": "Оплатить",
+      "sync": "Синхронизировать",
+      "history": "История",
+      "uploadFile": "Загрузить файл",
+      "download": "Скачать",
+      "clear": "Очистить",
+      "test": "Тестировать",
+      "confirm": "Подтвердить",
+      "duplicate": "Дублировать"
+    },
+    "detail": {
+      "field": "Поле",
+      "value": "Значение"
+    },
+    "delete": {
+      "title": "Подтвердите операцию удаления"
+    },
+    "validation": {
+      "required": "Это поле обязательно к заполнению.",
+      "minlength": "Это поле является обязательным, по крайней мере <strong>{{min}}</strong> символов.",
+      "maxlength": "Это поле не может быть длинее, чем <strong>{{max}}</strong> символов.",
+      "min": "Это поле должно быть больше, чем <strong>{{min}}</strong>.",
+      "max": "Это поле не может быть больше, чем <strong>{{max}}</strong>.",
+      "minbytes": "Это поле должно быть больше, чем <strong>{{min}}</strong> байтов.",
+      "maxbytes": "Это поле не может быть больше, чем <strong>{{max}}</strong> байтов.",
+      "pattern": "Это поле должно следовать модели <strong>{{pattern}}</strong>.",
+      "number": "Это поле должно быть число.",
+      "datetimelocal": "Это поле должно быть дата и время.",
+      "notFilled": "Вы не заполнили нужные поля",
+      "payment.not.possible": "По данной карте платеж невозможен"
+    }
+  },
+  "error": {
+    "internalServerError": "Внутренняя ошибка сервера",
+    "server.not.reachable": "Сервер не доступен",
+    "url.not.found": "Не найдено",
+    "NotNull": "Поле {{fieldName}} не может быть пустым!",
+    "Size": "Поле {{fieldName}} не отвечает требованиям мин/макс.го размера!",
+    "userexists": "Имя пользователя уже используется!",
+    "emailexists": "Эл. почта уже используется!!",
+    "idexists": "Новый {{entityName}} не может иметь данный ID",
+    "idnull": "Неверный ID",
+    "file": {
+      "could.not.extract": "Could not extract file",
+      "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
+    }
+  },
+  "footer": "Это ваш футтер",
+  "download": {
+    "excel": "Экспорт в Excel",
+    "onePage": "Одна страница",
+    "all": "Всe страницы",
+    "custom": "Ручной ввод",
+    "confirm": {
+      "modal": {
+        "title": "Excel экспорт",
+        "message": "Данный процесс может занять много времени и нагрузки для базы. Вы уверены, что хотите выполнить этот процесс?",
+        "totalItems": "Всего"
+      }
+    }
+  },
+  "tooltip": {
+    "message": "Должен быть только на английском языке"
+  }
+}

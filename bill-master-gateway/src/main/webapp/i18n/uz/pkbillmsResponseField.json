@@ -1,0 +1,42 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsResponseField": {
+      "home": {
+        "title": "Javob maydoni",
+        "createLabel": "Yangi javob maydoni yaratish",
+        "createOrEditLabel": "Javob maydonini tahrirlash",
+        "notFound": "Xech qanday javob maydoni topilmadi"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Response Field {{ id }}?"
+      },
+      "detail": {
+        "title": "Javob maydoni"
+      },
+      "name": "Nomi",
+      "visibility": "Ko'rinish",
+      "ord": "Tartib",
+      "requestType": "So'rov turi",
+      "recipientShortName": "Qabul qiluvchining qisqa nomi",
+      "recipientId": "Qabul qiluvchi",
+      "labels": "Yorliqlar",
+      "type": "Turi",
+      "help": {
+        "name": "Name",
+        "visibility": "Visibility",
+        "ord": "Tartib",
+        "requestType": "Request type",
+        "recipientShortName": "Recipient short name",
+        "recipientId": "Recipient",
+        "labels": "Labels"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsResponseField": {
+      "created": "Javob maydoni {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- Javob maydoni saqlandi",
+      "deleted": "{{ param }}- Javob maydoni o`chirildi"
+    }
+  }
+}

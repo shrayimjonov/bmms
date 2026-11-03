@@ -1,0 +1,45 @@
+{
+  "billMasterGwApp": {
+    "reportmsReport": {
+      "note": "Данная форма предназначена для формирования различных отчетов. Для получения необходимого типа отчета в первую очередь выберите отчетный период, затем выберите типы оплат и поставщиков. После этого нажмите на нужный тип отчета и сохраните полученный файл.",
+      "home": {
+        "createLabel": "Создать новый отчет",
+        "createOrEditLabel": "Создать или отредактировать отчет",
+        "notFound": "Отчет не найден"
+      },
+      "delete": {
+        "question": "Вы уверены что хотите удалить отчет {{ id }}?"
+      },
+      "detail": {
+        "title": "Отчет"
+      },
+      "title": "Название",
+      "fileName": "Название файла",
+      "desc": "Описание",
+      "lang": "Язык",
+      "template": "Шаблон",
+      "enabled": "Включено",
+      "roles": "Роли",
+      "defaultFormat": "Формат по умолчанию",
+      "ord": "Порядок",
+      "help": {
+        "title": "Display title",
+        "fileName": "Output file name, variables can be used like ${x}",
+        "desc": "Display description",
+        "lang": "Language code (2 letters)",
+        "template": "Jasper Report .jrxml file, use JR Studio to build templates",
+        "enabled": "If report enabled",
+        "roles": "Roles allowed to get the report",
+        "defaultFormat": "Default file format to download",
+        "ord": "Display order"
+      }
+    }
+  },
+  "reportmsApp": {
+    "reportmsReport": {
+      "created": "Новый Отчет создан с идентификатором {{ param }}",
+      "updated": "Отчет обновлен с идентификатором {{ param }}",
+      "deleted": "Отчет удален с идентификатором {{ param }}"
+    }
+  }
+}

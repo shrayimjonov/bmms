@@ -1,0 +1,18 @@
+<form (ngSubmit)="executeAction()">
+  <div class="modal-header">
+    <h5 class="modal-title">{{ 'confirmationModal.headerTitle' | translate }}</h5>
+
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="close()">&times;</button>
+  </div>
+
+  <div class="modal-body">
+    <bm-alert></bm-alert>
+    <p [bm-i18n]="job.confirmationText">{{ job.confirmationText }}</p>
+  </div>
+
+  <div class="modal-footer">
+    <button nz-button nzSize="large" nzType="primary" [nzLoading]="loading">
+      {{ 'entity.action.confirm' | translate }}
+    </button>
+  </div>
+</form>

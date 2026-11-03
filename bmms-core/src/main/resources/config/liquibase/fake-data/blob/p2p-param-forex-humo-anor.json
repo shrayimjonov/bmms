@@ -1,0 +1,10 @@
+{
+    "sender": {
+        "bankAccount": "23504000900000491408"
+    },
+    "recipient": {
+        "merchantId": 123,
+        "terminalId": 234,
+        "port": 4444
+    }
+}

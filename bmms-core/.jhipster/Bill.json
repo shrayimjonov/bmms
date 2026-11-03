@@ -1,0 +1,167 @@
+{
+    "name": "Bill",
+    "fields": [
+        {
+            "fieldName": "recipientId",
+            "fieldType": "Long",
+            "javadoc": "Ид. получателя"
+        },
+        {
+            "fieldName": "recipientShortName",
+            "fieldType": "String",
+            "javadoc": "Наименование получателя",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "sessionId",
+            "fieldType": "String",
+            "javadoc": "Номер сессии (X)",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 32
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "RequestType",
+            "javadoc": "Тип запроса в биллинг получателя",
+            "fieldValues": "CHECK,PAY,STATUS,CANCEL,DEPOSIT,RECONCILE",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "amountRatio",
+            "fieldType": "Integer",
+            "javadoc": "Разрядность суммы, 1 - сум, 100 - тийин",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "Long",
+            "javadoc": "Сумма платежа",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "profit",
+            "fieldType": "Long",
+            "javadoc": "Прибыль от транзакции (X)",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "account",
+            "fieldType": "String",
+            "javadoc": "Лицевой счет",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "params",
+            "fieldType": "String",
+            "javadoc": "Доп. параметры",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 256
+        },
+        {
+            "fieldName": "currency",
+            "javadoc": "Валюта, трёхзначный цифровой ISO 4217",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "extId",
+            "fieldType": "String",
+            "javadoc": "Внешний ид. транзакции для системы, внутренний ид. для получателя",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 32
+        },
+        {
+            "fieldName": "checkId",
+            "javadoc": "Сервис ид. для проверки счета в системе получателя",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "payId",
+            "javadoc": "Сервис ид. для оплаты в системе получателя",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "requestTime",
+            "fieldType": "Instant",
+            "javadoc": "Время запроса в систему получателя",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "requestJson",
+            "fieldType": "String",
+            "javadoc": "Параметры запроса в формате JSON",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 512
+        },
+        {
+            "fieldName": "responseJson",
+            "fieldType": "String",
+            "javadoc": "Параметры ответа в формате JSON",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 512
+        },
+        {
+            "fieldName": "responseTime",
+            "fieldType": "Instant",
+            "javadoc": "Время ответа от системы получателя",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "responseCode",
+            "fieldType": "String",
+            "javadoc": "Код ответа",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 32
+        },
+        {
+            "fieldName": "responseText",
+            "fieldType": "String",
+            "javadoc": "Сообщения ответа",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 128
+        },
+        {
+            "fieldName": "success",
+            "javadoc": "Статус ответа",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "login",
+            "fieldType": "String",
+            "javadoc": "Логин агента",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "fraudId",
+            "javadoc": "Фрауд ид. (X)",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "transactionId",
+            "javadoc": "Номер транзакции",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "outExtId",
+            "fieldType": "String",
+            "javadoc": "Наш идентификатор в Процессинговом центре",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 128
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180719230928",
+    "entityTableName": "bill",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "bmms",
+    "applications": "*",
+    "microserviceName": "pkbillms",
+    "enableEntityAudit": true,
+    "databaseType": "sql"
+}

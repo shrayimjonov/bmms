@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Entity Agent constraints migrate to 7.1 jhipster
+    -->
+    <changeSet id="entity_Agent_constraints_migrate-1" author="zafar">
+        <!--
+            Drop foreign constraint agent title to agent
+        -->
+        <preConditions onFail="MARK_RAN">
+            <foreignKeyConstraintExists foreignKeyName="fk_agent_title_agents_id"/>
+        </preConditions>
+
+        <comment> Drop foreign constraint agent title to agent</comment>
+
+        <dropForeignKeyConstraint baseTableName="rel_agent__title"
+                                  constraintName = "fk_agent_title_agents_id"/>
+    </changeSet>
+
+    <changeSet id="entity_Agent_constraints_migrate-2" author="zafar">
+        <!--
+            Add foreign constraint agent title to agent
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_agent_title_agents_id"
+                                            foreignKeyTableName="agent"/>
+            </not>
+        </preConditions>
+
+        <comment>Add foreign constraint agent title to agent</comment>
+
+        <addForeignKeyConstraint baseColumnNames="agent_id"
+                                 baseTableName="rel_agent__title"
+                                 constraintName="fk_agent_title_agents_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="agent"/>
+    </changeSet>
+
+    <changeSet id="entity_Agent_constraints_migrate-3" author="zafar">
+        <!--
+            Drop foreign constraint agent title to i18n
+        -->
+        <preConditions onFail="MARK_RAN">
+            <foreignKeyConstraintExists foreignKeyName="fk_agent_title_titles_id"/>
+        </preConditions>
+
+        <comment> Drop foreign constraint agent title to i18n</comment>
+
+        <dropForeignKeyConstraint baseTableName="rel_agent__title"
+                                  constraintName = "fk_agent_title_titles_id"/>
+    </changeSet>
+
+    <changeSet id="entity_Agent_constraints_migrate-4" author="zafar">
+        <!--
+            Add foreign constraint agent title to i18n
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_agent_title_titles_id"
+                                            foreignKeyTableName="i_18_n"/>
+            </not>
+        </preConditions>
+
+        <comment>Add foreign constraint agent title to i18n</comment>
+
+        <addForeignKeyConstraint baseColumnNames="title_id"
+                                 baseTableName="rel_agent__title"
+                                 constraintName="fk_agent_title_titles_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="i_18_n"/>
+
+    </changeSet>
+</databaseChangeLog>

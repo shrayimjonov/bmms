@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="add-setting-audit" author="javlon">
+        <addColumn tableName="setting">
+            <column name="created_by" type="varchar(50)" defaultValue="default">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="varchar(50)"/>
+            <column name="last_modified_date" type="timestamp"/>
+        </addColumn>
+        <dropDefaultValue columnDataType="varchar(50)"
+                          columnName="created_by"
+                          tableName="setting"/>
+    </changeSet>
+
+<!--    <changeSet id="add-p_2_p_commission-audit" author="javlon">-->
+<!--        <addColumn tableName="p_2_p_commission">-->
+<!--            <column name="created_by" type="varchar(50)" defaultValue="default">-->
+<!--                <constraints nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="created_date" type="timestamp" defaultValueDate="${now}">-->
+<!--                <constraints nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="last_modified_by" type="varchar(50)"/>-->
+<!--            <column name="last_modified_date" type="timestamp"/>-->
+<!--        </addColumn>-->
+<!--        <dropDefaultValue columnDataType="varchar(50)"-->
+<!--                          columnName="created_by"-->
+<!--                          tableName="p_2_p_commission"/>-->
+<!--    </changeSet>-->
+
+<!--    <changeSet id="add-p_2_p_condition-audit" author="javlon">-->
+<!--        <addColumn tableName="p_2_p_condition">-->
+<!--            <column name="created_by" type="varchar(50)" defaultValue="default">-->
+<!--                <constraints nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="created_date" type="timestamp" defaultValueDate="${now}">-->
+<!--                <constraints nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="last_modified_by" type="varchar(50)"/>-->
+<!--            <column name="last_modified_date" type="timestamp"/>-->
+<!--        </addColumn>-->
+<!--        <dropDefaultValue columnDataType="varchar(50)"-->
+<!--                          columnName="created_by"-->
+<!--                          tableName="p_2_p_condition"/>-->
+<!--    </changeSet>-->
+
+<!--    <changeSet id="add-p_2_p_param-audit" author="javlon">-->
+<!--        <addColumn tableName="p_2_p_param">-->
+<!--            <column name="created_by" type="varchar(50)" defaultValue="default">-->
+<!--                <constraints nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="created_date" type="timestamp" defaultValueDate="${now}">-->
+<!--                <constraints nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="last_modified_by" type="varchar(50)"/>-->
+<!--            <column name="last_modified_date" type="timestamp"/>-->
+<!--        </addColumn>-->
+<!--        <dropDefaultValue columnDataType="varchar(50)"-->
+<!--                          columnName="created_by"-->
+<!--                          tableName="p_2_p_param"/>-->
+<!--    </changeSet>-->
+
+<!--    <changeSet id="drop-bill-audit" author="javlon">-->
+<!--        <dropColumn tableName="bill">-->
+<!--            <column name="created_by" type="varchar(50)">-->
+<!--                <constraints nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="created_date" type="timestamp" defaultValueDate="${now}">-->
+<!--                <constraints nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="last_modified_by" type="varchar(50)"/>-->
+<!--            <column name="last_modified_date" type="timestamp"/>-->
+<!--        </dropColumn>-->
+<!--    </changeSet>-->
+
+<!--    <changeSet id="drop-deposit-audit" author="javlon">-->
+<!--        <dropColumn tableName="deposit">-->
+<!--            <column name="created_by" type="varchar(50)">-->
+<!--                <constraints nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="created_date" type="timestamp" defaultValueDate="${now}">-->
+<!--                <constraints nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="last_modified_by" type="varchar(50)"/>-->
+<!--            <column name="last_modified_date" type="timestamp"/>-->
+<!--        </dropColumn>-->
+<!--    </changeSet>-->
+
+</databaseChangeLog>

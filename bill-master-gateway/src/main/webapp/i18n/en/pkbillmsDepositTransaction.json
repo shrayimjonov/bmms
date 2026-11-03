@@ -1,0 +1,46 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsDepositTransaction": {
+      "home": {
+        "title": "Deposit Transactions",
+        "createLabel": "Create a new Deposit Transaction",
+        "createOrEditLabel": "Create or edit a Deposit Transaction",
+        "notFound": "No Deposit Transactions found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Deposit Transaction {{ id }}?"
+      },
+      "detail": {
+        "title": "Deposit Transaction"
+      },
+      "payerTaxnr": "Payer Taxnr",
+      "recipientTaxnr": "Recipient Taxnr",
+      "amount": "Amount",
+      "updateDate": "Update Date",
+      "comment": "Comment",
+      "doc": "Doc",
+      "totalAmount": "Balance",
+      "income": "Income",
+      "turnover": "Turnover",
+      "enterAmount": "Enter amount",
+      "period": {
+        "TODAY": "Today",
+        "WEEK": "Week",
+        "MONTH": "Month",
+        "YEAR": "Year",
+        "ALL": "All"
+      },
+      "help": {
+        "payerTaxnr": "Tax number (INN, VAT) of payer. see : https://en.wikipedia.org/wiki/VAT_identification_number",
+        "recipientTaxnr": "Tax number (INN, VAT) of payer. see : https://en.wikipedia.org/wiki/VAT_identification_number"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsDepositTransaction": {
+      "created": "A new Deposit Transaction is created with identifier {{ param }}",
+      "updated": "A Deposit Transaction is updated with identifier {{ param }}",
+      "deleted": "A Deposit Transaction is deleted with identifier {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "billMasterGwApp": {
+    "BktPeriod": {
+      "null": "",
+      "DAY": "DAY",
+      "WEEK": "WEEK",
+      "MONTH": "MONTH"
+    }
+  }
+}

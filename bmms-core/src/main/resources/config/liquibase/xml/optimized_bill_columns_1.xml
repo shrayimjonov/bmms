@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <changeSet id="modified_bill_type_varchar_255_to_16" author="javlon">
+
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="bill" columnName="type"/>
+        </preConditions>
+
+        <comment>Resize bill.type from 255 to 16</comment>
+
+        <modifyDataType columnName="type"
+                        newDataType="varchar(16)"
+                        schemaName="public"
+                        tableName="bill"
+        />
+    </changeSet>
+
+    <changeSet id="deleted_bill_session_id" author="javlon">
+
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="bill" columnName="session_id"/>
+        </preConditions>
+
+        <comment>Drop column bill.session_id</comment>
+
+        <dropColumn columnName="session_id" schemaName="public" tableName="bill"/>
+    </changeSet>
+
+    <changeSet id="deleted_bill_check_id" author="javlon">
+
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="bill" columnName="check_id"/>
+        </preConditions>
+
+        <comment>Drop column bill.check_id</comment>
+
+        <dropColumn columnName="check_id" schemaName="public" tableName="bill"/>
+    </changeSet>
+
+    <changeSet id="deleted_bill_pay_id" author="javlon">
+
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="bill" columnName="pay_id"/>
+        </preConditions>
+
+        <comment>Drop column bill.pay_id</comment>
+
+        <dropColumn columnName="pay_id" schemaName="public" tableName="bill"/>
+    </changeSet>
+
+    <changeSet id="deleted_bill_fraud_id" author="javlon">
+
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="bill" columnName="fraud_id"/>
+        </preConditions>
+
+        <comment>Drop column bill.fraud_id</comment>
+
+        <dropColumn columnName="fraud_id" schemaName="public" tableName="bill"/>
+    </changeSet>
+
+    <changeSet id="deleted_bill_params" author="javlon">
+
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="bill" columnName="params"/>
+        </preConditions>
+
+        <comment>Drop column bill.params</comment>
+
+        <dropColumn columnName="params" schemaName="public" tableName="bill"/>
+    </changeSet>
+
+</databaseChangeLog>

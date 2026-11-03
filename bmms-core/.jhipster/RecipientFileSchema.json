@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "bmms",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 32
+        },
+        {
+            "fieldName": "idList",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 2048
+        },
+        {
+            "fieldName": "root",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 512
+        }
+    ],
+    "changelogDate": "20180719230989",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceClass",
+    "entityTableName": "recipient_file_schema",
+    "jpaMetamodelFiltering": true,
+    "pagination": "pagination",
+    "microserviceName": "pkbillms",
+    "databaseType": "sql",
+    "name": "RecipientFileSchema",
+    "enableEntityAudit": true
+}

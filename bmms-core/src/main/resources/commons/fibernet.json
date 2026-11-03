@@ -1,0 +1,264 @@
+{
+    "recipient": {
+        "shortName": "fibernet",
+        "ccy": 860,
+        "logo": "fibernet_small.png",
+        "thumbnail": "fibernet.png",
+        "amountRatio": 100,
+        "minAmount": 500,
+        "maxAmount": 500000,
+        "commission": 0.0,
+        "fee": 0.0,
+        "systemCommission": 0.0,
+        "systemFee": 0.0,
+        "ord": 1,
+        "active": true,
+        "check": true,
+        "pay": true,
+        "status": null,
+        "cancel": null,
+        "canDeposit": null,
+        "serviceId": "1",
+        "titles": [
+            {
+                "lang": "UZ",
+                "text": "FiberNet"
+            },
+            {
+                "lang": "RU",
+                "text": "FiberNet"
+            },
+            {
+                "lang": "EN",
+                "text": "FiberNet"
+            }
+        ],
+        "fullNames": [
+            {
+                "lang": "UZ",
+                "text": "FiberNet"
+            },
+            {
+                "lang": "RU",
+                "text": "FiberNet"
+            },
+            {
+                "lang": "EN",
+                "text": "FiberNet"
+            }
+        ]
+    },
+    "fields": [
+        {
+            "name": "login",
+            "extId": 0,
+            "type": "ACCOUNT",
+            "controlType": "TEXT",
+            "content": null,
+            "validation": "",
+            "placeholder": null,
+            "mask": "dDDDDDD",
+            "maskSymbol": null,
+            "lengthMin": 9,
+            "lengthMax": 9,
+            "requireField": null,
+            "filterBy": null,
+            "optional": false,
+            "output": true,
+            "visibility": "ALL",
+            "ord": 1,
+            "requestType": null,
+            "titles": [
+                {
+                    "lang": "UZ",
+                    "text": "Хисоб раками"
+                },
+                {
+                    "lang": "RU",
+                    "text": "Номер счёта"
+                },
+                {
+                    "lang": "EN",
+                    "text": "Account number"
+                }
+            ],
+            "descriptions": [
+                {
+                    "lang": "UZ",
+                    "text": "Хисоб раками киргизинг"
+                },
+                {
+                    "lang": "RU",
+                    "text": "Введите номер счёта"
+                },
+                {
+                    "lang": "EN",
+                    "text": "Input account number"
+                }
+            ],
+            "values": [],
+            "prefixes": []
+        },
+        {
+            "name": "amount",
+            "extId": 0,
+            "type": "AMOUNT",
+            "controlType": "TEXT",
+            "content": null,
+            "validation": "",
+            "placeholder": null,
+            "mask": "d",
+            "maskSymbol": null,
+            "lengthMin": 1,
+            "lengthMax": 15,
+            "requireField": null,
+            "filterBy": null,
+            "optional": false,
+            "output": true,
+            "visibility": "ALL",
+            "ord": 2,
+            "requestType": null,
+            "titles": [
+                {
+                    "lang": "UZ",
+                    "text": "Summa"
+                },
+                {
+                    "lang": "RU",
+                    "text": "Сумма"
+                },
+                {
+                    "lang": "EN",
+                    "text": "Amount"
+                }
+            ],
+            "descriptions": [
+                {
+                    "lang": "UZ",
+                    "text": "Summa"
+                },
+                {
+                    "lang": "RU",
+                    "text": "Сумма"
+                },
+                {
+                    "lang": "EN",
+                    "text": "Amount"
+                }
+            ],
+            "values": [],
+            "prefixes": []
+        }
+    ],
+    "gatewayParams": [
+        {
+            "url": "https://paysys.fibernet.uz",
+            "type": "CHECK",
+            "username": "kapitalbank",
+            "password": "",
+            "token": null,
+            "body": "<x:Envelope xmlns:x=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://service.payment.uzbilling\"><x:Header/><x:Body><uws:GetInformationArguments xmlns:uws=\"http://uws.provider.com/\"><password>${password}</password><username>${username}</username><parameters><paramKey>login</paramKey><paramValue>${account}</paramValue>    </parameters>        <serviceId>1</serviceId>  </uws:GetInformationArguments></x:Body></x:Envelope>",
+            "statusQuery": "//*[local-name()='status']",
+            "messageQuery": "//*[local-name()='errorMsg']",
+            "successCode": "0",
+            "callback": null,
+            "timeout": 5000,
+            "headers": "{\"Content-Type\":\"text/xml\"}",
+            "dataQueries": null,
+            "httpMethodType": "POST",
+            "protocol": null,
+            "requestMediaType": "application/xml",
+            "responseMediaType": "application/xml",
+            "active": true,
+            "mode": null,
+            "extIdQuery": null
+        },
+        {
+            "url": "https://paysys.fibernet.uz",
+            "type": "PAY",
+            "username": "kapitalbank",
+            "password": "",
+            "token": null,
+            "body": "<x:Envelope xmlns:x=\"http://schemas.xmlsoap.org/soap/envelope/\"><x:Header/><x:Body><uws:PerformTransactionArguments xmlns:uws=\"http://uws.provider.com/\"><password>${password}</password><username>${username}</username><amount>${amount}</amount><parameters><paramKey>login</paramKey><paramValue>${account}</paramValue></parameters><serviceId>1</serviceId><transactionId>${tranId}</transactionId><transactionTime>${timestamp}</transactionTime></uws:PerformTransactionArguments></x:Body></x:Envelope>",
+            "statusQuery": "//*[local-name()='status']",
+            "messageQuery": "//*[local-name()='errorMsg']",
+            "successCode": "0",
+            "callback": null,
+            "timeout": 10000,
+            "headers": "{\"Content-Type\":\"text/xml\"}",
+            "dataQueries": null,
+            "httpMethodType": "POST",
+            "protocol": null,
+            "requestMediaType": "application/xml",
+            "responseMediaType": "application/xml",
+            "active": true,
+            "mode": null,
+            "extIdQuery": "//*[local-name()='providerTrnId']"
+        },
+        {
+            "url": "https://paysys.fibernet.uz",
+            "type": "CANCEL",
+            "username": "kapitalbank",
+            "password": "",
+            "token": null,
+            "body": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"><soapenv:Body><ns1:CancelTransactionArguments xmlns:ns1=\"http://uws.provider.com/\"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"ns1:CancelTransactionArguments \"><password>Xlkej2ddss33df4P</password><username>kapitalbank</username><serviceId>1</serviceId><transactionId>20852</transactionId><parameters><paramKey>reason</paramKey><paramValue></paramValue></parameters></ns1:CancelTransactionArguments></soapenv:Body></soapenv:Envelope>",
+            "statusQuery": "//*[local-name()='status']",
+            "messageQuery": "//*[local-name()='errorMsg']",
+            "successCode": "0",
+            "callback": null,
+            "timeout": 10000,
+            "headers": "{\"Content-Type\":\"text/xml\"}",
+            "dataQueries": null,
+            "httpMethodType": "POST",
+            "protocol": null,
+            "requestMediaType": "application/xml",
+            "responseMediaType": "application/xml",
+            "active": true,
+            "mode": null,
+            "extIdQuery": null
+        },
+        {
+            "url": "https://paysys.fibernet.uz",
+            "type": "RECONCILE",
+            "username": "kapitalbank",
+            "password": "",
+            "token": null,
+            "body": "<x:Envelope xmlns:x=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://service.payment.uzbilling\"><x:Header/><x:Body><uws:GetStatementArguments xmlns:uws=\"http://uws.provider.com/\"><password>${password}</password><username>${username}</username><dateFrom>${dateFrom}</dateFrom><dateTo>${dateTo}</dateTo><serviceId>1</serviceId><parameters><paramKey>reason</paramKey><paramValue></paramValue></parameters></uws:GetStatementArguments></x:Body></x:Envelope>",
+            "statusQuery": "//*[local-name()='status']",
+            "messageQuery": "//*[local-name()='errorMsg']",
+            "successCode": "0",
+            "callback": null,
+            "timeout": 10000,
+            "headers": "{\"Content-Type\":\"application/xml\"}",
+            "dataQueries": "{\"queryRootName\": \"statements\",\"queryAmount\": \"amount\",\"queryExtId\": \"providerTrnId\",\"queryTranId\": \"transactionId\",\"queryExtTime\": \"transactionTime\",\"requestDateFormat\": \"yyyy-MM-dd'T'HH:mm:ss\"}",
+            "httpMethodType": "POST",
+            "protocol": null,
+            "requestMediaType": "application/xml",
+            "responseMediaType": "application/xml",
+            "active": true,
+            "mode": null,
+            "extIdQuery": null
+        }
+    ],
+    "category": {
+        "shortName": "Интернет провайдеры",
+        "thumbnail": "internet.png",
+        "logo": "internet.png",
+        "ord": 1,
+        "active": true,
+        "names": [
+            {
+                "lang": "UZ",
+                "text": "Internet provayderlari"
+            },
+            {
+                "lang": "RU",
+                "text": "Интернет провайдеры"
+            },
+            {
+                "lang": "EN",
+                "text": "Internet providers"
+            }
+        ]
+    }
+}

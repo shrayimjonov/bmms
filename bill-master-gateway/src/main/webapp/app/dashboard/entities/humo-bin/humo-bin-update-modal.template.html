@@ -1,0 +1,80 @@
+<form [formGroup]="editForm" (ngSubmit)="save()">
+  <div class="modal-header">
+    <h4 class="modal-title" jhiTranslate="billMasterGwApp.pkbillmsPcBin.home.createOrEditLabel">Create Or Edit Label</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal()">&times;</button>
+  </div>
+
+  <div class="modal-body">
+    <bm-alert></bm-alert>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsPcBin.bin" for="field_bin">Bin</label>
+        <input nz-input nzSize="large" formControlName="bin" id="field_bin" maxlength="32" input-validator auto-focus />
+      </div>
+
+      <div class="form-group col-md-6">
+        <label jhiTranslate="billMasterGwApp.pkbillmsPcBin.bankName" for="field_bankName">BankName</label>
+        <input nz-input nzSize="large" formControlName="bankName" id="field_bankName" maxlength="128" input-validator />
+      </div>
+
+      <div class="form-group col-md-6">
+        <label jhiTranslate="billMasterGwApp.pkbillmsPcBin.comment" for="comment">comment</label>
+        <input nz-input nzSize="large" formControlName="comment" id="comment" maxlength="256" input-validator />
+      </div>
+
+      <div class="form-group col-md-6">
+        <label jhiTranslate="billMasterGwApp.pkbillmsPcBin.pcType" for="field_pcType">Pc Types</label>
+        <bm-select-input
+          id="field_pcType"
+          formControlName="pcType"
+          [data]="pcTypes"
+          [bmShowSearch]="true"
+          input-validator
+        ></bm-select-input>
+      </div>
+
+      <div class="form-group mx-2">
+        <nz-switch
+          formControlName="useDebit"
+          nzCheckedChildren="{{ 'billMasterGwApp.pkbillmsPcBin.useDebit' | translate }}"
+          nzUnCheckedChildren="{{ 'billMasterGwApp.pkbillmsPcBin.useDebit' | translate }}"
+        >
+        </nz-switch>
+      </div>
+
+      <div class="form-group">
+        <nz-switch
+          formControlName="useCredit"
+          nzCheckedChildren="{{ 'billMasterGwApp.pkbillmsPcBin.useCredit' | translate }}"
+          nzUnCheckedChildren="{{ 'billMasterGwApp.pkbillmsPcBin.useCredit' | translate }}"
+        >
+        </nz-switch>
+      </div>
+
+      <div class="form-group mx-2">
+        <nz-switch
+          formControlName="useReverse"
+          nzCheckedChildren="{{ 'billMasterGwApp.pkbillmsPcBin.useReverse' | translate }}"
+          nzUnCheckedChildren="{{ 'billMasterGwApp.pkbillmsPcBin.useReverse' | translate }}"
+        >
+        </nz-switch>
+      </div>
+
+      <div>
+        <nz-switch
+          formControlName="useReconcile"
+          nzCheckedChildren="{{ 'billMasterGwApp.pkbillmsPcBin.useReconcile' | translate }}"
+          nzUnCheckedChildren="{{ 'billMasterGwApp.pkbillmsPcBin.useReconcile' | translate }}"
+        >
+        </nz-switch>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" nz-button nzSize="large" jhiTranslate="entity.action.cancel" (click)="closeModal()">Cancel</button>
+    <button nz-button nzSize="large" nzType="primary" [nzLoading]="loading" [input-validator-button]="editForm">
+      {{ 'entity.action.save' | translate }}
+    </button>
+  </div>
+</form>

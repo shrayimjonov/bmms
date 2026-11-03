@@ -1,0 +1,34 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsPrefix": {
+      "home": {
+        "title": "Prefixes",
+        "createLabel": "Create a new Prefix",
+        "createOrEditLabel": "Create or edit a Prefix",
+        "notFound": "No Prefixes found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Prefix {{ id }}?"
+      },
+      "detail": {
+        "title": "Prefix"
+      },
+      "type": "Type",
+      "value": "Value",
+      "output": "Output",
+      "requireField": "Require Field",
+      "field": "Field",
+      "help": {
+        "output": "Need to prepend to field value",
+        "requireField": "Filter prefix value by selected parent field"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsPrefix": {
+      "created": "A new Prefix is created with identifier {{ param }}",
+      "updated": "A Prefix is updated with identifier {{ param }}",
+      "deleted": "A Prefix is deleted with identifier {{ param }}"
+    }
+  }
+}

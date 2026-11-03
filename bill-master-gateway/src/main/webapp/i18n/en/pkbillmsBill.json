@@ -1,0 +1,81 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsBill": {
+      "billWithId": "Request {{ id }}",
+      "home": {
+        "title": "Bills",
+        "createLabel": "Create a new Bill",
+        "createOrEditLabel": "Create or edit a Bill",
+        "notFound": "No Bills found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Bill {{ id }}?"
+      },
+      "detail": {
+        "title": "Bill"
+      },
+      "recipientId": "Recipient Id",
+      "recipientShortName": "Recipient Short Name",
+      "sessionId": "Session Id",
+      "type": "Type",
+      "amountRatio": "Amount Ratio",
+      "amount": "Amount",
+      "profit": "Profit",
+      "account": "Account",
+      "params": "Params",
+      "currency": "Currency",
+      "extId": "Ext Id",
+      "checkId": "Check Id",
+      "payId": "Pay Id",
+      "requestTime": "Request Time",
+      "requestJson": "Request Json",
+      "responseJson": "Response Json",
+      "responseTime": "Response Time",
+      "responseCode": "Response Code",
+      "responseText": "Response Text",
+      "success": "Success",
+      "login": "Login",
+      "fraudId": "Fraud Id",
+      "transactionId": "Transaction Id",
+      "help": {
+        "recipientId": "Ид. получателя",
+        "recipientShortName": "Наименование получателя",
+        "sessionId": "Номер сессии (X)",
+        "type": "Тип запроса в биллинг получателя",
+        "amountRatio": "Разрядность суммы, 1 - сум, 100 - тийин",
+        "amount": "Сумма платежа",
+        "profit": "Прибыль от транзакции (X)",
+        "account": "Recipient account",
+        "params": "Доп. параметры",
+        "currency": "Валюта, трёхзначный цифровой ISO 4217",
+        "extId": "Внешний ид. транзакции для системы, внутренний ид. для получателя",
+        "checkId": "Сервис ид. для проверки счета в системе получателя",
+        "payId": "Сервис ид. для оплаты в системе получателя",
+        "requestTime": "Время запроса в систему получателя",
+        "requestJson": "Параметры запроса в формате JSON",
+        "responseJson": "Параметры ответа в формате JSON",
+        "responseTime": "Время ответа от системы получателя",
+        "responseCode": "Код ответа",
+        "responseText": "Сообщения ответа",
+        "success": "Статус ответа",
+        "login": "Логин агента",
+        "fraudId": "Фрауд ид. (X)",
+        "transactionId": "Номер транзакции",
+        "840": "dollar",
+        "860": "sum",
+        "978": "euro",
+        "643": "rubl",
+        "156": "yuan",
+        "null": " ",
+        "": " "
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsBill": {
+      "created": "A new Bill is created with identifier {{ param }}",
+      "updated": "A Bill is updated with identifier {{ param }}",
+      "deleted": "A Bill is deleted with identifier {{ param }}"
+    }
+  }
+}

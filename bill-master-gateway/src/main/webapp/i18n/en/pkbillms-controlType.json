@@ -1,0 +1,9 @@
+{
+  "billMasterGwApp": {
+    "ControlType": {
+      "null": "",
+      "TEXT": "TEXT",
+      "SELECT": "SELECT"
+    }
+  }
+}

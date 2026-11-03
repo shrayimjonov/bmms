@@ -1,0 +1,57 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsAgent": {
+      "home": {
+        "title": "Агент",
+        "createLabel": "Создать нового агента",
+        "createOrEditLabel": "Создать или отредактировать агент",
+        "notFound": "Агенты не найдены"
+      },
+      "delete": {
+        "question": "Вы уверены что хотите удалить  агент -{{ id }}?"
+      },
+      "detail": {
+        "title": "Агент"
+      },
+      "shortName": "Короткое название",
+      "amountRatio": "Соотношение сумм",
+      "apiKey": "API ключ",
+      "currencies": "Валюта",
+      "ipAddresses": "IP адрес",
+      "logo": "Логотип",
+      "login": "Логин",
+      "ord": "Порядок",
+      "active": "Статус",
+      "phoneNumber": "Рабочий номер",
+      "inn": "ИНН",
+      "orgName": "Название организации",
+      "activityType": "Тип деятельности",
+      "email": "E-mail",
+      "bankId": "ID Банка",
+      "generalContractNumber": "Дополнительный номер",
+      "contractDate": "Дата контракта",
+      "title": "Заголовок",
+      "deposit": "Депозит",
+      "help": {
+        "bankId": "ID Банка",
+        "contractDate": "Дата контракта",
+        "shortName": "Короткое название",
+        "amountRatio": "Доля суммы, 1 - сум, 100 - тийин",
+        "apiKey": "API ключ",
+        "currencies": "Валюта разрешенных запросов",
+        "ipAddresses": "IP адрес",
+        "logo": "Логотип компании",
+        "login": "Login",
+        "ord": "Порядок",
+        "inn": "ИНН"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsAgent": {
+      "created": "Новый агент создан с идентификатором {{ param }}",
+      "updated": "Агент обновлен с идентификатором {{ param }}",
+      "deleted": "Агент удален с идентификатором {{ param }}"
+    }
+  }
+}

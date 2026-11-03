@@ -1,0 +1,473 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "categories": [
+      {
+        "id": 15,
+        "titleRu": "Благотворительность",
+        "titleUz": "Xayriya",
+        "order": 12,
+        "providers": [
+          {
+            "id": 14437,
+            "title": "ННО ОБФ \"YURAK AMRI\"",
+            "titleShort": "Yurak Amri",
+            "services": [
+              {
+                "id": 20710,
+                "minAmount": 500,
+                "maxAmount": 10000000,
+                "titleRu": "Yetim bolajonlar uchun uy-joy va  oziq-ovqat",
+                "titleUz": "Yetim bolajonlar uchun uy-joy va  oziq-ovqat",
+                "childId": null,
+                "servicePrice": 0,
+                "agentCommission": 2.5,
+                "serviceCommission": 0.0,
+                "order": 3406,
+                "serviceCommissionSum": 0.0,
+                "paynetCommissionSum": 0.0,
+                "fields": [
+                  {
+                    "id": 6102,
+                    "order": null,
+                    "name": "client_id",
+                    "titleRu": "Номер телефона",
+                    "titleUz": "Telefon raqami",
+                    "required": true,
+                    "readOnly": false,
+                    "fieldType": "REGEXBOX",
+                    "isCustomerId": null,
+                    "fieldControl": "998\\d{9}",
+                    "fieldValues": []
+                  },
+                  {
+                    "id": 6103,
+                    "order": null,
+                    "name": "amount",
+                    "titleRu": "Сумма",
+                    "titleUz": "Summa",
+                    "required": true,
+                    "readOnly": false,
+                    "fieldType": "MONEY",
+                    "isCustomerId": null,
+                    "fieldControl": null,
+                    "fieldValues": []
+                  },
+                  {
+                    "id": 6104,
+                    "order": null,
+                    "name": "telefon",
+                    "titleRu": "Тел. для SMS(998)",
+                    "titleUz": "SMS tel.(998)",
+                    "required": false,
+                    "readOnly": false,
+                    "fieldType": "REGEXBOX",
+                    "isCustomerId": null,
+                    "fieldControl": "[983]{1}[01345789]{1}[0-9]{7}",
+                    "fieldValues": []
+                  }
+                ],
+                "responseFields": [
+                  {
+                    "fieldName": "agent_inn",
+                    "labelRu": "ИНН",
+                    "labelUz": "STIR",
+                    "order": 0
+                  },
+                  {
+                    "fieldName": "provider_name",
+                    "labelRu": "Оператор",
+                    "labelUz": "Operator",
+                    "order": 1
+                  },
+                  {
+                    "fieldName": "service_name",
+                    "labelRu": "Услуга",
+                    "labelUz": "Xizmat turi",
+                    "order": 2
+                  },
+                  {
+                    "fieldName": "agent_name",
+                    "labelRu": "Агент",
+                    "labelUz": "Agent",
+                    "order": 3
+                  },
+                  {
+                    "fieldName": "time",
+                    "labelRu": "Время",
+                    "labelUz": "To'lov vaqti",
+                    "order": 3
+                  },
+                  {
+                    "fieldName": "terminal_id",
+                    "labelRu": "Номер терминала",
+                    "labelUz": "Terminal raqami",
+                    "order": 4
+                  },
+                  {
+                    "fieldName": "transaction_id",
+                    "labelRu": "Номер чека",
+                    "labelUz": "Chek raqami",
+                    "order": 5
+                  },
+                  {
+                    "fieldName": "client_id",
+                    "labelRu": "Номер телефона",
+                    "labelUz": "Telefon raqami",
+                    "order": 7
+                  },
+                  {
+                    "fieldName": "amount",
+                    "labelRu": "Оплачено",
+                    "labelUz": "To'landi",
+                    "order": 8
+                  }
+                ],
+                "services": []
+              },
+              {
+                "id": 20711,
+                "minAmount": 500,
+                "maxAmount": 10000000,
+                "titleRu": "25plus Jannatdagi Qasrlar loyihasi",
+                "titleUz": "25plus Jannatdagi Qasrlar loyihasi",
+                "childId": null,
+                "servicePrice": 0,
+                "agentCommission": 2.5,
+                "serviceCommission": 0.0,
+                "order": 3407,
+                "serviceCommissionSum": 0.0,
+                "paynetCommissionSum": 0.0,
+                "fields": [
+                  {
+                    "id": 6102,
+                    "order": null,
+                    "name": "client_id",
+                    "titleRu": "Номер телефона",
+                    "titleUz": "Telefon raqami",
+                    "required": true,
+                    "readOnly": false,
+                    "fieldType": "REGEXBOX",
+                    "isCustomerId": null,
+                    "fieldControl": "998\\d{9}",
+                    "fieldValues": []
+                  },
+                  {
+                    "id": 6103,
+                    "order": null,
+                    "name": "amount",
+                    "titleRu": "Сумма",
+                    "titleUz": "Summa",
+                    "required": true,
+                    "readOnly": false,
+                    "fieldType": "MONEY",
+                    "isCustomerId": null,
+                    "fieldControl": null,
+                    "fieldValues": []
+                  },
+                  {
+                    "id": 6104,
+                    "order": null,
+                    "name": "telefon",
+                    "titleRu": "Тел. для SMS(998)",
+                    "titleUz": "SMS tel.(998)",
+                    "required": false,
+                    "readOnly": false,
+                    "fieldType": "REGEXBOX",
+                    "isCustomerId": null,
+                    "fieldControl": "[983]{1}[01345789]{1}[0-9]{7}",
+                    "fieldValues": []
+                  }
+                ],
+                "responseFields": [
+                  {
+                    "fieldName": "agent_inn",
+                    "labelRu": "ИНН",
+                    "labelUz": "STIR",
+                    "order": 0
+                  },
+                  {
+                    "fieldName": "provider_name",
+                    "labelRu": "Оператор",
+                    "labelUz": "Operator",
+                    "order": 1
+                  },
+                  {
+                    "fieldName": "service_name",
+                    "labelRu": "Услуга",
+                    "labelUz": "Xizmat turi",
+                    "order": 2
+                  },
+                  {
+                    "fieldName": "agent_name",
+                    "labelRu": "Агент",
+                    "labelUz": "Agent",
+                    "order": 3
+                  },
+                  {
+                    "fieldName": "time",
+                    "labelRu": "Время",
+                    "labelUz": "To'lov vaqti",
+                    "order": 3
+                  },
+                  {
+                    "fieldName": "terminal_id",
+                    "labelRu": "Номер терминала",
+                    "labelUz": "Terminal raqami",
+                    "order": 4
+                  },
+                  {
+                    "fieldName": "transaction_id",
+                    "labelRu": "Номер чека",
+                    "labelUz": "Chek raqami",
+                    "order": 5
+                  },
+                  {
+                    "fieldName": "client_id",
+                    "labelRu": "Номер телефона",
+                    "labelUz": "Telefon raqami",
+                    "order": 7
+                  },
+                  {
+                    "fieldName": "amount",
+                    "labelRu": "Оплачено",
+                    "labelUz": "To'landi",
+                    "order": 8
+                  }
+                ],
+                "services": []
+              },
+              {
+                "id": 20712,
+                "minAmount": 500,
+                "maxAmount": 10000000,
+                "titleRu": "60 Kabutar loyihasi",
+                "titleUz": "60 Kabutar loyihasi",
+                "childId": null,
+                "servicePrice": 0,
+                "agentCommission": 2.5,
+                "serviceCommission": 0.0,
+                "order": 3408,
+                "serviceCommissionSum": 0.0,
+                "paynetCommissionSum": 0.0,
+                "fields": [
+                  {
+                    "id": 6102,
+                    "order": null,
+                    "name": "client_id",
+                    "titleRu": "Номер телефона",
+                    "titleUz": "Telefon raqami",
+                    "required": true,
+                    "readOnly": false,
+                    "fieldType": "REGEXBOX",
+                    "isCustomerId": null,
+                    "fieldControl": "998\\d{9}",
+                    "fieldValues": []
+                  },
+                  {
+                    "id": 6103,
+                    "order": null,
+                    "name": "amount",
+                    "titleRu": "Сумма",
+                    "titleUz": "Summa",
+                    "required": true,
+                    "readOnly": false,
+                    "fieldType": "MONEY",
+                    "isCustomerId": null,
+                    "fieldControl": null,
+                    "fieldValues": []
+                  },
+                  {
+                    "id": 6104,
+                    "order": null,
+                    "name": "telefon",
+                    "titleRu": "Тел. для SMS(998)",
+                    "titleUz": "SMS tel.(998)",
+                    "required": false,
+                    "readOnly": false,
+                    "fieldType": "REGEXBOX",
+                    "isCustomerId": null,
+                    "fieldControl": "[983]{1}[01345789]{1}[0-9]{7}",
+                    "fieldValues": []
+                  }
+                ],
+                "responseFields": [
+                  {
+                    "fieldName": "agent_inn",
+                    "labelRu": "ИНН",
+                    "labelUz": "STIR",
+                    "order": 0
+                  },
+                  {
+                    "fieldName": "provider_name",
+                    "labelRu": "Оператор",
+                    "labelUz": "Operator",
+                    "order": 1
+                  },
+                  {
+                    "fieldName": "service_name",
+                    "labelRu": "Услуга",
+                    "labelUz": "Xizmat turi",
+                    "order": 2
+                  },
+                  {
+                    "fieldName": "agent_name",
+                    "labelRu": "Агент",
+                    "labelUz": "Agent",
+                    "order": 3
+                  },
+                  {
+                    "fieldName": "time",
+                    "labelRu": "Время",
+                    "labelUz": "To'lov vaqti",
+                    "order": 3
+                  },
+                  {
+                    "fieldName": "terminal_id",
+                    "labelRu": "Номер терминала",
+                    "labelUz": "Terminal raqami",
+                    "order": 4
+                  },
+                  {
+                    "fieldName": "transaction_id",
+                    "labelRu": "Номер чека",
+                    "labelUz": "Chek raqami",
+                    "order": 5
+                  },
+                  {
+                    "fieldName": "client_id",
+                    "labelRu": "Номер телефона",
+                    "labelUz": "Telefon raqami",
+                    "order": 7
+                  },
+                  {
+                    "fieldName": "amount",
+                    "labelRu": "Оплачено",
+                    "labelUz": "To'landi",
+                    "order": 8
+                  }
+                ],
+                "services": []
+              },
+              {
+                "id": 20713,
+                "minAmount": 500,
+                "maxAmount": 10000000,
+                "titleRu": "Zakot",
+                "titleUz": "Zakot",
+                "childId": null,
+                "servicePrice": 0,
+                "agentCommission": 2.5,
+                "serviceCommission": 0.0,
+                "order": 3409,
+                "serviceCommissionSum": 0.0,
+                "paynetCommissionSum": 0.0,
+                "fields": [
+                  {
+                    "id": 6102,
+                    "order": null,
+                    "name": "client_id",
+                    "titleRu": "Номер телефона",
+                    "titleUz": "Telefon raqami",
+                    "required": true,
+                    "readOnly": false,
+                    "fieldType": "REGEXBOX",
+                    "isCustomerId": null,
+                    "fieldControl": "998\\d{9}",
+                    "fieldValues": []
+                  },
+                  {
+                    "id": 6103,
+                    "order": null,
+                    "name": "amount",
+                    "titleRu": "Сумма",
+                    "titleUz": "Summa",
+                    "required": true,
+                    "readOnly": false,
+                    "fieldType": "MONEY",
+                    "isCustomerId": null,
+                    "fieldControl": null,
+                    "fieldValues": []
+                  },
+                  {
+                    "id": 6104,
+                    "order": null,
+                    "name": "telefon",
+                    "titleRu": "Тел. для SMS(998)",
+                    "titleUz": "SMS tel.(998)",
+                    "required": false,
+                    "readOnly": false,
+                    "fieldType": "REGEXBOX",
+                    "isCustomerId": null,
+                    "fieldControl": "[983]{1}[01345789]{1}[0-9]{7}",
+                    "fieldValues": []
+                  }
+                ],
+                "responseFields": [
+                  {
+                    "fieldName": "agent_inn",
+                    "labelRu": "ИНН",
+                    "labelUz": "STIR",
+                    "order": 0
+                  },
+                  {
+                    "fieldName": "provider_name",
+                    "labelRu": "Оператор",
+                    "labelUz": "Operator",
+                    "order": 1
+                  },
+                  {
+                    "fieldName": "service_name",
+                    "labelRu": "Услуга",
+                    "labelUz": "Xizmat turi",
+                    "order": 2
+                  },
+                  {
+                    "fieldName": "agent_name",
+                    "labelRu": "Агент",
+                    "labelUz": "Agent",
+                    "order": 3
+                  },
+                  {
+                    "fieldName": "time",
+                    "labelRu": "Время",
+                    "labelUz": "To'lov vaqti",
+                    "order": 3
+                  },
+                  {
+                    "fieldName": "terminal_id",
+                    "labelRu": "Номер терминала",
+                    "labelUz": "Terminal raqami",
+                    "order": 4
+                  },
+                  {
+                    "fieldName": "transaction_id",
+                    "labelRu": "Номер чека",
+                    "labelUz": "Chek raqami",
+                    "order": 5
+                  },
+                  {
+                    "fieldName": "client_id",
+                    "labelRu": "Номер телефона",
+                    "labelUz": "Telefon raqami",
+                    "order": 7
+                  },
+                  {
+                    "fieldName": "amount",
+                    "labelRu": "Оплачено",
+                    "labelUz": "To'landi",
+                    "order": 8
+                  }
+                ],
+                "services": []
+              }
+            ]
+          }
+        ],
+        "lastUpdatedAt": "2019-05-07T19:00:00.000+00:00"
+      }
+    ],
+    "lastUpdatedAtUtc": 1635759240000
+  }
+}

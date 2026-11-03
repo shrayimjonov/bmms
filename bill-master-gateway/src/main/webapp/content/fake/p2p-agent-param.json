@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "agentId": 1,
+    "p2pParamsRegex": ".+",
+    "active": true,
+    "description": "Access for all params for agent with id 1",
+    "created_by": 1
+  },
+  {
+    "id": 2,
+    "agentId": 2,
+    "p2pParamsRegex": ".+",
+    "active": true,
+    "description": "Access for all params for agent with id 2",
+    "created_by": 1
+  },
+  {
+    "id": 3,
+    "agentId": 3,
+    "p2pParamsRegex": "^(3$|4$|40$)",
+    "active": true,
+    "description": "Access for only params id in [3 4 40]",
+    "created_by": 1
+  },
+  {
+    "id": 4,
+    "agentId": 4,
+    "p2pParamsRegex": "^(?=.+)(?!3$|4$|40$)",
+    "active": true,
+    "description": "Access for all params id is not in [3 4 40]",
+    "created_by": 1
+  },
+  {
+    "id": 5,
+    "agentId": 5,
+    "p2pParamsRegex": ".+",
+    "active": true,
+    "description": "Access for all params for agent with id 5",
+    "created_by": 1
+  },
+  {
+    "id": 6,
+    "agentId": 6,
+    "p2pParamsRegex": ".+",
+    "active": true,
+    "description": "Access for all params for agent with id 6",
+    "created_by": 1
+  }
+]

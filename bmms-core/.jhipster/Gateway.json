@@ -1,0 +1,73 @@
+{
+  "name": "Gateway",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": 64
+    },
+    {
+      "fieldName": "org",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": 32
+    },
+    {
+      "fieldName": "active",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "mfo",
+      "javadoc": "Bank MFO (BIN)",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": 8
+    },
+    {
+      "fieldName": "taxnr",
+      "javadoc": "Tax number (INN)",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "ban",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": 32
+    },
+    {
+      "fieldName": "contract",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": 64
+    },
+    {
+      "fieldName": "springBeanName",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 128
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "relationshipName": "deposit",
+      "otherEntityName": "deposit",
+      "ownerSide": false,
+      "otherEntityRelationshipName": "gateway"
+    }
+  ],
+  "changelogDate": "20180719230926",
+  "entityTableName": "gateway",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "clientRootFolder": "bmms",
+  "applications": "*",
+  "microserviceName": "pkbillms",
+  "enableEntityAudit": true,
+  "databaseType": "sql"
+}

@@ -1,0 +1,25 @@
+REQUEST:
+{
+https://127.0.0.1/pay_net_v1.php?
+act=4&
+username=kapitalbank&
+password=${PASSWORD}&
+phone=983039876
+}
+
+RESPONCE:
+{
+?xml version="1.0" encoding="windows-1251"?>
+
+<response>
+
+    <status_code>0</status_code>
+
+    <error_text></error_text>
+
+    <balance></balance>
+
+    <time_stamp>12.09.2018 21:17:04</time_stamp>
+
+</response>
+}

@@ -1,0 +1,26 @@
+{
+    "name": "SettingType",
+    "fields": [
+        {
+            "fieldName": "name",
+            "javadoc": "Setting unique name",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 128
+        }
+    ],
+    "changelogDate": "20190403230920",
+    "javadoc": "Наименование настройки",
+    "entityTableName": "setting_type",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "bmms",
+    "applications": "*",
+    "microserviceName": "pkbillms",
+    "enableEntityAudit": true,
+    "databaseType": "sql",
+    "relationships": []
+}

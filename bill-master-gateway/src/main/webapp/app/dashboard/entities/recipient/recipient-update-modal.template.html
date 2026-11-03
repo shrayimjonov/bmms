@@ -1,0 +1,287 @@
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <div class="modal-header">
+    <h4 class="modal-title" jhiTranslate="billMasterGwApp.pkbillmsRecipient.home.createOrEditLabel">Create Or Edit Label</h4>
+
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal()">&times;</button>
+  </div>
+
+  <div class="modal-body">
+    <bm-alert></bm-alert>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsRecipient.shortName" for="field_shortName">Short Name</label>
+        <input
+          nz-input
+          nzSize="large"
+          formControlName="shortName"
+          id="field_shortName"
+          maxlength="64"
+          input-validator
+          [nz-tooltip]="isUpdate() ? ('billMasterGwApp.pkbillmsRecipient.shortNameChangeNote' | translate) : null"
+          nzTooltipTrigger="focus"
+        />
+      </div>
+
+      <div class="form-group col-md-6">
+        <label jhiTranslate="billMasterGwApp.pkbillmsRecipient.logo" for="field_logo">Logo</label>
+        <input nz-input nzSize="large" id="field_logo" formControlName="logo" maxlength="64" />
+      </div>
+
+      <div class="form-group col-md-6">
+        <label jhiTranslate="billMasterGwApp.pkbillmsRecipient.settlementAccount" for="field_settlementAccount">Settlement Account</label>
+        <input nz-input nzSize="large" id="field_settlementAccount" formControlName="settlementAccount" maxlength="64" />
+      </div>
+
+      <div class="form-group col-md-2">
+        <label jhiTranslate="billMasterGwApp.pkbillmsRecipient.mfo" for="field_mfo">MFO</label>
+        <input
+          nz-input
+          nzSize="large"
+          id="field_mfo"
+          placeholder="00000"
+          formControlName="mfo"
+          mask="00000"
+          autocomplete="off"
+          minlength="5"
+          maxlength="5"
+        />
+      </div>
+
+      <div class="form-group col-md-2">
+        <label jhiTranslate="billMasterGwApp.pkbillmsRecipient.inn" for="field_inn">INN</label>
+        <input
+          nz-input
+          nzSize="large"
+          id="field_inn"
+          formControlName="inn"
+          placeholder="000000000"
+          mask="000000000"
+          autocomplete="off"
+          minlength="9"
+          maxlength="9"
+        />
+      </div>
+
+      <div class="form-group col-md-2">
+        <label jhiTranslate="billMasterGwApp.pkbillmsRecipient.ord" for="field_ord">Ord</label>
+        <input type="number" nz-input nzSize="large" id="field_ord" formControlName="ord" />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsRecipient.gateway" for="field_gateway">Gateway</label>
+        <bm-select-input
+          id="field_gateway"
+          [bmServerSearch]="true"
+          [requestUrl]="gatewayService.resourceUrl"
+          [bmShowSearch]="true"
+          bmLabelField="name"
+          formControlName="gateway"
+          input-validator
+        ></bm-select-input>
+      </div>
+
+      <div class="form-group col-md-3">
+        <label jhiTranslate="billMasterGwApp.pkbillmsRecipient.category" for="field_category">Category</label>
+        <bm-select-input
+          id="field_category"
+          [bmServerSearch]="true"
+          [requestUrl]="categoryService.resourceUrl"
+          [bmShowSearch]="true"
+          bmLabelField="shortName"
+          formControlName="category"
+          input-validator
+        ></bm-select-input>
+      </div>
+
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsRecipient.ccy" for="field_ccy">Ccy</label>
+        <bm-select-input
+          id="field_ccy"
+          [data]="currencies"
+          bmLabelField="label"
+          bmValueField="value"
+          formControlName="ccy"
+          input-validator
+        ></bm-select-input>
+      </div>
+
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsRecipient.amountRatio" for="field_amountRatio"
+          >Amount Ratio</label
+        >
+        <bm-select-input
+          id="field_amountRatio"
+          [data]="amountRatios"
+          bmLabelField="label"
+          bmValueField="value"
+          formControlName="amountRatio"
+          input-validator
+        ></bm-select-input>
+      </div>
+    </div>
+
+    <div class="form-row mb-3">
+      <div class="form-group col-md-3">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsRecipient.limitRatio" for="field_limitRatio">Limit Ratio</label>
+        <bm-select-input
+          id="field_limitRatio"
+          [data]="amountRatios"
+          bmLabelField="label"
+          bmValueField="value"
+          formControlName="limitRatio"
+          input-validator
+        ></bm-select-input>
+      </div>
+
+      <div class="form-group col-md-2" [ngClass]="{ 'col-md-3': isUpdate() }">
+        <label jhiTranslate="billMasterGwApp.pkbillmsRecipient.minAmount" for="field_minAmount">Min Amount</label>
+        <bm-amount-input
+          id="field_minAmount"
+          placeholder="0"
+          formControlName="minAmount"
+          [ratio]="editForm.get('limitRatio')?.value"
+        ></bm-amount-input>
+      </div>
+
+      <div class="form-group col-md-2" [ngClass]="{ 'col-md-3': isUpdate() }">
+        <label jhiTranslate="billMasterGwApp.pkbillmsRecipient.maxAmount" for="field_maxAmount">Max Amount</label>
+        <bm-amount-input
+          id="field_maxAmount"
+          placeholder="0"
+          formControlName="maxAmount"
+          [ratio]="editForm.get('limitRatio')?.value"
+        ></bm-amount-input>
+      </div>
+
+      <div class="form-group col-md-2" [ngClass]="{ 'col-md-3': isUpdate() }">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsRecipient.serviceId" for="field_serviceId">Service Id</label>
+        <input nz-input nzSize="large" formControlName="serviceId" id="field_serviceId" input-validator />
+      </div>
+
+      <div class="form-group col-md-3" *ngIf="!isUpdate()">
+        <label jhiTranslate="billMasterGwApp.pkbillmsRecipient.phoneNumber" for="field_phoneNumber">PhoneNumber</label>
+        <input
+          nz-input
+          nzSize="large"
+          id="field_phoneNumber"
+          formControlName="phoneNumber"
+          placeholder="+998 XX XXX XX XX"
+          mask="+000 00 000 00 00"
+          autocomplete="off"
+          input-validator
+        />
+      </div>
+    </div>
+
+    <!-- Fees -->
+    <div class="mb-3">
+      <h5 class="mb-3">Вознаграждения</h5>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label jhiTranslate="billMasterGwApp.pkbillmsRecipient.fee" for="field_fee">Fee</label>
+          <input type="number" nz-input nzSize="large" id="field_fee" placeholder="0" formControlName="fee" />
+        </div>
+
+        <div class="form-group col-md-3">
+          <label jhiTranslate="billMasterGwApp.pkbillmsRecipient.systemFee" for="field_systemFee">System Fee</label>
+          <input type="number" nz-input nzSize="large" id="field_systemFee" placeholder="0" formControlName="systemFee" />
+        </div>
+
+        <div class="form-group col-md-4">
+          <label jhiTranslate="billMasterGwApp.pkbillmsRecipient.type" for="field_type">Type</label>
+          <bm-select-input formControlName="type" id="field_type" [data]="types"></bm-select-input>
+        </div>
+      </div>
+    </div>
+
+    <!-- Commissions -->
+    <div>
+      <h5 class="mb-3">Комиссия</h5>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label jhiTranslate="billMasterGwApp.pkbillmsRecipient.commission" for="field_commission">Commission</label>
+          <input type="number" nz-input nzSize="large" id="field_commission" placeholder="0" formControlName="commission" />
+        </div>
+
+        <div class="form-group col-md-3">
+          <label jhiTranslate="billMasterGwApp.pkbillmsRecipient.systemCommission" for="field_systemCommission">System Commission</label>
+          <input type="number" nz-input nzSize="large" id="field_systemCommission" placeholder="0" formControlName="systemCommission" />
+        </div>
+
+        <div class="form-group col-md-3">
+          <label jhiTranslate="billMasterGwApp.pkbillmsRecipient.senderCommission" for="field_senderCommission">Sender Commission</label>
+          <input type="number" nz-input nzSize="large" id="field_senderCommission" placeholder="0" formControlName="senderCommission" />
+        </div>
+      </div>
+    </div>
+
+    <!--    <div class="form-row">-->
+    <!--      <div class="form-group col-md-10">-->
+    <!--        <label jhiTranslate="global.menu.entities.pkbillmsField">Fields</label>-->
+    <!--        <nz-select-->
+    <!--          nzMode="multiple"-->
+    <!--          (nzOnSearch)="onFieldSearch($event)"-->
+    <!--          [nzLoading]="fieldIsLoading"-->
+    <!--          nzSize="large"-->
+    <!--          nzAllowClear-->
+    <!--          [nzShowArrow]="true"-->
+    <!--          nzShowSearch-->
+    <!--          [compareWith]="compareFields"-->
+    <!--          formControlName="fields"-->
+    <!--          input-validator-->
+    <!--        >-->
+    <!--          <nz-option *ngFor="let field of fields" [nzValue]="field" [nzLabel]="field.name">{{ field.name }}</nz-option>-->
+    <!--        </nz-select>-->
+    <!--      </div>-->
+    <!--      <button-->
+    <!--        class="col-md-2"-->
+    <!--        style="margin-top: 24px"-->
+    <!--        type="button"-->
+    <!--        nz-button-->
+    <!--        nzSize="large"-->
+    <!--        nzType="primary"-->
+    <!--        jhiTranslate="entity.action.add"-->
+    <!--        *jhiHasAnyAuthority="[authority.FIELD_WRITE]"-->
+    <!--        (click)="openFieldUpdateModal({})"-->
+    <!--      >-->
+    <!--        Add-->
+    <!--      </button>-->
+    <!--    </div>-->
+
+    <!-- I18ns -->
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsRecipient.title">Titles</label>
+        <bm-i18n-input formControlName="titles" [duplicate]="duplicate" input-validator></bm-i18n-input>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsRecipient.fullName">Full Names</label>
+        <bm-i18n-input formControlName="fullNames" [duplicate]="duplicate" input-validator></bm-i18n-input>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <nz-switch
+      *ngFor="let action of actions"
+      class="mr-2 mb-2"
+      nzCheckedChildren="{{ action.label }}"
+      nzUnCheckedChildren="{{ action.label }}"
+      formControlName="{{ action.field }}"
+    >
+    </nz-switch>
+
+    <json-editor [options]="editorOptions" formControlName="jsonParams" style="min-height: 300px"></json-editor>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" nz-button nzSize="large" jhiTranslate="entity.action.cancel" (click)="closeModal()">Cancel</button>
+
+    <button type="submit" nz-button nzSize="large" nzType="primary" [nzLoading]="loading" [input-validator-button]="editForm">
+      {{ 'entity.action.save' | translate }}
+    </button>
+  </div>
+</form>

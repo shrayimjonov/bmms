@@ -1,0 +1,25 @@
+{
+  "payment": {
+    "recipientsToggle": {
+      "true": "Hide",
+      "false": "More",
+      "undefined": "More"
+    },
+    "amountRange": "from {{min}} to {{max}}",
+    "payTo": "Pay to {{categoryName}}",
+    "payAmount": "Pay amount",
+    "amountWithSuffix": "{{amount}} sum",
+    "amountSuffix": "sum",
+    "payByCard": "Pay by card",
+    "payByDeposit": "Pay by deposit",
+    "pan": "Card number",
+    "exp": "mm/yy",
+    "paySuccessMsg": "Payment was successful",
+    "backToMain": "Back to main",
+    "cheque": "Cheque",
+    "paymentDetail": "Payment details",
+    "code": "Code confirmation",
+    "code.placeholder": "Enter SMS-code",
+    "redirectToRecipientUrl": "Redirect to recipient site"
+  }
+}

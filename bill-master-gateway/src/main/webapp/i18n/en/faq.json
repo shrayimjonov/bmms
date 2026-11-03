@@ -1,0 +1,37 @@
+{
+  "billMasterGwApp": {
+    "faq": {
+      "home": {
+        "title": "FAQs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new FAQ",
+        "createOrEditLabel": "Create or edit a FAQ",
+        "notFound": "No Faqs found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Faq {{ id }}?"
+      },
+      "detail": {
+        "title": "Faq"
+      },
+      "id": "ID",
+      "active": "Active",
+      "video": "Video url",
+      "category": "Category",
+      "question": "Question",
+      "answer": "Answer",
+      "help": {
+        "active": "Активный"
+      }
+    }
+  },
+  "faqMsApp": {
+    "faq": {
+      "created": "A new Faq is created with identifier {{ param }}",
+      "updated": "A Faq is updated with identifier {{ param }}",
+      "deleted": "A Faq is deleted with identifier {{ param }}",
+      "notFound": "No questions found in this category",
+      "noVideo": "No video available yet"
+    }
+  }
+}

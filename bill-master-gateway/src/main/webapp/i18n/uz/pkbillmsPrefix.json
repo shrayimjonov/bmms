@@ -1,0 +1,34 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsPrefix": {
+      "home": {
+        "title": "Prefixes",
+        "createLabel": "Yangi Maydon prefiksini qo`shish",
+        "createOrEditLabel": "Maydon prefiksini tahrirlash",
+        "notFound": "Xech qanday Maydon prefikslari topilmadi"
+      },
+      "delete": {
+        "question": "{{ id }}- Maydon prefiksini o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "Prefix"
+      },
+      "type": "Turi",
+      "value": "Qiymati",
+      "output": "Output",
+      "requireField": "Talab qilinadigan maydon",
+      "field": "Field",
+      "help": {
+        "output": "Need to prepend to field value",
+        "requireField": "Filter prefix value by selected parent field"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsPrefix": {
+      "created": "Maydon prefiksi {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- Maydon prefiksi saqlandi",
+      "deleted": "{{ param }}- Maydon prefiksi o`chirildi"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsCashBack": {
+      "id": "ID",
+      "bankCommission": "Bank komissiyasi",
+      "clientCommission": "Klient komissiyasi",
+      "name": "Nomi",
+      "type": "Turi",
+      "status": "Holati",
+      "deleted": "Kesh bek muvaffaqiyatli ochirildi"
+    }
+  }
+}

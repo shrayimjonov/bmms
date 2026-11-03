@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="added_currency_code_ccy-group_unique_constraint" author="saahon">
+
+        <addUniqueConstraint
+            columnNames="code, ccy, ccy_group"
+            constraintName="code_ccy_ccy_group_unique"
+            tableName="currency"
+        />
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,10 @@
+{
+  "billMasterGwApp": {
+    "BookkeepingPayType": {
+      "null": "",
+      "CONTRACT": "CONTRACT",
+      "ACT": "ACT",
+      "GATEWAY": "GATEWAY"
+    }
+  }
+}

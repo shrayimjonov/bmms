@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added the constraints for entity Field.
+    -->
+    <changeSet id="20180719230924-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="recipient_id"
+                                 baseTableName="field"
+                                 constraintName="fk_field_recipient_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="recipient"/>
+
+        <addForeignKeyConstraint baseColumnNames="fields_id"
+                                 baseTableName="field_title"
+                                 constraintName="fk_field_title_fields_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="field"/>
+        <addForeignKeyConstraint baseColumnNames="titles_id"
+                                 baseTableName="field_title"
+                                 constraintName="fk_field_title_titles_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="i_18_n"/>
+        
+        <addForeignKeyConstraint baseColumnNames="fields_id"
+                                 baseTableName="field_description"
+                                 constraintName="fk_field_description_fields_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="field"/>
+        <addForeignKeyConstraint baseColumnNames="descriptions_id"
+                                 baseTableName="field_description"
+                                 constraintName="fk_field_description_descriptions_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="i_18_n"/>
+        
+    </changeSet>
+</databaseChangeLog>

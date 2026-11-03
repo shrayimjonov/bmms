@@ -1,0 +1,67 @@
+{
+    "name": "FieldValue",
+    "fields": [
+        {
+            "fieldName": "value",
+            "javadoc": "Param value to send to server",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "amount",
+            "javadoc": "Price of selected value",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "filterBy",
+            "javadoc": "Filter the values (field.type=select) by parent field",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 16
+        },
+        {
+            "fieldName": "ord",
+            "javadoc": "Display order",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "field",
+            "otherEntityName": "field",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipValidateRules": "required",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "title",
+            "otherEntityName": "i18n",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "description",
+            "otherEntityName": "i18n",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20180719230925",
+    "entityTableName": "field_value",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "bmms",
+    "applications": "*",
+    "microserviceName": "pkbillms",
+    "databaseType": "sql",
+    "enableEntityAudit": true
+}

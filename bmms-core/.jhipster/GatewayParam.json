@@ -1,0 +1,141 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "bmms",
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "recipient",
+            "otherEntityName": "recipient",
+            "otherEntityField": "shortName"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "url",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 512
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "RequestType",
+            "fieldValues": "CHECK,PAY,STATUS,CANCEL,DEPOSIT,RECONCILE"
+        },
+        {
+            "fieldName": "username",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 32
+        },
+        {
+            "fieldName": "password",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "token",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 128
+        },
+        {
+            "fieldName": "body",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 2048
+        },
+        {
+            "fieldName": "statusQuery",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 256
+        },
+        {
+            "fieldName": "messageQuery",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 256
+        },
+        {
+            "fieldName": "successCode",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 32
+        },
+        {
+            "fieldName": "callback",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 512
+        },
+        {
+            "fieldName": "timeout",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "headers",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 1024
+        },
+        {
+            "fieldName": "dataQueries",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 1024
+        },
+        {
+            "fieldName": "httpMethodType",
+            "fieldType": "MethodType",
+            "fieldValues": "GET,POST,PUT,PATCH,DELETE"
+        },
+        {
+            "fieldName": "protocol",
+            "fieldType": "ProtocolType",
+            "fieldValues": "REST,WS,HESSIAN"
+        },
+        {
+            "fieldName": "requestMediaType",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "responseMediaType",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "active",
+            "fieldType": "Boolean",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "mode",
+            "fieldType": "ModeType",
+            "fieldValues": "TEST,DEV,PROD"
+        },
+        {
+            "fieldName": "extIdQuery",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "successOn2xx",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20180719230927",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceClass",
+    "entityTableName": "gateway_param",
+    "jpaMetamodelFiltering": true,
+    "pagination": "pagination",
+    "microserviceName": "pkbillms",
+    "enableEntityAudit": true,
+    "databaseType": "sql",
+    "name": "GatewayParam"
+}

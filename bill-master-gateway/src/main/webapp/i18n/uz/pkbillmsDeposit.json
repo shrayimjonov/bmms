@@ -1,0 +1,57 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsDeposit": {
+      "home": {
+        "title": "Depozitlar",
+        "createLabel": "Yangi Deposit qo`shish",
+        "createOrEditLabel": "Depositni tahrirlash",
+        "notFound": "Depoзitlar topilmadi"
+      },
+      "delete": {
+        "question": "{{ id }}- Depositni o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "Depoзit"
+      },
+      "overdraftLimit": "Overdraft limiti",
+      "balance": "Balans",
+      "balanceCcy": "Balans Ccy",
+      "bookedBalance": "Bandlangan balans",
+      "limitInform": "Ma'lumotni cheklash",
+      "limitDisable": "Cheklashni o'chirish",
+      "contactGroup": "Aloqa guruhi",
+      "blocked": "Bloklangan",
+      "unlimit": "Cheksiz",
+      "gateway": "O'tkazgich",
+      "agent": "Agent",
+      "virtualAccount": "Virtual Account",
+      "replenishDeposit": "Depozitni to'ldirish",
+      "onSuccessReplenish": "Depozit muvaffaqiyatli to'ldirildi!",
+      "onFailedReplenish": "Depozitni to'ldirishda xatolik yuz berdi!",
+      "doc": "Hujjat",
+      "state": "Status",
+      "agentName": "Agent Nomi: ",
+      "balanceAmount": "Summa balansi",
+      "recipientTaxnr": "Oluvchi Taxnr",
+      "payerTaxnr": "To'lovchi Taxnr",
+      "help": {
+        "overdraftLimit": "Размер овердрафта",
+        "balance": "Сумма доступного баланса",
+        "balanceCcy": "Валюта баланса",
+        "bookedBalance": "Зарезервированный баланса",
+        "limitInform": "Порог уведомления при достижении лимита",
+        "limitDisable": "Порог остановки оплат",
+        "contactGroup": "Группа контактов для уведомления",
+        "blocked": "Заблокирован",
+        "unlimit": "Без ограничения"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsDeposit": {
+      "created": "Deposit {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- Deposit saqlandi",
+      "deleted": "{{ param }}- Deposit o`chirildi"
+    }
+  }
+}

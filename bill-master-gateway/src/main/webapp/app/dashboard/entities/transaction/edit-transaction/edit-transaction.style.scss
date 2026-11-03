@@ -1,0 +1,13 @@
+:host ::ng-deep nz-list-header {
+  text-align: center;
+  font-weight: bold;
+  background-color: #fafafa;
+}
+
+:host ::ng-deep nz-list-item:nth-child(even) {
+  background-color: #fafafa;
+}
+
+:host ::ng-deep .ant-collapse-header {
+  font-weight: bold;
+}

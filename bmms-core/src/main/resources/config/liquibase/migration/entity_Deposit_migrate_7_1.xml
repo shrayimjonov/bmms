@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Entity Deposit migrate to 7.1 jhipster
+    -->
+    <changeSet id="entity_Deposit_migrate-1" author="zafar">
+        <!--
+            Drop column recipient_id
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="deposit"
+                          columnName="recipient_id"/>
+        </preConditions>
+
+        <comment>Drop column recipient_id</comment>
+
+        <dropColumn tableName="deposit" columnName="recipient_id"/>
+    </changeSet>
+
+    <changeSet id="entity_Deposit_migrate-2" author="zafar">
+        <!--
+          Add column gateway_id
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="deposit"
+                              columnName="gateway_id"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column gateway_id</comment>
+
+        <addColumn tableName="deposit">
+            <column name="gateway_id" type="bigint">
+                <constraints unique="true" nullable="true" />
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_Deposit_migrate-3" author="zafar">
+        <!--
+          Add column blocked
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="deposit"
+                              columnName="blocked"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column blocked</comment>
+
+        <addColumn tableName="deposit">
+            <column name="blocked" type="boolean" defaultValueBoolean="false" remarks="Заблокирован">
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_Deposit_migrate-4" author="zafar">
+        <!--
+          Add column unlimit
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="deposit"
+                              columnName="unlimit"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column unlimit</comment>
+
+        <addColumn tableName="deposit">
+            <column name="unlimit" type="boolean" defaultValueBoolean="false" remarks="Не ограничивать">
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+
+
+    </changeSet>
+
+    <changeSet id="entity_Deposit_migrate-9" author="zafar">
+        <!--
+          Drop column created_by
+        -->
+        <preConditions onFail="MARK_RAN">
+                <columnExists tableName="deposit"
+                              columnName="created_by"/>
+        </preConditions>
+
+        <comment>Drop column created_by</comment>
+
+        <dropColumn tableName="deposit" columnName="created_by" />
+
+
+    </changeSet>
+
+    <changeSet id="entity_Deposit_migrate-10" author="zafar">
+        <!--
+          Drop column created_date
+        -->
+        <preConditions onFail="MARK_RAN">
+                <columnExists tableName="deposit"
+                              columnName="created_date"/>
+        </preConditions>
+
+        <comment>Drop column created_date</comment>
+
+        <dropColumn tableName="deposit" columnName="created_date" />
+
+    </changeSet>
+
+
+    <changeSet id="entity_Deposit_migrate-11" author="zafar">
+        <!--
+          Drop column last_modified_by
+        -->
+        <preConditions onFail="MARK_RAN">
+                <columnExists tableName="deposit"
+                              columnName="last_modified_by"/>
+        </preConditions>
+
+        <comment>Drop column last_modified_by</comment>
+
+        <dropColumn tableName="deposit" columnName="last_modified_by" />
+
+    </changeSet>
+
+    <changeSet id="entity_Deposit_migrate-12" author="zafar">
+        <!--
+          Drop column last_modified_date
+        -->
+        <preConditions onFail="MARK_RAN">
+                <columnExists tableName="deposit"
+                              columnName="last_modified_date"/>
+        </preConditions>
+
+        <comment>Drop column last_modified_date</comment>
+
+        <dropColumn tableName="deposit" columnName="last_modified_date" />
+
+    </changeSet>
+</databaseChangeLog>

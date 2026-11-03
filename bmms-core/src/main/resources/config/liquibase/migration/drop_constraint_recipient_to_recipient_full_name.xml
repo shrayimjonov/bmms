@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Drop foreign constraint recipient to recipient_title
+    -->
+    <changeSet id="drop_constraint_recipient_to_recipient_full_name" author="zafar" >
+        <preConditions onFail="MARK_RAN">
+            <foreignKeyConstraintExists foreignKeyName="fk_recipient_full_name_recipients_id"/>
+        </preConditions>
+
+        <comment>Drop foreign constraint recipient to recipient full name</comment>
+
+        <dropForeignKeyConstraint baseTableName="rel_recipient__full_name"
+                                  constraintName = "fk_recipient_full_name_recipients_id"/>
+
+    </changeSet>
+</databaseChangeLog>

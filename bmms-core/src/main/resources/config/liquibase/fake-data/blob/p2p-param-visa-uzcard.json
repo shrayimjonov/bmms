@@ -1,0 +1,14 @@
+{
+    "sender": {
+        "accCl": "23504000900000491408",
+        "accCo": "23504000000000981902",
+        "mfo": "00982",
+        "fxDeal": 65,
+        "purpose": "MFO : ${mfo}, \nID транзакции в ЕОПЦ:  ${tranIdOfSOPC}, \nCчет/Карта(SUM): ${extComment},\nСумма(SUM): ${senderAmount},\nФИО отправителя: ${senderFio},\nФИО получателя : ${recipientFio},  \nCчет/Карта: ${senderAccount}, \nкурс валюта: ${ccyRate}, \nID: ${tranId}"
+    },
+    "recipient": {
+        "merchantId": 123,
+        "terminalId": 234,
+        "port": 4444
+    }
+}

@@ -1,0 +1,372 @@
+{
+  "global": {
+    "title": "Bill Master",
+    "browsehappy": "Sizning brauzeringiz <strong>eski</strong>. Iltimos, <a href=\"http://browsehappy.com/?locale=ru\">yangilang</a>.",
+    "uploadFile": "Fayl yuklash",
+    "file": "Fayl",
+    "key": "Nomi",
+    "value": "Qiymati",
+    "request": "So`rov",
+    "response": "Javob",
+    "entity-view": "{{id}} ni ko'rish",
+    "showJson": "JSON ko'rish",
+    "not-show-role": "Siz ko'rish huquqiga ega emassiz",
+    "paymentCheckout": "To'lovni amalga oshirish",
+    "data": {
+      "saved": "Ma`lumotlar muvofaqqiyatli saqlandi",
+      "notSaved": "Ma`lumotlar saqlanmadi",
+      "updated": "Ma`lumotlar muvofaqqiyatli o`zgartirildi",
+      "notUpdated": "Ma`lumotlar o`zgartirilmadi",
+      "notFound": "Ma`lumotlar topilmadi"
+    },
+    "size": {
+      "default": "dastlabki",
+      "small": "kichik",
+      "medium": "o`rta",
+      "large": "katta"
+    },
+    "langKey": {
+      "uz": "O`zbekcha",
+      "ru": "Русский",
+      "en": "English"
+    },
+    "amountRatio": {
+      "null": "null",
+      "1": "1 - so'm",
+      "100": "100 - tiyin"
+    },
+    "action": {
+      "all": "Hammasi",
+      "today": "Bugun",
+      "week": "Hafta",
+      "month": "Oy",
+      "totalItems": "Хаммаси: ",
+      "itemsPerPage": "Саҳифада"
+    },
+    "boolean": {
+      "": "Yo'q",
+      "undefined": "Yo'q",
+      "null": "Yo'q",
+      "false": "Yo'q",
+      "true": "Ha"
+    },
+    "success": {
+      "": "Muvofaqqiyatli emas",
+      "undefined": "Muvofaqqiyatli emas",
+      "null": "Muvofaqqiyatli emas",
+      "false": "Muvofaqqiyatli emas",
+      "true": "Muvofaqqiyatli"
+    },
+    "active": {
+      "": "Faol emas",
+      "undefined": "Faol emas",
+      "null": "Faol emas",
+      "false": "Faol emas",
+      "true": "Faol"
+    },
+    "block": {
+      "true": "Blocked",
+      "false": "Unblocked"
+    },
+    "limit": {
+      "true": "Limited",
+      "false": "Unlimited"
+    },
+    "question": {
+      "delete": "Siz haqiqatan ham ushbu elementni o'chirmoqchimisiz?"
+    },
+    "adapter": {
+      "title": "Adapterlar",
+      "sync": {
+        "success": "Adapterni sinxronlashtirish muvaffaqiyatli o'tdi",
+        "error": "Adapter sinxronlashda xatolik"
+      },
+      "notFound": "Hech qanday adapter topilmadi, qaytadan urinib ko'ring",
+      "historyNotFound": "Tarix topilmadi",
+      "history": "<strong>{{ adapterName }}</strong> uchun tarix"
+    },
+    "menu": {
+      "home": "Bosh sahifa",
+      "language": "Til",
+      "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
+      "entities": {
+        "main": "Ma`lumotlar",
+        "userManagement": "Foydalanuvchilar boshqarmasi",
+        "payment": "To'lov",
+        "pkbillmsTransaction": "Tranzaksiyalar",
+        "pkuaaGroup": "Guruhlar",
+        "pkuaaAuthority": "Rollar",
+        "pkbillmsAgent": "Agentlar",
+        "pkbillmsAgentDeposit": "Depozit",
+        "pkbillmsCategory": "Yetkazib beruvchilar toifalari",
+        "pkbillmsField": "Yetkazib beruvchi maydonlari",
+        "pkbillmsRecipient": "Qabul qiluvchilar",
+        "pkbillmsGateway": "Shlyuzlar",
+        "pkbillmsPrefix": "Maydon prefikslari",
+        "pkbillmsFieldValue": "Maydon qiymatlari",
+        "pkbillmsBill": "Shlyuz tekshiruvlari",
+        "pkbillmsGatewayParam": "Shlyuz parametrlari",
+        "reportmsReport": "Hisobotlar",
+        "pkbillmsSetting": "Yetkazib beruvchi sozlamalari",
+        "pkbillmsP2PCommission": "Komissiya",
+        "pkbillmsP2PCondition": "Shart",
+        "pkbillmsP2PAgentParam": "Agent Param",
+        "pkbillmsP2PParam": "Param",
+        "pkbillmsBookkeepingTransaction": "O'tkazmalar",
+        "pkbillmsResponseField": "Javob maydoni",
+        "p2p": "P2P",
+        "recipient": "Yetkazib beruvchi xizmatlari",
+        "serviceSettings": "Xizmat parametrlari",
+        "pkbillmsReconcileSummary": "To'lovlarni muvofiqlashtirish",
+        "reconcileTerminal": "Terminal bo`yicha solishtiruvlar",
+        "reconcileP2P": "P2P bo`yicha solishtiruvlar",
+        "pkbillmsRecipientGroup": "Qabul qiluvchi guruhlari",
+        "pkbillmsAgentRecipient": "Qabul qiluvchi Agent",
+        "pkbillmsDepositTransaction": "Deposit Transaksiya",
+        "pkbillmsDeposit": "Deposit",
+        "pkbillmsRedoc": "Redok",
+        "pkbillmsBookkeepingTemplate": "Buxgalteriya hisob shabloni",
+        "pkbillmsReconcileDiscrepancy": "Tafouvutlar",
+        "bmmsRecipientFileSchema": "Qabul qiluvchi fayl sxemasi",
+        "jsonForm": "Json Form",
+        "cashBack": "Kesh Bek",
+        "bmmsTransaction": "Tranzaksiya",
+        "bmmsCurrency": "Valyutalar",
+        "pkbillmsPcBin": "Karta Binlari",
+        "faqCategory": "Toifa",
+        "faq": "FAQ",
+        "help": "Yordam",
+        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+      },
+      "account": {
+        "main": "Profil",
+        "mainSettings": "Asosiy sozlamalar",
+        "changePassword": "Parolni o`zgartirish",
+        "otherSettings": "Boshqa sozlamalar",
+        "settings": "Sozlamalar",
+        "password": "Parol",
+        "sessions": "Sessiyalar",
+        "login": "Kirish",
+        "logout": "Chiqish",
+        "register": "Ro`yhatdan o`tish"
+      },
+      "admin": {
+        "main": "Boshqaruv",
+        "gateway": "Shlyuz",
+        "userManagement": "Foydalanuvchilar",
+        "profile": "Profil",
+        "tracker": "Foydalauvchi kuzatuvi",
+        "metrics": "Metrikalar",
+        "health": "Holat",
+        "configuration": "Sozlamalar",
+        "logs": "Loglar",
+        "audits": "Audit",
+        "apidocs": "API",
+        "cashBack": "Kesh Bek",
+        "database": "Ma`lumotlar bazasi",
+        "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
+      },
+      "submenu": {
+        "agent": {
+          "main": "Agent",
+          "agents": "Agentlar",
+          "deposits": "Depozitlar",
+          "depositOperations": "Depozit amaliyotlari"
+        },
+        "gateway": {
+          "main": "Shlyuz",
+          "gateways": "Shlyuzlar",
+          "bills": "Tekshiruvlar",
+          "params": "Parametrlar"
+        },
+        "recipient": {
+          "main": "Qabul qiluvchi",
+          "categories": "Toifalar",
+          "available": "Agent qabul qiluvchilar",
+          "groups": "Guruhlar",
+          "settings": "Sozlamalar",
+          "schemas": "Sxemalar"
+        },
+        "field": {
+          "main": "Maydon",
+          "fields": "Qabul qiluvchi maydonlari",
+          "responseFields": "Javob maydonlari",
+          "values": "Qiymatlar",
+          "prefixes": "Prefikslar"
+        },
+        "bookkeeping": {
+          "main": "O`tkazma",
+          "operations": "O`tkazma amaliyotlari",
+          "templates": "Shablonlar"
+        },
+        "other": {
+          "main": "Boshqa",
+          "adapters": "Adapterlar",
+          "currencies": "Valyutalar",
+          "api": "API"
+        }
+      },
+      "reconcile": {
+        "main": "Solishtiruv",
+        "PAYMENT": "To`lovlar bo`yicha",
+        "TERMINAL": "Terminallar bo`yicha",
+        "P2P": "P2P bo`yicha"
+      }
+    },
+    "form": {
+      "username.label": "Login",
+      "username.placeholder": "Sizning loginingiz",
+      "currentpassword.label": "Parol",
+      "currentpassword.placeholder": "Hozirgi parolingiz",
+      "newpassword.label": "Yangi parol",
+      "newpassword.placeholder": "Yangi parol",
+      "confirmpassword.label": "Yangi parolni tasdig`i",
+      "confirmpassword.placeholder": "Yangi parolni tasdig`i",
+      "email.label": "Email",
+      "email.placeholder": "Sizning email",
+      "file.placeholder": "Faylni tanlang",
+      "search.placeholder": "Qidiruv...",
+      "date.placeholder": "Sanani tanlang"
+    },
+    "messages": {
+      "info": {
+        "authenticated": {
+          "prefix": "Agar ",
+          "link": "avtarizatsiyadan o`tishni",
+          "suffix": " xohlasangiz, mavjud foydalanuvchini tekshirib ko`ring:<br/>- Ma`mur (login=\"admin\" va parol=\"admin\") <br/>- Oddiy foydalanuvchi (login=\"user\" va parol=\"user\")."
+        },
+        "register": {
+          "noaccount": "Siz ro`yhatdan o`tmaganmisiz?",
+          "link": "Yangi foydalanuvchi qo`shing"
+        }
+      },
+      "error": {
+        "dontmatch": "Parol va uning tasdig`i mos kelmadi!"
+      },
+      "validate": {
+        "newpassword": {
+          "required": "Parol kiritilishi zarur.",
+          "minlength": "Parol uzunligi kamida 4 harfdan iborat bo`lsin",
+          "maxlength": "Parol 50 harfdan uzun bo`lmasin",
+          "strength": "Parol murakkabligi:"
+        },
+        "confirmpassword": {
+          "required": "Parol tasdig`i kiritilishi zarur.",
+          "minlength": "Parol tasdig`i uzunligi kamida 4 harfdan iborat bo`lsin",
+          "maxlength": "Parol tasdig`i 50 harfdan uzun bo`lmasin"
+        },
+        "email": {
+          "required": "Email kiritilishi zarur.",
+          "invalid": "Iltimos, to`g`ri Email kiriting.",
+          "minlength": "Email uzunligi kamida 5 harfdan iborat bo`lsin",
+          "maxlength": "Email 50 harfdan uzun bo`lmasin"
+        }
+      }
+    },
+    "field": {
+      "id": "ID",
+      "password": "Parol",
+      "name": "Nomi",
+      "startDate": "Boshlangan vaqti",
+      "endDate": "Tugagan vaqti",
+      "fromDate": "Dan",
+      "toDate": "Gacha",
+      "account": "Hisob raqam",
+      "service": "Servis",
+      "amount": "Summa",
+      "success": "Muvaffaqiyat",
+      "date": "Sana",
+      "status": "Status",
+      "bill": "Chek",
+      "currency": "Valyuta",
+      "type": "Turi"
+    },
+    "ribbon": {
+      "dev": "Yakunlanmadi"
+    },
+    "totalItems": "Hammasi {{totalItems}}",
+    "itemsPerPage": "Bir sahifada",
+    "item-count": "{{total}} tadan {{first}} va {{second}} - lari.",
+    "version": "Versiya: {{version}}"
+  },
+  "entity": {
+    "action": {
+      "addblob": "Binar ma`lumot qo`shish",
+      "addimage": "Rasm qo`shish",
+      "back": "Orqaga",
+      "cancel": "Bekor",
+      "close": "Yopish",
+      "delete": "O`chirish",
+      "edit": "O`zgartirish",
+      "filter": "Filtr",
+      "open": "Ochish",
+      "save": "Saqlash",
+      "view": "Ko`rish",
+      "add": "Qo'shish",
+      "fill": "To'ldirish",
+      "search": "Izlash",
+      "pay": "To'lash",
+      "sync": "Sinxronlash",
+      "history": "Tarix",
+      "uploadFile": "Fayl yuklash",
+      "download": "Yuklab olish",
+      "clear": "Tozalash",
+      "test": "Testlash",
+      "confirm": "Tasdiqlash",
+      "duplicate": "Dublikat"
+    },
+    "detail": {
+      "field": "Maydon",
+      "value": "Qiymat"
+    },
+    "delete": {
+      "title": "O`chirish amalini tasdiqlang"
+    },
+    "validation": {
+      "required": "To`ldirish zarur",
+      "minlength": "Kamida <strong>{{ min }}</strong>ta bo`lsin.",
+      "maxlength": "Ko`pi bilan <strong>{{ max }}</strong>ta bo`lsin.",
+      "min": "Kamida <strong>{{ min }}</strong> bo`lsin.",
+      "max": "Ko`pi bilan <strong>{{ max }}</strong> bo`lsin.",
+      "minbytes": "Kamida <strong>{{ min }}</strong>ta bayt bo`lsin.",
+      "maxbytes": "Ko`pi bilan <strong>{{ max }}</strong>ta bayt bo`lsin.",
+      "pattern": "Zarur format <strong>{{ pattern }}</strong>.",
+      "number": "Son bo`lsin.",
+      "datetimelocal": "Sana bo`lsin.",
+      "notFilled": "Siz kerakli maydonlarni to'ldirmadingiz",
+      "payment.not.possible": "Ushbu karta bilan to'lash mumkin emas"
+    }
+  },
+  "error": {
+    "internalServerError": "Ichki xatolik",
+    "server.not.reachable": "Serverga yetishib bo`lmaydi",
+    "url.not.found": "Topilmadi",
+    "NotNull": "{{fieldName}} bo`sh bo`lmasin!",
+    "Size": "{{fieldName}} o`lchami noto`g`ri!",
+    "userexists": "Foydalanuvchi tizimda mavjud!",
+    "emailexists": "Email allaqachon mavjud!",
+    "idexists": "Yangi {{entityName}} IDsi bo`lmasligi kerak",
+    "idnull": "Noto`g`ri ID",
+    "file": {
+      "could.not.extract": "Could not extract file",
+      "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
+    }
+  },
+  "footer": "Sahifa tag qismi",
+  "download": {
+    "excel": "Excel sifatida export",
+    "onePage": "Bitta sahifa",
+    "all": "Hamma sahifa",
+    "custom": "Qo'lda kiritish",
+    "confirm": {
+      "modal": {
+        "title": "Excel eksport",
+        "message": "Bu jarayon uzoq vaqt talab qilishi va bazaga og'irlik qilishi mumkin. Ushbu jarayonni amalga oshirishni hoxlaysizmi?",
+        "totalItems": "Hammasi"
+      }
+    }
+  },
+  "tooltip": {
+    "message": "Faqat ingliz tilida bo'lishi kerak"
+  }
+}

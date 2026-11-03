@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity GatewayParam.
+    -->
+    <changeSet id="20180719230927-1" author="jhipster">
+        <createTable tableName="gateway_param">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="url" type="varchar(512)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="jhi_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="username" type="varchar(32)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="jhi_password" type="varchar(64)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="token" type="varchar(128)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="jhi_body" type="varchar(2048)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="status_query" type="varchar(256)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="message_query" type="varchar(256)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="success_code" type="varchar(32)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="callback" type="varchar(512)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="timeout" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="headers" type="varchar(1024)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="data_queries" type="varchar(1024)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="http_method_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="protocol" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="request_media_type" type="varchar(64)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="response_media_type" type="varchar(64)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="active" type="boolean">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="jhi_mode" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ext_id_query" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="recipient_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

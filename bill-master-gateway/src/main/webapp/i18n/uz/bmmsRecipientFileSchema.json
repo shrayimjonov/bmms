@@ -1,0 +1,30 @@
+{
+  "billMasterGwApp": {
+    "bmmsRecipientFileSchema": {
+      "home": {
+        "title": "Qabul qiluvchi fayl sxema",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Yangi qabul qiluvchi fayl sxema qo`shish",
+        "createOrEditLabel": "Qabul qiluvchi fayl sxemasini tahrirlash",
+        "notFound": "Xech qanday qabul qiluvchi fayl sxemasi topilmadi"
+      },
+      "delete": {
+        "question": "{{ id }}- Recipient File Schemani o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "Qabul qiluvchi fayl sxema"
+      },
+      "id": "ID",
+      "name": "Nomi",
+      "idList": "Id List",
+      "root": "Root"
+    }
+  },
+  "pkbillmsApp": {
+    "bmmsRecipientFileSchema": {
+      "created": "Qabul qiluvchi fayl sxema {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- Qabul qiluvchi fayl sxema saqlandi",
+      "deleted": "{{ param }}- Qabul qiluvchi fayl sxema o`chirildi"
+    }
+  }
+}

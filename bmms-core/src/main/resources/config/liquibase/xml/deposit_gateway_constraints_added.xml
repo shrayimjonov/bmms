@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added the constraints for entity Deposit.
+    -->
+    <changeSet id="deposit_gateway_constraints_added" author="javlon">
+
+        <dropForeignKeyConstraint baseTableName="deposit"
+                                  constraintName="fk_deposit_recipient_id"
+                                  />
+
+        <dropColumn tableName="deposit" columnName="recipient_id"/>
+
+        <addColumn tableName="deposit">
+            <column name="gateway_id" type="bigint">
+                <constraints unique="true" nullable="true" />
+            </column>
+        </addColumn>
+
+        <addForeignKeyConstraint baseColumnNames="gateway_id"
+                                 baseTableName="deposit"
+                                 constraintName="fk_deposit_gateway_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="gateway"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,123 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h4 class="mb-0" jhiTranslate="global.menu.entities.pkbillmsFieldValue">Field Values</h4>
+
+  <div>
+    <nz-badge [nzCount]="filterRef.querySize">
+      <button nz-button nzSize="large" jhiTranslate="entity.action.filter" (click)="showFilter = !showFilter">Filter</button>
+    </nz-badge>
+
+    <ngl-export-as
+      *ngIf="data?.length"
+      class="ml-2"
+      [data]="data"
+      requestUrl="{{ fieldValueService.resourceUrl }}"
+      [requestOption]="getOption"
+      [exclude]="exclude"
+      translationPrefix="billMasterGwApp.pkbillmsFieldValue"
+      fileName="field_values"
+    >
+    </ngl-export-as>
+
+    <button
+      type="button"
+      nz-button
+      nzSize="large"
+      nzType="primary"
+      jhiTranslate="entity.action.add"
+      class="ml-2"
+      *jhiHasAnyAuthority="[authority.FIELD_VALUE_WRITE]"
+      (click)="fieldValueService.openUpdate()"
+    >
+      Add
+    </button>
+  </div>
+</div>
+
+<ngl-filter-field [hidden]="!showFilter" [fields]="filterFields" (onFilter)="setQuery($event); loadPage()" #filterRef></ngl-filter-field>
+
+<bm-alert></bm-alert>
+
+<ng-container *ngIf="data?.length">
+  <div class="table-responsive">
+    <nz-table [nzLoading]="loading" nzSize="small" nzTemplateMode nzOuterBordered>
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th jhiSortBy="id">
+            <span jhiTranslate="global.field.id">ID</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="field">
+            <span jhiTranslate="billMasterGwApp.pkbillmsFieldValue.field">Field</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="value">
+            <span jhiTranslate="billMasterGwApp.pkbillmsFieldValue.value">Value</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="amount">
+            <span jhiTranslate="billMasterGwApp.pkbillmsFieldValue.amount">Amount</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="filterBy">
+            <span jhiTranslate="billMasterGwApp.pkbillmsFieldValue.filterBy">Filter By</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="ord">
+            <span jhiTranslate="billMasterGwApp.pkbillmsFieldValue.ord">Ord</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let fieldValue of data; trackBy: trackId">
+          <td>
+            <a href="javascript:void(0)" (click)="fieldValueService.openView(fieldValue)">{{ fieldValue.id }}</a>
+          </td>
+          <td>
+            <a href="javascript:void(0)" (click)="fieldService.openView(fieldValue.field)">{{ fieldValue.field?.name }}</a>
+          </td>
+          <td>{{ fieldValue.value }}</td>
+          <td>{{ fieldValue.amount }}</td>
+          <td>{{ fieldValue.filterBy }}</td>
+          <td>{{ fieldValue.ord }}</td>
+          <td width="10" class="text-right">
+            <nz-button-group nzSize="small">
+              <button nz-button (click)="fieldValueService.openHistory(fieldValue.id)" title="{{ 'entity.action.history' | translate }}">
+                <i nz-icon nzType="history" class="icon-btn"></i>
+              </button>
+              <button nz-button (click)="fieldValueService.openView(fieldValue)" title="{{ 'entity.action.view' | translate }}">
+                <i nz-icon nzType="eye" class="icon-btn"></i>
+              </button>
+              <ng-container *jhiHasAnyAuthority="[authority.FIELD_VALUE_WRITE]">
+                <button
+                  nz-button
+                  (click)="fieldValueService.openUpdate(fieldValue, true)"
+                  title="{{ 'entity.action.duplicate' | translate }}"
+                >
+                  <i nz-icon nzType="copy" class="icon-btn"></i>
+                </button>
+                <button nz-button (click)="fieldValueService.openUpdate(fieldValue)" title="{{ 'entity.action.edit' | translate }}">
+                  <i nz-icon nzType="edit" class="icon-btn"></i>
+                </button>
+                <button nz-button (click)="fieldValueService.openDelete(fieldValue.id)" title="{{ 'entity.action.delete' | translate }}">
+                  <i nz-icon nzType="delete" class="icon-btn"></i>
+                </button>
+              </ng-container>
+            </nz-button-group>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+
+  <div class="d-flex justify-content-center mt-3">
+    <nz-pagination
+      [nzPageIndex]="ngbPaginationPage"
+      [nzTotal]="totalItems"
+      [nzPageSize]="itemsPerPage"
+      (nzPageIndexChange)="loadPage($event)"
+    >
+    </nz-pagination>
+  </div>
+</ng-container>

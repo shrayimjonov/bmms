@@ -1,0 +1,211 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h5 class="mb-0" jhiTranslate="global.menu.entities.pkbillmsP2PParam">P2P Param</h5>
+
+  <div>
+    <nz-badge [nzCount]="filterRef.querySize">
+      <button nz-button nzSize="large" jhiTranslate="entity.action.filter" (click)="showFilter = !showFilter">Filter</button>
+    </nz-badge>
+
+    <ngl-export-as
+      class="ml-2"
+      *ngIf="data?.length"
+      [data]="data"
+      requestUrl="{{ p2pParamService.resourceUrl }}"
+      [requestOption]="getOption"
+      translationPrefix="billMasterGwApp.pkbillmsP2PParam"
+      fileName="p2p_params"
+    >
+    </ngl-export-as>
+
+    <button
+      type="button"
+      nz-button
+      nzSize="large"
+      nzType="primary"
+      class="ml-2"
+      jhiTranslate="entity.action.test"
+      *jhiHasAnyAuthority="[authority.P2P_PARAM_WRITE]"
+      (click)="openTestModal()"
+    >
+      Test
+    </button>
+
+    <button
+      type="button"
+      nz-button
+      nzSize="large"
+      nzType="primary"
+      jhiTranslate="entity.action.add"
+      class="ml-2"
+      *jhiHasAnyAuthority="[authority.P2P_PARAM_WRITE]"
+      (click)="p2pParamService.openUpdate()"
+    >
+      Add
+    </button>
+  </div>
+</div>
+
+<ngl-filter-field [hidden]="!showFilter" [fields]="filterFields" (onFilter)="setQuery($event); loadPage()" #filterRef></ngl-filter-field>
+
+<bm-alert></bm-alert>
+
+<ng-container *ngIf="data?.length">
+  <div class="table-responsive" #scrollableRef>
+    <nz-table [nzLoading]="loading" nzSize="small" nzTemplateMode nzOuterBordered>
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th jhiSortBy="id">
+            <span jhiTranslate="global.field.id">ID</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="name">
+            <span jhiTranslate="billMasterGwApp.pkbillmsGateway.name">Name</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="priority">
+            <span jhiTranslate="billMasterGwApp.pkbillmsP2PParam.priority">Priority</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="promo">
+            <span jhiTranslate="billMasterGwApp.pkbillmsP2PParam.promo">Promo</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="active">
+            <span jhiTranslate="billMasterGwApp.pkbillmsP2PParam.active">Active</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="senderPc">
+            <span jhiTranslate="billMasterGwApp.pkbillmsP2PParam.senderPc">Sender</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="recipientPc">
+            <span jhiTranslate="billMasterGwApp.pkbillmsP2PParam.recipientPc">Recipient</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="value">
+            <span jhiTranslate="billMasterGwApp.pkbillmsP2PParam.value">value</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="senderCondition">
+            <span jhiTranslate="billMasterGwApp.pkbillmsP2PParam.senderCondition">senderCondition</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="recipientCondition">
+            <span jhiTranslate="billMasterGwApp.pkbillmsP2PParam.recipientCondition">recipientCondition</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="senderPercent">
+            <span jhiTranslate="billMasterGwApp.pkbillmsP2PParam.senderPercent">senderPercent</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="recipientPercent">
+            <span jhiTranslate="billMasterGwApp.pkbillmsP2PParam.recipientPercent">recipientPercent</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p2pParam of data; trackBy: trackId">
+          <td>
+            <a href="javascript:void(0)" (click)="p2pParamService.openView(p2pParam)">{{ p2pParam.id }}</a>
+          </td>
+          <td>{{ p2pParam.name }}</td>
+          <td>{{ p2pParam.priority }}</td>
+          <td>{{ p2pParam.promo }}</td>
+          <td>
+            <span [bm-boolean-badge]="p2pParam.active" bmType="active">{{ p2pParam.active }}</span>
+          </td>
+          <td>{{ p2pParam.senderPc }}</td>
+          <td>{{ p2pParam.recipientPc }}</td>
+          <td>
+            <span style="width: 15rem">
+              <a href="javascript:void(0)" jhiTranslate="global.showJson" (click)="p2pParamService.openJsonViewer(p2pParam.value)">{{
+                p2pParam.value
+              }}</a>
+            </span>
+          </td>
+          <td>
+            <div *ngIf="p2pParam.senderCondition">
+              <a href="javascript:void(0)" (click)="p2pConditionService.openView(p2pParam.senderCondition)">{{
+                p2pParam.senderCondition?.value
+              }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="p2pParam.recipientCondition">
+              <a
+                href="javascript:void(0)"
+                (click)="p2pConditionService.openView(p2pParam.recipientCondition)"
+                [nz-tooltip]="p2pParam.recipientCondition.value"
+                >{{ p2pParam.recipientCondition?.value | bmEllipsis: 16 }}</a
+              >
+            </div>
+          </td>
+          <td>
+            <div *ngIf="p2pParam.senderPercent">
+              <a href="javascript:void(0)" (click)="p2pCommissionService.openView(p2pParam.senderPercent)">{{
+                p2pParam.senderPercent?.name
+              }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="p2pParam.recipientPercent">
+              <a href="javascript:void(0)" (click)="p2pCommissionService.openView(p2pParam.recipientPercent)">{{
+                p2pParam.recipientPercent?.name
+              }}</a>
+            </div>
+          </td>
+          <td width="10" class="text-right">
+            <nz-button-group nzSize="small">
+              <button nz-button (click)="p2pParamService.openHistory(p2pParam.id)" nz-tooltip="{{ 'entity.action.history' | translate }}">
+                <i nz-icon nzType="history" class="icon-btn"></i>
+              </button>
+              <button
+                type="submit"
+                (click)="p2pParamService.openView(p2pParam)"
+                nzType="default"
+                nz-button
+                nz-tooltip="{{ 'entity.action.view' | translate }}"
+              >
+                <i nz-icon nzType="eye" class="icon-btn"></i>
+              </button>
+              <ng-container *jhiHasAnyAuthority="[authority.P2P_PARAM_WRITE]">
+                <button nz-button (click)="p2pParamService.openUpdate(p2pParam, true)" title="{{ 'entity.action.duplicate' | translate }}">
+                  <i nz-icon nzType="copy" class="icon-btn"></i>
+                </button>
+                <button
+                  type="submit"
+                  nz-button
+                  (click)="p2pParamService.openUpdate(p2pParam)"
+                  nz-tooltip="{{ 'entity.action.edit' | translate }}"
+                >
+                  <i nz-icon nzType="edit" class="icon-btn"></i>
+                </button>
+                <button
+                  type="submit"
+                  nz-button
+                  (click)="p2pParamService.openDelete(p2pParam.id)"
+                  nz-tooltip="{{ 'entity.action.delete' | translate }}"
+                >
+                  <i nz-icon nzType="delete" class="icon-btn"></i>
+                </button>
+              </ng-container>
+            </nz-button-group>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+  <ngl-sticky-scroll-x [scrollableElementRef]="scrollableRef"></ngl-sticky-scroll-x>
+
+  <div class="d-flex justify-content-center">
+    <nz-pagination
+      [nzPageIndex]="ngbPaginationPage"
+      [nzTotal]="totalItems"
+      [nzPageSize]="itemsPerPage"
+      (nzPageIndexChange)="loadPage($event)"
+    >
+    </nz-pagination>
+  </div>
+</ng-container>

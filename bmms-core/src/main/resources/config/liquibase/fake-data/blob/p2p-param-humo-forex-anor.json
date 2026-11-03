@@ -1,0 +1,19 @@
+{
+    "sender": {
+        "merchantId": 123,
+        "terminalId": 234,
+        "port": 4444
+
+    },
+    "recipient": {
+        "bankAccount": "17403000600000491316",
+
+        "con": "4",
+        "paymentType": "HUMO",
+        "indicator": "CONVERSE",
+        "rollbackIs": "0",
+        "isMasked": "Y",
+        "tranType": "106",
+        "tax": ""
+    }
+}

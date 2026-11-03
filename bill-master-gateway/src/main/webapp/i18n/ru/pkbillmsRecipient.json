@@ -1,0 +1,85 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsRecipient": {
+      "home": {
+        "title": "Получатели",
+        "createLabel": "Создать новый Поставщик",
+        "createOrEditLabel": "Создать или отредактировать Поставщик",
+        "notFound": "Поставщики не найдены"
+      },
+      "delete": {
+        "question": "Вы уверены что хотите удалить Поставщик {{ id }}?"
+      },
+      "detail": {
+        "title": "Получатели"
+      },
+      "shortNameChangeNote": "Изменение этого поля может повлиять на отчетность",
+      "shortName": "Краткое название",
+      "serviceId": "Ид услуги",
+      "thumbnail": "Эскиз",
+      "logo": "Логотип",
+      "login": "Вход в систему",
+      "amountRatio": "Соотношение сумм",
+      "ccy": "Ccy",
+      "minAmount": "Мин. сумма",
+      "maxAmount": "Макс. сумма",
+      "limitRatio": "Предельное соотношение",
+      "commission": "Комиссия",
+      "fee": "Зарплата",
+      "systemCommission": "Системная комиссия",
+      "systemFee": "Системная зарплата",
+      "senderCommission": "Комиссия отправителя",
+      "ord": "Порядок",
+      "active": "Активность",
+      "check": "Проверьте",
+      "pay": "Оплатить",
+      "status": "Статус",
+      "cancel": "Отмена",
+      "canDeposit": "Депозит",
+      "eposPort": "Epos порт",
+      "eposMerchant": "Epos Партнер",
+      "eposTerminal": "Epos Терминал",
+      "settlementAccount": "Расчетный счет",
+      "type": "Тип",
+      "mfo": "Mfo",
+      "inn": "Inn",
+      "reconcile": "Согласовать",
+      "gateway": "Шлюз",
+      "category": "Категория",
+      "title": "Заголовок",
+      "fullName": "Полное имя",
+      "phoneNumber": "Номер телефона",
+      "help": {
+        "shortName": "Уникальное название в шлюзе",
+        "serviceId": "Service id, for inner business logic",
+        "thumbnail": "Thumbnail file path or url",
+        "logo": "Logo file path or url",
+        "login": "Login",
+        "amountRatio": "Использумая разрядность суммы в шлюзе получателя, 1 - сум, 100 - тийин",
+        "ccy": "Валюта получателя",
+        "minAmount": "Минимальная сумма платежа, разрядность зависит от Поставщик.limitRatio",
+        "maxAmount": "Максимальная сумма платежа, разрядность зависит от Поставщик.limitRatio",
+        "limitRatio": "Разрядность макс. и мин. суммы платежа",
+        "commission": "Комиссия получателя",
+        "fee": "Вознаграждение получателя",
+        "systemCommission": "Комиссия системы от получателя",
+        "systemFee": "Вознаграждение системы от получателя",
+        "senderCommission": "Вознаграждение поставшику (если участвует как отправитель средств)",
+        "ord": "Display order",
+        "eposPort": "Параметр Port для соединения с SvGate",
+        "eposMerchant": "Параметр Merchant Id для соединения с SvGate",
+        "eposTerminal": "Параметр Terminal Id для соединения с SvGate",
+        "settlementAccount": "Расчетный счет поставщика",
+        "mfo": "МФО счет поставщика",
+        "inn": "Инн счет поставщика"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsRecipient": {
+      "created": "Новый Поставщик создан с идентификатором {{ param }}",
+      "updated": "Поставщик обновлен с идентификатором {{ param }}",
+      "deleted": "Поставщик удален с идентификатором {{ param }}"
+    }
+  }
+}

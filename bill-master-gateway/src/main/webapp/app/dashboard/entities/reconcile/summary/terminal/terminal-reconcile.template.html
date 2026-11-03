@@ -1,0 +1,133 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h5 class="mb-0" jhiTranslate="global.menu.reconcile.TERMINAL">Reconcile by Terminal</h5>
+
+  <div>
+    <nz-badge [nzCount]="filterRef.querySize">
+      <button nz-button nzSize="large" jhiTranslate="entity.action.filter" (click)="showFilter = !showFilter">Filter</button>
+    </nz-badge>
+
+    <ngl-export-as
+      *ngIf="data?.length"
+      class="ml-2"
+      [data]="data"
+      requestUrl="{{ reconcileSummaryService.resourceUrl }}"
+      [requestOption]="getOption"
+      translationPrefix="billMasterGwApp.pkbillmsReconcileSummary"
+      fileName="reconcile_summaries">
+    </ngl-export-as>
+  </div>
+</div>
+
+<ngl-filter-field [hidden]="!showFilter" [fields]="filterFields" (onFilter)="setQuery($event); loadPage()" #filterRef></ngl-filter-field>
+
+<bm-alert></bm-alert>
+
+<div class="table-responsive" *ngIf="data?.length">
+  <nz-table [nzLoading]="loading" nzSize="small" nzTemplateMode nzOuterBordered>
+    <thead>
+      <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+        <th jhiSortBy="id">
+          <span jhiTranslate="global.field.id">ID</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <th jhiSortBy="date">
+          <span jhiTranslate="billMasterGwApp.pkbillmsReconcileSummary.date">Date</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <th jhiSortBy="gatewayName">
+          <span jhiTranslate="billMasterGwApp.pkbillmsReconcileSummary.terminalId">Terminal ID</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <th jhiSortBy="gatewayCount">
+          <span jhiTranslate="billMasterGwApp.pkbillmsReconcileSummary.gatewayCount">Gateway Count</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <th jhiSortBy="diffCount">
+          <span jhiTranslate="billMasterGwApp.pkbillmsReconcileSummary.diffCount">Diff Count</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <th jhiSortBy="gatewayAmount">
+          <span jhiTranslate="billMasterGwApp.pkbillmsReconcileSummary.gatewayAmount">Gateway Amount</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <th jhiSortBy="diffAmount">
+          <span jhiTranslate="billMasterGwApp.pkbillmsReconcileSummary.diffAmount">Diff Amount</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <th jhiSortBy="status">
+          <span jhiTranslate="billMasterGwApp.pkbillmsReconcileSummary.status">Status</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <th jhiSortBy="createdDate">
+          <span jhiTranslate="billMasterGwApp.pkbillmsReconcileSummary.createdDate">Created Date</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <th width="10"></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reconcileSummary of data; trackBy: trackId">
+        <td>
+          <a href="javascript:void(0)" (click)="reconcileSummaryService.openView(reconcileSummary)">{{ reconcileSummary.id }}</a>
+        </td>
+        <td>{{ reconcileSummary.date | bmDate: 'dd.MM.yyyy' }}</td>
+        <td>{{ reconcileSummary.gatewayName }}</td>
+        <td>{{ reconcileSummary.gatewayCount }}</td>
+        <td>{{ reconcileSummary.systemCount - reconcileSummary.gatewayCount }}</td>
+        <td>{{ reconcileSummary.gatewayAmount | bmAmount }}</td>
+        <td>{{ reconcileSummary.systemAmount - reconcileSummary.gatewayAmount | bmAmount }}</td>
+        <td>
+          <span class="badge reconcile-status {{ reconcileSummary.status }}">{{ reconcileSummary.status }}</span>
+        </td>
+        <td>{{ reconcileSummary.createdDate | bmDate }}</td>
+        <td>
+          <button
+            nz-button
+            nzSize="small"
+            class="btn-danger"
+            routerLink="../discrepancy"
+            [queryParams]="{ reconcileSummaryId: reconcileSummary.id }"
+            *ngIf="!reconcileSummary.success"
+          >
+            <i nz-icon nzType="eye"></i>
+            <span class="v-align-middle" [style.margin-left.px]="-3" jhiTranslate="billMasterGwApp.pkbillmsReconcileSummary.success.false"
+              >Discrepancies</span
+            >
+          </button>
+          <span class="badge badge-success" *ngIf="reconcileSummary.success">
+            {{ 'billMasterGwApp.pkbillmsReconcileSummary.success.true' | translate }}
+          </span>
+        </td>
+        <td width="10" class="text-right">
+          <nz-button-group nzSize="small">
+            <button
+              nz-button
+              (click)="reconcileSummaryService.openHistory(reconcileSummary.id)"
+              title="{{ 'entity.action.history' | translate }}"
+            >
+              <i nz-icon nzType="history" class="icon-btn"></i>
+            </button>
+            <button nz-button (click)="reconcileSummaryService.openView(reconcileSummary)" title="{{ 'entity.action.view' | translate }}">
+              <i nz-icon nzType="eye" class="icon-btn"></i>
+            </button>
+            <ng-container *jhiHasAnyAuthority="[authority.ADMIN]">
+              <button nz-button nzType="primary" nzSize="small" (click)="reconcile(reconcileSummary.gatewayName)" [disabled]="loading">
+                {{ 'billMasterGwApp.pkbillmsReconcileSummary.runReconcile' | translate }}
+              </button>
+            </ng-container>
+          </nz-button-group>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>
+
+<div class="d-flex justify-content-center mt-3">
+  <nz-pagination
+    [nzPageIndex]="ngbPaginationPage"
+    [nzTotal]="totalItems"
+    [nzPageSize]="itemsPerPage"
+    (nzPageIndexChange)="loadPage($event)">
+  </nz-pagination>
+</div>

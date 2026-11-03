@@ -1,0 +1,505 @@
+@import 'bootstrap-variables';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+
+nz-layout {
+  nz-sider,
+  nz-layout {
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+  nz-sider::-webkit-scrollbar {
+    display: none !important;
+  }
+}
+
+.search-input {
+  border-color: #0b527e;
+  background-color: transparent;
+  color: white;
+  border-left: none;
+  border-right: none;
+}
+
+.form-row-mb {
+  margin-bottom: 10px;
+}
+
+.row-mb {
+  margin-bottom: 30px;
+}
+
+.bill-info-modal {
+  max-width: 65%;
+}
+
+.fade-in {
+  animation: fadein 0.2s;
+  -moz-animation: fadein 0.2s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.w-400px {
+  max-width: 400px;
+}
+
+.label-required::before {
+  display: inline-block;
+  margin-right: 4px;
+  color: #ff4d4f;
+  font-family: SimSun, sans-serif;
+  content: '*';
+}
+
+.nz-th-bg {
+  background-color: #fafafa;
+}
+
+th fa-icon[icon='sort'] {
+  float: right;
+}
+
+.card-box-shadow {
+  //box-shadow: 0 1px 4px 0 rgb(0 0 0 / 10%);  // old
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.05);
+}
+
+.text-gray {
+  color: #999;
+}
+
+.text-underline {
+  text-decoration: underline !important;
+}
+
+a[disabled] {
+  color: #6c757d;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.badge {
+  font-size: 80%;
+  padding: 0.35em 0.5em;
+}
+
+.icon-btn.anticon + span,
+span + .anticon {
+  margin: 0 !important;
+}
+
+.table thead th {
+  vertical-align: middle;
+}
+
+.bill-master-logo {
+  content: url('../images/bill-master-logo.png');
+}
+
+.fs-20 {
+  font-size: 20px;
+}
+
+.fs-19 {
+  font-size: 19px;
+}
+
+.fs-18 {
+  font-size: 18px;
+}
+
+.fs-17 {
+  font-size: 17px;
+}
+
+.fs-16 {
+  font-size: 16px;
+}
+
+.fs-15 {
+  font-size: 15px;
+}
+
+.fs-14 {
+  font-size: 14px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  margin: 1rem 0;
+  cursor: default;
+}
+
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+
+  > .col,
+  > [class*='col-'] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+/* Formly customization */
+.display-flex {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-2 {
+  flex: 2;
+}
+
+.flex-3 {
+  flex: 3;
+}
+
+.flex-4 {
+  flex: 4;
+}
+
+.flex-5 {
+  flex: 5;
+}
+
+.flex-6 {
+  flex: 6;
+}
+
+[class*='flex-'] {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+[class*='flex-']:first-child {
+  padding-left: 0;
+}
+
+[class*='flex-']:nth-last-child(2) {
+  padding-right: 0;
+}
+
+.json-result {
+  background-color: #001529;
+  color: white;
+  border: 1px solid #2e2929;
+  border-radius: $border-radius;
+  padding: 1.5rem;
+  margin: 0;
+  font-size: 80%;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.not-validation {
+  .ng-valid[required],
+  .ng-valid.required {
+    border-left: inherit;
+  }
+}
+
+.v-align-middle {
+  vertical-align: middle !important;
+}
+
+.c-white {
+  color: white;
+}
+
+.d-grid {
+  display: grid !important;
+}
+
+/* ==============================================================
+Custom changes
+===============================================================*/
+ul {
+  margin: 0;
+}
+
+.modal-content {
+  border: none;
+}
+
+.form-group-lg {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  margin-bottom: 0.2rem !important;
+}
+
+li {
+  &:active,
+  &:focus {
+    outline: none;
+    fill: none;
+  }
+}
+
+.anticon {
+  vertical-align: 0;
+}
+
+/* ==============================================================
+Bootstrap tweaks
+===============================================================*/
+
+body {
+  font-family: $font-family;
+  font-size: $font-size;
+}
+
+body,
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 300;
+}
+
+/* override .dropdown-item.active background-color on hover */
+.dropdown-item.active:hover {
+  background-color: mix($dropdown-link-hover-bg, $dropdown-link-active-bg, 50%);
+}
+
+//a:hover {
+//  /* make sure browsers use the pointer cursor for anchors, even with no href */
+//  cursor: pointer;
+//}
+
+.dropdown-item:hover {
+  color: $dropdown-link-hover-color;
+}
+
+/* ==========================================================================
+Browser Upgrade Prompt
+========================================================================== */
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* ==========================================================================
+Generic styles
+========================================================================== */
+
+/* Error highlight on input fields */
+.ng-valid[required],
+.ng-valid.required {
+  border-left: 5px solid green;
+}
+
+.form-control.ng-invalid:not(form, div, .not-validation) {
+  border-left: 5px solid red;
+}
+
+/* other generic styles */
+
+.jh-card {
+  padding: 1.5%;
+  margin-top: 20px;
+  border: none;
+}
+
+.error {
+  color: white;
+  background-color: red;
+}
+
+.pad {
+  padding: 10px;
+}
+
+.w-40 {
+  width: 40% !important;
+}
+
+.w-60 {
+  width: 60% !important;
+}
+
+.break {
+  white-space: normal;
+  word-break: break-all;
+}
+
+.readonly {
+  background-color: #eee;
+  opacity: 1;
+}
+
+.footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.hand,
+[jhisortby] {
+  cursor: pointer;
+}
+
+/* ==========================================================================
+Custom alerts for notification
+========================================================================== */
+.alerts {
+  .alert {
+    text-overflow: ellipsis;
+
+    pre {
+      background: none;
+      border: none;
+      font: inherit;
+      color: inherit;
+      padding: 0;
+      margin: 0;
+    }
+
+    .popover pre {
+      font-size: 10px;
+    }
+  }
+
+  .jhi-toast {
+    position: fixed;
+    width: 100%;
+
+    &.left {
+      left: 5px;
+    }
+
+    &.right {
+      right: 5px;
+    }
+
+    &.top {
+      top: 55px;
+    }
+
+    &.bottom {
+      bottom: 55px;
+    }
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .alerts .jhi-toast {
+    width: 50%;
+  }
+}
+
+/* ==========================================================================
+entity detail page css
+========================================================================== */
+.row.jh-entity-details > {
+  dd {
+    margin-bottom: 15px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .row.jh-entity-details > {
+    dt {
+      margin-bottom: 15px;
+    }
+
+    dd {
+      border-bottom: 1px solid #eee;
+      padding-left: 180px;
+      margin-left: 0;
+    }
+  }
+}
+
+/* ==========================================================================
+ui bootstrap tweaks
+========================================================================== */
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+  cursor: pointer;
+}
+
+.thread-dump-modal-lock {
+  max-width: 450px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* jhipster-needle-scss-add-main JHipster will add new css style */
+
+dl {
+  margin: 0 0 20px 0;
+  //padding: 0 20px;
+  display: grid;
+  grid-template-columns: max-content auto;
+}
+
+dl dt {
+  padding: 10px;
+  grid-column-start: 1;
+}
+
+dl dd {
+  //border-left: 1px solid #ddd;
+  padding: 10px;
+  margin: 0 0 0 0;
+  grid-column-start: 2 !important;
+  text-align: end;
+}
+
+dl dd ~ dt,
+dl dd ~ dd {
+  border-top: 1px solid #ddd;
+}
+
+dl dt:nth-child(4n + 1),
+dl dd:nth-child(4n + 2) {
+  //background: #efefef;
+}
+
+dl > dd > span:empty::after {
+  content: '-';
+}
+
+a.ng-star-inserted {
+  color: #3e8acc !important;
+}
+
+.display-none {
+  display: none;
+}

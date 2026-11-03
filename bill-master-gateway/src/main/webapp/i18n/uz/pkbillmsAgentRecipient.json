@@ -1,0 +1,52 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsAgentRecipient": {
+      "home": {
+        "title": "Qabul qiluvchi agent",
+        "createLabel": "Yangi qabul qiluvchi agent qo`shish",
+        "createOrEditLabel": "Qabul qiluvchi agentni tahrirlash",
+        "notFound": "Qabul qiluvchi agentlar topilmadi"
+      },
+      "delete": {
+        "question": "{{ id }}- Qabul qiluvchi agentni o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "Qabul qiluvchi agent"
+      },
+      "agentCommission": "Agent kommissiyasi",
+      "agentFee": "Agent haqi",
+      "systemCommissionUp": "Tizim ulushining tepasi",
+      "systemCommissionDown": "Tizim ulushinig pasi",
+      "systemFee": "Tizim haqi",
+      "active": "Aktiv",
+      "eposPort": "Epos Port",
+      "eposMerchant": "Epos Hamkor",
+      "eposTerminal": "Epos Terminal",
+      "requestGroup": "Request Guruh",
+      "jsonParams": "Json Parametrlar",
+      "agent": "Agent",
+      "recipient": "Yetkazib beruvchi",
+      "setting": "Sozlama",
+      "settingType": "Sozlama turi",
+      "recipientGroup": "Yetkazib beruvchi Guruh",
+      "help": {
+        "agentCommission": "Комиссия агента, которая снимается с внесенной суммы клиента в пользу агента",
+        "agentFee": "Вознаграждение агента, это отчисление системы с суммы платежа в пользу агента",
+        "systemCommissionUp": "Комиссия системы, которая снимается сверх внесенной суммы клиента в пользу системы",
+        "systemCommissionDown": "Комиссия системы, которая снимается с внесенной суммы клиента в пользу системы",
+        "systemFee": "Вознаграждение системы, это отчисления поставщика услуг с суммы платежа в пользу системы",
+        "eposPort": "Параметр Port для соединения с SvGate",
+        "eposMerchant": "Параметр Merchant Id для соединения с SvGate",
+        "eposTerminal": "Параметр Terminal Id для соединения с SvGate",
+        "jsonParams": "Дополнительные параметры в виде json"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsAgentRecipient": {
+      "created": "Qabul qiluvchi agent {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- Qabul qiluvchi agent saqlandi",
+      "deleted": "{{ param }}- Qabul qiluvchi agent o`chirildi"
+    }
+  }
+}

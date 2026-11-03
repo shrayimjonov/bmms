@@ -1,0 +1,62 @@
+<nz-layout>
+  <nz-sider [(nzCollapsed)]="isClosed" nzWidth="280px">
+    <div class="logo-container cursor-pointer" routerLink="/">
+      <img class="bill-master-logo" alt="bill-master" width="32" height="32"/>
+      <div class="d-grid c-white ml-2" *ngIf="!isClosed">
+        <span class="font-weight-bold">Bill Master</span>
+        <small jhiTranslate="global.version" [translateValues]="{ version: version }">Version</small>
+      </div>
+    </div>
+
+    <div class="px-4 mt-4 mb-2" *ngIf="!isClosed">
+      <nz-input-group [nzPrefix]="prefixTemplateUser" [nzSuffix]="searchInp.value ? suffixTemplateInfo : null"
+                      [style.border]="'none'">
+        <input nz-input [style.border]="'none'" autocomplete="off" #searchInp
+               placeholder="{{ 'global.form.search.placeholder' | translate }}" auto-focus
+               (keyup)="searchMenu($event.target['value'])"/>
+      </nz-input-group>
+      <ng-template #prefixTemplateUser><i nz-icon nzType="search" class="mr-2"></i></ng-template>
+      <ng-template #suffixTemplateInfo>
+        <i nz-icon nzType="close-circle" class="cursor-pointer"
+           (click)="searchInp.value = ''; searchMenu(''); searchInp.focus()"></i>
+      </ng-template>
+    </div>
+
+    <ul nz-menu nzTheme="dark" id="dashboard" nzMode="inline" style="user-select: none">
+      <ng-container *ngFor="let link of menus">
+        <ng-container *ngIf="accountService.hasAnyAuthority(link.authorities, link.notForAdmin)">
+          <li nz-submenu nzTitle="{{ link.title | translate }}" nzIcon="{{ link.icon }}" *ngIf="link.children"
+              [nzOpen]="openSearchedMenu">
+            <ul>
+              <ng-container *ngFor="let menu of link.children">
+                <li nz-menu-item nzMatchRouter routerLink="{{ menu.routerLink }}"
+                    *ngIf="accountService.hasAnyAuthority(menu.authorities, menu.notForAdmin)">
+                  <div class="d-flex align-items-center">
+                    <i nz-icon nzType="{{ menu.icon }}"></i>
+                    <span jhiTranslate="{{ menu.title }}">{{ menu.title }}</span>
+                  </div>
+                </li>
+              </ng-container>
+            </ul>
+          </li>
+
+          <li nz-menu-item nzMatchRouter routerLink="{{ link.routerLink }}" *ngIf="!link.children">
+            <div class="d-flex align-items-center">
+              <i nz-icon nzType="{{ link.icon }}"></i>
+              <span jhiTranslate="{{ link.title }}">{{ link.title }}</span>
+            </div>
+          </li>
+        </ng-container>
+      </ng-container>
+    </ul>
+  </nz-sider>
+  <nz-layout [style.background-color]="contentBgColor">
+    <nz-header class="bg-white p-0">
+      <dashboard-header [nzSider]="nzSider" (toggleSider)="toggle()"></dashboard-header>
+    </nz-header>
+
+    <div class="container-fluid py-3 pb-5 pl-4 pr-4">
+      <router-outlet></router-outlet>
+    </div>
+  </nz-layout>
+</nz-layout>

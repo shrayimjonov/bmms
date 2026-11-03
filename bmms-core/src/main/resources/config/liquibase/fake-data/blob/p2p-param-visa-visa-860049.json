@@ -1,0 +1,16 @@
+{
+    "sender": {
+        "accCl": "23504000900000491408",
+        "accCo": "23504000000000981902",
+        "mfo": "00982",
+        "fxDeal": 65,
+        "purpose": "Comment : ${extComment}, transaction id:  ${tranId}"
+    },
+    "recipient": {
+        "accCl": "23504000900000491408",
+        "accCo": "23504000000000981902",
+        "mfo": "00982",
+        "fxDeal": 65,
+        "purpose": "Comment : ${extComment}, transaction id:  ${tranId}"
+    }
+}

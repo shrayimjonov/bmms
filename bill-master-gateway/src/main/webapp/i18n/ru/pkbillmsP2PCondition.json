@@ -1,0 +1,31 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsP2PCondition": {
+      "home": {
+        "title": "P2P условия",
+        "createLabel": "Создать новый P2P условия",
+        "createOrEditLabel": "Создать или отредактировать P2P условия",
+        "notFound": "P2P условии не найдены"
+      },
+      "delete": {
+        "question": "Вы уверены что хотите удалить P2P условия {{ id }}?"
+      },
+      "detail": {
+        "title": "P2P условия"
+      },
+      "value": "Значение",
+      "description": "Описание",
+      "help": {
+        "value": "Значение",
+        "description": "Описание"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsP2PCondition": {
+      "created": "Новый P2P условия создан с идентификатором {{ param }}",
+      "updated": "P2P условия обновлен с идентификатором {{ param }}",
+      "deleted": "P2P условия удален с идентификатором {{ param }}"
+    }
+  }
+}

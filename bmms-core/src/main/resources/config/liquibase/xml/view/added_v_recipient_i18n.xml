@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="added_v_recipient_i18n" author="javlon" dbms="postgresql">
+        <sql>
+            CREATE extension tablefunc
+        </sql>
+        <sqlFile dbms="postgresql"
+                 encoding="utf8"
+                 path="config/liquibase/sql/v_recipient_i18n.sql"
+                 relativeToChangelogFile="false"
+                 splitStatements="false"
+                 stripComments="true"/>
+    </changeSet>
+
+    <changeSet id="added_v_recipient_i18n" author="javlon" dbms="h2">
+        <sqlFile dbms="h2"
+                 encoding="utf8"
+                 path="config/liquibase/sql/v_recipient_i18n_h2.sql"
+                 relativeToChangelogFile="false"
+                 splitStatements="false"
+                 stripComments="true"/>
+    </changeSet>
+
+</databaseChangeLog>

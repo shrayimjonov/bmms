@@ -1,0 +1,58 @@
+{
+  "name": "Sender",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "javadoc": "Название",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": 64
+    },
+    {
+      "fieldName": "ord",
+      "fieldType": "Long",
+      "javadoc": "Поряд. номер",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "active",
+      "fieldType": "Boolean",
+      "javadoc": "Активный",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "springBeanName",
+      "fieldType": "String",
+      "javadoc": "Класс реализации",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 128
+    },
+    {
+      "fieldName": "payType",
+      "fieldType": "PayType",
+      "fieldValues": "CASH,UZCARD,VISA,AGENT,UNKNOWN,PAYME,HUMO,PC",
+      "javadoc": "Тип оплаты",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "relationshipName": "agent",
+      "otherEntityName": "agent",
+      "otherEntityField": "shortName"
+    }
+  ],
+  "changelogDate": "20200319100926",
+  "entityTableName": "sender",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "clientRootFolder": "bmms",
+  "applications": "*",
+  "microserviceName": "pkbillms",
+  "enableEntityAudit": true,
+  "databaseType": "sql"
+}

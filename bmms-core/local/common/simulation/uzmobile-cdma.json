@@ -1,0 +1,99 @@
+{
+    "check": {
+        "account": "1451863",
+        "amount": 1000,
+        "success": {
+            "request": {
+                "url": "https://127.0.0.1:443/pay_net_v2.php?act=4&phone=1451863&username=${USERNAME}&password=${PASSWORD}",
+                "body": null,
+                "headers": {
+                },
+                "validate": {
+                    "url": true,
+                    "body": false,
+                    "headers": false
+                }
+            },
+            "response": {
+                "status": 200,
+                "body": "<?xml version=\"1.0\" encoding=\"windows-1251\"?><response><status_code>0</status_code><error_text></error_text><balance></balance><time_stamp>13.09.2018 04:42:36</time_stamp></response>"
+            }
+        },
+        "fail": {
+            "request": {
+                "url": "",
+                "body": "",
+                "headers": {
+                    "h1": "v1"
+                }
+            },
+            "response": {
+                "status": "",
+                "body": ""
+            }
+        }
+    },
+    "pay": {
+        "success": {
+            "request": {
+                "url": "https://127.0.0.1:443/pay_net_v2.php?act=0&amount=10&phone=1451863&username=${USERNAME}&password=${PASSWORD}&pay_id=${tranId}",
+                "body": null,
+                "headers": {
+                },
+                "validate": {
+                    "url": true,
+                    "body": false,
+                    "headers": false
+                }
+            },
+            "response": {
+                "status": 200,
+                "body": "<?xml version=\"1.0\" encoding=\"windows-1251\"?><response><status_code>0</status_code><error_text></error_text><pay_id>3245687</pay_id><time_stamp>13.09.2018 04:42:36</time_stamp></response>"
+            }
+        },
+        "fail": {
+            "request": {
+                "url": "",
+                "body": "",
+                "headers": {
+                    "h1": "v1"
+                }
+            },
+            "response": {
+                "status": "",
+                "body": ""
+            }
+        }
+    },
+    "reconcile": {
+        "success": {
+            "request": {
+                "url": "https://127.0.0.1:443/pay_net_v2.php?act=2&username=${USERNAME}&password=${PASSWORD}&verification_date=03.10.2018",
+                "body": "",
+                "headers": {},
+                "validate": {
+                    "url": false,
+                    "body": false,
+                    "headers": false
+                }
+            },
+            "response": {
+                "status": 200,
+                "body": "kapitalbank;3076707;10000;146468708;03.10.2018 16:34:18"
+            }
+        },
+        "fail": {
+            "request": {
+                "url": "",
+                "body": "",
+                "headers": {
+                    "h1": "v1"
+                }
+            },
+            "response": {
+                "status": "",
+                "body": ""
+            }
+        }
+    }
+}

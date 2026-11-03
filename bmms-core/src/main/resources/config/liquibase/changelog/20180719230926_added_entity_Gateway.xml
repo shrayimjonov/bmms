@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Gateway.
+    -->
+    <changeSet id="20180719230926-1" author="jhipster">
+        <createTable tableName="gateway">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(64)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+
+            <column name="org" type="varchar(32)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="active" type="boolean">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="mfo" type="varchar(8)" remarks="Bank MFO (BIN)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="taxnr" type="bigint" remarks="Tax number (INN)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ban" type="varchar(32)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="contract" type="varchar(64)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="spring_bean_name" type="varchar(128)">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        
+    </changeSet>
+    
+    <!-- Added the entity audit columns -->
+    <changeSet id="20180823174713-audit-1" author="jhipster-entity-audit">
+        <addColumn tableName="gateway">
+            <column name="created_by" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="varchar(50)"/>
+            <column name="last_modified_date" type="timestamp"/>
+        </addColumn>
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

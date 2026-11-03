@@ -1,0 +1,34 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsPrefix": {
+      "home": {
+        "title": "Prefixes",
+        "createLabel": "Создать новый Префикс",
+        "createOrEditLabel": "Создать или отредактировать Префикс",
+        "notFound": "Префиксы полей не найдены"
+      },
+      "delete": {
+        "question": "Вы уверены что хотите удалить Префикс {{ id }}?"
+      },
+      "detail": {
+        "title": "Префикс"
+      },
+      "type": "Тип",
+      "value": "Значение",
+      "output": "Выход",
+      "requireField": "Поле требования",
+      "field": "Поле",
+      "help": {
+        "output": "Need to prepend to field value",
+        "requireField": "Filter Префикс value by selected parent field"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsPrefix": {
+      "created": "Новый Префикс создан с идентификатором {{ param }}",
+      "updated": "Префикс обновлен с идентификатором {{ param }}",
+      "deleted": "Префикс удален с идентификатором {{ param }}"
+    }
+  }
+}

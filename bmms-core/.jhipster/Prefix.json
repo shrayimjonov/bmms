@@ -1,0 +1,48 @@
+{
+    "name": "Prefix",
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "PrefixType",
+            "fieldValues": "STATIC,SELECT,REQUIRE"
+        },
+        {
+            "fieldName": "value",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 16
+        },
+        {
+            "fieldName": "output",
+            "javadoc": "Need to prepend to field value",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "requireField",
+            "javadoc": "Filter prefix value by selected parent field",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 64
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "field",
+            "otherEntityName": "field",
+            "otherEntityField": "name"
+        }
+    ],
+    "changelogDate": "20180719230923",
+    "entityTableName": "prefix",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "bmms",
+    "applications": "*",
+    "microserviceName": "pkbillms",
+    "databaseType": "sql",
+    "enableEntityAudit": true
+}

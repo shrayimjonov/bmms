@@ -1,0 +1,53 @@
+{
+  "entityAudit": {
+    "home": {
+      "title": "Тарихни узгартириш",
+      "filter": "Филтр",
+      "entityOrTable": "Объект/Жадвал",
+      "limitTo": "Микдорини чеклаш",
+      "loadChangeList": "Узгаришларни курсатиш"
+    },
+    "result": {
+      "showInfo": "Охирги <strong>{{ limit }}</strong> Узгартирилди <strong>{{ entity }}</strong>",
+      "searchFieldLabel": "Филтр:",
+      "globalFilter": "Глобал фильтр",
+      "entityIdFilter": "Объектни Идси",
+      "tableHeader": {
+        "entityId": "Объектни Идси",
+        "action": "харакат килиш ",
+        "version": "Версия",
+        "value": "Киймат",
+        "modifiedDate": "Узгариш санаси",
+        "modifiedBy": "Узгартирдим"
+      },
+      "tableBody": {
+        "field": "Катор",
+        "value": "Киймат",
+        "viewDetails": "Узгариш тарихини куриш"
+      },
+      "noDataFound": "Ма'лумотлар йук",
+      "firstAuditEntry": "Ушбу хабар учун аввалги версияси йук.\nБу аудитни биринчи йозувидир ушбу объект учун."
+    },
+    "detail": {
+      "close": "Йопиш",
+      "title": "Тарихни узгартириш",
+      "action": "{{action}} харакат куйидаги малумотлар буйича амалга оширилди",
+      "old": "Эски/ учирилган киймат",
+      "new": "Янги/ кушимча киймат",
+      "changedFields": "Узгартирилган каторлар",
+      "allFields": "Хамма каторлар",
+      "done": "Йопиш",
+      "resetPassword": "Паролни тиклаш"
+    },
+    "type": {
+      "INITIAL": "Яратилди",
+      "UPDATE": "Узгартирилди",
+      "TERMINAL": "Учирилди"
+    },
+    "info": {
+      "INITIAL": "{{ author }} яратти {{ duration }}",
+      "UPDATE": "{{ author }} узгартирди {{ duration }}",
+      "TERMINAL": "{{ author }} учирди {{ duration }}"
+    }
+  }
+}

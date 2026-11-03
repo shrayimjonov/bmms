@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Entity Field Value constraints migrate to 7.1 jhipster
+    -->
+
+
+    <changeSet id="entity_GroupSetting_constraints_migrate-2" author="zafar">
+        <!--
+          Drop foreign constraint GroupSettingProp to GroupSetting
+        -->
+        <preConditions onFail="MARK_RAN">
+            <foreignKeyConstraintExists foreignKeyName="fk_group_setting_prop_group_settings_id"/>
+        </preConditions>
+
+        <comment>Drop foreign constraint GroupSettingProp to GroupSetting</comment>
+
+        <dropForeignKeyConstraint baseTableName="rel_group_setting__prop"
+                                  constraintName = "fk_group_setting_prop_group_settings_id"/>
+    </changeSet>
+
+    <changeSet id="entity_GroupSetting_constraints_migrate-3" author="zafar">
+        <!--
+            Add foreign constraint GroupSettingProp to GroupSetting
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_group_setting_prop_group_settings_id"
+                                            foreignKeyTableName="group_setting"/>
+            </not>
+        </preConditions>
+
+        <comment>Add foreign constraint GroupSettingProp to GroupSetting</comment>
+
+        <addForeignKeyConstraint baseColumnNames="group_setting_id"
+                                 baseTableName="rel_group_setting__prop"
+                                 constraintName="fk_group_setting_prop_group_settings_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="group_setting"/>
+    </changeSet>
+
+    <changeSet id="entity_GroupSetting_constraints_migrate-4" author="zafar">
+        <!--
+            Drop foreign constraint GroupSettingProp to SettingProperty
+        -->
+        <preConditions onFail="MARK_RAN">
+            <foreignKeyConstraintExists foreignKeyName="fk_group_setting_prop_props_id"/>
+        </preConditions>
+
+        <comment>Drop foreign constraint GroupSettingProp to SettingProperty</comment>
+
+        <dropForeignKeyConstraint baseTableName="rel_group_setting__prop"
+                                  constraintName = "fk_group_setting_prop_props_id"/>
+    </changeSet>
+
+    <changeSet id="entity_GroupSetting_constraints_migrate-5" author="zafar">
+        <!--
+            Add foreign constraint GroupSettingProp to SettingProperty
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_group_setting_prop_props_id"
+                                            foreignKeyTableName="setting_property"/>
+            </not>
+        </preConditions>
+
+        <comment>Add foreign constraint GroupSettingProp to SettingProperty</comment>
+
+        <addForeignKeyConstraint baseColumnNames="prop_id"
+                                 baseTableName="rel_group_setting__prop"
+                                 constraintName="fk_group_setting_prop_props_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="setting_property"/>
+
+
+    </changeSet>
+</databaseChangeLog>

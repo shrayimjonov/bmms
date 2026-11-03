@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added the constraints for entity Deposit.
+    -->
+    <changeSet id="added_agent_inn_phoneNumber_orgName_columns" author="zafar">
+
+        <addColumn tableName="agent">
+
+
+            <column name="phone_number" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="inn" type="varchar(32)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="org_name" type="varchar(64)">
+                <constraints nullable="true" />
+            </column>
+
+
+
+        </addColumn>
+
+    </changeSet>
+</databaseChangeLog>

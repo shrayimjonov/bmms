@@ -1,0 +1,10 @@
+{
+  "billMasterGwApp": {
+    "ProtocolType": {
+      "null": "",
+      "REST": "REST",
+      "WS": "WS",
+      "HESSIAN": "HESSIAN"
+    }
+  }
+}

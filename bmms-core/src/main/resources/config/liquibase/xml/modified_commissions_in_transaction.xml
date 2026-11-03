@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added the constraints for entity Deposit.
+    -->
+    <changeSet id="modified_commissions_in_transaction" author="Javlon">
+
+        <renameColumn tableName="transaction"
+                      oldColumnName="system_commission_amount"
+                      newColumnName="system_commission_down_amount"
+                      remarks="Комиссия системы с суммы"/>
+
+        <addColumn tableName="transaction">
+
+            <column name="system_commission_up_amount" type="bigint" remarks="Комиссия системы сверху суммы">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="agent_fee_amount" type="bigint" remarks="Сумма вознограждения агента">
+                <constraints nullable="true"/>
+            </column>
+
+        </addColumn>
+
+    </changeSet>
+</databaseChangeLog>

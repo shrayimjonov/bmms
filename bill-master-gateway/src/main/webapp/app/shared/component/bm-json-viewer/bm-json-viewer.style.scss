@@ -1,0 +1,6 @@
+@import '../../../../content/scss/bootstrap-variables';
+
+:host ::ng-deep .jsoneditor-mode-view {
+  border-color: $border-color;
+  padding: 0.75rem;
+}

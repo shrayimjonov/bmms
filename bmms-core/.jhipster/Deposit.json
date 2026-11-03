@@ -1,0 +1,108 @@
+{
+    "name": "Deposit",
+    "fields": [
+        {
+            "fieldName": "overdraftLimit",
+            "javadoc": "Размер овердрафта",
+            "fieldType": "Long",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "balance",
+            "javadoc": "Сумма доступного баланса",
+            "fieldType": "Long",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "balanceCcy",
+            "javadoc": "Валюта баланса",
+            "fieldType": "Integer",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "bookedBalance",
+            "javadoc": "Зарезервированный баланса",
+            "fieldType": "Long",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "limitInform",
+            "javadoc": "Порог уведомления при достижении лимита",
+            "fieldType": "Long",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "limitDisable",
+            "javadoc": "Порог остановки оплат",
+            "fieldType": "Long",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "contactGroup",
+            "javadoc": "Группа контактов для уведомления",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "blocked",
+            "fieldType": "Boolean",
+            "javadoc": "Заблокирован",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "unlimit",
+            "fieldType": "Boolean",
+            "javadoc": "Без ограничения",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "state",
+            "javadoc": "Состояние",
+            "fieldType": "DepositState",
+            "fieldValues": "NEW,ACTIVE,DELETED"
+        }
+    ],
+    "relationships": [
+        {
+            "javadoc": "Связанный Шлюз",
+            "relationshipType": "one-to-one",
+            "relationshipName": "gateway",
+            "otherEntityName": "gateway",
+            "otherEntityField": "name",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "deposit"
+        },
+        {
+            "javadoc": "Связанный Агент",
+            "relationshipType": "one-to-one",
+            "relationshipName": "agent",
+            "otherEntityName": "agent",
+            "otherEntityField": "shortName",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "deposit"
+        },
+        {
+            "javadoc": "Связанный виртуальный счет",
+            "relationshipType": "one-to-one",
+            "relationshipName": "virtualAccount",
+            "otherEntityName": "virtualAccount",
+            "otherEntityField": "name",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "deposit"
+        }
+    ],
+    "changelogDate": "20180719230931",
+    "javadoc": "Баланс агента",
+    "entityTableName": "deposit",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "bmms",
+    "applications": "*",
+    "microserviceName": "pkbillms",
+    "enableEntityAudit": false,
+    "databaseType": "sql"
+}

@@ -1,0 +1,30 @@
+{
+  "billMasterGwApp": {
+    "jsonForm": {
+      "home": {
+        "title": "Формы Json",
+        "refreshListLabel": "Обновить список",
+        "createLabel": "Создать новый Формы Json",
+        "createOrEditLabel": "Создать или отредактировать Формы Json",
+        "notFound": "Формы Json не найдены"
+      },
+      "created": "Новый Формы Json создан с идентификатором {{ param }}",
+      "updated": "Формы Json обновлен с идентификатором {{ param }}",
+      "deleted": "Формы Json удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Формы Json {{ id }}?"
+      },
+      "detail": {
+        "title": "Формы Json"
+      },
+      "id": "ID",
+      "name": "Name",
+      "type": "Type",
+      "data": "Data",
+      "username": "Username",
+      "active": "Active",
+      "description": "Description",
+      "users": "Users"
+    }
+  }
+}

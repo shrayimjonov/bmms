@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Transaction.
+    -->
+    <changeSet id="20180719230929-1" author="jhipster">
+        <createTable tableName="transaction">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="request_amount" type="bigint" remarks="Сумма запроса по валюте запроса, разряд зависит от настроек агента (agent.amountRatio)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="request_ccy" type="integer" remarks="Валюта запроса, значения могут быть ограничены в зависомести от настроек агента">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="request_tr_id" type="varchar(64)" remarks="Ид. запроса, отправляет агент">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="request_login" type="varchar(64)" remarks="Логин от которого приходит запрос, система сама определяет значение от имени пользователя">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="request_group" type="varchar(64)" remarks="Используется для групировки запросов">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="sender_name" type="varchar(32)" remarks="Наименование отправителя средств">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="sender_account" type="varchar(64)" remarks="Номер счета с которого снимаются средства">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="sender_service_id" type="bigint" remarks="Ид. сервиса отправителя средст">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="sender_amount" type="bigint" remarks="Снимаюшаяся сумма по валюте отправителя, разряд зависит от настроек отправителя (recipient.amountRatio)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="sender_ccy" type="integer" remarks="Валюта отправителя (recipient.ccy)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="sender_tr_id" type="varchar(255)" remarks="Ид. транзакции в системе отправителя">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="sender_success" type="boolean" remarks="Успешность запроса из системы отправителя">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="sender_date" type="datetime" remarks="Дата в системе отправителя, нужен для сверок">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="sender_status" type="varchar(16)" remarks="Статус запроса в системе отправителя, нужен для резалюции статуса транзакции">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="sender_status_text" type="varchar(128)" remarks="Текст статус запроса в системе отправителя, для админа">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="sender_bill_id" type="bigint" remarks="Ид. чека отправителя из таблицы bill (bill.id)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="sender_gateway" type="varchar(255)" remarks="Наименование шлюза отправителя">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="gateway_amount" type="bigint" remarks="Поступаюшая сумма по валюте получателя, разряд и валюта зависит от настроек получателя (recipient.amountRatio и recipient.ccy)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="recipient_name" type="varchar(32)" remarks="Наименование получателя средств">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="recipient_account" type="varchar(64)" remarks="Номер счета на которую поступают средства">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="recipient_service_id" type="bigint" remarks="Ид. сервиса получателя средст">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="recipient_amount" type="bigint" remarks="Поступаюшая сумма по валюте получателя, разряд зависит от настроек получателя (recipient.amountRatio)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="recipient_ccy" type="integer" remarks="Валюта получателя (recipient.ccy)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="recipient_tr_id" type="varchar(255)" remarks="Ид. транзакции в системе получателя">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="recipient_success" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="recipient_date" type="datetime" remarks="Дата в системе получателя, нужен для сверок">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="recipient_status" type="varchar(16)" remarks="Статус запроса в системе получателя, нужен для резалюции статуса транзакции">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="recipient_status_text" type="varchar(128)" remarks="Текст статус запроса в системе получателя, для админа">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="recipient_bill_id" type="bigint" remarks="Ид. чека получателя из таблицы bill (bill.id)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="recipient_gateway" type="varchar(255)" remarks="Наименование шлюза получателя">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="system_commission_amount" type="bigint" remarks="Сумма всех комиссий системы за эту транзакцию">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="system_fee_amount" type="bigint" remarks="Сумма всех вознограждений системы за эту транзакцию">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="round_amount" type="double" remarks="Сумма округлениия gatewayAmount после сотячных дроби, amount = 12.34567 -&gt; gatewayAmount = 12.34, roundAmount = 0.00567">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="system_fee" type="double" remarks="Процент вознограждений системы за эту транзакцию">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="system_currency" type="integer" remarks="Валюта всех значений сум, относяшихся к системе">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ccy_rate" type="integer" remarks="Курс валюты в копейках">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="status" type="varchar(255)" remarks="Статус транзакции">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="jhi_comment" type="varchar(128)" remarks="Коментарии к транзакции">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="jhi_date" type="datetime" remarks="Дата транзакции">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="transaction" columnName="sender_date" columnDataType="datetime"/>
+        <dropDefaultValue tableName="transaction" columnName="recipient_date" columnDataType="datetime"/>
+        <dropDefaultValue tableName="transaction" columnName="jhi_date" columnDataType="datetime"/>
+
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

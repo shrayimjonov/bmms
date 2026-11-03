@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="added_fs_delete_cascaded" author="javlon" dbms="postgresql">
+
+        <sqlFile dbms="postgresql"
+                 encoding="utf8"
+                 path="config/liquibase/sql/f_delete_field_value_cascade.sql"
+                 relativeToChangelogFile="false"
+                 splitStatements="false"
+                 stripComments="true"/>
+        <sqlFile dbms="postgresql"
+                 encoding="utf8"
+                 path="config/liquibase/sql/f_delete_field_cascade.sql"
+                 relativeToChangelogFile="false"
+                 splitStatements="false"
+                 stripComments="true"/>
+        <sqlFile dbms="postgresql"
+                 encoding="utf8"
+                 path="config/liquibase/sql/f_delete_recipient_cascade.sql"
+                 relativeToChangelogFile="false"
+                 splitStatements="false"
+                 stripComments="true"/>
+        <sqlFile dbms="postgresql"
+                 encoding="utf8"
+                 path="config/liquibase/sql/f_delete_recipient_id_cascade.sql"
+                 relativeToChangelogFile="false"
+                 splitStatements="false"
+                 stripComments="true"/>
+        <sqlFile dbms="postgresql"
+                 encoding="utf8"
+                 path="config/liquibase/sql/f_delete_gateway_cascade.sql"
+                 relativeToChangelogFile="false"
+                 splitStatements="false"
+                 stripComments="true"/>
+        <sqlFile dbms="postgresql"
+                 encoding="utf8"
+                 path="config/liquibase/sql/f_delete_gateway_id_cascade.sql"
+                 relativeToChangelogFile="false"
+                 splitStatements="false"
+                 stripComments="true"/>
+
+    </changeSet>
+
+</databaseChangeLog>

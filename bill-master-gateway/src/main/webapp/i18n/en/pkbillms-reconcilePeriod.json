@@ -1,0 +1,9 @@
+{
+  "billMasterGwApp": {
+    "ReconcilePeriod": {
+      "null": "",
+      "DAY": "DAY",
+      "MONTH": "MONTH"
+    }
+  }
+}

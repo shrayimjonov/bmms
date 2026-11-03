@@ -1,0 +1,78 @@
+{
+    "name": "Currency",
+    "fields": [
+        {
+            "fieldName": "code",
+            "javadoc": "Числовой код валюты (digit-3) из ISO_4217. Например: 840, 978, 643 и др",
+            "fieldType": "String",
+            "fieldValidateRules": ["unique", "minlength", "maxlength", "required"],
+            "fieldValidateRulesMinlength": 3,
+            "fieldValidateRulesMaxlength": 3
+        },
+        {
+            "fieldName": "ccy",
+            "javadoc": "Символьный код валюты (альфа-3) из ISO_4217. Например: USD, EUR, RUB и др",
+            "fieldType": "String",
+            "fieldValidateRules": ["unique", "minlength", "maxlength", "required"],
+            "fieldValidateRulesMinlength": 3,
+            "fieldValidateRulesMaxlength": 3
+        },
+        {
+            "fieldName": "nameRu",
+            "javadoc": "Наименование валюты на русском языке",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "rate",
+            "javadoc": "Курс валюты",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "sellRate",
+            "javadoc": "Курс валюты продажи",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "buyRate",
+            "javadoc": "Курс валюты покупки",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "date",
+            "javadoc": "Дата активизации",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "active",
+            "javadoc": "Activeness",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "ccyGroup",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "32"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20210628170811",
+    "javadoc": "Актуальный курс валюты",
+    "entityTableName": "currency",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "bmms",
+    "applications": "*",
+    "microserviceName": "pkbillms",
+    "enableEntityAudit": true,
+    "databaseType": "sql"
+}

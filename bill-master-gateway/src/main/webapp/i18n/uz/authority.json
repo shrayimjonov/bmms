@@ -1,0 +1,7 @@
+{
+  "authority": {
+    "created": "Guruh {{ param }} bilan qo`shildi",
+    "updated": "{{ param }}- guruhi saqlandi",
+    "deleted": "{{ param }}- guruhi o`chirildi"
+  }
+}

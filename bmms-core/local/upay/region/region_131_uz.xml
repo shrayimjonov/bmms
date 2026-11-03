@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:getRegionsListResponse xmlns:ns2="http://st.apus.com/">
+    <return>
+        <AreasList>
+            <Title>Turi</Title>
+            <Area>
+                <Id>125</Id>
+                <Code>1</Code>
+                <Name>Jismoniy shaxs</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>126</Id>
+                <Code>2</Code>
+                <Name>Yakka tartibdagi tadbirkor</Name>
+                <Children/>
+            </Area>
+        </AreasList>
+        <Result>
+            <code>OK</code>
+            <Description>Xatolik yo’q</Description>
+        </Result>
+    </return>
+</ns2:getRegionsListResponse>

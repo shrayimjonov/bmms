@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity P2pParam.
+    -->
+    <changeSet id="20210113143642-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="sender_condition_id"
+                                 baseTableName="p_2_p_param"
+                                 constraintName="fk_p_2_p_param_sender_condition_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="p_2_p_condition"/>
+
+        <addForeignKeyConstraint baseColumnNames="recipient_condition_id"
+                                 baseTableName="p_2_p_param"
+                                 constraintName="fk_p_2_p_param_recipient_condition_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="p_2_p_condition"/>
+
+        <addForeignKeyConstraint baseColumnNames="sender_percent_id"
+                                 baseTableName="p_2_p_param"
+                                 constraintName="fk_p_2_p_param_sender_percent_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="p_2_p_commission"/>
+
+        <addForeignKeyConstraint baseColumnNames="recipient_percent_id"
+                                 baseTableName="p_2_p_param"
+                                 constraintName="fk_p_2_p_param_recipient_percent_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="p_2_p_commission"/>
+
+    </changeSet>
+</databaseChangeLog>

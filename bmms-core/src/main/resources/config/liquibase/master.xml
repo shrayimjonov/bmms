@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    <property name="now" value="sysdate" dbms="oracle"/>
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql, mariadb"/>
+    <property name="clobType" value="longvarchar" dbms="h2"/>
+    <property name="clobType" value="clob" dbms="mysql, oracle, mssql, mariadb, postgresql"/>
+    <property name="uuidType" value="uuid" dbms="h2, postgresql, oracle"/>
+    <property name="datetimeType" value="datetime(6)" dbms="mysql, mariadb"/>
+    <property name="datetimeType" value="datetime" dbms="oracle, mssql, postgresql, h2"/>
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml"/>
+    <include file="config/liquibase/changelog/20180719230918_added_entity_I18n.xml"/>
+    <include file="config/liquibase/changelog/20180719230919_added_entity_Recipient.xml"/>
+    <include file="config/liquibase/changelog/20180719230920_added_entity_Agent.xml"/>
+    <include file="config/liquibase/changelog/20180719230921_added_entity_AgentRecipient.xml"/>
+    <include file="config/liquibase/changelog/20180719230922_added_entity_Category.xml"/>
+    <include file="config/liquibase/changelog/20180719230923_added_entity_Prefix.xml"/>
+    <include file="config/liquibase/changelog/20180719230924_added_entity_Field.xml"/>
+    <include file="config/liquibase/changelog/20180719230925_added_entity_FieldValue.xml"/>
+    <include file="config/liquibase/changelog/20180719230926_added_entity_Gateway.xml"/>
+    <include file="config/liquibase/changelog/20180719230927_added_entity_GatewayParam.xml"/>
+    <include file="config/liquibase/changelog/20180719230928_added_entity_Bill.xml"/>
+    <include file="config/liquibase/changelog/20180719230929_added_entity_Transaction.xml"/>
+    <include file="config/liquibase/changelog/20180719230930_added_entity_DepositTransaction.xml"/>
+    <include file="config/liquibase/changelog/20180719230931_added_entity_Deposit.xml"/>
+    <include file="config/liquibase/changelog/20180813204929_added_entity_BookkeepingTemplate.xml"/>
+    <include file="config/liquibase/changelog/20180719230989_added_entity_RecipientFileSchema.xml"/>
+    <include file="config/liquibase/changelog/20180828131733_added_entity_DataAdapterHistory.xml"/>
+    <include file="config/liquibase/changelog/20180918063227_added_entity_ForeignPay.xml"/>
+    <include file="config/liquibase/changelog/20180813204929_added_entity_BookkeepingTransaction.xml"/>
+    <include file="config/liquibase/changelog/20181012204929_added_entity_ReconcileSummary.xml"/>
+    <include file="config/liquibase/changelog/20181015204929_added_entity_ReconcileDiscrepancy.xml"/>
+    <include file="config/liquibase/changelog/20181203012232_added_entity_SettingProperty.xml"/>
+    <include file="config/liquibase/changelog/20181203011724_added_entity_Setting.xml"/>
+    <include file="config/liquibase/changelog/20190213100815_added_entity_CheckVerifierParam.xml"/>
+    <!--<include file="config/liquibase/changelog/20190403230920_added_entity_SettingName.xml"/>-->
+    <include file="config/liquibase/changelog/20190403230920_added_entity_GroupSetting.xml"/>
+    <include file="config/liquibase/changelog/20190403230920_added_entity_SettingType.xml"/>
+    <include file="config/liquibase/changelog/20190101010000_added_entity_AgentParams.xml"/>
+    <include file="config/liquibase/changelog/20180719230926_added_entity_VirtualAccount.xml"/>
+    <include file="config/liquibase/changelog/20180719230926_added_entity_VirtualAccountDetails.xml"/>
+    <include file="config/liquibase/changelog/20180719230926_added_entity_VirtualAccount.xml"/>
+    <include file="config/liquibase/changelog/20200319100926_added_entity_Sender.xml"/>
+    <include file="config/liquibase/changelog/20191111230920_added_entity_RecipientGroup.xml"/>
+    <include file="config/liquibase/changelog/20210113143442_added_entity_P2pCondition.xml"/>
+    <include file="config/liquibase/changelog/20210113143542_added_entity_P2pCommission.xml"/>
+    <include file="config/liquibase/changelog/20210113143642_added_entity_P2pParam.xml"/>
+    <include file="config/liquibase/changelog/20210628170811_added_entity_Currency.xml"/>
+    <include file="config/liquibase/changelog/20210726145731_added_entity_ResponseField.xml"/>
+    <include file="config/liquibase/changelog/20211224065829_added_entity_PcBin.xml"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20180719230919_added_entity_constraints_Recipient.xml"/>
+    <include file="config/liquibase/changelog/20180719230920_added_entity_constraints_Agent.xml"/>
+    <include file="config/liquibase/changelog/20180719230921_added_entity_constraints_AgentRecipient.xml"/>
+    <include file="config/liquibase/changelog/20180719230922_added_entity_constraints_Category.xml"/>
+    <include file="config/liquibase/changelog/20180719230923_added_entity_constraints_Prefix.xml"/>
+    <include file="config/liquibase/changelog/20180719230924_added_entity_constraints_Field.xml"/>
+    <include file="config/liquibase/changelog/20180719230925_added_entity_constraints_FieldValue.xml"/>
+    <include file="config/liquibase/changelog/20180719230927_added_entity_constraints_GatewayParam.xml"/>
+    <include file="config/liquibase/changelog/20180719230931_added_entity_constraints_Deposit.xml"/>
+    <include file="config/liquibase/changelog/20180813204929_added_entity_constraints_BookkeepingTemplate.xml"/>
+    <include file="config/liquibase/changelog/20180813204929_added_entity_constraints_BookkeepingTransaction.xml"/>
+    <include file="config/liquibase/changelog/20181203011724_added_entity_constraints_Setting.xml"/>
+    <include file="config/liquibase/changelog/20190213100815_added_entity_constraints_CheckVerifierParam.xml"/>
+    <include file="config/liquibase/changelog/20190403230920_added_entity_constraints_GroupSetting.xml"/>
+    <include file="config/liquibase/changelog/20190101010000_added_entity_constraints_AgentParams.xml"/>
+    <include file="config/liquibase/changelog/20180719230926_added_entity_constraints_VirtualAccountDetails.xml"/>
+    <include file="config/liquibase/changelog/20200319100926_added_entity_constraints_Sender.xml"/>
+    <include file="config/liquibase/changelog/20191111230920_added_entity_constraints_RecipientGroup.xml"/>
+    <include file="config/liquibase/changelog/20210113143642_added_entity_constraints_P2pParam.xml"/>
+    <include file="config/liquibase/changelog/20210726145731_added_entity_constraints_ResponseField.xml"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+    <!--<include file="config/liquibase/changelog/added_data_to_gateway.xml"/>-->
+    <include file="config/liquibase/changelog/20171208191939_added_entity_Bank.xml"/>
+    <include file="config/liquibase/changelog/20171208191939_added_entity_Card.xml"/>
+    <include file="config/liquibase/changelog/20200923011608_added_entity_File.xml"/>
+    <include file="config/liquibase/changelog/20180823174713_added_entity_EntityAuditEvent.xml"/>
+
+    <!--<include file="config/liquibase/xml/load_data.xml"/>-->
+<!--    <include file="config/liquibase/xml/deposit_gateway_constraints_added.xml"/>-->
+<!--    <include file="config/liquibase/xml/deposit_blocked_unlim_added.xml"/>-->
+    <include file="config/liquibase/xml/transaction_pay_type_request_sub_account_added.xml"/>
+    <include file="config/liquibase/xml/added_recipient_epos_columns.xml"/>
+<!--    <include file="config/liquibase/xml/added_agent_recipient_epos_columns.xml"/>-->
+    <include file="config/liquibase/xml/added_transaction_epos_columns.xml"/>
+<!--    <include file="config/liquibase/xml/added_agent_inn_phoneNumber_orgName_columns.xml"/>-->
+    <include file="config/liquibase/xml/added_depositTransaction_doc_column.xml"/>
+<!--    <include file="config/liquibase/xml/added_agent_recipient_recipientGroup_column.xml"/>-->
+    <include file="config/liquibase/xml/added_recipient_inn_mfo_settlementAccount_columns.xml"/>
+    <include file="config/liquibase/xml/added_bookkeepingTemplate_bookkeepingTransactionType.xml"/>
+    <include file="config/liquibase/xml/added_bookkeepingTemplate_name.xml"/>
+    <include file="config/liquibase/xml/index/added_index_tran_1.xml"/>
+    <include file="config/liquibase/xml/altered_gatewayAmount_to_double_in_transaction.xml"/>
+    <include file="config/liquibase/xml/added_bookkeepingTransaction_TransactionStatus.xml"/>
+<!--    <include file="config/liquibase/xml/added_agent_recipient_setting.xml"/>-->
+    <include file="config/liquibase/xml/added_reconcile_summary_audit.xml"/>
+    <include file="config/liquibase/xml/added_reconcileSummary_gatewayName_column.xml"/>
+    <include file="config/liquibase/xml/modified_depositTransaction_tax_columns.xml"/>
+    <include file="config/liquibase/xml/added_bookkeepingTransaction_groupIds.xml"/>
+    <include file="config/liquibase/xml/added_bookkeepingTemplate_groupIds.xml"/>
+    <include file="config/liquibase/xml/added_reconcile_discrepancy_column_reconcileSummaryId.xml"/>
+    <include file="config/liquibase/xml/added_entity_constraints_ReconcileDiscrepancy.xml"/>
+    <include file="config/liquibase/xml/modified_recipient_mfo_column.xml"/>
+    <include file="config/liquibase/xml/modified_recipient_inn_column.xml"/>
+    <include file="config/liquibase/xml/modified_reconcile_discrepancy_gatewayId_to_gatewayName.xml"/>
+    <include file="config/liquibase/xml/rename_column_gatewayId_to_gatewayName_entity_reconcile_discrepancy.xml"/>
+    <include file="config/liquibase/xml/webmoney_spring_bean_name_changed.xml"/>
+    <include file="config/liquibase/xml/added_bookkeepingTemplate_subRecipientId.xml"/>
+    <include file="config/liquibase/xml/function/updated_f_delete_field_id_cascade_v3.xml"/>
+    <include file="config/liquibase/xml/function/updated_f_delete_fv_cascaded_v4.xml"/>
+    <include file="config/liquibase/xml/added_reconcile_summary_status.xml"/>
+    <include file="config/liquibase/xml/modified_commissions_in_transaction.xml"/>
+    <include file="config/liquibase/xml/added_bookkeepingTransaction_subRecipient.xml"/>
+    <include file="config/liquibase/xml/added_bookkeepingTransaction_comment.xml"/>
+    <include file="config/liquibase/changelog/added_field_to_bill.xml"/>
+    <include file="config/liquibase/xml/deposit_balance_ccy_added.xml"/>
+    <include file="config/liquibase/xml/modified_deposit_agent_constraints.xml"/>
+    <include file="config/liquibase/xml/added_recipient_limit_ratio_column.xml"/>
+    <include file="config/liquibase/xml/function/added_fs_delete_cascaded.xml"/>
+    <include file="config/liquibase/xml/added_transaction_audit.xml"/>
+    <include file="config/liquibase/xml/added_transaction_main_column.xml"/>
+<!--   Just as example for using sql views <include file="config/liquibase/xml/view/added_v_recipient_i18n.xml"/>-->
+    <include file="config/liquibase/xml/modified_bookkeepingTemplate_desc_column.xml"/>
+    <!--<include file="config/liquibase/xml/added_agent_recipient_group_setting_constraints.xml"/>-->
+    <!--<include file="config/liquibase/xml/added_in_agent_recipient_group_setting.xml"/>-->
+<!--    <include file="config/liquibase/xml/added_agent_recipient_setting_type.xml"/>-->
+    <include file="config/liquibase/xml/added_table_bookkeepingPayType_in_bookkeepingTransaction.xml"/>
+    <include file="config/liquibase/xml/added_column_reconcile_in_recipient.xml"/>
+    <include file="config/liquibase/xml/added_column_amountRation_in_transaction_entity.xml"/>
+    <include file="config/liquibase/xml/added_column_params_in_bookkeepingTransaction.xml"/>
+    <include file="config/liquibase/xml/added_bookkeepingTemplate_bookkeepingPayType.xml"/>
+    <include file="config/liquibase/xml/added_entity_constraints_virtual_account_into_deposit.xml"/>
+    <include file="config/liquibase/xml/added_column_agent_login_in_deposit_transaction.xml"/>
+    <!--    <include file="config/liquibase/xml/do_clean_doubled_tran_request_id.xml"/>-->
+    <!--    todo add index into tran-->
+    <!--    <include file="config/liquibase/xml/index/added_index_agent_request_id_into_tran.xml"/>-->
+    <include file="config/liquibase/xml/added_check_id_to_field_value.xml"/>
+    <include file="config/liquibase/xml/added_recipient_type_column.xml"/>
+    <include file="config/liquibase/xml/added_transaction_senderBean.xml"/>
+    <include file="config/liquibase/xml/modified_bill_all_json_columns_type.xml"/>
+
+<!--    <include file="config/liquibase/xml/added_entity_constraints_AgentRecipient.xml"/>-->
+
+    <!--<include file="config/liquibase/xml/addDefaultValue_transaction_created_by.xml"/>-->
+
+    <include file="config/liquibase/xml/function/updated_f_delete_fv_cascaded.xml"/>
+    <include file="config/liquibase/xml/fixed_audit_entities.xml"/>
+    <include file="config/liquibase/xml/fixed_bill_fields.xml"/>
+    <include file="config/liquibase/xml/added_column_amountCalculateType_into_BKTemplate.xml"/>
+<!--    <include file="config/liquibase/xml/modified_value_size_in_setting_property.xml"/>-->
+<!--    <include file="config/liquibase/xml/added_column_jsonParams_into_AgentRecipient.xml"/>-->
+<!--    <include file="config/liquibase/xml/modified_bill_session_id_constraints.xml"/>-->
+    <include file="config/liquibase/xml/added_column_successOn2xx_into_GatewayParam.xml"/>
+    <include file="config/liquibase/xml/modified_type_reconcile_discrepancy_gateway_id.xml"/>
+    <include file="config/liquibase/xml/added_column_email_into_Agent.xml"/>
+    <include file="config/liquibase/xml/added_column_state_into_Agent.xml"/>
+    <include file="config/liquibase/xml/added_state_into_deposit.xml"/>
+
+
+
+    <include file="config/liquibase/migration/drop_hibernate_sequence.xml"/>
+    <include file="config/liquibase/migration/create_sequence_generator.xml"/>
+    <include file="config/liquibase/migration/entity_Recipient_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_Agent_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_Agent_Recipients_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_Category_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_Prefix_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_Field_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_Field_Value_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_Virtual_Account_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_Gateway_Param_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_Bill_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_Transaction_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_Deposit_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_EntityAuditEvent_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_ReconcileSummary_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_SettingProperty_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_AgentParams_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_GroupSetting_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_RecipientGroup_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_Sender_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_P2pCondition_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_P2pCommission_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_P2pParam_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_ResponseField_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_Currency_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_Virtual_Account_Details_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_Deposit_Transaction_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_ReconcileDiscrepancy_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_CheckVerifierParam_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_Bank_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_BookkeepingTransaction_migrate_7_1.xml"/>
+
+
+    <include file="config/liquibase/migration/drop_constraint_recipient_to_recipient_title.xml"/>
+    <include file="config/liquibase/migration/add_foreign_constraint_recipient_to_recipient_title.xml"/>
+    <include file="config/liquibase/migration/drop_constraint_i18n_to_recipient_title.xml"/>
+    <include file="config/liquibase/migration/add_foreign_constraint_i18n_to_recipient_title.xml"/>
+    <include file="config/liquibase/migration/drop_constraint_recipient_to_recipient_full_name.xml"/>
+    <include file="config/liquibase/migration/add_foreign_constraint_recipient_to_recipient_full_name.xml"/>
+    <include file="config/liquibase/migration/drop_constraint_i18n_to_recipient_full_name.xml"/>
+    <include file="config/liquibase/migration/add_foreign_constraint_i18n_to_recipient_full_name.xml"/>
+    <include file="config/liquibase/migration/entity_Agent_constraints_migrate_7_1.xml"/>
+<!--    <include file="config/liquibase/migration/entity_Agent_Recipient_constraints_migrate_7_1.xml"/>-->
+    <include file="config/liquibase/migration/entity_Category_constraints_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_Field_constraints_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_Field_Value_constraints_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_Deposit_constraints_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_GroupSetting_constraints_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_RecipientGroup_constraints_migrate_7_1.xml"/>
+    <include file="config/liquibase/migration/entity_ResponseField_constraints_migrate_7_1.xml"/>
+
+    <!--<include file="config/liquibase/xml/addDefaultValue_transaction_created_by.xml" relativeToChangelogFile="false"/>-->
+    <include file="config/liquibase/xml/update_agent_recipient_unique_constraint.xml"/>
+    <include file="config/liquibase/xml/modified_phoneNumber_agent.xml"/>
+
+
+    <include file="config/liquibase/xml/function/updated_f_delete_fv_cascaded.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/xml/fixed_audit_entities.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/xml/fixed_bill_fields.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/xml/added_column_amountCalculateType_into_BKTemplate.xml"
+             relativeToChangelogFile="false"/>
+<!--    <include file="config/liquibase/xml/modified_value_size_in_setting_property.xml" relativeToChangelogFile="false"/>-->
+<!--    <include file="config/liquibase/xml/added_column_jsonParams_into_AgentRecipient.xml" relativeToChangelogFile="false"/>-->
+<!--    <include file="config/liquibase/xml/modified_bill_session_id_constraints.xml" relativeToChangelogFile="false"/>-->
+    <include file="config/liquibase/xml/added_column_successOn2xx_into_GatewayParam.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/xml/modified_type_reconcile_discrepancy_gateway_id.xml"
+             relativeToChangelogFile="false"/>
+    <include file="config/liquibase/xml/modified_requestTrId_in_column_Transaction.xml"
+             relativeToChangelogFile="false"/>
+<!--    <include file="config/liquibase/xml/added_column_sellRate_buyRate_in_currency.xml" relativeToChangelogFile="false"/>-->
+    <include file="config/liquibase/xml/dropped_currency_code_unique_constraint.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/xml/added_ccy-group_field_to_currency.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/xml/added_currency_code_ccy-group_unique_constraint.xml" relativeToChangelogFile="false"/>
+
+
+    <include file="config/liquibase/migration/sequence_generator_increase.xml"/>
+
+    <include file="config/liquibase/xml/function/updated_fs_delete_field_cascade_function.xml" />
+    <include file="config/liquibase/xml/added_type_to_ResponseField.xml"/>
+    <include file="config/liquibase/xml/added_amount_ratio_to_response_field.xml"/>
+    <include file="config/liquibase/xml/added_type_to_reconcile_summary.xml"/>
+    <include file="config/liquibase/migration/drop_constraint_not_null_ratio_to_response_field.xml"/>
+    <include file="config/liquibase/xml/added_column_category_to_transaction.xml"/>
+    <include file="config/liquibase/xml/added_column_name_to_p2p_param.xml"/>
+    <include file="config/liquibase/xml/added_promo_to_transaction_and_p2p_param.xml"/>
+    <include file="config/liquibase/xml/added_column_fromDate_toDate_into_ReconcileSummary.xml"/>
+    <include file="config/liquibase/xml/added_out_ext_id_to_bill.xml"/>
+
+<!--    <include file="config/liquibase/changelog/re_added_p2p_param_fake_data.xml" relativeToChangelogFile="false"/>-->
+    <include file="config/liquibase/xml/added_column_bank_client_id_to_agent_params.xml"/>
+
+    <include file="config/liquibase/xml/optimized_tran_columns_1.xml"/>
+    <include file="config/liquibase/xml/optimized_bill_columns_1.xml"/>
+<!--    <include file="config/liquibase/xml/index/added_index_tran_2.xml"/>-->
+    <include file="config/liquibase/xml/index/added_index_bill_1.xml"/>
+<!--    <include file="config/liquibase/xml/view/added_view_simple_transaction.xml"/>-->
+    <include file="config/liquibase/xml/added_column_jsonParams_into_Recipient.xml"/>
+    <include file="config/liquibase/xml/optimized_recipient_columns_1.xml"/>
+    <include file="config/liquibase/xml/optimized_tran_columns_2.xml"/>
+</databaseChangeLog>

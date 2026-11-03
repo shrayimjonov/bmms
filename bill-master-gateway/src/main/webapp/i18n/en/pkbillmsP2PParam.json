@@ -1,0 +1,42 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsP2PParam": {
+      "home": {
+        "title": "P2P Params",
+        "createLabel": "Create a new P2P Param",
+        "createOrEditLabel": "Create or edit a P2P Param",
+        "notFound": "P2P params not found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete P2P Param {{ id }}?"
+      },
+      "detail": {
+        "title": "P2P Param"
+      },
+      "priority": "Priority",
+      "promo": "Promo code",
+      "active": "Active",
+      "senderPc": "Sender Pc",
+      "recipientPc": "Recipient Pc",
+      "value": "Value",
+      "senderCondition": "Sender Condition",
+      "recipientCondition": "Recipient Condition",
+      "senderPercent": "Sender Percent",
+      "recipientPercent": "Recipient Percent",
+      "help": {
+        "priority": "Priority",
+        "active": "Active",
+        "senderPc": "Sender Pc",
+        "recipientPc": "Recipient Pc",
+        "value": "Value"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsP2PParam": {
+      "created": "A new P2P Param is created with identifier {{ param }}",
+      "updated": "A P2P Param is updated with identifier {{ param }}",
+      "deleted": "A P2P Param is deleted with identifier {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+    "name": "ResponseField",
+    "fields": [
+        {
+            "fieldName": "name",
+            "javadoc": "Response field name; account_id, phone, login, ...",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 128
+        },
+        {
+            "fieldName": "visibility",
+            "javadoc": "Visible in UI, can be used for hidden static fields",
+            "fieldType": "Visibility",
+            "fieldValues": "HIDDEN,PRINTER,MONITOR,ALL"
+        },
+        {
+            "fieldName": "ord",
+            "javadoc": "Display order",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "requestType",
+            "javadoc": "Define to which of CHECK,PAY,STATUS,CANCEL,DEPOSIT,RECONCILE,CREDIT,DEBIT,P2P_CREDIT,P2P_DEBIT belongs that response field",
+            "fieldType": "RequestType",
+            "fieldValues": "CHECK,PAY,STATUS,CANCEL,DEPOSIT,RECONCILE,CREDIT,DEBIT,P2P_CREDIT,P2P_DEBIT"
+        },
+        {
+            "fieldName": "type",
+            "javadoc": "Тип",
+            "fieldType": "ResponseFieldType",
+            "fieldValues": "TEXT,AMOUNT,DATE"
+        },
+        {
+            "fieldName": "amountRatio",
+            "javadoc": "Доля суммы, 1 - сум, 100 - тийин",
+            "fieldType": "Integer",
+            "fieldValidateRules": ["required"]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "recipient",
+            "otherEntityName": "recipient",
+            "otherEntityField": "shortName"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipValidateRules": "required",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "label",
+            "otherEntityName": "i18n",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20210726145731",
+    "entityTableName": "response_field",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "bmms",
+    "applications": "*",
+    "microserviceName": "pkbillms",
+    "enableEntityAudit": true,
+    "databaseType": "sql"
+}

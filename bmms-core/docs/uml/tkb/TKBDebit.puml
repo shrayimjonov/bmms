@@ -1,0 +1,102 @@
+
+@startuml
+
+!include ./../config.txt
+
+title
+    __Заявка на списание с карты по реквизитам Плательщика (без ввода формы)__
+end title
+
+
+'|#B093A0|BSS|
+'|#LightBlue|BM|
+'|#00b0ab|TKB|
+|BSS|
+|BM|
+|TKB|
+
+|BSS|
+    start
+    :Запрос на снятие средств;
+|BM|
+:Запрос на снятие средств;
+
+note right
+Запрос RegisterOrderFromUnregisteredCardWOF:
+
+URL : /api/v1/card/unregistered/debit/wof
+Body:
+!include request1.json
+end note
+
+|TKB|
+    :RegisterOrderFromUnregisteredCardWOF;
+|BM|
+:log TKB response;
+note right
+Ответ RegisterOrderFromUnregisteredCardWOF:
+
+Body:
+!include response1.json
+end note
+
+if (Response) then (error)
+    |BM|
+        -[#red,dashed]->
+       :prepare error response;
+        -[#red,dashed]->
+       :convert to BSS response;
+    |BSS|
+        -[#red,dashed]->
+       :React to Error response;
+       stop
+else (success)
+    |BM|
+        :Prepare finish request;
+        note right
+        Запрос RegisterOrderFromCardFinish:
+
+        URL : /api/v1/card/unregistered/debit/wof/finish
+        Body:
+        {
+          "ExtId": "Test",
+          "paReq": "eJxV...a0A==",
+          "md": "6dha79f5-f916-4080-96e2-9cd264f0195f"
+        }
+        end note
+
+    |TKB|
+        :RegisterOrderFromCardFinish;
+    |BM|
+        :log TKB response;
+        note right
+        Ответ RegisterOrderFromCardFinish:
+
+        Body:
+        {
+          "OrderId": 123,
+          "ExtId": "test123"
+        }
+        end note
+
+    if (Response) then  (success)
+        |BM|
+            :convert to BSS response;
+        |BSS|
+            :React to Success response;
+            stop
+    else (error)
+        |BM|
+            -[#red,dashed]->
+            :prepare error response;
+            -[#red,dashed]->
+            :convert to BSS response;
+        |BSS|
+            -[#red,dashed]->
+            :React to Error response;
+            stop
+    endif
+
+endif
+
+@enduml

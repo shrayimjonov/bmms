@@ -1,0 +1,53 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsAgentRecipient": {
+      "home": {
+        "title": "Agent Recipients",
+        "createLabel": "Create a new Agent Recipient",
+        "createOrEditLabel": "Create or edit a Agent Recipient",
+        "notFound": "No Agent Recipients found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Agent Recipient {{ id }}?"
+      },
+      "detail": {
+        "title": "Agent Recipient"
+      },
+      "agentCommission": "Agent Commission",
+      "agentFee": "Agent Fee",
+      "systemCommissionUp": "System Commission Up",
+      "systemCommissionDown": "System Commission Down",
+      "systemFee": "System Fee",
+      "active": "Active",
+      "eposPort": "Epos Port",
+      "eposMerchant": "Epos Merchant",
+      "eposTerminal": "Epos Terminal",
+      "requestGroup": "Request Group",
+      "jsonParams": "Json Params",
+      "agent": "Agent",
+      "recipient": "Recipient",
+      "setting": "Setting",
+      "agent": "Agent",
+      "settingType": "Setting Type",
+      "recipientGroup": "Recipient Group",
+      "help": {
+        "agentCommission": "Комиссия агента, которая снимается с внесенной суммы клиента в пользу агента",
+        "agentFee": "Вознаграждение агента, это отчисление системы с суммы платежа в пользу агента",
+        "systemCommissionUp": "Комиссия системы, которая снимается сверх внесенной суммы клиента в пользу системы",
+        "systemCommissionDown": "Комиссия системы, которая снимается с внесенной суммы клиента в пользу системы",
+        "systemFee": "Вознаграждение системы, это отчисления поставщика услуг с суммы платежа в пользу системы",
+        "eposPort": "Параметр Port для соединения с SvGate",
+        "eposMerchant": "Параметр Merchant Id для соединения с SvGate",
+        "eposTerminal": "Параметр Terminal Id для соединения с SvGate",
+        "jsonParams": "Дополнительные параметры в виде json"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsAgentRecipient": {
+      "created": "A new Agent Recipient is created with identifier {{ param }}",
+      "updated": "A Agent Recipient is updated with identifier {{ param }}",
+      "deleted": "A Agent Recipient is deleted with identifier {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,80 @@
+<form [formGroup]="editForm" (ngSubmit)="save()">
+  <div class="modal-header">
+    <h4 class="modal-title" jhiTranslate="billMasterGwApp.pkbillmsGateway.home.createOrEditLabel">Create Or Edit Label</h4>
+
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal()">&times;</button>
+  </div>
+
+  <div class="modal-body">
+    <bm-alert></bm-alert>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsGateway.name" for="field_name">Name</label>
+        <input nz-input nzSize="large" formControlName="name" id="field_name" maxlength="64" input-validator auto-focus />
+      </div>
+
+      <div class="form-group col-md-6">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsGateway.springBeanName" for="field_springBeanName"
+        >Spring Bean Name</label
+        >
+        <bm-select-input
+          id="field_springBeanName"
+          formControlName="springBeanName"
+          [data]="springBeanNames"
+          [bmShowSearch]="true"
+          input-validator
+        ></bm-select-input>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsGateway.mfo" for="field_mfo">MFO</label>
+        <input
+          nz-input
+          nzSize="large"
+          formControlName="mfo"
+          id="field_mfo"
+          mask="00000"
+          placeholder="00000"
+          autocomplete="off"
+          input-validator
+        />
+      </div>
+
+      <div class="form-group col-md-6">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsGateway.ban" for="field_ban">Ban</label>
+        <input nz-input nzSize="large" formControlName="ban" id="field_ban" maxlength="32" input-validator />
+      </div>
+
+      <div class="form-group col-md-6">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsGateway.taxnr" for="field_taxnr">Taxnr</label>
+        <input nz-input nzSize="large" formControlName="taxnr" id="field_taxnr" mask="000000000" input-validator />
+      </div>
+
+      <div class="form-group col-md-6">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsGateway.contract" for="field_contract">Contract</label>
+        <input nz-input nzSize="large" formControlName="contract" id="field_contract" maxlength="64" input-validator />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsGateway.org" for="field_org">Org</label>
+      <input nz-input nzSize="large" formControlName="org" id="field_org" maxlength="32" input-validator />
+    </div>
+
+    <nz-switch
+      id="field_active"
+      formControlName="active"
+      nzCheckedChildren="{{ 'global.active.true' | translate }}"
+      nzUnCheckedChildren="{{ 'global.active.false' | translate }}"
+    >
+    </nz-switch>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" nz-button nzSize="large" jhiTranslate="entity.action.cancel" (click)="closeModal()">Cancel</button>
+    <button nz-button nzSize="large" nzType="primary" [nzLoading]="loading" [input-validator-button]="editForm">
+      {{ 'entity.action.save' | translate }}
+    </button>
+  </div>
+</form>

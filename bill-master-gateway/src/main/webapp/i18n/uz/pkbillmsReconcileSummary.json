@@ -1,0 +1,57 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsReconcileSummary": {
+      "runReconcile": "Solishtirishni bajarish",
+      "note": "Tizim har kuni xizmat ko'rsatuvchi provayderlar bilan to'lovlarni solishtirishni amalga oshiradi. Moliyaviy ko‘rsatkichlar bo‘yicha yuzaga kelishi mumkin bo‘lgan og‘ishlarga tezkorlik bilan munosabatda bo‘lish va oluvchining hisobvarag‘iga pul mablag‘larini kiritishda takrorlanishning oldini olish uchun kelishish zarur.Ushbu shakl xizmat ko‘rsatuvchi provayderlar kontekstida solishtirish holatini ko‘rish uchun mo‘ljallangan. Sizni qiziqtirgan hisobot kunini tanlang va Get-ni bajaring. Quyidagi jadvalda barcha ulangan provayderlar va belgilangan kun uchun yarashuv holati ko'rsatiladi. Ta'minotchi ro'parasidagi \"Keleshishni amalga oshirish\" tugmasini bosish orqali ikkinchi yarashuv so'rovini boshlashingiz mumkin. Bunday holda, tizim barcha muvaffaqiyatli to'lovlarni Yetkazib beruvchining to'lovlari bilan muvofiqlashtiradi. Yarashuv bir daqiqadan yarim soatgacha davom etishi mumkin. Shuning uchun, joriy holatni tekshirish uchun sahifani vaqti-vaqti bilan yangilab turing.",
+      "home": {
+        "title": "Reconcile Summaries",
+        "createLabel": "Yangi Reconcile Summary qo`shish",
+        "createOrEditLabel": "Reconcile Summaryni tahrirlash",
+        "notFound": "Xech qanday solishtiruvlar topilmadi"
+      },
+      "delete": {
+        "question": "{{ id }}- Reconcile Summaryni o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "Reconcile Summary"
+      },
+      "reconcile.success": "Сверка прошла успешно",
+      "reconcile.error": "Ошибка при сверке",
+      "success.true": "Muvaffaqiyatli",
+      "success.false": "Tafovutlar",
+      "gateway": "Shlyuz",
+      "systemAmount": "Tizim summasi",
+      "gatewayAmount": "Shlyuz summasi",
+      "systemCount": "Tizim soni",
+      "gatewayCount": "Shlyuz soni",
+      "date": "Sana",
+      "status": "Holat",
+      "success": "Muvaffaqiyat",
+      "period": "Davr",
+      "gatewayName": "Shlyuz Nomi",
+      "terminalId": "Terminal ID",
+      "diffCount": "Farqlar soni",
+      "diffAmount": "Summa farqi",
+      "createdDate": "Yaratilgan sana",
+      "p2pType": "P2P turi",
+      "help": {
+        "gatewayId": "Уникальный номер шлюза",
+        "systemAmount": "Общая сумма системы",
+        "gatewayAmount": "Общая сумма шляза",
+        "systemCount": "Общее количество транзакций в системе",
+        "gatewayCount": "Общее количество транзакций у шлюза",
+        "date": "Дата",
+        "success": "Успешна ли сверка",
+        "period": "Период (день , месяц) и т.д."
+      },
+      "runReconcileConfirm": "Siz solishtirishni bajarmoqchimisiz?"
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsReconcileSummary": {
+      "created": "Reconcile Summary {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- Reconcile Summary saqlandi",
+      "deleted": "{{ param }}- Reconcile Summary o`chirildi"
+    }
+  }
+}

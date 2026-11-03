@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Alter transaction.gatewayAmount to double.
+    -->
+    <changeSet id="altered_gatewayAmount_to_double_in_transaction" author="javlon">
+        <modifyDataType tableName="transaction" columnName="gateway_amount" newDataType="double"/>
+    </changeSet>
+</databaseChangeLog>

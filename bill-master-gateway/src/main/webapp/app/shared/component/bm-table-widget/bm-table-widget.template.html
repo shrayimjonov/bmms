@@ -1,0 +1,27 @@
+<div class="d-flex justify-content-end mb-2">
+
+<!--  <div class="ml-2">-->
+<!--    <button nz-button>{{ 'entity.action.filter' | translate }}</button>-->
+<!--  </div>-->
+
+  <div class="ml-2">
+    <nz-input-group class="pr-0" nzSize="small" [nzSuffix]="countSelectTpl">
+      <input [style.max-width]="'100px'" nz-input autocomplete="off" value="Items per page" readonly/>
+    </nz-input-group>
+
+    <ng-template #countSelectTpl>
+      <nz-select name="itemsPerPage" nzBorderless [(ngModel)]="itemsPerPage" (ngModelChange)="itemsPerPageChange.emit(itemsPerPage)">
+        <nz-option [nzValue]="20" nzLabel="20"></nz-option>
+        <nz-option [nzValue]="50" nzLabel="50"></nz-option>
+        <nz-option [nzValue]="100" nzLabel="100"></nz-option>
+        <nz-option [nzValue]="200" nzLabel="200"></nz-option>
+      </nz-select>
+    </ng-template>
+  </div>
+
+  <div class="ml-2">
+    <button nz-button (click)="changeSize()">
+      <i class="icon-btn" nz-icon [nzType]="isSmall ? 'fa-grip-lines' : 'fa-bars'"></i>
+    </button>
+  </div>
+</div>

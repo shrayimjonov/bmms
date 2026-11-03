@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added view simple transaction.
+    -->
+    <changeSet id="added_view_simple_transaction" author="javlon" dbms="postgresql,h2">
+        <createView
+                fullDefinition="false"
+                remarks="Simple transaction view for UI"
+                replaceIfExists="false"
+                viewName="v_simple_transaction">
+            select
+                id,
+                request_amount,
+                request_tr_id,
+                request_login,
+                sender_name,
+                sender_account,
+                sender_amount,
+                sender_tr_id,
+                sender_status,
+                recipient_name,
+                recipient_account,
+                recipient_amount,
+                recipient_tr_id,
+                recipient_status,
+                status,
+                date,
+                pay_type,
+                amount_ratio,
+                category
+            from transaction order by id DESC;
+        </createView>
+    </changeSet>
+
+</databaseChangeLog>

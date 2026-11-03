@@ -1,0 +1,21 @@
+@import '../bootstrap-variables';
+
+.ant-success {
+  background-color: $success;
+  color: white;
+}
+
+.ant-danger {
+  background-color: $danger;
+  color: white;
+}
+
+.ant-info {
+  background-color: $info;
+  color: white;
+}
+
+.ant-warning {
+  background-color: $warning;
+  color: black;
+}

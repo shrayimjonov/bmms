@@ -1,0 +1,9 @@
+{
+    "fieldSeparator": ";",
+    "groupSeparator":"\n",
+    "queryAmount": "2",
+    "queryExtId": "1",
+    "queryTranId": "3",
+    "queryExtTime": "4",
+    "requestDateFormat": "dd.MM.yyyy"
+}

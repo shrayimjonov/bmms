@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Entity SettingProperty migrate to 7.1 jhipster
+    -->
+    <changeSet id="entity_AgentParams_migrate_7-1" author="zafar">
+        <!--
+            Rename column jhi_password
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="agent_params"
+                          columnName="jhi_password"/>
+        </preConditions>
+
+        <comment>Rename column jhi_password</comment>
+
+        <renameColumn tableName="agent_params" oldColumnName="jhi_password" newColumnName="password"/>
+
+    </changeSet>
+    <changeSet id="entity_AgentParams_migrate_7-2" author="zafar">
+        <!--
+          Add column created_by
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="agent_params"
+                              columnName="created_by"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column created_by</comment>
+
+        <addColumn tableName="agent_params">
+            <column name="created_by" type="varchar(50)" defaultValue="system">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_AgentParams_migrate_7-3" author="zafar">
+        <!--
+           Add column created_date
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="agent_params"
+                              columnName="created_date"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column created_date</comment>
+
+        <addColumn tableName="agent_params">
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_AgentParams_migrate_7-4" author="zafar">
+        <!--
+          Add column last_modified_by
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="agent_params"
+                              columnName="last_modified_by"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column last_modified_by</comment>
+
+        <addColumn tableName="agent_params">
+            <column name="last_modified_by" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_AgentParams_migrate_7-5" author="zafar">
+        <!--
+         Add column last_modified_date
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="agent_params"
+                              columnName="last_modified_date"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column last_modified_date</comment>
+
+        <addColumn tableName="agent_params">
+            <column name="last_modified_date" type="timestamp"/>
+        </addColumn>
+
+    </changeSet>
+</databaseChangeLog>

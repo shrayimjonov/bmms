@@ -1,0 +1,38 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsGateway": {
+      "home": {
+        "title": "Shlyuzlar",
+        "createLabel": "Yangi shlyuz qo`shish",
+        "createOrEditLabel": "Shlyuzni tahrirlash",
+        "notFound": "Xech qanday shlyuzlar topilmadi"
+      },
+      "delete": {
+        "question": "{{ id }}- Shlyuzni o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "Shlyuz"
+      },
+      "name": "Nomi",
+      "org": "Org",
+      "active": "Aktiv",
+      "mfo": "Mfo",
+      "taxnr": "INN",
+      "ban": "Ban",
+      "contract": "Shartnoma",
+      "springBeanName": "Spring Bean Nomi",
+      "deposit": "Depozit",
+      "help": {
+        "mfo": "Bank MFO (BIN)",
+        "taxnr": "Tax number (INN)"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsGateway": {
+      "created": "Shlyuz {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- Shlyuz saqlandi",
+      "deleted": "{{ param }}- Shlyuz o`chirildi"
+    }
+  }
+}

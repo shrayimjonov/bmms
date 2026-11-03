@@ -1,0 +1,30 @@
+{
+  "billMasterGwApp": {
+    "bmmsRecipientFileSchema": {
+      "home": {
+        "title": "Recipient File Schemas",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Recipient File Schema",
+        "createOrEditLabel": "Create or edit a Recipient File Schema",
+        "notFound": "No Recipient File Schemas found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Recipient File Schema {{ id }}?"
+      },
+      "detail": {
+        "title": "Recipient File Schema"
+      },
+      "id": "ID",
+      "name": "Name",
+      "idList": "Id List",
+      "root": "Root"
+    }
+  },
+  "pkbillmsApp": {
+    "bmmsRecipientFileSchema": {
+      "created": "A new Recipient File Schema is created with identifier {{ param }}",
+      "updated": "A Recipient File Schema is updated with identifier {{ param }}",
+      "deleted": "A Recipient File Schema is deleted with identifier {{ param }}"
+    }
+  }
+}

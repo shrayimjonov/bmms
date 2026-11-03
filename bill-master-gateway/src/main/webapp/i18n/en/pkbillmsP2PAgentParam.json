@@ -1,0 +1,32 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsP2PAgentParam": {
+      "home": {
+        "title": "P2P Agent Param",
+        "createLabel": "Create a new P2P Agent Param",
+        "createOrEditLabel": "Create or edit a P2P Agent Param",
+        "notFound": "P2P agent param not found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete P2P Agent Param {{ id }}?"
+      },
+      "detail": {
+        "title": "P2P Agent Param"
+      },
+      "agentId": "Agent Id",
+      "p2pParamsRegex": "P2P Params Regex",
+      "description": "Description",
+      "help": {
+        "value": "Значение",
+        "description": "Описание"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsP2PAgentParam": {
+      "created": "A new P2P Agent Param is created with identifier {{ param }}",
+      "updated": "A P2P Agent Param is updated with identifier {{ param }}",
+      "deleted": "A P2P Agent Param is deleted with identifier {{ param }}"
+    }
+  }
+}

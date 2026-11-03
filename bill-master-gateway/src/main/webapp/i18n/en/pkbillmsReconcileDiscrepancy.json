@@ -1,0 +1,50 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsReconcileDiscrepancy": {
+      "home": {
+        "title": "Reconcile Discrepancies",
+        "createLabel": "Create a new Reconcile Discrepancy",
+        "createOrEditLabel": "Create or edit a Reconcile Discrepancy",
+        "notFound": "No Reconcile Discrepancies found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Reconcile Discrepancy {{ id }}?"
+      },
+      "detail": {
+        "title": "Reconcile Discrepancy"
+      },
+      "gatewayName": "Gateway Name",
+      "systemTransactionId": "System Transaction Id",
+      "gatewayTransactionId": "Gateway Transaction Id",
+      "systemAmount": "System Amount",
+      "gatewayAmount": "Gateway Amount",
+      "systemStatus": "System Status",
+      "gatewayStatus": "Gateway Status",
+      "systemDate": "System Date",
+      "gatewayDate": "Gateway Date",
+      "closed": "Closed",
+      "comment": "Comment",
+      "reconcileSummary": "Reconcile Summary",
+      "help": {
+        "gatewayName": "Уникальное название шлюза",
+        "systemTransactionId": "Номер платежа в системе",
+        "gatewayTransactionId": "Номер платежа в шлюзе",
+        "systemAmount": "Сумма платежа в системе",
+        "gatewayAmount": "Сумма платежа в шлюзе",
+        "systemStatus": "Статус транзакции в системе",
+        "gatewayStatus": "Статус транзакции в шлюзе",
+        "systemDate": "Дата транзакции в системе",
+        "gatewayDate": "Дата транзакции в шлюзе",
+        "closed": "Финальный статус проблемы",
+        "comment": "Дополнительная информация"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsReconcileDiscrepancy": {
+      "created": "A new Reconcile Discrepancy is created with identifier {{ param }}",
+      "updated": "A Reconcile Discrepancy is updated with identifier {{ param }}",
+      "deleted": "A Reconcile Discrepancy is deleted with identifier {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Entity Recipient migrate to 7.1 jhipster
+    -->
+    <changeSet id="entity_Recipient_migrate-1" author="zafar">
+        <!--
+            Rename column cancel
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="recipient"
+                          columnName="jhi_cancel"/>
+        </preConditions>
+
+        <comment>Rename column cancel</comment>
+
+        <renameColumn tableName="recipient" oldColumnName="jhi_cancel" newColumnName="cancel"/>
+    </changeSet>
+
+    <changeSet id="entity_Recipient_migrate-2" author="zafar">
+        <!--
+            Rename column titles_id entity Recipient title
+        -->
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="recipient_title"/>
+            <columnExists tableName="recipient_title"
+                          columnName="titles_id"/>
+        </preConditions>
+
+        <comment>Rename column titles_id entity Recipient title</comment>
+
+        <renameColumn tableName="recipient_title" oldColumnName="titles_id" newColumnName="title_id"/>
+    </changeSet>
+
+    <changeSet id="entity_Recipient_migrate-3" author="zafar">
+        <!--
+            Rename column recipients_id entity Recipient title
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="recipient_title"
+                          columnName="recipients_id"/>
+        </preConditions>
+
+        <comment>Rename column recipients_id entity Recipient title</comment>
+
+        <renameColumn tableName="recipient_title" oldColumnName="recipients_id" newColumnName="recipient_id"/>
+    </changeSet>
+
+    <changeSet id="entity_Recipient_migrate-4" author="zafar">
+        <!--
+            Drop primary key recipient_title
+        -->
+        <preConditions onFail="MARK_RAN">
+            <primaryKeyExists tableName="recipient_title"/>
+        </preConditions>
+
+        <comment>Drop primary key recipient_title</comment>
+
+        <dropPrimaryKey tableName="recipient_title"
+                        dropIndex="true"/>
+    </changeSet>
+
+    <changeSet id="entity_Recipient_migrate-5" author="zafar">
+        <!--
+            Rename table recipient title
+        -->
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="recipient_title"/>
+        </preConditions>
+
+        <comment>Rename table recipient title</comment>
+
+        <renameTable oldTableName="recipient_title" newTableName="rel_recipient__title"/>
+    </changeSet>
+
+    <changeSet id="entity_Recipient_migrate-6" author="zafar">
+        <!--
+           Add primary key recipient_title
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <primaryKeyExists tableName="rel_recipient__title"/>
+            </not>
+        </preConditions>
+
+        <comment>Add primary key recipient_title</comment>
+
+        <addPrimaryKey columnNames="recipient_id, title_id" tableName="rel_recipient__title"/>
+    </changeSet>
+
+    <changeSet id="entity_Recipient_migrate-7" author="zafar">
+        <!--
+            Rename column full_names_id entity Recipient full name
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="recipient_full_name"
+                          columnName="full_names_id"/>
+        </preConditions>
+
+        <comment>Rename column full_names_id entity Recipient full name</comment>
+
+        <renameColumn tableName="recipient_full_name" oldColumnName="full_names_id" newColumnName="full_name_id"/>
+    </changeSet>
+
+    <changeSet id="entity_Recipient_migrate-8" author="zafar">
+        <!--
+           Rename column recipients_id entity Recipient full name
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="recipient_full_name"
+                          columnName="recipients_id"/>
+        </preConditions>
+
+        <comment>Rename column recipients_id entity Recipient full name</comment>
+
+        <renameColumn tableName="recipient_full_name" oldColumnName="recipients_id" newColumnName="recipient_id"/>
+    </changeSet>
+
+    <changeSet id="entity_Recipient_migrate-9" author="zafar">
+        <!--
+           Drop primary key recipient_full_name
+       -->
+        <preConditions onFail="MARK_RAN">
+            <primaryKeyExists tableName="recipient_full_name"/>
+        </preConditions>
+
+        <comment>Drop primary key recipient_full_name</comment>
+
+        <dropPrimaryKey tableName="recipient_full_name"
+                        dropIndex="true"/>
+    </changeSet>
+
+    <changeSet id="entity_Recipient_migrate-10" author="zafar">
+        <!--
+            Rename table recipient full name
+        -->
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="recipient_full_name"/>
+        </preConditions>
+
+        <comment>Rename table recipient title</comment>
+
+        <renameTable oldTableName="recipient_full_name" newTableName="rel_recipient__full_name"/>
+    </changeSet>
+
+    <changeSet id="entity_Recipient_migrate-11" author="zafar">
+        <!--
+         Add primary key recipient_full_name
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <primaryKeyExists tableName="rel_recipient__full_name"/>
+            </not>
+        </preConditions>
+
+        <comment>Add primary key recipient_full_name</comment>
+
+        <addPrimaryKey columnNames="recipient_id, full_name_id" tableName="rel_recipient__full_name"/>
+    </changeSet>
+</databaseChangeLog>

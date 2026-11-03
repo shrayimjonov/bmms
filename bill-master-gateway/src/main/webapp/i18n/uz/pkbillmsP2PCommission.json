@@ -1,0 +1,37 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsP2PCommission": {
+      "home": {
+        "title": "P2P Komissiyalar",
+        "createLabel": "Yangi P2P Komissiya qo`shish",
+        "createOrEditLabel": "P2P Komissiya tahrirlash",
+        "notFound": "Xech qanday P2P komissiyalar topilmadi"
+      },
+      "delete": {
+        "question": "{{ id }}- P2P Komissiyani o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "P2P Komissiya"
+      },
+      "name": "Nomi",
+      "up": "Summa ustiga",
+      "down": "Summasidan komissiya",
+      "fee": "Mukofot",
+      "description": "Tavsif",
+      "help": {
+        "name": "Nomi",
+        "up": "Summa ustiga",
+        "down": "Summasidan komissiya",
+        "fee": "Mukofot",
+        "description": "Tavsif"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsP2PCommission": {
+      "created": "P2P Komissiya {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- P2P Komissiya saqlandi",
+      "deleted": "{{ param }}- P2P Komissiya o`chirildi"
+    }
+  }
+}

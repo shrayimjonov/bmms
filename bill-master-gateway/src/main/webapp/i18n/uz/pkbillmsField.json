@@ -1,0 +1,69 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsField": {
+      "home": {
+        "title": "Yetkazib beruvchi maydonlari",
+        "createLabel": "Yangi Yetkazib beruvchi maydon qo`shish",
+        "createOrEditLabel": "Yetkazib beruvchi maydonlarini tahrirlash",
+        "notFound": "Xech qanday Yetkazib beruvchi maydonlari topilmadi"
+      },
+      "delete": {
+        "question": "{{ id }}- Yetkazib beruvchi maydonini o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "Yetkazib beruvchi maydoni"
+      },
+      "fromRequest": "So'rovdan",
+      "fromResponse": "Javobdan",
+      "id": "Id",
+      "name": "Nomi",
+      "extId": "Ext Id",
+      "type": "Turi",
+      "controlType": "Kontrol Turi",
+      "content": "Kontent",
+      "validation": "Validatsiya",
+      "placeholder": "Placeholder",
+      "mask": "Mask",
+      "maskSymbol": "Mask Simbol",
+      "lengthMin": "Minimum uzunlik",
+      "lengthMax": "Maximum uzunlik",
+      "requireField": "Majburiy field",
+      "filterBy": "Bo'yicha filter",
+      "optional": "Ixtiyoriy",
+      "output": "Chiqish",
+      "visibility": "Ko'rinish",
+      "ord": "Tartib",
+      "requestType": "So'rov Turi",
+      "recipient": "Qabul qiluvchi",
+      "title": "Sarlavha",
+      "description": "Tavsif",
+      "value": "Qiymat",
+      "prefix": "Prefix",
+      "help": {
+        "name": "Field (merchant param) name; account_id, phone, login, ...",
+        "extId": "External id, optional",
+        "content": "Type of content for frontend usage; phone, email, text",
+        "validation": "Java regexp pattern to validate before sending to server",
+        "placeholder": "Field placeholder for UI input box",
+        "mask": "UI input mask",
+        "maskSymbol": "UI input mask symbol",
+        "lengthMin": "Min length for text fields",
+        "lengthMax": "Max length for text fields",
+        "requireField": "Require parent field to draw this one",
+        "filterBy": "Filter showing by previous selected field",
+        "optional": "Is field optional to fill",
+        "output": "Need to send the value to server",
+        "visibility": "Visible in UI, can be used for hidden static fields",
+        "ord": "Display order",
+        "requestType": "Define to which of CHECK,PAY,STATUS,CANCEL,DEPOSIT belongs that field"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsField": {
+      "created": "Field {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- Field saqlandi",
+      "deleted": "{{ param }}- Field o`chirildi"
+    }
+  }
+}

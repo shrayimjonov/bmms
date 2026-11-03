@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Entity Field Value constraints migrate to 7.1 jhipster
+    -->
+    <changeSet id="entity_Field_Value_constraints_migrate-1" author="zafar">
+        <!--
+            Drop foreign constraint fieldValue to fieldValueTitle
+        -->
+        <preConditions onFail="MARK_RAN">
+            <foreignKeyConstraintExists foreignKeyName="fk_field_value_title_field_values_id"/>
+        </preConditions>
+
+        <comment>Drop foreign constraint fieldValue to fieldValueTitle</comment>
+
+        <dropForeignKeyConstraint baseTableName="rel_field_value__title"
+                                  constraintName = "fk_field_value_title_field_values_id"/>
+    </changeSet>
+
+    <changeSet id="entity_Field_Value_constraints_migrate-2" author="zafar">
+        <!--
+            Add foreign constraint fieldValue to fieldValueTitle
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_field_value_title_field_values_id"
+                                            foreignKeyTableName="field_value"/>
+            </not>
+        </preConditions>
+
+        <comment>Add foreign constraint fieldValue to fieldValueTitle</comment>
+
+        <addForeignKeyConstraint baseColumnNames="field_value_id"
+                                 baseTableName="rel_field_value__title"
+                                 constraintName="fk_field_value_title_field_values_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="field_value"/>
+    </changeSet>
+
+    <changeSet id="entity_Field_Value_constraints_migrate-3" author="zafar">
+        <!--
+            Drop foreign constraint field_value_title to i_18_n
+        -->
+        <preConditions onFail="MARK_RAN">
+            <foreignKeyConstraintExists foreignKeyName="fk_field_value_title_titles_id"/>
+        </preConditions>
+
+        <comment>Drop foreign constraint field_value_title to i_18_n</comment>
+
+        <dropForeignKeyConstraint baseTableName="rel_field_value__title"
+                                  constraintName = "fk_field_value_title_titles_id"/>
+    </changeSet>
+
+    <changeSet id="entity_Field_Value_constraints_migrate-4" author="zafar">
+        <!--
+            Add foreign constraint field_value_title to i_18_n
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_field_value_title_titles_id"
+                                            foreignKeyTableName="i_18_n"/>
+            </not>
+        </preConditions>
+
+        <comment>Add foreign constraint field_value_title to i_18_n</comment>
+
+        <addForeignKeyConstraint baseColumnNames="title_id"
+                                 baseTableName="rel_field_value__title"
+                                 constraintName="fk_field_value_title_titles_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="i_18_n"/>
+    </changeSet>
+
+    <changeSet id="entity_Field_Value_constraints_migrate-5" author="zafar">
+        <!--
+            Drop foreign constraint field_value_description to field_value
+        -->
+        <preConditions onFail="MARK_RAN">
+            <foreignKeyConstraintExists foreignKeyName="fk_field_value_description_field_values_id"/>
+        </preConditions>
+
+        <comment> Drop foreign constraint field_value_description to field_value</comment>
+
+        <dropForeignKeyConstraint baseTableName="rel_field_value__description"
+                                  constraintName = "fk_field_value_description_field_values_id"/>
+    </changeSet>
+
+    <changeSet id="entity_Field_Value_constraints_migrate-6" author="zafar">
+        <!--
+            Add foreign constraint field_value_description to field_value
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_field_value_description_field_values_id"
+                                            foreignKeyTableName="field_value"/>
+            </not>
+        </preConditions>
+
+        <comment>Add foreign constraint field_value_description to field_value</comment>
+
+        <addForeignKeyConstraint baseColumnNames="field_value_id"
+                                 baseTableName="rel_field_value__description"
+                                 constraintName="fk_field_value_description_field_values_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="field_value"/>
+    </changeSet>
+
+    <changeSet id="entity_Field_Value_constraints_migrate-7" author="zafar">
+        <!--
+           Drop foreign constraint field_value_description to i_18_n
+        -->
+        <preConditions onFail="MARK_RAN">
+            <foreignKeyConstraintExists foreignKeyName="fk_field_value_description_descriptions_id"/>
+        </preConditions>
+
+        <comment> Drop foreign constraint field_value_description to i_18_n</comment>
+
+        <dropForeignKeyConstraint baseTableName="rel_field_value__description"
+                                  constraintName = "fk_field_value_description_descriptions_id"/>
+    </changeSet>
+
+    <changeSet id="entity_Field_Value_constraints_migrate-8" author="zafar">
+        <!--
+            Add foreign constraint field_value_description to i_18_n
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_field_value_description_descriptions_id"
+                                            foreignKeyTableName="i_18_n"/>
+            </not>
+        </preConditions>
+
+        <comment>Add foreign constraint field_value_description to i_18_n</comment>
+
+        <addForeignKeyConstraint baseColumnNames="description_id"
+                                 baseTableName="rel_field_value__description"
+                                 constraintName="fk_field_value_description_descriptions_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="i_18_n"/>
+
+    </changeSet>
+</databaseChangeLog>

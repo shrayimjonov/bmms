@@ -1,0 +1,106 @@
+{
+    "check": {
+        "account": "2078",
+        "amount": 500,
+        "success": {
+            "request": {
+                "url": "https://127.0.0.1:1710/ProviderWebService.svc",
+                "body": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:uws=\"http://uws.provider.com/\"><soapenv:Header/><soapenv:Body><uws:GetInformationArguments><password>${password}</password><username>${username}</username><parameters><paramKey>client_id</paramKey><paramValue>${account}</paramValue></parameters><serviceId>1</serviceId></uws:GetInformationArguments></soapenv:Body></soapenv:Envelope>",
+                "headers": {
+                    "Content-Type": "text/xml;charset=UTF-8",
+                    "SOAPAction":"urn:GetInformation"
+                },
+                "validate": {
+                    "url": true,
+                    "body": true,
+                    "headers": true
+                }
+            },
+            "response": {
+                "status": 200,
+                "body": "<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ns1=\"http://uws.provider.com/\"><SOAP-ENV:Body><ns1:GetInformationResult><errorMsg>Ok</errorMsg><status>0</status><timeStamp>2018-09-12T21:40:37+05:00</timeStamp><parameters><paramKey>name</paramKey><paramValue>Шомансуров Кахрамон</paramValue></parameters></ns1:GetInformationResult></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+            }
+        },
+        "fail": {
+            "request": {
+                "url": "",
+                "body": "",
+                "headers": {
+                    "h1": "v1"
+                }
+            },
+            "response": {
+                "status": "",
+                "body": ""
+            }
+        }
+    },
+    "pay": {
+        "success": {
+            "request": {
+                "url": "https://127.0.0.1:1710/ProviderWebService.svc",
+                "body": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:uws=\"http://uws.provider.com/\"><soapenv:Header/><soapenv:Body><uws:PerformTransactionArguments><password>${password}</password><username>${username}</username><amount>${amount}</amount><parameters><paramKey>client_id</paramKey><paramValue>${account}</paramValue></parameters><serviceId>1</serviceId><transactionId>${tranId}</transactionId><transactionTime>${timestamp}</transactionTime></uws:PerformTransactionArguments></soapenv:Body></soapenv:Envelope>",
+                "headers": {
+                    "Content-Type": "text/xml;charset=UTF-8",
+                    "SOAPAction":"urn:PerformTransaction"
+                },
+                "validate": {
+                    "url": true,
+                    "body": true,
+                    "headers": true
+                }
+            },
+            "response": {
+                "status": 200,
+                "body": "<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ns1=\"http://uws.provider.com/\"><SOAP-ENV:Body><ns1:PerformTransactionResult><errorMsg>Ok</errorMsg><status>0</status><timeStamp>2018-09-12T21:41:30+05:00</timeStamp><providerTrnId>8829589</providerTrnId></ns1:PerformTransactionResult></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+            }
+        },
+        "fail": {
+            "request": {
+                "url": "",
+                "body": "",
+                "headers": {
+                    "h1": "v1"
+                }
+            },
+            "response": {
+                "status": "",
+                "bo dy": ""
+            }
+        }
+    },
+    "reconcile": {
+        "success": {
+            "request": {
+                "url": "https://127.0.0.1:1710/ProviderWebService.svc",
+                "body": "<x:Envelope xmlns:x=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://service.payment.uzbilling\"><x:Header/><x:Body><uws:GetStatementArguments xmlns:uws=\"http://uws.provider.com/\"><password>${password}</password><username>${username}</username><dateFrom>${dateFrom}</dateFrom><dateTo>${dateTo}</dateTo><serviceId>1</serviceId><parameters><paramKey>reason</paramKey><paramValue></paramValue></parameters></uws:GetStatementArguments></x:Body></x:Envelope>",
+                "headers": {
+                    "Content-Type": "text/xml;charset=UTF-8",
+                    "SOAPAction":"urn:GetStatement"
+                },
+                "validate": {
+                    "url": true,
+                    "body": true,
+                    "headers": true
+                }
+            },
+            "response": {
+                "status": 200,
+                "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ns1=\"http://uws.provider.com/\"><SOAP-ENV:Body><ns1:GetStatementResult><errorMsg>Ok</errorMsg><status>0</status><timeStamp>2018-09-25T14:47:25+05:00</timeStamp><statements><amount>7000</amount><providerTrnId>8942291</providerTrnId><transactionId>8506753733</transactionId><transactionTime>2018-09-24T09:56:36+05:00</transactionTime></statements><statements><amount>13000</amount><providerTrnId>8942475</providerTrnId><transactionId>8506815025</transactionId><transactionTime>2018-09-24T10:17:09+05:00</transactionTime></statements></ns1:GetStatementResult></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+            }
+        },
+        "fail": {
+            "request": {
+                "url": "",
+                "body": "",
+                "headers": {
+                    "h1": "v1"
+                }
+            },
+            "response": {
+                "status": "",
+                "bo dy": ""
+            }
+        }
+    }
+}

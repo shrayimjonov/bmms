@@ -1,0 +1,6 @@
+curl --request POST \
+  --url {devBaseUrl}/pkbillms/api/agent/check \
+  --header 'Authorization: Bearer xxx' \
+  --header 'Cache-Control: no-cache' \
+  --header 'Content-Type: application/json' \
+  --data '{\n	"recipientId": 1110,\n	"account": "974480001",\n	"amount": 555,\n	"params": {\n		"clientid": "974480001",\n		"amount": "555"\n	}\n}'

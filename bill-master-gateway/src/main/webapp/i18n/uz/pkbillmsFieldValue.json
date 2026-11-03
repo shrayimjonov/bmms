@@ -1,0 +1,38 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsFieldValue": {
+      "home": {
+        "title": "Maydon qiymatlari",
+        "createLabel": "Yangi Maydon qiymatlari qo`shish",
+        "createOrEditLabel": "Maydon qiymatlarini tahrirlash",
+        "notFound": "Xech qanday Maydon qiymatlari topilmadi"
+      },
+      "delete": {
+        "question": "{{ id }}- Maydon qiymatlarini o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "Maydon qiymatlari"
+      },
+      "value": "Qiymati",
+      "amount": "Summa",
+      "filterBy": "Bo'yicha filter",
+      "ord": "Tartib",
+      "field": "Maydon",
+      "title": "Sarlavha",
+      "description": "Tavsif",
+      "help": {
+        "value": "Param value to send to server",
+        "amount": "Price of selected value",
+        "filterBy": "Filter the values (field.type=select) by parent field",
+        "ord": "Display order"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsFieldValue": {
+      "created": "Maydon qiymatlari {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- Maydon qiymatlari saqlandi",
+      "deleted": "{{ param }}- Maydon qiymatlari o`chirildi"
+    }
+  }
+}

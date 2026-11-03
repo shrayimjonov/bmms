@@ -1,0 +1,450 @@
+
+== Типы
+
+=== [[AgentData]]AgentData
+
+|===
+|Параметр |Тип |Описание
+
+|categories
+|List<xref:Category[Category]>
+|Категории
+
+|recipients
+|List<xref:Recipient[Recipient]>
+|Поставшики
+
+|fields
+|List<xref:Field[Field]>
+|Поля поставшиков
+
+|===
+
+=== [[CheckRequest]]BillRequest
+
+|===
+|Параметр |Тип |Формат |Описание
+
+|recipientId
+|Long
+|^/d+$
+|Ид. поставшика, xref:Recipient[recipient].id
+
+//|account
+//|String
+//|[a-zA-Z0-9]{1,64}
+//|Номер клиента
+//
+//|amount
+//|Long
+//|/d+
+//|Сумма платежа, xref:Recipient[recipient].minAmount <= amount <= xref:Recipient[recipient].maxAmount
+
+|params
+|Map<String, String>
+|
+{
+    "clientid":"974415655",
+    "nextParam":"nextValue"
+}
+|Включаются все значения полей xref:Recipient[recipient], где *field.requestType=null* или *field.requestType='CHECK'*
+
+|===
+
+TIP: *currency* зарезервированный параметр
+
+
+=== [[PayRequest]]PayRequest
+
+|===
+|Параметр |Тип |Формат |Описание
+
+|billId
+|Long
+|^/d+$
+|Ид. чека, xref:CheckRequest[bill].id
+
+//|account
+//|String
+//|[a-zA-Z0-9]{1,64}
+//|Номер клиента
+//
+//|amount
+//|Long
+//|/d+
+//|Сумма платежа, xref:Recipient[recipient].minAmount <= amount <= xref:Recipient[recipient].maxAmount
+
+|params
+|Map<String, String>
+|
+{
+    "clientid":"974415655",
+    "nextParam":"nextValue"
+}
+|Включаются все значения полей xref:Recipient[recipient], где *field.requestType=null* или *field.requestType='PAY'*
+
+|===
+
+=== [[Bill]]Bill
+
+|===
+|Параметр |Тип |Формат |Описание
+
+|id
+|Long
+|^/d+$
+|Номер чека в системе, Используется для последуюших операций
+
+|recipientShortName
+|String
+|
+|Наименование получателя
+
+|sessionId
+|String
+|
+|Номер сессии, для использования в ПОС системах
+
+|amountRatio
+|Long
+|
+|Соотношение суммы, Например: 1 - рубли, сумы, доллара; 100 - копейки, тийыны, центы
+
+|amount
+|Long
+|/d+
+|Сумма платежа (чека), xref:Recipient[recipient].minAmount <= amount <= xref:Recipient[recipient].maxAmount
+
+|account
+|String
+|[a-zA-Z0-9]{1,64}
+|Номер клиента
+
+|currency
+|Integer
+|100-999
+|Валюта, трёхзначный цифровой ISO 4217, 860 - Узбекский сум, 840 - Доллар США
+
+|extId
+|String
+|
+|Внешний ид. трансакции для системы, внутренний ид. для получателя
+
+|requestTime
+|Instant
+|
+|Время запроса в систему получателя
+
+|responseTime
+|Instant
+|
+|Время ответа от системы получателя
+
+|responseText
+|String
+|
+|Сообшение ответа, Сообшения ответов различаются у получателей. За успешность запроса отвечает поле 'success'
+
+|success
+|Boolean
+|true,false
+|Статус ответа, true - успешно, false - не успешно
+
+|data
+|Map<String, String>
+|
+{
+    "fio":"J.R. Eraliyev",
+    "nextParam":"nextValue"
+}
+|Доп. информация.
+
+
+|===
+
+=== [[Recipient]]Recipient
+
+|===
+|Параметр |Тип |Формат |Описание
+
+|id
+|Long
+|^/d+$
+|Ид. категории
+
+|logo
+|String
+|
+|URL лого файла
+
+|amountRatio
+|Integer
+|
+|Соотношение суммы, Например: 1 - рубли, сумы, доллара; 100 - копейки, тийыны, центы
+
+|minAmount
+|Long
+|
+|Минимальная сумма оплаты
+
+|maxAmount
+|Long
+|
+|Максимальная сумма
+
+|ord
+|Integer
+|
+|Порядок в списке, A-Z. (display order)
+
+|categoryId
+|Long
+|/d+
+|Ид. родителя (категории)
+
+|titles
+|Set<xref:I18n[I18n]>
+|
+|Названии элемента для UI на разных языках, ru:'ООО Компания', uz:'MChJ Tashkilot', en:'LLC Company'
+
+|fullNames
+|Set<xref:I18n[I18n]>
+|
+|Названии элемента для UI на разных языках, ru:'ООО Компания', uz:'MChJ Tashkilot', en:'LLC Company'
+
+|===
+
+=== [[Category]]Category
+
+|===
+|Параметр |Тип |Формат |Описание
+
+|id
+|Long
+|^/d+$
+|Ид. получателя
+
+|logo
+|String
+|
+|URL лого файла
+
+|ord
+|Integer
+|
+|Порядок в списке, A-Z. (display order)
+
+|parentId
+|Long
+|/d+
+|Ид. родителя (категории)
+
+|parentShortName
+|String
+|
+|Краткое наим. родителя
+
+|names
+|Set<xref:I18n[I18n]>
+|
+|Названии элемента для UI на разных языках
+
+|===
+
+=== [[Field]]Field
+
+|===
+|Параметр |Тип |Формат |Описание
+
+|id
+|Long
+|^/d+$
+|Ид. поля
+
+|name
+|String
+|
+|Тип поля, TEXT - текстовое поле, SELECT - список (dropdown)
+
+|type
+|xref:FieldType[FieldType]
+|
+|Тип поля, TEXT - текстовое поле, SELECT - список (dropdown)
+
+|content
+|String
+|
+|Тип вводомих данных для UI
+
+|validation
+|String
+|
+|Java Regexp для валидации значения поля
+
+|placeholder
+|String
+|
+|Заполнитель для UI, +998** *** ** **
+
+|mask
+|String
+|
+|Маска значений для UI, +998xx-xxx-xx-xx
+
+|maskSymbol
+|String
+|
+|Символ маски значений для UI, x
+
+|lengthMin
+|Integer
+|
+|Минимальная длина значений
+
+|lengthMax
+|Integer
+|
+|Макмальная длина значений
+
+|requireField
+|String
+|
+|Требуемое поле, Поле требуемая для сортировки показа этого элемента или дочерных значений (field.values)
+
+|optional
+|Boolean
+|
+|Является ли поле необязательным, true - необязательное, false - обязательное
+
+|output
+|Boolean
+|
+|Нужноли ли отправлять значение в запросе, true - отправлять, false - неотправлять
+
+|visibility
+|Visibility
+|
+|Видимость, HIDDEN - не отображать в UI, PRINTER - отображать в чеке , MONITOR - отоброжать в экране (в деталях), ALL - отоброжать везде
+
+|ord
+|Integer
+|
+|Порядок в списке, A-Z. (display order)
+
+|recipientId
+|Long
+|/d+
+|Ид. родителя (поучателя)
+
+|filterBy
+|String
+|
+|Филтровать по значению, Если указано значение, то для показа этого элемента должно быть истиной выражение : вибранное значение поля 'requiredField' к этому значение (filterBy)
+
+|prefixes
+|Set<xref:Prefix[Prefix]>
+|
+|Префиксы элемента для UI на разных языках
+
+|values
+|Set<xref:FieldValue[FieldValue]>
+|
+|Значения элемента елси type = 'SELECT'
+
+|titles
+|Set<xref:I18n[I18n]>
+|
+|Названии элемента для UI на разных языках
+
+|descriptions
+|Set<xref:I18n[I18n]>
+|
+|Описании элемента для UI на разных языках
+
+|requestType
+|RequestType
+|
+|Тип запроса. CHECK - проверка, PAY - оплата, STATUS - проверка статуса
+
+|===
+
+=== [[FieldValue]]FieldValue
+
+|===
+|Параметр |Тип |Формат |Описание
+
+|value
+|String
+|
+|Значение
+
+|amount
+|Long
+|
+|Предопределенная сумма, если указано значение то подставляется в значение суммы родительского поля
+
+|filterBy
+|String
+|
+|Филтровать по значению, Если указано значение, то для показа этого элемента должно быть истиной выражение : вибранное значение поля 'requiredField' к этому значение (filterBy)
+
+|ord
+|Integer
+|
+|Порядок в списке, A-Z. (display order)
+
+|titles
+|Set<xref:I18n[I18n]>
+|
+|Названии элемента для UI на разных языках, Городское отделение Beeline
+
+|descriptions
+|Set<xref:I18n[I18n]>
+|
+|Описании элемента для UI на разных языках
+
+|===
+
+=== [[Prefix]]Prefix
+
+|===
+|Параметр |Тип |Формат |Описание
+
+|type
+|PrefixType
+|
+|Тип префикса, STATIC - статическое значение, SELECT - выбарочное значение (один из опции выборки), REQUIRE - статическое значение по отфилтрованному полю (см. requiredField)
+
+|value
+|String
+|
+|Значение префикса, +998
+
+|output
+|Boolean
+|
+|Добавить в начало значение поля, Нужно ли добавить значение в значение поля, field.phoneNumber = '+998' + field.phoneNumber
+
+|requireField
+|String
+|
+|Требуемое поле, Поле требуемая для сортировки показа этого элемента, (см. type='REQUIRE')
+
+|===
+
+=== [[I18n]]I18n
+
+|===
+|Параметр |Тип |Формат |Описание
+
+|lang
+|String
+|
+|Язык; UZ, RU, EN
+
+|text
+|String
+|
+|Перевод в этом языке
+
+|===

@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-between align-items-center">
+  <div class="d-flex align-items-center">
+    <div>
+      <i class="trigger" nz-icon [nzType]="nzSider?.nzCollapsed ? 'menu-unfold' : 'menu-fold'" (click)="toggleSider.emit()"></i>
+    </div>
+
+    <dashboard-breadcrumb></dashboard-breadcrumb>
+  </div>
+
+  <div class="d-flex justify-content-end align-items-center">
+    <!--Language-->
+    <div class="ml-4 mr-4">
+      <button
+        class="d-flex align-items-center"
+        nz-button
+        nz-dropdown
+        nzType="link"
+        nzTrigger="click"
+        nzShape="circle"
+        [nzDropdownMenu]="langMenu"
+      >
+        <span class="lang {{ activeLanguage }}"></span>
+      </button>
+      <nz-dropdown-menu #langMenu="nzDropdownMenu">
+        <ul nz-menu>
+          <li
+            nz-menu-item
+            nzMatchRouter
+            *ngFor="let language of languages"
+            (click)="changeLanguage(language)"
+            [ngClass]="{ 'ant-dropdown-menu-item-active': language === activeLanguage }"
+          >
+            <span class="lang {{ language }} mr-2"></span>
+            {{ language | findLanguageFromKey }}
+          </li>
+        </ul>
+      </nz-dropdown-menu>
+    </div>
+
+    <!--Settings-->
+    <div class="ml-4 mr-4">
+      <i
+        class="fs-20 cursor-pointer"
+        nz-icon
+        nzType="setting"
+        routerLink="settings"
+        nz-tooltip="{{ 'global.menu.account.settings' | translate }}"
+        [nzTooltipMouseEnterDelay]="0.001"
+        nzTooltipPlacement="bottom"
+      >
+      </i>
+    </div>
+
+    <!--Profile-->
+    <div class="ml-4 mr-4">
+      <i
+        class="fs-20 cursor-pointer"
+        nz-icon
+        nzType="logout"
+        nz-tooltip="{{ 'global.menu.account.logout' | translate }}"
+        [nzTooltipMouseEnterDelay]="0.001"
+        nzTooltipPlacement="bottom"
+        (click)="logout()"
+      >
+      </i>
+    </div>
+  </div>
+</div>

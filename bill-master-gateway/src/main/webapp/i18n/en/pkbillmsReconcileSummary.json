@@ -1,0 +1,57 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsReconcileSummary": {
+      "runReconcile": "Perform reconciliation",
+      "note": "The system performs daily reconciliation of payments with service providers. Reconciliation is necessary to promptly respond to possible deviations of financial indicators and avoid duplication when funds are credited to the recipient's account.This form is designed to view the status of the reconciliation in the context of service providers. Select the reporting day of interest and execute Get. The table below will display all connected providers and the reconciliation status for that day. You can initiate a second reconciliation request by clicking Reconcile with a Provider. The system will reconcile all successful payments with the Supplier payments. Reconciliation can take from one minute to half an hour. Therefore, periodically refresh the page to check the current status.",
+      "home": {
+        "title": "Reconcile Summaries",
+        "createLabel": "Create a new Reconcile Summary",
+        "createOrEditLabel": "Create or edit a Reconcile Summary",
+        "notFound": "Reconciles found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Reconcile Summary {{ id }}?"
+      },
+      "detail": {
+        "title": "Reconcile Summary"
+      },
+      "reconcile.success": "Сверка прошла успешно",
+      "reconcile.error": "Ошибка при сверке",
+      "success.true": "Success",
+      "success.false": "Discrepancies",
+      "gateway": "Gateway",
+      "systemAmount": "System Amount",
+      "gatewayAmount": "Gateway Amount",
+      "systemCount": "System Count",
+      "gatewayCount": "Gateway Count",
+      "date": "Date",
+      "status": "Status",
+      "success": "Success",
+      "period": "Period",
+      "gatewayName": "Gateway Name",
+      "terminalId": "Terminal ID",
+      "diffCount": "Diff count",
+      "diffAmount": "Diff amount",
+      "createdDate": "Created date",
+      "p2pType": "P2P type",
+      "help": {
+        "gatewayId": "Уникальный номер шлюза",
+        "systemAmount": "Общая сумма системы",
+        "gatewayAmount": "Общая сумма шляза",
+        "systemCount": "Общее количество транзакций в системе",
+        "gatewayCount": "Общее количество транзакций у шлюза",
+        "date": "Дата",
+        "success": "Успешна ли сверка",
+        "period": "Период (день , месяц) и т.д."
+      },
+      "runReconcileConfirm": "Do you want run reconcile?"
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsReconcileSummary": {
+      "created": "A new Reconcile Summary is created with identifier {{ param }}",
+      "updated": "A Reconcile Summary is updated with identifier {{ param }}",
+      "deleted": "A Reconcile Summary is deleted with identifier {{ param }}"
+    }
+  }
+}

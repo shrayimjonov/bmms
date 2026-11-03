@@ -1,0 +1,86 @@
+!pragma teoz true
+
+skinparam DefaultFontName "sans-serif"
+skinparam DefaultTextAlignment center
+skinparam backgroundColor white
+skinparam roundcorner 2
+skinparam shadowing false
+
+skinparam titleBorderRoundCorner 15
+skinparam titleBorderThickness 0
+skinparam titleBorderColor red
+skinparam titleBackgroundColor white
+skinparam swimlaneWidth same
+skinparam noteTextAlignment left
+
+skinparam {
+    TitleFontSize                   24
+    TitleFontColor                  #0B527E
+
+	ActivityBorderColor          #99A5BF
+	ActivityBackgroundColor      #ffffff
+'	ActivityFontName             Impact
+	ActivityFontStyle             Bold
+'	ActivityFontSize             16
+	ActivityFontColor            #0B527E
+}
+
+skinparam note {
+    BackgroundColor #white
+    BorderColor #green
+'    FontColor #red
+    shadowing false
+    FontSize             10
+}
+
+skinparam swimlane {
+    SwimlaneWidth 200px
+    BorderThickness 2
+    BorderColor #0B527E
+    'width same
+	SwimlaneBorderColor          red
+	SwimlaneBackgroundColor      #ffffff
+'	SwimlaneFontName             Impact
+	SwimlaneFontStyle             Bold
+	SwimlaneFontSize             16
+	SwimlaneFontColor            #0B527E
+}
+
+skinparam sequence {
+	ArrowColor                      SeaGreen
+	ArrowThickness                  2
+	ActorBorderColor                #0B527E
+	LifeLineBorderColor             #99A5BF
+	LifeLineBackgroundColor         #A9DCDF
+
+	ParticipantBorderColor          #99A5BF
+	ParticipantBackgroundColor      #ffffff
+'	ParticipantFontName             Impact
+	ParticipantFontStyle             Bold
+	ParticipantFontSize             16
+	ParticipantFontColor            #0B527E
+
+	ActorBackgroundColor            white
+	ActorFontColor                  #0B527E
+	ActorFontSize                   16
+	ActorFontStyle                  Bold
+'	ActorFontName                   "sans-serif"
+
+	DividerBackgroundColor          #0B527E
+	DividerFontColor                white
+	DividerBorderThickness          0
+	DividerFontSize                 12
+}
+
+skinparam footer {
+    FontSize              14
+}
+
+header
+<img ./../devops-blue-128x96.png>
+end header
+
+footer
+Developed by [[https://t.me/solverman Javlon Eraliyev]]
+Copyright © 2021 [[http://www.devops.uz LLC DEVOPS]], Uzbekistan
+end footer

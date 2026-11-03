@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="added_f_delete_field_id_cascade_fixed" author="javlon" dbms="postgresql">
+        <preConditions onFail="MARK_RAN">
+            < tableName="transaction" columnName="request_login"/>
+            <not>
+                <indexExists tableName="transaction" indexName="idx_transaction_request_tr_id"/>
+            </not>
+        </preConditions>
+        <sqlFile dbms="postgresql"
+                 encoding="utf8"
+                 path="config/liquibase/sql/f_delete_field_id_cascade.sql"
+                 relativeToChangelogFile="false"
+                 splitStatements="false"
+                 stripComments="true"/>
+    </changeSet>
+
+</databaseChangeLog>

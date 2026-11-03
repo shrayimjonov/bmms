@@ -1,0 +1,52 @@
+{
+    "name": "VirtualAccountDetails",
+    "fields": [
+        {
+            "fieldName": "params",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 512
+        },
+        {
+            "fieldName": "account",
+            "fieldType": "String",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "active",
+            "fieldType": "Boolean",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "mfo",
+            "javadoc": "Organisation mfo",
+            "fieldType": "String",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "VirtualAccountType",
+            "fieldValues": "EPOS,BANK_ACC"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "virtualAccount",
+            "otherEntityName": "virtualAccount",
+            "otherEntityField": "name"
+        }
+    ],
+    "changelogDate": "20180719230926",
+    "entityTableName": "virtual_account_details",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "bmms",
+    "applications": "*",
+    "microserviceName": "pkbillms",
+    "enableEntityAudit": true,
+    "databaseType": "sql"
+}

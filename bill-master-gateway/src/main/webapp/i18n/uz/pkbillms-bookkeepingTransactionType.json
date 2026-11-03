@@ -1,0 +1,9 @@
+{
+  "billMasterGwApp": {
+    "BookkeepingTransactionType": {
+      "null": "",
+      "INTERNAL": "Ichki",
+      "EXTERNAL": "Tashqi"
+    }
+  }
+}

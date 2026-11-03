@@ -1,0 +1,32 @@
+{
+  "billMasterGwApp": {
+    "faqCategory": {
+      "home": {
+        "title": "FAQ Categories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new FAQ Category",
+        "createOrEditLabel": "Create or edit a Faq Category",
+        "notFound": "No Faq Categories found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Faq Category {{ id }}?"
+      },
+      "detail": {
+        "title": "Faq Category"
+      },
+      "id": "ID",
+      "active": "Active",
+      "name": "Name",
+      "help": {
+        "active": "Активный"
+      }
+    }
+  },
+  "faqMsApp": {
+    "faqCategory": {
+      "created": "A new Faq Category is created with identifier {{ param }}",
+      "updated": "A Faq Category is updated with identifier {{ param }}",
+      "deleted": "A Faq Category is deleted with identifier {{ param }}"
+    }
+  }
+}

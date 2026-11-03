@@ -1,0 +1,7 @@
+{
+  "authority": {
+    "created": "A new Group is created with identifier {{ param }}",
+    "updated": "A Group is updated with identifier {{ param }}",
+    "deleted": "A Group is deleted with identifier {{ param }}"
+  }
+}

@@ -1,0 +1,50 @@
+<h4 class="mb-4" jhiTranslate="global.menu.home">Home</h4>
+
+<nz-radio-group class="mb-4" nzSize="large" nzButtonStyle="solid" [(ngModel)]="period">
+  <label class="pl-4 pr-4" *ngFor="let period of periods" nz-radio-button [nzValue]="period" (click)="filter(period, true)"
+         jhiTranslate="billMasterGwApp.pkbillmsDepositTransaction.period.{{period}}">{{ period }}</label>
+</nz-radio-group>
+
+<bm-alert></bm-alert>
+
+<nz-spin [nzSpinning]="loading" [nzDelay]="0" nzSize="large">
+  <div class="row">
+    <div class="col-md-4 col-sm-6 mb-4" *ngFor="let widget of widgets">
+      <div class="widget-container text-center bg-white p-3 rounded card-box-shadow overflow-auto">
+        <div class="p-3 text-gray fs-17" [bm-i18n]="widget.titles">{{ widget.titles }}</div>
+
+        <ng-container *ngIf="widget.type === 'STATISTIC'">
+          <h3 class="counter" [bm-i18n]="widget.data?.amount">{{ widget.data?.amount }}</h3>
+          <p class="percent fs-18">{{ widget.data?.percent || 0 }}%</p>
+          <p jhiTranslate="billMasterGwApp.pkbillmsTransaction.successfulTransactionPercent" class="text-muted"></p>
+        </ng-container>
+
+        <ng-container *ngIf="widget.type === 'GATEWAY' || widget.type === 'RECIPIENT'">
+          <div class="table-responsive mt-2 pl-2 pr-2">
+            <nz-table [nzData]="widget.data" [nzLoading]="loading" nzSize="small" [nzShowPagination]="false" nzOuterBordered>
+              <thead>
+              <tr>
+                <th jhiTranslate="global.field.name">Name</th>
+                <th>Сумма</th>
+                <th>Кол.во</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of widget.data">
+                <td>
+                  <a href="javascript:void(0)" (click)="widget.type === 'GATEWAY' ? viewGateway(item.id) : viewRecipient(item.id)">{{
+                    item.name
+                    }}</a>
+                </td>
+                <td>{{ item.amount | bmAmount: 1 }}</td>
+                <td>{{ item.count }}</td>
+              </tr>
+              </tbody>
+            </nz-table>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</nz-spin>
+

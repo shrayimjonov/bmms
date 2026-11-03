@@ -1,0 +1,301 @@
+{
+    "recipient": {
+        "shortName": "ucell",
+        "ccy": 860,
+        "logo": "ucell_small.png",
+        "thumbnail":"ucell_bank.png",
+        "amountRatio": 100,
+        "minAmount": 500,
+        "maxAmount": 500000,
+        "commission": 0.0,
+        "fee": 0.0,
+        "systemCommission": 0.0,
+        "systemFee": 0.0,
+        "ord": 1,
+        "active": true,
+        "check": true,
+        "pay": true,
+        "status": true,
+        "cancel": true,
+        "canDeposit": null,
+        "serviceId": "0",
+        "titles": [
+            {
+                "lang": "UZ",
+                "text": "UCell"
+            },
+            {
+                "lang": "RU",
+                "text": "UCell"
+            },
+            {
+                "lang": "EN",
+                "text": "UCell"
+            }
+        ],
+        "fullNames": [
+            {
+                "lang": "UZ",
+                "text": "ООО «COSCOM»"
+            },
+            {
+                "lang": "RU",
+                "text": "ООО «COSCOM»"
+            },
+            {
+                "lang": "EN",
+                "text": "ООО «COSCOM»"
+            }
+        ]
+    },
+    "fields": [
+        {
+            "name": "phone",
+            "extId": 0,
+            "type": "ACCOUNT",
+            "controlType": "TEXT",
+            "content": null,
+            "validation": "",
+            "placeholder": null,
+            "mask": "+998 ({93|94}) ddd-dd-dd",
+            "maskSymbol": null,
+            "lengthMin": 9,
+            "lengthMax": 9,
+            "requireField": null,
+            "filterBy": null,
+            "optional": false,
+            "output": true,
+            "visibility": "ALL",
+            "ord": 1,
+            "requestType": null,
+            "titles": [
+                {
+                    "lang": "UZ",
+                    "text": "Телефон раками"
+                },
+                {
+                    "lang": "RU",
+                    "text": "Номер телефона"
+                },
+                {
+                    "lang": "EN",
+                    "text": "Phone number"
+                }
+            ],
+            "descriptions": [
+                {
+                    "lang": "UZ",
+                    "text": "Оператор кодини (93,94) ва телефон ракамини киритинг."
+                },
+                {
+                    "lang": "RU",
+                    "text": "Введите код оператора (93, 94) и номер телефона."
+                },
+                {
+                    "lang": "EN",
+                    "text": "Enter operator code (93, 94) and phone number."
+                }
+            ],
+            "values": [],
+            "prefixes": [
+                {
+                    "type": "SELECT",
+                    "value": "94",
+                    "output": true,
+                    "requireField": null
+                },
+                {
+                    "type": "SELECT",
+                    "value": "93",
+                    "output": true,
+                    "requireField": null
+                }
+            ]
+        },
+        {
+            "name": "amount",
+            "extId": 0,
+            "type": "AMOUNT",
+            "controlType": "TEXT",
+            "content": null,
+            "validation": "",
+            "placeholder": null,
+            "mask": "ddddDD",
+            "maskSymbol": null,
+            "lengthMin": 4,
+            "lengthMax": 6,
+            "requireField": null,
+            "filterBy": null,
+            "optional": false,
+            "output": true,
+            "visibility": "ALL",
+            "ord": 2,
+            "requestType": null,
+            "titles": [
+                {
+                    "lang": "UZ",
+                    "text": "Сумма"
+                },
+                {
+                    "lang": "RU",
+                    "text": "Сумма"
+                },
+                {
+                    "lang": "EN",
+                    "text": "Amount"
+                }
+            ],
+            "descriptions": [
+                {
+                    "lang": "UZ",
+                    "text": "Сумма"
+                },
+                {
+                    "lang": "RU",
+                    "text": "Сумма"
+                },
+                {
+                    "lang": "EN",
+                    "text": "Amount"
+                }
+            ],
+            "values": [],
+            "prefixes": []
+        }
+    ],
+    "gatewayParams": [
+        {
+            "url": "https://127.0.0.1/ProviderWebService/ProviderWebService",
+            "type": "CHECK",
+            "username": "kapitalbank",
+            "password": "",
+            "token": null,
+            "body": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:uws=\"http://uws.provider.com/\"><soapenv:Header/><soapenv:Body><uws:GetInformationArguments><password>${password}</password><username>${username}</username><parameters><paramKey>clientid</paramKey><paramValue>${account}</paramValue></parameters><parameters><paramKey>getInfoType</paramKey><paramValue>CHK_PERFORM_TRN</paramValue></parameters><serviceId>1</serviceId></uws:GetInformationArguments></soapenv:Body></soapenv:Envelope>",
+            "statusQuery": "//*[local-name()='status']",
+            "messageQuery": "//*[local-name()='errorMsg']",
+            "successCode": "0",
+            "callback": null,
+            "timeout": 5000,
+            "headers":"{\"Content-Type\":\"application/xml\"",
+            "dataQueries": null,
+            "httpMethodType": "POST",
+            "protocol": null,
+            "requestMediaType": "application/xml",
+            "responseMediaType": "application/xml",
+            "active": true,
+            "mode": null,
+            "extIdQuery": null
+        },
+        {
+            "url": "https://127.0.0.1/ProviderWebService/ProviderWebService",
+            "type": "PAY",
+            "username": "kapitalbank",
+            "password": "",
+            "token": null,
+            "body": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:uws=\"http://uws.provider.com/\"><soapenv:Body><uws:PerformTransactionArguments><password>${password}</password><username>${username}</username><amount>${amount}</amount><parameters><paramKey>clientid</paramKey><paramValue>${account}</paramValue></parameters><parameters><paramKey>terminal_id</paramKey><paramValue>1</paramValue></parameters><serviceId>1</serviceId><transactionId>${tranId}</transactionId><transactionTime>${timeinstant}</transactionTime></uws:PerformTransactionArguments></soapenv:Body></soapenv:Envelope>",
+            "statusQuery": "//*[local-name()='status']",
+            "messageQuery": "//*[local-name()='errorMsg']",
+            "successCode": "0",
+            "callback": null,
+            "timeout": 10000,
+            "headers":"{\"Content-Type\":\"application/xml\"",
+            "dataQueries": null,
+            "httpMethodType": "POST",
+            "protocol": null,
+            "requestMediaType": "application/xml",
+            "responseMediaType": "application/xml",
+            "active": true,
+            "mode": null,
+            "extIdQuery": "//*[local-name()='providerTrnId']"
+        }
+    ,
+        {
+            "url": "https://127.0.0.1/ProviderWebService/ProviderWebService",
+            "type": "CANCEL",
+            "username": "kapitalbank",
+            "password": "",
+            "token": null,
+            "body": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:uws=\"http://uws.provider.com/\"><soapenv:Header/><soapenv:Body><uws:CancelTransactionArguments><password>${password}</password><username>${username}</username><serviceId>1</serviceId><transactionId>${tranId}</transactionId><transactionTime>${extId}</transactionTime><parameters><paramKey>terminal_id</paramKey><paramValue>1</paramValue></parameters><parameters><paramKey>cancel_reason_code</paramKey><paramValue>2</paramValue></parameters><parameters><paramKey>cancel_reason_note</paramKey><paramValue></paramValue></parameters></uws:CancelTransactionArguments></soapenv:Body></soapenv:Envelope>",
+            "statusQuery": "//*[local-name()='status']",
+            "messageQuery": "//*[local-name()='errorMsg']",
+            "successCode": "0",
+            "callback": null,
+            "timeout": 10000,
+            "headers":"{\"Content-Type\":\"application/xml\"",
+            "dataQueries": null,
+            "httpMethodType": "POST",
+            "protocol": null,
+            "requestMediaType": "application/xml",
+            "responseMediaType": "application/xml",
+            "active": true,
+            "mode": null,
+            "extIdQuery": "//*[local-name()='providerTrnId']"
+        }
+    ,
+        {
+            "url": "https://127.0.0.1/ProviderWebService/ProviderWebService",
+            "type": "STATUS",
+            "username": "kapitalbank",
+            "password": "",
+            "token": null,
+            "body": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:uws=\"http://uws.provider.com/\"><soapenv:Header/><soapenv:Body><uws:CheckTransactionArguments><password>${password}</password><username>${username}</username><serviceId>1</serviceId><transactionId>${tranId}</transactionId><transactionTime>${extId}</transactionTime></uws:CheckTransactionArguments></soapenv:Body></soapenv:Envelope>",
+            "statusQuery": "//*[local-name()='status']",
+            "messageQuery": "//*[local-name()='errorMsg']",
+            "successCode": "0",
+            "callback": null,
+            "timeout": 10000,
+            "headers":"{\"Content-Type\":\"application/xml\"",
+            "dataQueries": null,
+            "httpMethodType": "POST",
+            "protocol": null,
+            "requestMediaType": "application/xml",
+            "responseMediaType": "application/xml",
+            "active": true,
+            "mode": null,
+            "extIdQuery": "//*[local-name()='providerTrnId']"
+        },
+        {
+            "url": "https://127.0.0.1/ProviderWebService/ProviderWebService",
+            "type": "RECONCILE",
+            "username": "kapitalbank",
+            "password": "",
+            "token": null,
+            "body": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:uws=\"http://uws.provider.com/\"><soapenv:Header/><soapenv:Body><uws:GetStatementArguments><password>${password}</password><username>${username}</username><dateFrom>${dateFrom}</dateFrom><dateTo>${dateTo}</dateTo><serviceId>1</serviceId></uws:GetStatementArguments></soapenv:Body></soapenv:Envelope>",
+            "statusQuery": "//*[local-name()='status']",
+            "messageQuery": "//*[local-name()='errorMsg']",
+            "successCode": "0",
+            "callback": null,
+            "timeout": 10000,
+            "headers":"{\"Content-Type\":\"application/xml\"",
+            "dataQueries": "{\"queryRootName\": \"statements\",\"queryAmount\": \"amount\",\"queryExtId\": \"providerTrnId\",\"queryTranId\": \"transactionId\",\"queryExtTime\": \"transactionTime\",\"requestDateFormat\": \"yyyy-MM-dd'T'HH:mm:ss\"}",
+            "httpMethodType": "POST",
+            "protocol": null,
+            "requestMediaType": "application/xml",
+            "responseMediaType": "application/xml",
+            "active": true,
+            "mode": null,
+            "extIdQuery": null
+        }
+    ],
+    "category": {
+        "shortName": "Мобильные операторы",
+        "thumbnail": "mobile.png",
+        "logo": "mobile.png",
+        "ord": 1,
+        "active": true,
+        "names": [
+            {
+                "lang": "UZ",
+                "text": "Mobil operatorlar"
+            },
+            {
+                "lang": "RU",
+                "text": "Мобильные операторы"
+            },
+            {
+                "lang": "EN",
+                "text": "Mobile operators"
+            }
+        ]
+    }
+}

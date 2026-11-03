@@ -1,0 +1,115 @@
+
+/**
+ * Условия для P2P параметров
+ * 
+ * @author Javlon
+ */
+entity P2pCondition {
+	/**
+	* Значение
+	*/
+	value String unique,
+    /**
+	* Описание
+	*/
+    description String
+}
+
+entity P2pCommission {
+    /**
+	* Наименование
+	*/
+	name String required unique,
+	/**
+	* Комиссия сверху суммы
+	*/
+	up Double min(0) max(100),
+	/**
+	* Комиссия с суммы
+	*/    
+    down Double min(0) max(100),
+	/**
+	* Вознаграждение
+	*/    
+    fee Double min(0) max(100),
+    /**
+	* Описание
+	*/
+    description String
+}
+
+/**
+ * P2P параметры
+ * @author Javlon
+ */
+entity P2pParam {
+    /**
+	* Приоритет
+	*/
+	priority Integer required,
+    /**
+	* Активный
+	*/
+	active Boolean required,
+    /**
+	* ПЦ отправителя
+	*/    
+	senderPc P2pProcessorType required,
+    /**
+	* ПЦ получателя
+	*/    
+	recipientPc P2pProcessorType required,
+    /**
+	* Json параметры
+	*/    
+    value TextBlob
+}
+
+enum P2pProcessorType {
+    UZCARD, HUMO, ACCOUNT
+}
+
+enum P2pConditionType {
+    SENDER, RECIPIENT, BOTH
+}
+
+// defining multiple OneToMany relationships with comments
+relationship ManyToOne {
+	
+    P2pParam{senderCondition(value) required} to
+    /**
+	* Условия отправителя
+	*/
+    P2pCondition,
+    
+        
+    P2pParam{recipientCondition(value) required} to
+    /**
+	* Условия получателя
+	*/
+    P2pCondition ,
+    
+    P2pParam{senderPercent(name) required} to
+    /**
+	* Приценты для отправителя
+	*/
+    P2pCommission,
+    
+    P2pParam{recipientPercent(name) required} to
+    /**
+	* Приценты для получателя
+	*/
+	P2pCommission,
+}
+
+// Set pagination options
+paginate all with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

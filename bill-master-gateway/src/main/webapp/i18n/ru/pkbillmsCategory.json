@@ -1,0 +1,42 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsCategory": {
+      "home": {
+        "title": "Категории",
+        "createLabel": "Создать новый Категория",
+        "createOrEditLabel": "Создать или отредактировать Категория",
+        "notFound": "Категории не найдены"
+      },
+      "delete": {
+        "question": "Вы уверены что хотите удалить Категория {{ id }}?"
+      },
+      "detail": {
+        "title": "Категория"
+      },
+      "shortName": "Короткое название",
+      "thumbnail": "Эскиз",
+      "thumbnailFile": "Эскиз файл",
+      "logo": "Лого",
+      "logoFile": "Лого файл",
+      "ord": "Порядок",
+      "active": "Активность",
+      "parent": "Parent",
+      "name": "Название",
+      "help": {
+        "shortName": "Короткое название",
+        "thumbnail": "Эскиз",
+        "thumbnailFile": "Эскиз файл",
+        "logo": "Лого",
+        "logoFile": "Лого файл",
+        "ord": "Заказ"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsCategory": {
+      "created": "Новый Категория создан с идентификатором {{ param }}",
+      "updated": "Категория обновлен с идентификатором {{ param }}",
+      "deleted": "Категория удален с идентификатором {{ param }}"
+    }
+  }
+}

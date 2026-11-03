@@ -1,0 +1,21 @@
+{
+  "billMasterGwApp": {
+    "PayType": {
+      "null": "",
+      "UZCARD": "UZCARD",
+      "undefined": "",
+      "CASH": "Naqd",
+      "UZCARD_DUET": "UZCARD DUET",
+      "UZCARD_EMV": "UZCARD EMV",
+      "AGENT": "Agent",
+      "VISA": "VISA",
+      "PAYME": "PayMe",
+      "PC": "PC",
+      "P2P": "P2P",
+      "HUMO": "Humo",
+      "NCI": "NCI",
+      "UNKNOWN": "Unknown",
+      "NEW": "Yangi"
+    }
+  }
+}

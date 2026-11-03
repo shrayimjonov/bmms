@@ -1,0 +1,769 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "categories": [
+      {
+        "id": 14,
+        "titleRu": "Государственные услуги",
+        "titleUz": "Davlat xizmatlari",
+        "order": 7,
+        "providers": [
+          {
+            "id": 6716,
+            "title": "Министерство внутренних дел (МВД)",
+            "titleShort": "mvd_shtrafy",
+            "services": [
+              {
+                "id": 10088,
+                "minAmount": 0,
+                "maxAmount": 0,
+                "titleRu": "Проверка Штраф АП",
+                "titleUz": "MXB Jarimalarini tekshirish",
+                "childId": 10089,
+                "servicePrice": 0,
+                "agentCommission": 0.0,
+                "serviceCommission": 0.0,
+                "order": 1464,
+                "serviceCommissionSum": 0.0,
+                "paynetCommissionSum": 0.0,
+                "fields": [
+                  {
+                    "id": 6556,
+                    "order": null,
+                    "name": "INVOICE",
+                    "titleRu": "Номер протокола",
+                    "titleUz": "Bayonnoma raqami",
+                    "required": true,
+                    "readOnly": false,
+                    "fieldType": "NUMBER",
+                    "isCustomerId": null,
+                    "fieldControl": null,
+                    "fieldSize": 22,
+                    "fieldValues": []
+                  }
+                ],
+                "responseFields": [
+                  {
+                    "fieldName": "agent_name",
+                    "labelRu": "Агент",
+                    "labelUz": "Agent",
+                    "order": -1
+                  },
+                  {
+                    "fieldName": "agent_inn",
+                    "labelRu": "ИНН",
+                    "labelUz": "STIR",
+                    "order": 0
+                  },
+                  {
+                    "fieldName": "service_name",
+                    "labelRu": "Услуга",
+                    "labelUz": "Xizmat turi",
+                    "order": 2
+                  },
+                  {
+                    "fieldName": "time",
+                    "labelRu": "Время",
+                    "labelUz": "Vaqt",
+                    "order": 3
+                  },
+                  {
+                    "fieldName": "terminal_id",
+                    "labelRu": "Номер терминала",
+                    "labelUz": "Terminal raqami",
+                    "order": 4
+                  },
+                  {
+                    "fieldName": "INVOICE",
+                    "labelRu": "Номер протокола",
+                    "labelUz": "Bayonnoma raqami",
+                    "order": 4
+                  },
+                  {
+                    "fieldName": "provider_name",
+                    "labelRu": "Оператор",
+                    "labelUz": "Operator",
+                    "order": 5
+                  },
+                  {
+                    "fieldName": "transaction_id",
+                    "labelRu": "Номер чека",
+                    "labelUz": "Chek raqami",
+                    "order": 5
+                  },
+                  {
+                    "fieldName": "NAME",
+                    "labelRu": "Ф.И.О.",
+                    "labelUz": "F.I.Sh.",
+                    "order": 8
+                  },
+                  {
+                    "fieldName": "AMOUNT",
+                    "labelRu": "Сумма штрафа",
+                    "labelUz": "Jarima summasi",
+                    "order": 9
+                  },
+                  {
+                    "fieldName": "P_PAYED",
+                    "labelRu": "Оплаченная сумма",
+                    "labelUz": "To`langan summa",
+                    "order": 10
+                  },
+                  {
+                    "fieldName": "PAY_DATE",
+                    "labelRu": "Последная оплата",
+                    "labelUz": "Oxirgi to`lov",
+                    "order": 11
+                  },
+                  {
+                    "fieldName": "DESCR",
+                    "labelRu": "Описание",
+                    "labelUz": "Ma`lumotlar",
+                    "order": 11
+                  },
+                  {
+                    "fieldName": "ISSUE_DATE",
+                    "labelRu": "Дата протокола",
+                    "labelUz": "Bayonnoma sanasi",
+                    "order": 11
+                  },
+                  {
+                    "fieldName": "BUDGET_ACCOUNT",
+                    "labelRu": "Счет бюджетополучателя",
+                    "labelUz": "Byudjet foyd. hisobi",
+                    "order": 12
+                  },
+                  {
+                    "fieldName": "BUDGET_INCOME",
+                    "labelRu": "Счет дохода в бюджет",
+                    "labelUz": "Byudjetga daromad hisobi",
+                    "order": 13
+                  },
+                  {
+                    "fieldName": "FIO",
+                    "labelRu": "Ф.И.О.",
+                    "labelUz": "F.I.Sh.",
+                    "order": 15
+                  },
+                  {
+                    "fieldName": "NDECREE",
+                    "labelRu": "Номер получалеля",
+                    "labelUz": "Ko`rsatma raqami",
+                    "order": 16
+                  },
+                  {
+                    "fieldName": "ADDRESS",
+                    "labelRu": "Адрес",
+                    "labelUz": "Manzil",
+                    "order": 17
+                  },
+                  {
+                    "fieldName": "amount",
+                    "labelRu": "Сумма к оплате",
+                    "labelUz": "To`lov miqdori",
+                    "order": 18
+                  },
+                  {
+                    "fieldName": "NTYPE",
+                    "labelRu": "Вид нарушения",
+                    "labelUz": "Qoidabuzarlik turi",
+                    "order": 18
+                  },
+                  {
+                    "fieldName": "DAN2CAR",
+                    "labelRu": "Номер авто",
+                    "labelUz": "Avto davlat raqami",
+                    "order": 19
+                  },
+                  {
+                    "fieldName": "NDATE",
+                    "labelRu": "Дата и вреия нарушения",
+                    "labelUz": "Qoidabuzarlik sanasi",
+                    "order": 20
+                  },
+                  {
+                    "fieldName": "pay_amount",
+                    "labelRu": "Сумма платежа проводимого оператору",
+                    "labelUz": "Operatorga o`tkaziladigan summa",
+                    "order": 21
+                  },
+                  {
+                    "fieldName": "paynet_amount",
+                    "labelRu": "Комиссия UZPAYNET",
+                    "labelUz": "UZPAYNET komissiyasi",
+                    "order": 22
+                  }
+                ],
+                "services": [
+                  {
+                    "id": 10089,
+                    "minAmount": 500,
+                    "maxAmount": 25000000,
+                    "titleRu": "Оплата Штрафы АП",
+                    "titleUz": "To'lov MXB Jarimalari",
+                    "childId": null,
+                    "servicePrice": 0,
+                    "agentCommission": 0.0,
+                    "serviceCommission": 0.0,
+                    "order": 1465,
+                    "serviceCommissionSum": 0.0,
+                    "paynetCommissionSum": 0.0,
+                    "fields": [
+                      {
+                        "id": 9798,
+                        "order": null,
+                        "name": "INVOICE",
+                        "titleRu": "Номер протокола",
+                        "titleUz": "Bayonnoma raqami",
+                        "required": true,
+                        "readOnly": true,
+                        "fieldType": "STRING",
+                        "isCustomerId": null,
+                        "fieldControl": null,
+                        "fieldSize": 22,
+                        "fieldValues": []
+                      },
+                      {
+                        "id": 9803,
+                        "order": null,
+                        "name": "pay_amount",
+                        "titleRu": "Сумма платежа",
+                        "titleUz": "To`lov summasi",
+                        "required": true,
+                        "readOnly": true,
+                        "fieldType": "MONEY",
+                        "isCustomerId": null,
+                        "fieldControl": null,
+                        "fieldSize": 12,
+                        "fieldValues": []
+                      },
+                      {
+                        "id": 9805,
+                        "order": null,
+                        "name": "amount",
+                        "titleRu": "Сумма с комиссией",
+                        "titleUz": "Summa komissiya bilan",
+                        "required": true,
+                        "readOnly": true,
+                        "fieldType": "MONEY",
+                        "isCustomerId": null,
+                        "fieldControl": null,
+                        "fieldSize": 12,
+                        "fieldValues": []
+                      },
+                      {
+                        "id": 9806,
+                        "order": null,
+                        "name": "telefon",
+                        "titleRu": "Тел. для SMS(998)",
+                        "titleUz": "SMS tel.(998)",
+                        "required": false,
+                        "readOnly": false,
+                        "fieldType": "REGEXBOX",
+                        "isCustomerId": null,
+                        "fieldControl": "[983]{1}[01345789]{1}[0-9]{7}",
+                        "fieldSize": 12,
+                        "fieldValues": []
+                      }
+                    ],
+                    "responseFields": [
+                      {
+                        "fieldName": "agent_name",
+                        "labelRu": "Агент",
+                        "labelUz": "Agent",
+                        "order": -1
+                      },
+                      {
+                        "fieldName": "agent_inn",
+                        "labelRu": "ИНН",
+                        "labelUz": "STIR",
+                        "order": 0
+                      },
+                      {
+                        "fieldName": "service_name",
+                        "labelRu": "Услуга",
+                        "labelUz": "Xizmat turi",
+                        "order": 2
+                      },
+                      {
+                        "fieldName": "time",
+                        "labelRu": "Время",
+                        "labelUz": "Vaqt",
+                        "order": 3
+                      },
+                      {
+                        "fieldName": "terminal_id",
+                        "labelRu": "Номер терминала",
+                        "labelUz": "Terminal raqami",
+                        "order": 4
+                      },
+                      {
+                        "fieldName": "INVOICE",
+                        "labelRu": "Номер протокола",
+                        "labelUz": "Bayonnoma raqami",
+                        "order": 4
+                      },
+                      {
+                        "fieldName": "transaction_id",
+                        "labelRu": "Номер чека",
+                        "labelUz": "Chek raqami",
+                        "order": 5
+                      },
+                      {
+                        "fieldName": "provider_name",
+                        "labelRu": "Оператор",
+                        "labelUz": "Operator",
+                        "order": 5
+                      },
+                      {
+                        "fieldName": "preferedPay",
+                        "labelRu": "Рекомендуемая сумма",
+                        "labelUz": "Tavsiya etilgan summa",
+                        "order": 8
+                      },
+                      {
+                        "fieldName": "NAME",
+                        "labelRu": "Ф.И.О.",
+                        "labelUz": "F.I.Sh.",
+                        "order": 8
+                      },
+                      {
+                        "fieldName": "P_PAYED",
+                        "labelRu": "Оплаченная сумма",
+                        "labelUz": "To`langan summa",
+                        "order": 10
+                      },
+                      {
+                        "fieldName": "ISSUE_DATE",
+                        "labelRu": "Дата протокола",
+                        "labelUz": "Bayonnoma sanasi",
+                        "order": 11
+                      },
+                      {
+                        "fieldName": "DESCR",
+                        "labelRu": "Описание",
+                        "labelUz": "Ma`lumotlar",
+                        "order": 11
+                      },
+                      {
+                        "fieldName": "PAY_DATE",
+                        "labelRu": "Последная оплата",
+                        "labelUz": "Oxirgi to`lov",
+                        "order": 11
+                      },
+                      {
+                        "fieldName": "BUDGET_ACCOUNT",
+                        "labelRu": "Счет бюджетополучателя",
+                        "labelUz": "Byudjet foyd. hisobi",
+                        "order": 12
+                      },
+                      {
+                        "fieldName": "BUDGET_INCOME",
+                        "labelRu": "Счет дохода в бюджет",
+                        "labelUz": "Byudjetga daromad hisobi",
+                        "order": 13
+                      },
+                      {
+                        "fieldName": "purchased_amount",
+                        "labelRu": "Сумма проведенного платежа оператору",
+                        "labelUz": "O`tkazilgan to`lov summasi",
+                        "order": 15
+                      },
+                      {
+                        "fieldName": "comission_amount",
+                        "labelRu": "Коммисия UZPAYNET",
+                        "labelUz": "UZPAYNET komissiyasi",
+                        "order": 16
+                      },
+                      {
+                        "fieldName": "amount",
+                        "labelRu": "Сумма",
+                        "labelUz": "Summa",
+                        "order": 17
+                      }
+                    ],
+                    "services": []
+                  }
+                ]
+              },
+              {
+                "id": 10090,
+                "minAmount": 0,
+                "maxAmount": 0,
+                "titleRu": "Проверка Ущерб АП",
+                "titleUz": "MXB Zararni tekshirish",
+                "childId": 10091,
+                "servicePrice": 0,
+                "agentCommission": 0.0,
+                "serviceCommission": 0.0,
+                "order": 1466,
+                "serviceCommissionSum": 0.0,
+                "paynetCommissionSum": 0.0,
+                "fields": [
+                  {
+                    "id": 6568,
+                    "order": null,
+                    "name": "INVOICE",
+                    "titleRu": "Номер протокола",
+                    "titleUz": "Bayonnoma raqami",
+                    "required": true,
+                    "readOnly": false,
+                    "fieldType": "NUMBER",
+                    "isCustomerId": null,
+                    "fieldControl": null,
+                    "fieldSize": 22,
+                    "fieldValues": []
+                  }
+                ],
+                "responseFields": [
+                  {
+                    "fieldName": "agent_name",
+                    "labelRu": "Агент",
+                    "labelUz": "Agent",
+                    "order": -1
+                  },
+                  {
+                    "fieldName": "agent_inn",
+                    "labelRu": "ИНН",
+                    "labelUz": "STIR",
+                    "order": 0
+                  },
+                  {
+                    "fieldName": "service_name",
+                    "labelRu": "Услуга",
+                    "labelUz": "Xizmat turi",
+                    "order": 2
+                  },
+                  {
+                    "fieldName": "time",
+                    "labelRu": "Время",
+                    "labelUz": "Vaqt",
+                    "order": 3
+                  },
+                  {
+                    "fieldName": "terminal_id",
+                    "labelRu": "Номер терминала",
+                    "labelUz": "Terminal raqami",
+                    "order": 4
+                  },
+                  {
+                    "fieldName": "INVOICE",
+                    "labelRu": "Номер протокола",
+                    "labelUz": "Bayonnoma raqami",
+                    "order": 4
+                  },
+                  {
+                    "fieldName": "provider_name",
+                    "labelRu": "Оператор",
+                    "labelUz": "Operator",
+                    "order": 5
+                  },
+                  {
+                    "fieldName": "transaction_id",
+                    "labelRu": "Номер чека",
+                    "labelUz": "Chek raqami",
+                    "order": 5
+                  },
+                  {
+                    "fieldName": "NAME",
+                    "labelRu": "Ф.И.О.",
+                    "labelUz": "F.I.Sh.",
+                    "order": 8
+                  },
+                  {
+                    "fieldName": "AMOUNT",
+                    "labelRu": "Сумма штрафа",
+                    "labelUz": "Jarima summasi",
+                    "order": 9
+                  },
+                  {
+                    "fieldName": "P_PAYED",
+                    "labelRu": "Оплаченная сумма",
+                    "labelUz": "To`langan summa",
+                    "order": 10
+                  },
+                  {
+                    "fieldName": "PAY_DATE",
+                    "labelRu": "Последная оплата",
+                    "labelUz": "Oxirgi to`lov",
+                    "order": 11
+                  },
+                  {
+                    "fieldName": "DESCR",
+                    "labelRu": "Описание",
+                    "labelUz": "Ma`lumotlar",
+                    "order": 11
+                  },
+                  {
+                    "fieldName": "ISSUE_DATE",
+                    "labelRu": "Дата протокола",
+                    "labelUz": "Bayonnoma sanasi",
+                    "order": 11
+                  },
+                  {
+                    "fieldName": "BUDGET_ACCOUNT",
+                    "labelRu": "Счет бюджетополучателя",
+                    "labelUz": "Byudjet foyd. hisobi",
+                    "order": 12
+                  },
+                  {
+                    "fieldName": "BUDGET_INCOME",
+                    "labelRu": "Счет дохода в бюджет",
+                    "labelUz": "Byudjetga daromad hisobi",
+                    "order": 13
+                  },
+                  {
+                    "fieldName": "FIO",
+                    "labelRu": "Ф.И.О.",
+                    "labelUz": "F.I.Sh.",
+                    "order": 15
+                  },
+                  {
+                    "fieldName": "NDECREE",
+                    "labelRu": "Номер получалеля",
+                    "labelUz": "Ko`rsatma raqami",
+                    "order": 16
+                  },
+                  {
+                    "fieldName": "ADDRESS",
+                    "labelRu": "Адрес",
+                    "labelUz": "Manzil",
+                    "order": 17
+                  },
+                  {
+                    "fieldName": "amount",
+                    "labelRu": "Сумма к оплате",
+                    "labelUz": "To`lov miqdori",
+                    "order": 18
+                  },
+                  {
+                    "fieldName": "NTYPE",
+                    "labelRu": "Вид нарушения",
+                    "labelUz": "Qoidabuzarlik turi",
+                    "order": 18
+                  },
+                  {
+                    "fieldName": "DAN2CAR",
+                    "labelRu": "Номер авто",
+                    "labelUz": "Avto davlat raqami",
+                    "order": 19
+                  },
+                  {
+                    "fieldName": "NDATE",
+                    "labelRu": "Дата и вреия нарушения",
+                    "labelUz": "Qoidabuzarlik sanasi",
+                    "order": 20
+                  },
+                  {
+                    "fieldName": "pay_amount",
+                    "labelRu": "Сумма платежа проводимого оператору",
+                    "labelUz": "Operatorga o`tkaziladigan summa",
+                    "order": 21
+                  },
+                  {
+                    "fieldName": "paynet_amount",
+                    "labelRu": "Комиссия UZPAYNET",
+                    "labelUz": "UZPAYNET komissiyasi",
+                    "order": 22
+                  }
+                ],
+                "services": [
+                  {
+                    "id": 10091,
+                    "minAmount": 500,
+                    "maxAmount": 25000000,
+                    "titleRu": "Оплата Ущерб АП",
+                    "titleUz": "To'lov MXB Zarari",
+                    "childId": null,
+                    "servicePrice": 0,
+                    "agentCommission": 0.0,
+                    "serviceCommission": 0.0,
+                    "order": 1467,
+                    "serviceCommissionSum": 0.0,
+                    "paynetCommissionSum": 0.0,
+                    "fields": [
+                      {
+                        "id": 9807,
+                        "order": null,
+                        "name": "INVOICE",
+                        "titleRu": "Номер протокола",
+                        "titleUz": "Bayonnoma raqami",
+                        "required": true,
+                        "readOnly": true,
+                        "fieldType": "STRING",
+                        "isCustomerId": null,
+                        "fieldControl": null,
+                        "fieldSize": 22,
+                        "fieldValues": []
+                      },
+                      {
+                        "id": 9812,
+                        "order": null,
+                        "name": "pay_amount",
+                        "titleRu": "Сумма платежа",
+                        "titleUz": "To`lov summasi",
+                        "required": true,
+                        "readOnly": true,
+                        "fieldType": "MONEY",
+                        "isCustomerId": null,
+                        "fieldControl": null,
+                        "fieldSize": 12,
+                        "fieldValues": []
+                      },
+                      {
+                        "id": 9814,
+                        "order": null,
+                        "name": "amount",
+                        "titleRu": "Сумма с комиссией",
+                        "titleUz": "Summa komissiya bilan",
+                        "required": true,
+                        "readOnly": true,
+                        "fieldType": "MONEY",
+                        "isCustomerId": null,
+                        "fieldControl": null,
+                        "fieldSize": 12,
+                        "fieldValues": []
+                      },
+                      {
+                        "id": 9815,
+                        "order": null,
+                        "name": "telefon",
+                        "titleRu": "Тел. для SMS(998)",
+                        "titleUz": "SMS tel.(998)",
+                        "required": false,
+                        "readOnly": false,
+                        "fieldType": "REGEXBOX",
+                        "isCustomerId": null,
+                        "fieldControl": "[983]{1}[01345789]{1}[0-9]{7}",
+                        "fieldSize": 12,
+                        "fieldValues": []
+                      }
+                    ],
+                    "responseFields": [
+                      {
+                        "fieldName": "agent_name",
+                        "labelRu": "Агент",
+                        "labelUz": "Agent",
+                        "order": -1
+                      },
+                      {
+                        "fieldName": "agent_inn",
+                        "labelRu": "ИНН",
+                        "labelUz": "STIR",
+                        "order": 0
+                      },
+                      {
+                        "fieldName": "service_name",
+                        "labelRu": "Услуга",
+                        "labelUz": "Xizmat turi",
+                        "order": 2
+                      },
+                      {
+                        "fieldName": "time",
+                        "labelRu": "Время",
+                        "labelUz": "Vaqt",
+                        "order": 3
+                      },
+                      {
+                        "fieldName": "INVOICE",
+                        "labelRu": "Номер протокола",
+                        "labelUz": "Bayonnoma raqami",
+                        "order": 4
+                      },
+                      {
+                        "fieldName": "terminal_id",
+                        "labelRu": "Номер терминала",
+                        "labelUz": "Terminal raqami",
+                        "order": 4
+                      },
+                      {
+                        "fieldName": "transaction_id",
+                        "labelRu": "Номер чека",
+                        "labelUz": "Chek raqami",
+                        "order": 5
+                      },
+                      {
+                        "fieldName": "provider_name",
+                        "labelRu": "Оператор",
+                        "labelUz": "Operator",
+                        "order": 5
+                      },
+                      {
+                        "fieldName": "NAME",
+                        "labelRu": "Ф.И.О.",
+                        "labelUz": "F.I.Sh.",
+                        "order": 8
+                      },
+                      {
+                        "fieldName": "preferedPay",
+                        "labelRu": "Рекомендуемая сумма",
+                        "labelUz": "Tavsiya etilgan summa",
+                        "order": 8
+                      },
+                      {
+                        "fieldName": "P_PAYED",
+                        "labelRu": "Оплаченная сумма",
+                        "labelUz": "To`langan summa",
+                        "order": 10
+                      },
+                      {
+                        "fieldName": "PAY_DATE",
+                        "labelRu": "Последная оплата",
+                        "labelUz": "Oxirgi to`lov",
+                        "order": 11
+                      },
+                      {
+                        "fieldName": "ISSUE_DATE",
+                        "labelRu": "Дата протокола",
+                        "labelUz": "Bayonnoma sanasi",
+                        "order": 11
+                      },
+                      {
+                        "fieldName": "DESCR",
+                        "labelRu": "Описание",
+                        "labelUz": "Ma`lumotlar",
+                        "order": 11
+                      },
+                      {
+                        "fieldName": "BUDGET_ACCOUNT",
+                        "labelRu": "Счет бюджетополучателя",
+                        "labelUz": "Byudjet foyd. hisobi",
+                        "order": 12
+                      },
+                      {
+                        "fieldName": "BUDGET_INCOME",
+                        "labelRu": "Счет дохода в бюджет",
+                        "labelUz": "Byudjetga daromad hisobi",
+                        "order": 13
+                      },
+                      {
+                        "fieldName": "purchased_amount",
+                        "labelRu": "Сумма проведенного платежа оператору",
+                        "labelUz": "O`tkazilgan to`lov summasi",
+                        "order": 15
+                      },
+                      {
+                        "fieldName": "comission_amount",
+                        "labelRu": "Коммисия UZPAYNET",
+                        "labelUz": "UZPAYNET komissiyasi",
+                        "order": 16
+                      },
+                      {
+                        "fieldName": "amount",
+                        "labelRu": "Сумма",
+                        "labelUz": "Summa",
+                        "order": 17
+                      }
+                    ],
+                    "services": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+.order-first {
+  z-index: 1;
+  box-shadow: 0 14px 18px rgb(0 0 0 / 10%);
+}
+
+.params-divider {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+:host ::ng-deep .ant-drawer-header {
+  text-align: center;
+}
+
+:host ::ng-deep .ant-drawer-title {
+  font-weight: bold;
+}
+
+.recipient-logo {
+  height: 120px;
+  width: 120px;
+}
+
+.checkout-bg {
+  background-color: #f8f8f8;
+}

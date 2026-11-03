@@ -1,0 +1,18 @@
+@import "src/main/webapp/content/scss/bootstrap-variables";
+
+.reconcile-status {
+  color: #fff;
+  background-color: $primary;
+
+  &.COMPARED_OK {
+    background-color: $success;
+  }
+
+  &.COMPARED_FALSE {
+    background-color: $danger;
+  }
+
+  &.FILE_UPLOADED {
+    background-color: $info;
+  }
+}

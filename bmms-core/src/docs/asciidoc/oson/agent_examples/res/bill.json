@@ -1,0 +1,14 @@
+{
+    "id": 2751,
+    "recipientShortName": "ООО \"UNIVERSAL MOBILE SYSTEMS\"",
+    "sessionId": "1535194458532",
+    "amountRatio": 100,
+    "amount": 510,
+    "account": "974415655",
+    "currency": 860,
+    "extId": "8453909726",
+    "requestTime": "2018-08-25T10:54:18.532Z",
+    "responseTime": "2018-08-25T10:54:19Z",
+    "responseText": "Проведен успешно",
+    "success": true
+}

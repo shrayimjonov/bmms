@@ -1,0 +1,37 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsP2PCommission": {
+      "home": {
+        "title": "P2P комиссии",
+        "createLabel": "Создать новый P2P комиссии",
+        "createOrEditLabel": "Создать или отредактировать P2P комиссии",
+        "notFound": "P2P комиссии не найдены"
+      },
+      "delete": {
+        "question": "Вы уверены что хотите удалить P2P комиссии {{ id }}?"
+      },
+      "detail": {
+        "title": "P2P комиссии"
+      },
+      "name": "Наименование",
+      "up": "Сверху суммы",
+      "down": "Комиссия с суммы",
+      "fee": "Вознаграждение",
+      "description": "Описание",
+      "help": {
+        "name": "Наименование",
+        "up": "Сверху суммы",
+        "down": "Комиссия с суммы",
+        "fee": "Вознаграждение",
+        "description": "Описание"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsP2PCommission": {
+      "created": "P2P комиссии создан с идентификатором {{ param }}",
+      "updated": "P2P комиссии обновлен с идентификатором {{ param }}",
+      "deleted": "P2P комиссии удален с идентификатором {{ param }}"
+    }
+  }
+}

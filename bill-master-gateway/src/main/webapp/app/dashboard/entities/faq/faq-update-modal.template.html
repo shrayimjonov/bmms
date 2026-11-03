@@ -1,0 +1,52 @@
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <div class="modal-header">
+    <h4 class="modal-title" jhiTranslate="billMasterGwApp.faq.home.createOrEditLabel">Create or edit a Field</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal()">&times;</button>
+  </div>
+
+  <div class="modal-body">
+    <bm-alert></bm-alert>
+
+    <div class="form-row">
+      <div class="form-group col-md-8">
+        <label class="form-control-label" jhiTranslate="billMasterGwApp.faq.video" for="field_video">Video</label>
+        <input nz-input auto-focus type="text" class="form-control" name="video" id="field_video" data-cy="video" formControlName="videoUrl" style="height: 39px"/>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label class="form-control-label" jhiTranslate="billMasterGwApp.faq.category">Category</label>
+        <nz-select nzShowSearch nzAllowClear nzSize="large" formControlName="faqCategory" [compareWith]="compareFn">
+          <nz-option *ngFor="let category of faqCategories" nzLabel="{{ getI18nText(category.names) }}" [nzValue]="category"></nz-option>
+        </nz-select>
+      </div>
+
+      <div class="form-group col-md-12">
+        <label jhiTranslate="billMasterGwApp.faq.question">Questions</label>
+        <bm-i18n-tab formControlName="questions" [duplicate]="duplicate" input-validator></bm-i18n-tab>
+      </div>
+
+      <div class="form-group col-md-12">
+        <label jhiTranslate="billMasterGwApp.faq.answer">Answers</label>
+        <nz-tabset nzType="card">
+          <nz-tab *ngFor="let answerGroup of editForm.get('answers')['controls']" [formGroup]="answerGroup" [nzTitle]="typeAsGroup(answerGroup).get('lang')?.value" (nzClick)="focusToInput()">
+            <ngx-editor-menu [editor]="typeAsGroup(answerGroup).get('editor')?.value" [toolbar]="toolbar"></ngx-editor-menu>
+            <ngx-editor [editor]="typeAsGroup(answerGroup).get('editor')?.value" [placeholder]="null" formControlName="text" id="text-editor"></ngx-editor>
+          </nz-tab>
+        </nz-tabset>
+      </div>
+
+      <div class="form-group col-md-2 my-2">
+        <label nz-checkbox formControlName="active">{{ 'billMasterGwApp.faq.active' | translate }}</label>
+      </div>
+
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" nz-button nzSize="large" nzType="text" jhiTranslate="entity.action.cancel" (click)="closeModal()">
+      Cancel
+    </button>
+    <button nz-button nzSize="large" nzType="primary" [nzLoading]="loading" [input-validator-button]="editForm">
+      {{ 'entity.action.save' | translate }}
+    </button>
+  </div>
+</form>

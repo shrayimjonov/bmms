@@ -1,0 +1,31 @@
+<form [formGroup]="editForm" (ngSubmit)="save()">
+  <div class="modal-header">
+    <h4 class="modal-title" jhiTranslate="userManagement.createAuthority">Create Authority</h4>
+
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal()">&times;</button>
+  </div>
+
+  <div class="modal-body">
+    <bm-alert></bm-alert>
+
+    <div class="form-row">
+      <div class="form-group col-12">
+        <label class="label-required" for="field_name" jhiTranslate="global.field.name">Name</label>
+        <input nz-input nzSize="large" id="field_name" formControlName="name" maxlength="50" input-validator auto-focus />
+      </div>
+      <div class="col-12">
+        <label for="field_details" jhiTranslate="userGroup.details">Details</label>
+        <textarea nz-input nzSize="large" rows="3" id="field_details" formControlName="details"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" nz-button nzSize="large" nzType="text" jhiTranslate="entity.action.cancel" (click)="closeModal()">
+      Cancel
+    </button>
+    <button type="submit" nz-button nzSize="large" nzType="primary" [nzLoading]="loading" [input-validator-button]="editForm">
+      {{ 'entity.action.save' | translate }}
+    </button>
+  </div>
+</form>

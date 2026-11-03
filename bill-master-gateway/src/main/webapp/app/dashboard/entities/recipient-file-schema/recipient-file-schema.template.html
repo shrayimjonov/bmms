@@ -1,0 +1,108 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h4 class="mb-0" jhiTranslate="global.menu.entities.bmmsRecipientFileSchema">RecipientFileSchema</h4>
+
+  <div>
+    <nz-badge [nzCount]="filterRef.querySize">
+      <button nz-button nzSize="large" jhiTranslate="entity.action.filter" (click)="showFilter = !showFilter">Filter</button>
+    </nz-badge>
+
+    <button
+      class="ml-2"
+      type="button"
+      nz-button
+      nzSize="large"
+      nzType="primary"
+      jhiTranslate="entity.action.add"
+      *jhiHasAnyAuthority="[authority.RECIPIENT_FILE_SCHEMA_WRITE]"
+      (click)="recipientFileSchemaService.openUpdate()"
+    >
+      Add
+    </button>
+  </div>
+</div>
+
+<ngl-filter-field [hidden]="!showFilter" [fields]="filterFields" (onFilter)="setQuery($event); loadPage()" #filterRef></ngl-filter-field>
+
+<bm-alert></bm-alert>
+
+<ng-container *ngIf="data?.length">
+  <div class="table-responsive">
+    <nz-table [nzLoading]="loading" nzSize="small" nzTemplateMode nzOuterBordered>
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th jhiSortBy="id">
+            <span jhiTranslate="global.field.id">ID</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="name">
+            <span jhiTranslate="billMasterGwApp.bmmsRecipientFileSchema.name">Name</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="idList">
+            <span jhiTranslate="billMasterGwApp.bmmsRecipientFileSchema.idList">Id List</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="root">
+            <span jhiTranslate="billMasterGwApp.bmmsRecipientFileSchema.root">Root</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let recipientFileSchema of data; trackBy: trackId">
+          <td>{{ recipientFileSchema.id }}</td>
+          <td>{{ recipientFileSchema.name }}</td>
+          <td>{{ recipientFileSchema.idList }}</td>
+          <td>{{ recipientFileSchema.root }}</td>
+          <td width="10" class="text-right">
+            <nz-button-group nzSize="small">
+              <button
+                nz-button
+                (click)="recipientFileSchemaService.openHistory(recipientFileSchema.id)"
+                title="{{ 'entity.action.history' | translate }}"
+              >
+                <i nz-icon nzType="history" class="icon-btn"></i>
+              </button>
+              <ng-container *jhiHasAnyAuthority="[authority.RECIPIENT_FILE_SCHEMA_WRITE]">
+                <button
+                  nz-button
+                  (click)="recipientFileSchemaService.openUpdate(recipientFileSchema, true)"
+                  title="{{ 'entity.action.duplicate' | translate }}"
+                >
+                  <i nz-icon nzType="copy" class="icon-btn"></i>
+                </button>
+                <button
+                  type="submit"
+                  nz-button
+                  (click)="recipientFileSchemaService.openUpdate(recipientFileSchema)"
+                  title="{{ 'entity.action.edit' | translate }}"
+                >
+                  <i nz-icon nzType="edit" class="icon-btn"></i>
+                </button>
+                <button
+                  type="submit"
+                  nz-button
+                  (click)="recipientFileSchemaService.openDelete(recipientFileSchema.id)"
+                  title="{{ 'entity.action.delete' | translate }}"
+                >
+                  <i nz-icon nzType="delete" class="icon-btn"></i>
+                </button>
+              </ng-container>
+            </nz-button-group>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+
+  <div class="d-flex justify-content-center mt-3">
+    <nz-pagination
+      [nzPageIndex]="ngbPaginationPage"
+      [nzTotal]="totalItems"
+      [nzPageSize]="itemsPerPage"
+      (nzPageIndexChange)="loadPage($event)"
+    >
+    </nz-pagination>
+  </div>
+</ng-container>

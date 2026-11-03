@@ -1,0 +1,264 @@
+    {
+    "recipient": {
+        "shortName": "perfectum",
+        "ccy": 860,
+        "logo": "perfectum_small.png",
+        "thumbnail":"perfectum.png",
+        "amountRatio": 1,
+        "minAmount": 500,
+        "maxAmount": 500000,
+        "commission": 0.0,
+        "fee": 0.0,
+        "systemCommission": 0.0,
+        "systemFee": 0.0,
+        "ord": 1,
+        "active": true,
+        "check": true,
+        "pay": true,
+        "status": true,
+        "cancel": true,
+        "canDeposit": null,
+        "serviceId": "1",
+        "titles": [
+            {
+                "lang": "UZ",
+                "text": "Perfectum"
+            },
+            {
+                "lang": "RU",
+                "text": "Perfectum"
+            },
+            {
+                "lang": "EN",
+                "text": "Perfectum"
+            }
+        ],
+        "fullNames": [
+            {
+                "lang": "UZ",
+                "text": "Perfectum"
+            },
+            {
+                "lang": "RU",
+                "text": "Perfectum"
+            },
+            {
+                "lang": "EN",
+                "text": "Perfectum"
+            }
+        ]
+    },
+    "fields": [
+        {
+            "name": "phone",
+            "extId": 0,
+            "type": "ACCOUNT",
+            "controlType": "TEXT",
+            "content": null,
+            "validation": "",
+            "placeholder": null,
+            "mask": "+998 ({98}) ddd-dd-dd",
+            "maskSymbol": null,
+            "lengthMin": 7,
+            "lengthMax": 7,
+            "requireField": null,
+            "filterBy": null,
+            "optional": false,
+            "output": true,
+            "visibility": "ALL",
+            "ord": 1,
+            "requestType": null,
+            "titles": [
+                {
+                    "lang": "UZ",
+                    "text": "Telefon raqami"
+                },
+                {
+                    "lang": "RU",
+                    "text": "Номер телефона"
+                },
+                {
+                    "lang": "EN",
+                    "text": "Phone number"
+                }
+            ],
+            "descriptions": [
+                {
+                    "lang": "UZ",
+                    "text": "Telefon raqami kirgizing"
+                },
+                {
+                    "lang": "RU",
+                    "text": "Введите номер телефона"
+                },
+                {
+                    "lang": "EN",
+                    "text": "Input phone number"
+                }
+            ],
+            "values": [],
+            "prefixes": []
+        },
+        {
+            "name": "amount",
+            "extId": 0,
+            "type": "AMOUNT",
+            "controlType": "TEXT",
+            "content": null,
+            "validation": "",
+            "placeholder": null,
+            "mask": "d",
+            "maskSymbol": null,
+            "lengthMin": 1,
+            "lengthMax": 15,
+            "requireField": null,
+            "filterBy": null,
+            "optional": false,
+            "output": true,
+            "visibility": "ALL",
+            "ord": 2,
+            "requestType": null,
+            "titles": [
+                {
+                    "lang": "UZ",
+                    "text": "Summa"
+                },
+                {
+                    "lang": "RU",
+                    "text": "Сумма"
+                },
+                {
+                    "lang": "EN",
+                    "text": "Amount"
+                }
+            ],
+            "descriptions": [
+                {
+                    "lang": "UZ",
+                    "text": "Summa"
+                },
+                {
+                    "lang": "RU",
+                    "text": "Сумма"
+                },
+                {
+                    "lang": "EN",
+                    "text": "Amount"
+                }
+            ],
+            "values": [],
+            "prefixes": []
+        }
+    ],
+    "gatewayParams": [
+        {
+            "url": "https://127.0.0.1/pay_net_v1.php?act=4&username=${username}&password=${PASSWORD}&phone=${account}",
+            "type": "CHECK",
+            "username": "kapitalbank",
+            "password": "",
+            "token": null,
+            "body": "",
+            "statusQuery": "//*[local-name()='status_code']",
+            "messageQuery": "//*[local-name()='error_text']",
+            "successCode": "0",
+            "callback": null,
+            "timeout": 20000,
+            "headers":"",
+            "dataQueries": null,
+            "httpMethodType": "GET",
+            "protocol": null,
+            "requestMediaType": "application/xml",
+            "responseMediaType": "application/xml",
+            "active": true,
+            "mode": null,
+            "extIdQuery": null
+        },
+        {
+            "url": "https://127.0.0.1/pay_net_v1.php?act=0&username=${username}&password=${PASSWORD}&amount=${amount}&phone=${account}&pay_id=${tranId}",
+            "type": "PAY",
+            "username": "kapitalbank",
+            "password": "",
+            "token": null,
+            "body": "",
+            "statusQuery": "//*[local-name()='status_code']",
+            "messageQuery": "//*[local-name()='error_text']",
+            "successCode": "0",
+            "callback": null,
+            "timeout": 20000,
+            "headers":"",
+            "dataQueries": null,
+            "httpMethodType": "GET",
+            "protocol": null,
+            "requestMediaType": "application/xml",
+            "responseMediaType": "application/xml",
+            "active": true,
+            "mode": null,
+            "extIdQuery": "//*[local-name()='pay_id']"
+        },
+        {
+            "url": "https://127.0.0.1/pay_net_v1.php?act=5&username=${username}&password=${PASSWORD}&pay_id=${extId}",
+            "type": "CANCEL",
+            "username": "kapitalbank",
+            "password": "",
+            "token": null,
+            "body": "",
+            "statusQuery": "//*[local-name()='status_code']",
+            "messageQuery": "//*[local-name()='error_text']",
+            "successCode": "0",
+            "callback": null,
+            "timeout": 20000,
+            "headers":"",
+            "dataQueries": null,
+            "httpMethodType": "GET",
+            "protocol": null,
+            "requestMediaType": "application/xml",
+            "responseMediaType": "application/xml",
+            "active": true,
+            "mode": null,
+            "extIdQuery": null
+        },
+        {
+            "url": "https://127.0.0.1/pay_net_v1.php?act=2&username=${username}&password=${PASSWORD}&verification_date=${date}",
+            "type": "RECONCILE",
+            "username": "kapitalbank",
+            "password": "",
+            "token": null,
+            "body": "",
+            "statusQuery": "//*[local-name()='status']",
+            "messageQuery": "//*[local-name()='errorMsg']",
+            "successCode": "0",
+            "callback": null,
+            "timeout": 20000,
+            "headers":"",
+            "dataQueries": "{\"fieldSeparator\": \";\",\"groupSeparator\":\"\\n\",\"queryAmount\": \"2\",\"queryAccount\": \"1\",\"queryTranId\": \"3\",\"queryExtTime\": \"4\", \"requestDateFormat\": \"dd.MM.yyyy\"}",
+            "httpMethodType": "GET",
+            "protocol": null,
+            "requestMediaType": "application/xml",
+            "responseMediaType": "text/plain",
+            "active": true,
+            "mode": null,
+            "extIdQuery": null
+        }
+    ],
+        "category": {
+            "shortName": "Интернет провайдеры",
+            "thumbnail": "internet.png",
+            "logo": "internet.png",
+            "ord": 1,
+            "active": true,
+            "names": [
+                {
+                    "lang": "UZ",
+                    "text": "Internet provayderlari"
+                },
+                {
+                    "lang": "RU",
+                    "text": "Интернет провайдеры"
+                },
+                {
+                    "lang": "EN",
+                    "text": "Internet providers"
+                }
+            ]
+        }
+}

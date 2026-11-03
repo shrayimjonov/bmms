@@ -1,0 +1,14 @@
+{
+  "sender": {
+    "merchantId": 111,
+    "terminalId": 222,
+    "port": 4444
+  },
+  "recipient": {
+    "merchantId": 333,
+    "terminalId": 444,
+    "port": 4444,
+    "switchingId": 199,
+    "language": "en"
+  }
+}

@@ -1,0 +1,22 @@
+<h4 class="mb-3" jhiTranslate="global.menu.entities.p2p">P2P</h4>
+
+<nz-tabset nzLinkRouter nzSize="large">
+  <ng-container *ngFor="let tab of tabs">
+    <nz-tab *jhiHasAnyAuthority="tab.authorities">
+      <a
+        class="d-flex align-items-center"
+        *nzTabLink
+        nz-tab-link
+        routerLink="{{ tab.routerLink }}"
+        queryParamsHandling="merge"
+        [replaceUrl]="true"
+      >
+        <span jhiTranslate="{{ tab.title }}">{{ tab.title }}</span>
+      </a>
+    </nz-tab>
+  </ng-container>
+</nz-tabset>
+
+<div class="mt-2">
+  <router-outlet></router-outlet>
+</div>

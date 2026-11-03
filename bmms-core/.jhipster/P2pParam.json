@@ -1,0 +1,99 @@
+{
+  "name": "P2pParam",
+  "fields": [
+    {
+      "fieldName": "priority",
+      "fieldType": "Integer",
+      "javadoc": "Приоритет",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "active",
+      "fieldType": "Boolean",
+      "javadoc": "Активный",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "senderPc",
+      "fieldType": "P2pProcessorType",
+      "javadoc": "ПЦ отправителя",
+      "fieldValues": "UZCARD,HUMO,ACCOUNT",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "recipientPc",
+      "fieldType": "P2pProcessorType",
+      "javadoc": "ПЦ получателя",
+      "fieldValues": "UZCARD,HUMO,ACCOUNT",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "value",
+      "fieldType": "byte[]",
+      "javadoc": "Json параметры",
+      "fieldTypeBlobContent": "text"
+    },
+      {
+          "fieldName": "name",
+          "fieldType": "String",
+          "fieldValidateRules": ["maxlength"],
+          "fieldValidateRulesMaxlength": 64
+      },
+    {
+      "fieldName": "promo",
+      "fieldType": "String",
+      "javadoc": "Короткий код латинскими буквами и цыфрами",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 128
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "p2pCondition",
+      "otherEntityRelationshipName": "p2pParam",
+      "relationshipValidateRules": "required",
+      "relationshipName": "senderCondition",
+      "otherEntityField": "value"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "p2pCondition",
+      "otherEntityRelationshipName": "p2pParam",
+      "relationshipValidateRules": "required",
+      "relationshipName": "recipientCondition",
+      "otherEntityField": "value"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "p2pCommission",
+      "otherEntityRelationshipName": "p2pParam",
+      "relationshipValidateRules": "required",
+      "relationshipName": "senderPercent",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "p2pCommission",
+      "otherEntityRelationshipName": "p2pParam",
+      "relationshipValidateRules": "required",
+      "relationshipName": "recipientPercent",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20210113143642",
+  "javadoc": "P2P параметры\\n@author Javlon",
+  "entityTableName": "p_2_p_param",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "bmms",
+  "applications": "*",
+  "microserviceName": "pkbillms",
+  "enableEntityAudit": true,
+  "databaseType": "sql"
+}

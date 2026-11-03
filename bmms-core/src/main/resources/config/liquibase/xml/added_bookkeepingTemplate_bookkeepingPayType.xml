@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added the constraints for entity Deposit.
+    -->
+    <changeSet id="added_bookkeepingTemplate_bookkeepingPayType" author="zafar">
+
+        <addColumn tableName="bookkeeping_template">
+
+            <column name="bookkeeping_pay_type" type="varchar(255)"
+                    remarks="Тип платежа проводки : за контракт , акт , поставщику и т.д.">
+                <constraints nullable="true"/>
+            </column>
+
+
+        </addColumn>
+
+    </changeSet>
+</databaseChangeLog>

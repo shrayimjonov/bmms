@@ -1,0 +1,121 @@
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <div class="modal-header">
+    <h4 class="modal-title" jhiTranslate="billMasterGwApp.pkbillmsP2PParam.home.createOrEditLabel">Create or edit a P 2 P Param</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal()">&times;</button>
+  </div>
+
+  <div class="modal-body">
+    <bm-alert></bm-alert>
+
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsP2PParam.senderPc" for="field_senderPc">senderPc</label>
+        <bm-select-input [data]="types" formControlName="senderPc" id="field_senderPc" input-validator></bm-select-input>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsP2PParam.senderCondition" for="field_senderCondition"
+          >senderCondition</label
+        >
+        <bm-select-input
+          bmLabelField="description"
+          [bmServerSearch]="true"
+          [bmShowSearch]="true"
+          [requestUrl]="p2pConditionService.resourceUrl"
+          formControlName="senderCondition"
+          id="field_senderCondition"
+          input-validator
+        ></bm-select-input>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsP2PParam.senderPercent" for="field_senderPercent"
+          >senderPercent</label
+        >
+        <bm-select-input
+          formControlName="senderPercent"
+          id="field_senderPercent"
+          [requestUrl]="p2pCommissionService.resourceUrl"
+          bmLabelField="name"
+          [bmServerSearch]="true"
+          [bmShowSearch]="true"
+          input-validator
+        ></bm-select-input>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsP2PParam.recipientPc" for="field_recipientPc"
+          >recipientPc</label
+        >
+        <bm-select-input [data]="types" formControlName="recipientPc" id="field_recipientPc" input-validator></bm-select-input>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsP2PParam.recipientCondition" for="field_recipientCondition"
+          >recipientCondition</label
+        >
+        <bm-select-input
+          formControlName="recipientCondition"
+          [bmServerSearch]="true"
+          [bmShowSearch]="true"
+          [requestUrl]="p2pConditionService.resourceUrl"
+          id="field_recipientCondition"
+          bmLabelField="description"
+          input-validator
+        ></bm-select-input>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsP2PParam.recipientPercent" for="field_recipientPercent"
+          >recipientPercent</label
+        >
+        <bm-select-input
+          formControlName="recipientPercent"
+          id="field_recipientPercent"
+          [requestUrl]="p2pCommissionService.resourceUrl"
+          bmLabelField="name"
+          [bmServerSearch]="true"
+          [bmShowSearch]="true"
+          input-validator
+        ></bm-select-input>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label class="label-required" jhiTranslate="billMasterGwApp.pkbillmsP2PParam.priority" for="field_priority">priority</label>
+        <input nz-input nzSize="large" formControlName="priority" id="field_priority" type="number" input-validator />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsGateway.name" for="field_name">Name</label>
+        <input nz-input nzSize="large" formControlName="name" id="field_name" input-validator />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label jhiTranslate="billMasterGwApp.pkbillmsP2PParam.promo" for="field_promo">Promo</label>
+        <input nz-input nzSize="large" formControlName="promo" id="field_promo" input-validator />
+      </div>
+
+      <div class="form-group mt-auto col-md-12">
+        <nz-switch
+          id="field_active"
+          formControlName="active"
+          nzCheckedChildren="{{ 'global.active.true' | translate }}"
+          nzUnCheckedChildren="{{ 'global.active.false' | translate }}"
+        >
+        </nz-switch>
+      </div>
+
+      <div class="form-group col-md-12">
+        <label for="field_value" jhiTranslate="billMasterGwApp.pkbillmsP2PParam.value">Value</label>
+        <json-editor id="field_value" [options]="editorOptions" formControlName="value" contenteditable="false"></json-editor>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" nz-button nzSize="large" nzType="text" jhiTranslate="entity.action.cancel" (click)="closeModal()">Cancel</button>
+    <button nz-button nzSize="large" nzType="primary" [nzLoading]="loading" [input-validator-button]="editForm">
+      {{ 'entity.action.save' | translate }}
+    </button>
+  </div>
+</form>

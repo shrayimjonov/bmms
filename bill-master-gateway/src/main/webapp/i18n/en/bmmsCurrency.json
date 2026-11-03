@@ -1,0 +1,46 @@
+{
+  "billMasterGwApp": {
+    "bmmsCurrency": {
+      "home": {
+        "title": "Currencies",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Currency",
+        "createOrEditLabel": "Create or edit a Currency",
+        "notFound": "No Currencies found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Currency {{ id }}?"
+      },
+      "detail": {
+        "title": "Currency"
+      },
+      "id": "ID",
+      "code": "Code",
+      "ccy": "Ccy",
+      "nameRu": "Name Ru",
+      "rate": "Rate",
+      "sellRate": "Sell Rate",
+      "buyRate": "Buy Rate",
+      "date": "Date",
+      "active": "Active",
+      "ccyGroup": "Ccy Group",
+      "help": {
+        "code": "Числовой код валюты (digit-3) из ISO_4217. Например: 840, 978, 643 и др",
+        "ccy": "Символьный код валюты (альфа-3) из ISO_4217. Например: USD, EUR, RUB и др",
+        "nameRu": "Наименование валюты на русском языке",
+        "rate": "Курс валюты",
+        "sellRate": "Курс валюты продажи",
+        "buyRate": "Курс валюты покупки",
+        "date": "Дата активизации",
+        "active": "Activeness"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "bmmsCurrency": {
+      "created": "A new Currency is created with identifier {{ param }}",
+      "updated": "A Currency is updated with identifier {{ param }}",
+      "deleted": "A Currency is deleted with identifier {{ param }}"
+    }
+  }
+}

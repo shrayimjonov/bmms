@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="load_data" author="javlon">
+        <loadData
+            file="config/liquibase/csv/i18n.csv"
+            separator=";"
+            tableName="i_18_n"/>
+
+        <loadData
+            file="config/liquibase/csv/agent.csv"
+            separator=";"
+            tableName="agent"/>
+
+        <loadData
+            file="config/liquibase/csv/category.csv"
+            separator=";"
+            tableName="category"/>
+
+        <loadData
+            file="config/liquibase/csv/category_i18n.csv"
+            separator=";"
+            tableName="rel_category__name"/>
+
+        <loadData
+            file="config/liquibase/csv/agent_i18n.csv"
+            separator=";"
+            tableName="rel_agent__title"/>
+
+        <loadData
+            file="config/liquibase/csv/gateway.csv"
+            separator=";"
+            tableName="gateway"/>
+
+        <loadData
+            file="config/liquibase/csv/recipient.csv"
+            separator=";"
+            tableName="recipient"/>
+
+        <loadData
+            file="config/liquibase/csv/recipient_fullname_i18n.csv"
+            separator=";"
+            tableName="rel_recipient__full_name"/>
+
+        <loadData
+            file="config/liquibase/csv/recipient_title_i18n.csv"
+            separator=";"
+            tableName="rel_recipient__title"/>
+
+    </changeSet>
+
+</databaseChangeLog>

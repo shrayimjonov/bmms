@@ -1,0 +1,47 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsGatewayParam": {
+      "home": {
+        "title": "Параметры шлюзов",
+        "createLabel": "Создать новый параметры шлюзов",
+        "createOrEditLabel": "Создать или отредактировать параметры шлюзов",
+        "notFound": "Параметры шлюзов не найдены"
+      },
+      "delete": {
+        "question": "Вы уверены что хотите удалить Gateway Param {{ id }}?"
+      },
+      "detail": {
+        "title": "Параметры шлюзов"
+      },
+      "url": "Url",
+      "type": "Тип",
+      "username": "Имя пользователя",
+      "password": "Пароль",
+      "token": "Токен",
+      "body": "Body",
+      "statusQuery": "Запрос статуса",
+      "messageQuery": "Запрос сообщения",
+      "successCode": "Код успеха",
+      "callback": "Обратный звонок",
+      "timeout": "Тайм-аут",
+      "headers": "Заголовки",
+      "dataQueries": "Запросы данных",
+      "httpMethodType": "Тип метода Http",
+      "protocol": "Протокол",
+      "requestMediaType": "Тип носителя запроса",
+      "responseMediaType": "Тип носителя ответа",
+      "active": "Активность",
+      "mode": "Способ",
+      "extIdQuery": "Запрос по ид Ext",
+      "successOn2xx": "Успех на 2 Xx",
+      "recipient": "Получатель"
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsGatewayParam": {
+      "created": "Новый параметры шлюзов создан с идентификатором {{ param }}",
+      "updated": "Параметры шлюзов обновлен с идентификатором {{ param }}",
+      "deleted": "Параметры шлюзов удален с идентификатором {{ param }}"
+    }
+  }
+}

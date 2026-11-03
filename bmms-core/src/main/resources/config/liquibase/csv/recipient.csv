@@ -1,0 +1,2 @@
+id;short_name;taxnr    ;thumbnail           ;logo          ;amount_ratio;min_amount;max_amount;commission;fee;system_commission;system_fee;ord;gateway_id;category_id;active
+1 ;"caravan" ;234567890;"caravan_small.jpeg";"caravan.jpeg";100         ;1000      ;500000    ;0         ;3  ;0                ;0         ;1  ;1         ;1          ;true

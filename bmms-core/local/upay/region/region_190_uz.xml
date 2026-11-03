@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:getRegionsListResponse xmlns:ns2="http://st.apus.com/">
+    <return>
+        <AreasList>
+            <Title>Taksi parki</Title>
+            <Area>
+                <Id>4</Id>
+                <Code>302907427</Code>
+                <Name>Muso Avto</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>21</Id>
+                <Code>302671407</Code>
+                <Name>Matonat Avto</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>22</Id>
+                <Code>300526357</Code>
+                <Name>Tiko Matiz</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>23</Id>
+                <Code>302814646</Code>
+                <Name>Xorazm Tezkor Avto</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>29</Id>
+                <Code>303023854</Code>
+                <Name>Jet Trans Plus</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>30</Id>
+                <Code>300391639</Code>
+                <Name>Yangiariq trans</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>31</Id>
+                <Code>302939119</Code>
+                <Name>Kamolot yoshlar ko’li</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>32</Id>
+                <Code>1</Code>
+                <Name>Test Market</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>33</Id>
+                <Code>2</Code>
+                <Name>Tavallud Kafe</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>34</Id>
+                <Code>3</Code>
+                <Name>Test Apteka</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>35</Id>
+                <Code>4</Code>
+                <Name>Baxtiyor Dori Dorixonasi</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>36</Id>
+                <Code>5</Code>
+                <Name>Lens Optika</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>37</Id>
+                <Code>6</Code>
+                <Name>Will Tour Aviakassa</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>38</Id>
+                <Code>7</Code>
+                <Name>Shoh Dizayn</Name>
+                <Children/>
+            </Area>
+            <Area>
+                <Id>39</Id>
+                <Code>8</Code>
+                <Name>Urganch restarani</Name>
+                <Children/>
+            </Area>
+        </AreasList>
+        <Result>
+            <code>OK</code>
+            <Description>Xatolik yo’q</Description>
+        </Result>
+    </return>
+</ns2:getRegionsListResponse>

@@ -1,0 +1,168 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h4 class="mb-0" jhiTranslate="global.menu.entities.pkbillmsField">Fields</h4>
+
+  <div>
+    <nz-badge [nzCount]="filterRef.querySize">
+      <button nz-button nzSize="large" jhiTranslate="entity.action.filter" (click)="showFilter = !showFilter">Filter</button>
+    </nz-badge>
+
+    <ngl-export-as
+      *ngIf="data?.length"
+      class="ml-2"
+      [data]="data"
+      requestUrl="{{ fieldService.resourceUrl }}"
+      [requestOption]="getOption"
+      [exclude]="exclude"
+      translationPrefix="billMasterGwApp.pkbillmsField"
+      fileName="fields"
+    >
+    </ngl-export-as>
+
+    <button
+      type="button"
+      nz-button
+      nzSize="large"
+      nzType="primary"
+      jhiTranslate="entity.action.add"
+      class="ml-2"
+      *jhiHasAnyAuthority="[authority.FIELD_WRITE]"
+      (click)="fieldService.openUpdate()"
+    >
+      Add
+    </button>
+  </div>
+</div>
+
+<ngl-filter-field [hidden]="!showFilter" [fields]="filterFields" (onFilter)="setQuery($event); loadPage()" #filterRef></ngl-filter-field>
+
+<bm-alert></bm-alert>
+
+<ng-container *ngIf="data?.length">
+  <div class="table-responsive">
+    <nz-table [nzLoading]="loading" nzSize="small" nzTemplateMode nzOuterBordered>
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th jhiSortBy="id">
+            <span jhiTranslate="billMasterGwApp.pkbillmsField.id">Id</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="name">
+            <span jhiTranslate="billMasterGwApp.pkbillmsField.name">name</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="recipient">
+            <span jhiTranslate="billMasterGwApp.pkbillmsField.recipient">recipientShortName</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="type">
+            <span jhiTranslate="billMasterGwApp.pkbillmsField.type">type</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="validation">
+            <span jhiTranslate="billMasterGwApp.pkbillmsField.validation">validation</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="recipient">
+            <span jhiTranslate="billMasterGwApp.pkbillmsField.lengthMin">lengthMin</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="recipient">
+            <span jhiTranslate="billMasterGwApp.pkbillmsField.lengthMax">lengthMax</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="requireField">
+            <span jhiTranslate="billMasterGwApp.pkbillmsField.requireField">requireField</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="optional">
+            <span jhiTranslate="billMasterGwApp.pkbillmsField.optional">optional</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="ord">
+            <span jhiTranslate="billMasterGwApp.pkbillmsField.ord">ord</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="controlType">
+            <span jhiTranslate="billMasterGwApp.pkbillmsField.controlType">controlType</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="requestType">
+            <span jhiTranslate="billMasterGwApp.pkbillmsField.requestType">requestType</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let field of data; trackBy: trackId">
+          <td>
+            <a href="javascript:void(0)" (click)="fieldService.openView(field)">{{ field.id }}</a>
+          </td>
+          <td>{{ field.name }}</td>
+          <td>
+            <div *ngIf="field.recipient">
+              <a href="javascript:void(0)" (click)="recipientService.openView(field.recipient)">{{ field.recipient.shortName }}</a>
+            </div>
+          </td>
+          <td>{{ field.type }}</td>
+          <td>{{ field.validation }}</td>
+          <td>{{ field.lengthMin }}</td>
+          <td>{{ field.lengthMax }}</td>
+          <td>{{ field.requireField }}</td>
+          <td>{{ field.optional }}</td>
+          <td>{{ field.ord }}</td>
+          <td>{{ field.controlType }}</td>
+          <td>{{ field.requestType }}</td>
+          <td width="10" class="text-right">
+            <nz-button-group nzSize="small">
+              <button
+                nz-button
+                routerLink="../field-value"
+                jhiTranslate="global.menu.submenu.field.values"
+                [queryParams]="{'fieldId.equals': field.id}"
+                [disabled]="!field.values!.length"
+              >
+                Field Value
+              </button>
+              <button
+                nz-button
+                routerLink="../prefix"
+                jhiTranslate="global.menu.submenu.field.prefixes"
+                [queryParams]="{'fieldId.equals': field.id}"
+                [disabled]="!field.prefixes!.length"
+              >
+                Prefix
+              </button>
+              <button nz-button (click)="fieldService.openHistory(field.id)" title="{{ 'entity.action.history' | translate }}">
+                <i nz-icon nzType="history" class="icon-btn"></i>
+              </button>
+              <button nz-button (click)="fieldService.openView(field)" title="{{ 'entity.action.view' | translate }}">
+                <i nz-icon nzType="eye" class="icon-btn"></i>
+              </button>
+              <ng-container *jhiHasAnyAuthority="[authority.FIELD_WRITE]">
+                <button nz-button (click)="fieldService.openUpdate(field, true)" title="{{ 'entity.action.duplicate' | translate }}">
+                  <i nz-icon nzType="copy" class="icon-btn"></i>
+                </button>
+                <button nz-button (click)="fieldService.openUpdate(field)" title="{{ 'entity.action.edit' | translate }}">
+                  <i nz-icon nzType="edit" class="icon-btn"></i>
+                </button>
+                <button nz-button (click)="fieldService.openDelete(field.id)" title="{{ 'entity.action.delete' | translate }}">
+                  <i nz-icon nzType="delete" class="icon-btn"></i>
+                </button>
+              </ng-container>
+            </nz-button-group>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+  <div class="d-flex justify-content-center mt-3">
+    <nz-pagination
+      [nzPageIndex]="ngbPaginationPage"
+      [nzTotal]="totalItems"
+      [nzPageSize]="itemsPerPage"
+      (nzPageIndexChange)="loadPage($event)"
+    >
+    </nz-pagination>
+  </div>
+</ng-container>

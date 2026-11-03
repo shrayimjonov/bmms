@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity BookkeepingTransaction.
+    -->
+    <changeSet id="20180813204929-1" author="jhipster">
+        <createTable tableName="bookkeeping_transaction" remarks="Данная форма предназначена для создания проводок в разрезе групп">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="group_id" type="bigint" remarks="Группа">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="s_mfo" type="varchar(8)" remarks="МФО Отправителя">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="s_inn" type="varchar(16)" remarks="ИНН Отправителя">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="s_account" type="varchar(32)" remarks="Р/С Отправителя">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="r_mfo" type="varchar(8)" remarks="МФО Получателя">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="r_inn" type="varchar(16)" remarks="ИНН Получателя">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="r_account" type="varchar(32)" remarks="Р/С Получателя">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="amount" type="varchar(64)" remarks="Сумма на отправку">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="period" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="bookkeeping_type" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="success" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="details" type="varchar(256)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="doc_type" type="varchar(8)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="doc_code" type="varchar(16)" remarks="Код платежа">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="doc_task_code" type="varchar(8)" remarks="Код задачи">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="r_account_name" type="varchar(64)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="confirm_user_id" type="varchar(128)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="send_user_id" type="varchar(128)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="cancel_user_id" type="varchar(128)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="create_time" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="confirm_time" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="send_time" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="cancel_time" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="abs_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="doc_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="template_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="control" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="response_text" type="varchar(128)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="gateway_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="recipient_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="bookkeeping_transaction" columnName="create_time" columnDataType="datetime"/>
+        <dropDefaultValue tableName="bookkeeping_transaction" columnName="confirm_time" columnDataType="datetime"/>
+        <dropDefaultValue tableName="bookkeeping_transaction" columnName="send_time" columnDataType="datetime"/>
+        <dropDefaultValue tableName="bookkeeping_transaction" columnName="cancel_time" columnDataType="datetime"/>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+
+    <!-- Added the entity audit columns -->
+    <changeSet id="20180813204929-audit-1" author="abdurahim">
+        <addColumn tableName="bookkeeping_transaction">
+            <column name="created_by" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="varchar(50)"/>
+            <column name="last_modified_date" type="timestamp"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

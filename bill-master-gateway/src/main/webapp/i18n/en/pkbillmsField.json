@@ -1,0 +1,69 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsField": {
+      "home": {
+        "title": "Fields",
+        "createLabel": "Create a new Field",
+        "createOrEditLabel": "Create or edit a Field",
+        "notFound": "No Fields found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Field {{ id }}?"
+      },
+      "detail": {
+        "title": "Field"
+      },
+      "fromRequest": "From Request",
+      "fromResponse": "From Response",
+      "id": "Id",
+      "name": "Name",
+      "extId": "Ext Id",
+      "type": "Type",
+      "controlType": "Control Type",
+      "content": "Content",
+      "validation": "Validation",
+      "placeholder": "Placeholder",
+      "mask": "Mask",
+      "maskSymbol": "Mask Symbol",
+      "lengthMin": "Length Min",
+      "lengthMax": "Length Max",
+      "requireField": "Require Field",
+      "filterBy": "Filter By",
+      "optional": "Optional",
+      "output": "Output",
+      "visibility": "Visibility",
+      "ord": "Ord",
+      "requestType": "Request Type",
+      "recipient": "Recipient",
+      "title": "Title",
+      "description": "Description",
+      "value": "Value",
+      "prefix": "Prefix",
+      "help": {
+        "name": "Field (merchant param) name; account_id, phone, login, ...",
+        "extId": "External id, optional",
+        "content": "Type of content for frontend usage; phone, email, text",
+        "validation": "Java regexp pattern to validate before sending to server",
+        "placeholder": "Field placeholder for UI input box",
+        "mask": "UI input mask",
+        "maskSymbol": "UI input mask symbol",
+        "lengthMin": "Min length for text fields",
+        "lengthMax": "Max length for text fields",
+        "requireField": "Require parent field to draw this one",
+        "filterBy": "Filter showing by previous selected field",
+        "optional": "Is field optional to fill",
+        "output": "Need to send the value to server",
+        "visibility": "Visible in UI, can be used for hidden static fields",
+        "ord": "Display order",
+        "requestType": "Define to which of CHECK,PAY,STATUS,CANCEL,DEPOSIT belongs that field"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsField": {
+      "created": "A new Field is created with identifier {{ param }}",
+      "updated": "A Field is updated with identifier {{ param }}",
+      "deleted": "A Field is deleted with identifier {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+<form #editForm="ngForm">
+  <nz-tabset nzType="card" class="p-1">
+    <nz-tab *ngFor="let i18n of i18ns" [nzTitle]="i18n.lang" (nzClick)="focus()">
+      <textarea nz-input nzSize="large" rows="3" name="{{i18n.lang}}" [(ngModel)]="i18n.text" id="text-area"></textarea>
+    </nz-tab>
+  </nz-tabset>
+</form>

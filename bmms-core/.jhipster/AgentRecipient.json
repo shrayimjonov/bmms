@@ -1,0 +1,135 @@
+{
+  "name": "AgentRecipient",
+  "fields": [
+    {
+      "fieldName": "agentCommission",
+      "javadoc": "Комиссия агента, которая снимается с внесенной суммы клиента в пользу агента",
+      "fieldType": "Double",
+      "fieldValidateRules": ["max", "min"],
+      "fieldValidateRulesMax": 100,
+      "fieldValidateRulesMin": 0
+    },
+    {
+      "fieldName": "agentFee",
+      "javadoc": "Вознаграждение агента, это отчисление системы с суммы платежа в пользу агента",
+      "fieldType": "Double",
+      "fieldValidateRules": ["max", "min"],
+      "fieldValidateRulesMax": 100,
+      "fieldValidateRulesMin": 0
+    },
+    {
+      "fieldName": "systemCommissionUp",
+      "javadoc": "Комиссия системы, которая снимается сверх внесенной суммы клиента в пользу системы",
+      "fieldType": "Double",
+      "fieldValidateRules": ["max", "min"],
+      "fieldValidateRulesMax": 100,
+      "fieldValidateRulesMin": 0
+    },
+    {
+      "fieldName": "systemCommissionDown",
+      "javadoc": "Комиссия системы, которая снимается с внесенной суммы клиента в пользу системы",
+      "fieldType": "Double",
+      "fieldValidateRules": ["max", "min"],
+      "fieldValidateRulesMax": 100,
+      "fieldValidateRulesMin": 0
+    },
+    {
+      "fieldName": "systemFee",
+      "javadoc": "Вознаграждение системы, это отчисления поставщика услуг с суммы платежа в пользу системы",
+      "fieldType": "Double",
+      "fieldValidateRules": ["max", "min"],
+      "fieldValidateRulesMax": 100,
+      "fieldValidateRulesMin": 0
+    },
+    {
+      "fieldName": "active",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "eposPort",
+      "javadoc": "Параметр Port для соединения с SvGate",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["min", "max"],
+      "fieldValidateRulesMax": 65535,
+      "fieldValidateRulesMin": 0
+    },
+    {
+      "fieldName": "eposMerchant",
+      "javadoc": "Параметр Merchant Id для соединения с SvGate",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 32
+    },
+    {
+      "fieldName": "eposTerminal",
+      "javadoc": "Параметр Terminal Id для соединения с SvGate",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 32
+    },
+    {
+      "fieldName": "requestGroup",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 64
+    },
+    {
+      "fieldName": "jsonParams",
+      "javadoc": "Дополнительные параметры в виде json",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "relationshipName": "agent",
+      "otherEntityName": "agent",
+      "otherEntityField": "shortName"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "relationshipName": "recipient",
+      "otherEntityName": "recipient",
+      "otherEntityField": "shortName"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "relationshipName": "setting",
+      "otherEntityName": "setting",
+      "otherEntityField": "shortName"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "relationshipName": "agent",
+      "otherEntityName": "agent",
+      "otherEntityField": "shortName"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "relationshipName": "settingType",
+      "otherEntityName": "settingType",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "relationshipName": "recipientGroup",
+      "otherEntityName": "recipientGroup",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20180719230921",
+  "javadoc": "Доступные поставшики агенту",
+  "entityTableName": "agent_recipient",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "clientRootFolder": "bmms",
+  "applications": "*",
+  "microserviceName": "pkbillms",
+  "enableEntityAudit": true,
+  "databaseType": "sql"
+}

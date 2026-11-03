@@ -1,0 +1,13 @@
+export enum RequestType {
+  CHECK = 'CHECK',
+  PAY = 'PAY',
+  STATUS = 'STATUS',
+  CANCEL = 'CANCEL',
+  DEPOSIT = 'DEPOSIT',
+  RECONCILE = 'RECONCILE',
+  CREDIT = 'CREDIT',
+  DEBIT = 'DEBIT',
+  P2P_CREDIT = 'P2P_CREDIT',
+  P2P_DEBIT = 'P2P_DEBIT',
+  CONFIRM = 'CONFIRM'
+}

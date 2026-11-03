@@ -1,0 +1,38 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsGateway": {
+      "home": {
+        "title": "Gateways",
+        "createLabel": "Создать новый Шлюз",
+        "createOrEditLabel": "Создать или отредактировать Шлюз",
+        "notFound": "Шлюзы не найдены"
+      },
+      "delete": {
+        "question": "Вы уверены что хотите удалить Шлюз {{ id }}?"
+      },
+      "detail": {
+        "title": "Шлюз"
+      },
+      "name": "Название",
+      "org": "Организация",
+      "active": "Активность",
+      "mfo": "Мфо",
+      "taxnr": "ИНН",
+      "ban": "Бан",
+      "contract": "Контракт",
+      "springBeanName": "Название Spring Bean",
+      "deposit": "Депозит",
+      "help": {
+        "mfo": "Bank MFO (BIN)",
+        "taxnr": "Tax number (INN)"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsGateway": {
+      "created": "Новый Шлюз создан с идентификатором {{ param }}",
+      "updated": "Шлюз обновлен с идентификатором {{ param }}",
+      "deleted": "Шлюз удален с идентификатором {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "bmms",
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "relationshipName": "gateway",
+      "otherEntityName": "gateway",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "relationshipName": "category",
+      "otherEntityName": "category",
+      "otherEntityField": "shortName"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "relationshipValidateRules": "required",
+      "otherEntityRelationshipName": "",
+      "relationshipName": "title",
+      "otherEntityName": "i18n",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-many",
+      "relationshipValidateRules": "required",
+      "otherEntityRelationshipName": "",
+      "relationshipName": "fullName",
+      "otherEntityName": "i18n",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "shortName",
+      "javadoc": "Уникальное название в шлюзе",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": 64
+    },
+    {
+      "fieldName": "serviceId",
+      "javadoc": "Service id, for inner business logic",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": 64
+    },
+    {
+      "fieldName": "thumbnail",
+      "javadoc": "Thumbnail file path or url",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 64
+    },
+    {
+      "fieldName": "logo",
+      "javadoc": "Logo file path or url",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 64
+    },
+    {
+      "fieldName": "amountRatio",
+      "javadoc": "Использумая разрядность суммы в шлюзе получателя, 1 - сум, 100 - тийин",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "ccy",
+      "javadoc": "Валюта получателя",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "minAmount",
+      "javadoc": "Минимальная сумма платежа, разрядность зависит от recipient.limitRatio",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "maxAmount",
+      "javadoc": "Максимальная сумма платежа, разрядность зависит от recipient.limitRatio",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "limitRatio",
+      "javadoc": "Разрядность макс. и мин. суммы платежа",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "commission",
+      "javadoc": "Комиссия получателя",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "fee",
+      "javadoc": "Вознаграждение получателя",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "systemCommission",
+      "javadoc": "Комиссия системы от получателя",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "systemFee",
+      "javadoc": "Вознаграждение системы от получателя",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "senderCommission",
+      "javadoc": "Вознаграждение поставшику (если участвует как отправитель средств)",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "ord",
+      "javadoc": "Display order",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "active",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "check",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "pay",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "cancel",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "canDeposit",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "eposPort",
+      "javadoc": "Параметр Port для соединения с SvGate",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": 64000
+    },
+    {
+      "fieldName": "eposMerchant",
+      "javadoc": "Параметр Merchant Id для соединения с SvGate",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "eposTerminal",
+      "javadoc": "Параметр Terminal Id для соединения с SvGate",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "settlementAccount",
+      "javadoc": "Расчетный счет поставщика",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 32
+    },
+    {
+      "fieldName": "mfo",
+      "javadoc": "МФО счет поставщика",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 16
+    },
+    {
+      "fieldName": "inn",
+      "javadoc": "Инн счет поставщика",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 32
+    },
+    {
+      "fieldName": "reconcile",
+      "fieldType": "Boolean"
+    }
+  ],
+  "changelogDate": "20180719230919",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceClass",
+  "entityTableName": "recipient",
+  "jpaMetamodelFiltering": true,
+  "pagination": "pagination",
+  "javadoc": "Получатель денежных средств, поставшик услуг",
+  "microserviceName": "pkbillms",
+  "enableEntityAudit": true,
+  "databaseType": "sql",
+  "name": "Recipient"
+}

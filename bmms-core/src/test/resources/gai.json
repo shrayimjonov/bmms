@@ -1,0 +1,374 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "categories": [
+      {
+        "id": 14,
+        "titleRu": "Государственные услуги",
+        "titleUz": "Davlat xizmatlari",
+        "order": 7,
+        "providers": [
+          {
+            "id": 6656,
+            "title": "Прием платежей (штрафов) ГУБДД за нарушения ПДД",
+            "titleShort": "Штрафы ГУБДД",
+            "services": [
+              {
+                "id": 10045,
+                "minAmount": 0,
+                "maxAmount": 0,
+                "titleRu": "Получение информации",
+                "titleUz": "Ma'lumot olish",
+                "childId": 10046,
+                "servicePrice": 0,
+                "agentCommission": 0.0,
+                "serviceCommission": 0.0,
+                "order": 1435,
+                "serviceCommissionSum": 0.0,
+                "paynetCommissionSum": 0.0,
+                "fields": [
+                  {
+                    "id": 6326,
+                    "order": null,
+                    "name": "NDECREE",
+                    "titleRu": "Номер постановления RR*****",
+                    "titleUz": "Qaror raqami RR*****",
+                    "required": true,
+                    "readOnly": false,
+                    "fieldType": "REGEXBOX",
+                    "isCustomerId": null,
+                    "fieldControl": "[a-zA-Z]{2}\\d{1,15}$",
+                    "fieldSize": 13,
+                    "fieldValues": []
+                  }
+                ],
+                "responseFields": [
+                  {
+                    "fieldName": "agent_name",
+                    "labelRu": "Агент",
+                    "labelUz": "Agent",
+                    "order": -1
+                  },
+                  {
+                    "fieldName": "agent_inn",
+                    "labelRu": "ИНН",
+                    "labelUz": "STIR",
+                    "order": 0
+                  },
+                  {
+                    "fieldName": "service_name",
+                    "labelRu": "Услуга",
+                    "labelUz": "Xizmat turi",
+                    "order": 2
+                  },
+                  {
+                    "fieldName": "time",
+                    "labelRu": "Время",
+                    "labelUz": "Vaqt",
+                    "order": 3
+                  },
+                  {
+                    "fieldName": "terminal_id",
+                    "labelRu": "Номер терминала",
+                    "labelUz": "Terminal raqami",
+                    "order": 4
+                  },
+                  {
+                    "fieldName": "provider_name",
+                    "labelRu": "Оператор",
+                    "labelUz": "Operator",
+                    "order": 5
+                  },
+                  {
+                    "fieldName": "transaction_id",
+                    "labelRu": "Номер чека",
+                    "labelUz": "Chek raqami",
+                    "order": 5
+                  },
+                  {
+                    "fieldName": "NAME",
+                    "labelRu": "Ф.И.О.",
+                    "labelUz": "F.I.Sh.",
+                    "order": 9
+                  },
+                  {
+                    "fieldName": "FIO",
+                    "labelRu": "ФИО",
+                    "labelUz": "F.I.Sh.",
+                    "order": 9
+                  },
+                  {
+                    "fieldName": "NDECREE",
+                    "labelRu": "Номер поручения",
+                    "labelUz": "Ko`rsatma raqami",
+                    "order": 10
+                  },
+                  {
+                    "fieldName": "ADDRESS",
+                    "labelRu": "Адрес",
+                    "labelUz": "Manzil",
+                    "order": 11
+                  },
+                  {
+                    "fieldName": "NTYPE",
+                    "labelRu": "Вид нарушения",
+                    "labelUz": "Qoidabuzarlik turi",
+                    "order": 12
+                  },
+                  {
+                    "fieldName": "DAN2CAR",
+                    "labelRu": "Номер авто",
+                    "labelUz": "Avto davlat raqami",
+                    "order": 13
+                  },
+                  {
+                    "fieldName": "NDATE",
+                    "labelRu": "Дата и время нарушения",
+                    "labelUz": "Qoidabuzarlik sanasi",
+                    "order": 14
+                  },
+                  {
+                    "fieldName": "BUDGET_INCOME",
+                    "labelRu": "Счет дохода в бюджет",
+                    "labelUz": "Byudjet kirim hisob raqami",
+                    "order": 15
+                  },
+                  {
+                    "fieldName": "pay_amount",
+                    "labelRu": "Сумма платежа проводимого оператору",
+                    "labelUz": "Operatorga o`tkaziladigan summa",
+                    "order": 16
+                  },
+                  {
+                    "fieldName": "paynet_amount",
+                    "labelRu": "Комиссия UZPAYNET",
+                    "labelUz": "UZPAYNET komissiyasi",
+                    "order": 17
+                  },
+                  {
+                    "fieldName": "amount",
+                    "labelRu": "Cумма",
+                    "labelUz": "Summa",
+                    "order": 18
+                  },
+                  {
+                    "fieldName": "provider_channel",
+                    "labelRu": "provider_channel",
+                    "labelUz": "provider_channel",
+                    "order": 30
+                  }
+                ],
+                "services": [
+                  {
+                    "id": 10046,
+                    "minAmount": 500,
+                    "maxAmount": 25000000,
+                    "titleRu": "Оплата",
+                    "titleUz": "To`lov",
+                    "childId": null,
+                    "servicePrice": 0,
+                    "agentCommission": 0.0,
+                    "serviceCommission": 0.0,
+                    "order": 1436,
+                    "serviceCommissionSum": 0.0,
+                    "paynetCommissionSum": 0.0,
+                    "fields": [
+                      {
+                        "id": 9634,
+                        "order": null,
+                        "name": "NDECREE",
+                        "titleRu": "Номер постановления",
+                        "titleUz": "Qaror raqami",
+                        "required": true,
+                        "readOnly": true,
+                        "fieldType": "REGEXBOX",
+                        "isCustomerId": null,
+                        "fieldControl": "[a-zA-Z]{2}\\d{1,13}$",
+                        "fieldSize": 13,
+                        "fieldValues": []
+                      },
+                      {
+                        "id": 9639,
+                        "order": null,
+                        "name": "pay_amount",
+                        "titleRu": "Сумма платежа",
+                        "titleUz": "To`lov summasi",
+                        "required": true,
+                        "readOnly": true,
+                        "fieldType": "MONEY",
+                        "isCustomerId": null,
+                        "fieldControl": null,
+                        "fieldSize": 12,
+                        "fieldValues": []
+                      },
+                      {
+                        "id": 9641,
+                        "order": null,
+                        "name": "amount",
+                        "titleRu": "Сумма с комиссией",
+                        "titleUz": "Summa komissiya bilan",
+                        "required": true,
+                        "readOnly": true,
+                        "fieldType": "MONEY",
+                        "isCustomerId": null,
+                        "fieldControl": null,
+                        "fieldSize": 15,
+                        "fieldValues": []
+                      },
+                      {
+                        "id": 9642,
+                        "order": null,
+                        "name": "telefon",
+                        "titleRu": "Тел. для SMS(998)",
+                        "titleUz": "SMS tel.(998)",
+                        "required": false,
+                        "readOnly": false,
+                        "fieldType": "REGEXBOX",
+                        "isCustomerId": null,
+                        "fieldControl": "[983]{1}[01345789]{1}[0-9]{7}",
+                        "fieldSize": 12,
+                        "fieldValues": []
+                      },
+                      {
+                        "id": 15434,
+                        "order": null,
+                        "name": "provider_channel",
+                        "titleRu": "provider_channel",
+                        "titleUz": "provider_channel",
+                        "required": false,
+                        "readOnly": false,
+                        "fieldType": "STRING",
+                        "isCustomerId": null,
+                        "fieldControl": null,
+                        "fieldSize": 15,
+                        "fieldValues": []
+                      }
+                    ],
+                    "responseFields": [
+                      {
+                        "fieldName": "agent_name",
+                        "labelRu": "Агент",
+                        "labelUz": "Agent",
+                        "order": -1
+                      },
+                      {
+                        "fieldName": "agent_inn",
+                        "labelRu": "ИНН",
+                        "labelUz": "STIR",
+                        "order": 0
+                      },
+                      {
+                        "fieldName": "transaction_id",
+                        "labelRu": "Номер чека",
+                        "labelUz": "Chek raqami",
+                        "order": 1
+                      },
+                      {
+                        "fieldName": "service_name",
+                        "labelRu": "Услуга",
+                        "labelUz": "Xizmat turi",
+                        "order": 2
+                      },
+                      {
+                        "fieldName": "time",
+                        "labelRu": "Время",
+                        "labelUz": "Vaqt",
+                        "order": 3
+                      },
+                      {
+                        "fieldName": "terminal_id",
+                        "labelRu": "Номер терминала",
+                        "labelUz": "Terminal raqami",
+                        "order": 4
+                      },
+                      {
+                        "fieldName": "provider_name",
+                        "labelRu": "Оператор",
+                        "labelUz": "Operator",
+                        "order": 5
+                      },
+                      {
+                        "fieldName": "preferedPay",
+                        "labelRu": "Рекомендуемая сумма",
+                        "labelUz": "Tavsiya etilgan summa",
+                        "order": 8
+                      },
+                      {
+                        "fieldName": "NAME",
+                        "labelRu": "Ф.И.О.",
+                        "labelUz": "F.I.Sh.",
+                        "order": 9
+                      },
+                      {
+                        "fieldName": "FIO",
+                        "labelRu": "ФИО",
+                        "labelUz": "F.I.Sh.",
+                        "order": 9
+                      },
+                      {
+                        "fieldName": "NDECREE",
+                        "labelRu": "Номер поручения",
+                        "labelUz": "Ko`rsatma raqami",
+                        "order": 10
+                      },
+                      {
+                        "fieldName": "ADDRESS",
+                        "labelRu": "Адрес",
+                        "labelUz": "Manzil",
+                        "order": 11
+                      },
+                      {
+                        "fieldName": "NTYPE",
+                        "labelRu": "Вид нарушения",
+                        "labelUz": "Qoidabuzarlik turi",
+                        "order": 12
+                      },
+                      {
+                        "fieldName": "DAN2CAR",
+                        "labelRu": "Номер авто",
+                        "labelUz": "Avto davlat raqami",
+                        "order": 13
+                      },
+                      {
+                        "fieldName": "NDATE",
+                        "labelRu": "Дата и время нарушения",
+                        "labelUz": "Qoidabuzarlik sanasi",
+                        "order": 14
+                      },
+                      {
+                        "fieldName": "BUDGET_INCOME",
+                        "labelRu": "Счет дохода в бюджет",
+                        "labelUz": "Byudjet kirim hisob raqami",
+                        "order": 15
+                      },
+                      {
+                        "fieldName": "purchased_amount",
+                        "labelRu": "Сумма проведенного платежа оператору",
+                        "labelUz": "O`tkazilgan to`lov summasi",
+                        "order": 19
+                      },
+                      {
+                        "fieldName": "comission_amount",
+                        "labelRu": "Коммисия UZPAYNET",
+                        "labelUz": "UZPAYNET komissiyasi",
+                        "order": 20
+                      },
+                      {
+                        "fieldName": "amount",
+                        "labelRu": "Сумма",
+                        "labelUz": "Summa",
+                        "order": 21
+                      }
+                    ],
+                    "services": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

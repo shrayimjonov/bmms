@@ -1,0 +1,32 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsP2PAgentParam": {
+      "home": {
+        "title": "P2P Agent Params",
+        "createLabel": "Yangi P2P agent param qo`shish",
+        "createOrEditLabel": "P2P agent paramni tahrirlash",
+        "notFound": "Xech qanday P2P Agent Param topilmadi"
+      },
+      "delete": {
+        "question": "{{ id }}- P2P agent paramni o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "P2P Agent Param"
+      },
+      "agentId": "Agent identifikatori",
+      "p2pParamsRegex": "P2P Params Regex",
+      "description": "Tavsif",
+      "help": {
+        "value": "Значение",
+        "description": "Описание"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsP2PAgentParam": {
+      "created": "P2P Agent Param {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- P2P Agent Param saqlandi",
+      "deleted": "{{ param }}- P2P Agent Param o`chirildi"
+    }
+  }
+}

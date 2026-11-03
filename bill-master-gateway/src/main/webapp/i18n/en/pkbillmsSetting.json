@@ -1,0 +1,37 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsSetting": {
+      "home": {
+        "title": "Settings",
+        "createLabel": "Create a new Setting",
+        "createOrEditLabel": "Create or edit a Setting",
+        "notFound": "No Settings found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Setting {{ id }}?"
+      },
+      "detail": {
+        "title": "Setting"
+      },
+      "shortName": "Short Name",
+      "ord": "Ord",
+      "active": "Active",
+      "prop": "Prop",
+      "parentSettingId": "Parent Setting",
+      "help": {
+        "shortName": "Short name to show in UI",
+        "ord": "Порядковый номер"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsSetting": {
+      "created": "A new Setting is created with identifier {{ param }}",
+      "updated": "A Setting is updated with identifier {{ param }}",
+      "deleted": "A Setting is deleted with identifier {{ param }}"
+    }
+  },
+  "confirmationModal": {
+    "headerTitle": "Confirmation of the operation"
+  }
+}

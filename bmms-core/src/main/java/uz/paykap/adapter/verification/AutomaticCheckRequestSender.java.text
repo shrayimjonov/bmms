@@ -1,0 +1,93 @@
+package uz.paykap.adapter.verification;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
+import uz.devops.bmcore.dto.request.CheckRequest;
+import uz.devops.bmcore.dto.request.CommonCheckRequest;
+import uz.devops.bmcore.dto.response.SimpleBillResponse;
+import uz.paykap.adapter.verification.dto.AmountRatio;
+import uz.paykap.config.ApplicationProperties;
+import uz.paykap.domain.CheckVerifierParam;
+import uz.paykap.gateway.GatewayServiceResolver;
+import uz.paykap.repository.CheckVerifierParamRepository;
+import uz.paykap.service.MailService;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+@Service
+public class AutomaticCheckRequestSender {
+
+    private final static Logger log = LoggerFactory.getLogger(AutomaticCheckRequestSender.class);
+
+    @Scheduled(cron = "0 0 */6 * * *")
+    public void startCheck() {
+        log.info("----Check request time ! ----");
+        if (properties.getActiveCheckRequestVerifier()) {
+            List<CheckVerifierParam> params = paramRepository.findAll();
+            log.info("Get params success");
+            sendRequest(params);
+            log.info("----Verification ended ! ----");
+        }
+    }
+
+    private void sendRequest(List<CheckVerifierParam> params) {
+        List<Map<String, String>> result = new ArrayList<>();
+        if (params != null && params.size() > 0) {
+            for (CheckVerifierParam param : params) {
+
+                CommonCheckRequest checkDTO = new CheckRequest();
+                checkDTO.setAccount(param.getAccount());
+                checkDTO.setAmount(param.getAmountInTiyin());
+                checkDTO.setAmountRatio(AmountRatio.TIYIN.getRatio());
+                checkDTO.setRecipientId(param.getRecipient().getId());
+                checkDTO.setCurrency(860);
+                checkDTO.setGatewayAmount(0.33);
+                log.info("Sending check {}", checkDTO);
+
+                SimpleBillResponse billDTO = gatewayServiceResolver.check(checkDTO);
+
+                if (!billDTO.getSuccess()) {
+                    Map<String, String> rowMap = new HashMap<>();
+                    rowMap.put("recipient", billDTO.getRecipientShortName());
+                    rowMap.put("account", billDTO.getAccount());
+                    rowMap.put("error", billDTO.getResponseText());
+                    result.add(rowMap);
+                }
+            }
+        }
+        sendErrorsToMail(result);
+    }
+
+    private void sendErrorsToMail(List<Map<String, String>> result) {
+        if (result.size() > 0) {
+            StringBuilder message = new StringBuilder();
+            for (Map<String, String> map : result) {
+                for (Map.Entry<String, String> s : map.entrySet()) {
+                    message.append(s.getKey()).append(" : ").append("<i>").append(s.getValue()).append("</i>&nbsp;&nbsp;&nbsp;&nbsp;");
+                }
+                message.append("<br />");
+            }
+            message.append("<br /> С Уважением, Администрация BillMaster!");
+            log.error("Message: " + message.toString());
+
+            mailService.sendEmailWithFile(properties.getDefaultEmailTo(), properties.getDefaultEmailFrom(), "Error Transactions", null, message.toString(), true);
+        }
+    }
+
+    private final CheckVerifierParamRepository paramRepository;
+    private final GatewayServiceResolver gatewayServiceResolver;
+    private final MailService mailService;
+    private final ApplicationProperties properties;
+
+    public AutomaticCheckRequestSender(CheckVerifierParamRepository paramRepository, GatewayServiceResolver gatewayServiceResolver, MailService mailService, ApplicationProperties properties) {
+        this.paramRepository = paramRepository;
+        this.gatewayServiceResolver = gatewayServiceResolver;
+        this.mailService = mailService;
+        this.properties = properties;
+    }
+}

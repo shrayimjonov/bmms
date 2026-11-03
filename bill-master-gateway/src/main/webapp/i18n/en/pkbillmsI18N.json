@@ -1,0 +1,27 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsI18N": {
+      "home": {
+        "title": "I 18 Ns",
+        "createLabel": "Create a new I 18 N",
+        "createOrEditLabel": "Create or edit a I 18 N",
+        "notFound": "No I 18 Ns found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete I 18 N {{ id }}?"
+      },
+      "detail": {
+        "title": "I 18 N"
+      },
+      "lang": "Lang",
+      "text": "Text"
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsI18N": {
+      "created": "A new I 18 N is created with identifier {{ param }}",
+      "updated": "A I 18 N is updated with identifier {{ param }}",
+      "deleted": "A I 18 N is deleted with identifier {{ param }}"
+    }
+  }
+}

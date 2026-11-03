@@ -1,0 +1,79 @@
+{
+    "name": "Category",
+    "fields": [
+        {
+            "fieldName": "shortName",
+            "javadoc": "Short name to show in UI",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "thumbnail",
+            "javadoc": "Thumbnail file path or url",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "thumbnailFile",
+            "javadoc": "Thumbnail file",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "logo",
+            "javadoc": "Logo file path or url",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "logoFile",
+            "javadoc": "Logo file",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "ord",
+            "javadoc": "Display order",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "active",
+            "javadoc": "Activeness",
+            "fieldType": "Boolean",
+            "fieldValidateRules": ["required"]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "parent",
+            "otherEntityName": "category",
+            "otherEntityField": "shortName"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipValidateRules": "required",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "name",
+            "otherEntityName": "i18n",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20180719230922",
+    "javadoc": "Категории поставщиков",
+    "entityTableName": "category",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "bmms",
+    "applications": "*",
+    "microserviceName": "pkbillms",
+    "enableEntityAudit": true,
+    "databaseType": "sql"
+}

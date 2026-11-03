@@ -1,0 +1,51 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsBookkeepingTemplate": {
+      "home": {
+        "title": "Bookkeeping Template",
+        "createLabel": "Создать новый Bookkeeping Template",
+        "createOrEditLabel": "Create or edit a Bookkeeping Template",
+        "notFound": "No Bookkeeping Templates found"
+      },
+      "delete": {
+        "question": "Вы уверены что хотите удалить Bookkeeping Template {{ id }}?"
+      },
+      "detail": {
+        "title": "Bookkeeping Template"
+      },
+      "groupId": "Group Id",
+      "sMfo": "S Mfo",
+      "sInn": "S Inn",
+      "sAccount": "S Account",
+      "rMfo": "R Mfo",
+      "rInn": "R Inn",
+      "rAccount": "R Account",
+      "amount": "Amount",
+      "period": "Period",
+      "bookkeepingType": "Bookkeeping Type",
+      "docType": "Doc Type",
+      "docCode": "Doc Code",
+      "docTaskCode": "Doc Task Code",
+      "rAccountName": "R Account Name",
+      "control": "Control",
+      "groupIds": "Group Ids",
+      "bookkeepingPayType": "Bookkeeping Pay Type",
+      "gateway": "Gateway",
+      "recipient": "Recipient",
+      "calculateAmountRule": "Calculate Amount Rule",
+      "payTypes": "Pay Types",
+      "sType": "sType",
+      "sTypeIds": "sTypeIds",
+      "name": "Name",
+      "amountCalculateType": "amountCalculateType",
+      "desc": "Desc"
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsBookkeepingTemplate": {
+      "created": "Новый Bookkeeping Template создан с идентификатором {{ param }}",
+      "updated": "Bookkeeping Template обновлен с идентификатором {{ param }}",
+      "deleted": "Bookkeeping Template удален с идентификатором {{ param }}"
+    }
+  }
+}

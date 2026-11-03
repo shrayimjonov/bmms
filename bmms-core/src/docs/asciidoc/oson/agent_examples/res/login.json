@@ -1,0 +1,9 @@
+{
+    "access_token": "xxxx",
+    "token_type": "bearer",
+    "refresh_token": "yyyy",
+    "expires_in": 298,
+    "scope": "openid",
+    "iat": 1535205610,
+    "jti": "ec0285d3-3709-49e3-ba0a-61429ae892c8"
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="update_agent_recipient_unique_constraint" author="javlon">
+
+        <dropUniqueConstraint constraintName="agent_recipient_unique"
+                              schemaName="public"
+                              tableName="agent_recipient"
+                              uniqueColumns="agent_id, recipient_id"/>
+
+        <addUniqueConstraint
+            columnNames="agent_id, recipient_id, request_group"
+            constraintName="agent_recipient_request_group_unique"
+            tableName="agent_recipient"
+        />
+
+    </changeSet>
+</databaseChangeLog>

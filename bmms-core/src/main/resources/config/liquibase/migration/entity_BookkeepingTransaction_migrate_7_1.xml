@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Entity BookkeepingTransaction migrate to 7.1 jhipster
+    -->
+    <changeSet id="entity_BookkeepingTransaction_migrate-1" author="zafar">
+        <!--
+            Rename column comment
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="bookkeeping_transaction"
+                          columnName="jhi_comment"/>
+        </preConditions>
+
+        <comment>Rename column comment</comment>
+
+        <renameColumn tableName="bookkeeping_transaction" oldColumnName="jhi_comment" newColumnName="comment"/>
+    </changeSet>
+
+    <changeSet id="entity_BookkeepingTransaction_migrate-2" author="zafar">
+        <!--
+            Rename column comment
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="bookkeeping_transaction"
+                          columnName="jhi_type"/>
+        </preConditions>
+
+        <comment>Rename column comment</comment>
+
+        <renameColumn tableName="bookkeeping_transaction" oldColumnName="jhi_type" newColumnName="type"/>
+    </changeSet>
+</databaseChangeLog>

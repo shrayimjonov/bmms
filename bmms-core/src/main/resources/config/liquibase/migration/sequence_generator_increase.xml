@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Create sequence generator
+    -->
+    <changeSet id="sequence_generator_drop" author="zafar">
+        <dropSequence sequenceName="sequence_generator"/>
+    </changeSet>
+
+    <changeSet id="sequence_generator_create-2" author="zafar">
+        <createSequence sequenceName="sequence_generator" startValue="100000000" incrementBy="50"/>
+    </changeSet>
+
+</databaseChangeLog>

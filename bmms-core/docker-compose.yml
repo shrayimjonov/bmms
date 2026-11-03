@@ -1,0 +1,75 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: bmmms_postgres_db
+    environment:
+      - POSTGRES_DB=bm_ms
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=123
+    ports:
+      - "5432:5432"
+    volumes:
+      - bmms_storage:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U bm_ms -d bm_ms" ]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+    networks:
+      - bmms
+  consul:
+    image: consul:1.15.4
+    container_name: bmms_consul
+    command: consul agent -dev -ui -client 0.0.0.0 -log-level=INFO
+    ports:
+      - "8300:8300"
+      - "8500:8500"
+      - "8600:8600"
+    healthcheck:
+      test: [ "CMD", "consul", "info" ]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+    networks:
+      - bmms
+  keycloak:
+    image: keycloak/keycloak
+    container_name: bmms_keycloak
+    command:
+      - "start-dev"
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+      - KC_BOOTSTRAP_ADMIN_USERNAME=admin
+      - KC_BOOTSTRAP_ADMIN_PASSWORD=admin
+      - KC_HTTP_RELATIVE_PATH=/auth
+    ports:
+      - "9081:8080"
+    restart: unless-stopped
+    networks:
+      - bmms
+  keycloak-init:
+    image: keycloak/keycloak
+    container_name: bmms_keycloak_init
+    depends_on:
+      - keycloak
+    entrypoint:
+      - "/bin/bash"
+      - "/opt/keycloak-init/keycloak-init.sh"
+    environment:
+      - KEYCLOAK_URL=${KEYCLOAK_URL}
+      - KEYCLOAK_REALM=jhipster
+      - KC_BOOTSTRAP_ADMIN_USERNAME=admin
+      - KC_BOOTSTRAP_ADMIN_PASSWORD=admin
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+    volumes:
+      - ./src/main/docker/keycloak-init.sh:/opt/keycloak-init/keycloak-init.sh:ro
+    networks:
+      - bmms
+volumes:
+  bmms_storage:
+networks:
+  bmms:

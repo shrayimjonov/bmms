@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="updated_fs_delete_field_cascade_function" author="axror" dbms="postgresql">
+
+        <sqlFile dbms="postgresql"
+                 encoding="utf8"
+                 path="config/liquibase/sql/f_delete_field_cascade_v2.sql"
+                 relativeToChangelogFile="false"
+                 splitStatements="false"
+                 stripComments="true"/>
+
+        <sqlFile dbms="postgresql"
+                 encoding="utf8"
+                 path="config/liquibase/sql/f_delete_field_id_cascade_v2.sql"
+                 relativeToChangelogFile="false"
+                 splitStatements="false"
+                 stripComments="true"/>
+
+
+        <sqlFile dbms="postgresql"
+                 encoding="utf8"
+                 path="config/liquibase/sql/f_delete_field_value_cascade_v3.sql"
+                 relativeToChangelogFile="false"
+                 splitStatements="false"
+                 stripComments="true"/>
+
+        <sqlFile dbms="postgresql"
+                 encoding="utf8"
+                 path="config/liquibase/sql/f_delete_recipient_cascade_v2.sql"
+                 relativeToChangelogFile="false"
+                 splitStatements="false"
+                 stripComments="true"/>
+
+        <sqlFile dbms="postgresql"
+                 encoding="utf8"
+                 path="config/liquibase/sql/f_delete_recipient_id_cascade_v2.sql"
+                 relativeToChangelogFile="false"
+                 splitStatements="false"
+                 stripComments="true"/>
+
+
+    </changeSet>
+
+</databaseChangeLog>

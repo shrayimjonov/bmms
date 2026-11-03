@@ -1,0 +1,56 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "verifiedDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "ForeignPayStatus",
+            "fieldValues": "NEW,VERIFIED,EXPIRED,LIMIT_EXCEEDED",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "cardToken",
+            "fieldType": "String",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "billId",
+            "fieldType": "Long",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "otp",
+            "fieldType": "String",
+            "fieldValidateRules": ["required", "maxlength"],
+            "fieldValidateRulesMaxlength": 6
+        },
+        {
+            "fieldName": "phone",
+            "fieldType": "String",
+            "fieldValidateRules": ["required", "maxlength"],
+            "fieldValidateRulesMaxlength": 13
+        },
+        {
+            "fieldName": "entryCount",
+            "fieldType": "Integer",
+            "fieldValidateRules": ["required"]
+        }
+    ],
+    "changelogDate": "20180918063227",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "foreign_pay",
+    "jpaMetamodelFiltering": true,
+    "pagination": "pager",
+    "microserviceName": "pkbillms",
+    "searchEngine": false,
+    "enableEntityAudit": true,
+    "clientRootFolder": "bmms",
+    "databaseType": "sql",
+    "name": "ForeignPay"
+}

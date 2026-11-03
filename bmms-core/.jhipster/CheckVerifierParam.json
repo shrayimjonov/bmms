@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "bmms",
+    "relationships": [
+        {
+            "relationshipName": "recipient",
+            "otherEntityName": "recipient",
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": ["required"],
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "checkVerifierParam"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "account",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "amountInTiyin",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20190213100815",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "no",
+    "entityTableName": "check_verifier_param",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no",
+    "microserviceName": "pkbillms",
+    "databaseType": "sql",
+    "name": "CheckVerifierParam",
+    "enableEntityAudit": true
+}

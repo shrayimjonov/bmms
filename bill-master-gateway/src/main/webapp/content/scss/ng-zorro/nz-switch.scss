@@ -1,0 +1,31 @@
+@import "../bootstrap-variables";
+
+::ng-deep .ant-switch {
+  height: 30px;
+  line-height: 30px;
+  border-radius: $border-radius;
+}
+
+::ng-deep .ant-switch-handle {
+  top: 4px;
+  left: 4px;
+  width: 21px;
+  height: 21px;
+}
+
+::ng-deep .ant-switch-inner {
+  margin: 0 12px 0 32px;
+  font-size: $font-size;
+}
+
+::ng-deep .ant-switch-checked .ant-switch-handle {
+  left: calc(100% - 24px - 2px);
+}
+
+::ng-deep .ant-switch-checked .ant-switch-inner {
+  margin: 0 32px 0 12px;
+}
+
+::ng-deep .ant-switch-handle::before {
+  border-radius: $border-radius;
+}

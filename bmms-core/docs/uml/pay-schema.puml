@@ -1,0 +1,66 @@
+@startuml
+
+title Оплата услуги
+Агент-> BillMaster: Запрос\t\t\t\t\t
+hnote over BillMaster : PAYING
+BillMaster-> BillMaster: Проверка параметров шлюза
+
+group #Pink 1. Не правильные настройки шлюза\n2. Агент не указал сумму\n3. Агент указал не разрешённую валюту\n4. Сумма указана вне лимита макс/мин\n5. Проверка отправителя средств не успешна\n6. Тип оплаты не поддерживается поставщиком
+    hnote over BillMaster : FAILED
+    BillMaster -> Агент: Ошибка
+end
+
+BillMaster -> Процессинг : Снятие средств\t\t\t\t\t\t
+
+group #Pink Шлюзе вернул не успешный ответ на снятие средств
+    BillMaster x<[#red]-- Процессинг : Не успешный ответ
+    hnote over BillMaster : FAILED
+    BillMaster -> Агент: Ошибка
+end
+
+group #khaki Превышена время ожидания ответа
+    BillMaster x<[#red]-- Процессинг  : Timeout
+    hnote over BillMaster : S_NEED_CONFIRM
+    BillMaster -> Агент: Ошибка
+end
+
+BillMaster <[#green]- Процессинг : Успешный ответ
+hnote over BillMaster : DEBITED\nHOLD_SUCCESS
+
+BillMaster -> Шлюз : Проведение оплаты в шлюзе поставщика\t\t\t\t\t\t\t\t
+
+group #Pink Шлюзе вернул не успешный ответ при подтверждении оплаты
+    BillMaster x<[#red]-- Шлюз : Не успешный ответ
+    hnote over BillMaster : FAILED
+    BillMaster -> Процессинг : Отмена снятия средств
+
+    group #Pink Произошла ошибка в отмене снятие средств
+        BillMaster x<[#red]-- Процессинг : Не успешный ответ
+        hnote over BillMaster : S_CANCEL_FAILED
+        BillMaster -> Агент: Ошибка
+    end
+
+    group #khaki Превышена время ожидания ответа отмены
+        BillMaster x<[#red]-- Процессинг  : Timeout
+        hnote over BillMaster : S_NEED_CONFIRM
+        BillMaster -> Агент: Ошибка
+    end
+
+    hnote over BillMaster : CANCELLED\nREVERSED
+    BillMaster -> Агент: Ошибка
+end
+
+group #khaki Превышена время ожидания ответа шлюза
+    BillMaster x<[#red]-- Процессинг  : Timeout
+    hnote over BillMaster : R_NEED_CONFIRM
+    BillMaster -> Агент: Ошибка
+end
+
+BillMaster <[#green]- Шлюз : Успешный ответ
+hnote over BillMaster : SUCCESS
+'title Проверка счета получателя
+BillMaster -> Агент: Ответ
+
+@enduml
+
+

@@ -1,0 +1,411 @@
+
+/** Поддерживаемые языки */
+enum Lang {
+	UZ,RU,EN
+}
+
+/** Языковие Переводы */
+entity I18n {
+    lang Lang required,
+    text String maxlength(64) required
+}
+
+entity DataAdapterHistory {
+    name String maxlength(64) required,
+    details String maxlength(256) required
+}
+
+/** Получатель денежных средств, поставшик услуг */
+entity Recipient {
+    /** Short name to show in admin page */
+    shortName String maxlength(64) required,
+    /** Service id, for inner business logic */
+    serviceId String maxlength(64) required,
+    /** Tax number (INN) */
+    taxnr Long,
+    /** Thumbnail file path or url */
+    thumbnail String maxlength(64),
+    /** Thumbnail file */
+    thumbnailFile ImageBlob,
+    /** Logo file path or url */
+    logo String maxlength(64),
+    /** Logo file */
+    logoFile ImageBlob,
+    /** Ratio of min or max amount */
+    amountRatio Integer required,
+    /** Minimum amount to pay */
+    minAmount Long,
+    /** Maximum amount to pay */
+    maxAmount Long,
+    /** Commission from the recipient */
+    commission Double,
+    /** Fee for the recipient */
+    fee Double,
+    /** Our commission from the recipient */
+    systemCommission Double,
+    /** Our commission from the recipient */
+    systemFee Double,
+    /** Display order */
+    ord Integer,
+    active Boolean required
+}
+
+/** Агент, инициатор оплаты */
+entity Agent {
+    /** Short name to show in UI */
+    shortName String maxlength(64) required,
+    /** Agent's api key, comes in request to authorize one */
+    apiKey String maxlength(64) required,
+    /** Tax number (INN) */
+    taxnr Long,
+    /** Ip address for binding to the agent */
+    ip String maxlength(32),
+    /** Thumbnail file */
+    thumbnail ImageBlob,
+    /** Logo file path or url */
+    logo ImageBlob,
+    /** Display order */
+    ord Integer,
+    active Boolean required
+}
+
+/** Доступные поставшики агенту */
+entity AgentRecipient {
+    amountRatio Integer,
+    /** Комиссия агента, которая снимается с внесенной суммы клиента в пользу агента */
+    commission Double,
+    /** Вознаграждение агента, это отчисление системы с суммы платежа в пользу агента */
+    fee Double,
+    /** Комиссия системы, которая снимается с внесенной суммы клиента в пользу системы */
+    systemCommission Double,
+    /** Вознаграждение системы, это отчисления поставщика услуг с суммы платежа в пользу системы */
+    systemFee Double,
+    active Boolean required
+}
+
+/** Категории поставшиков */
+entity Category {
+    /** Short name to show in UI */
+    shortName String maxlength(64) required,
+    /** Thumbnail file path or url */
+    thumbnail String maxlength(64),
+    /** Thumbnail file */
+    thumbnailFile ImageBlob,
+    /** Logo file path or url */
+    logo String maxlength(64),
+    /** Logo file */
+    logoFile ImageBlob,
+    /** Display order */
+    ord Integer,
+    active Boolean required
+}
+
+/** Тип поля, TEXT - Текстовое поле для ввода, SELECT - Выпадающий список для выборки */
+enum FieldType {
+    TEXT,SELECT
+}
+
+enum PrefixType {
+    STATIC,SELECT,REQUIRE
+}
+
+enum Visibility {
+    HIDDEN,PRINTER,MONITOR,ALL
+}
+
+entity Prefix {
+    type PrefixType,
+    value String maxlength(16),
+    /** Need to prepend to field value */
+    output Boolean,
+    /** Filter prefix value by selected parent field */
+    requireField String maxlength(64)
+}
+
+entity Field {
+    /** Field (merchant param) name; account_id, phone, login, ... */
+    name String maxlength(64) required,
+    /** External id, optional */
+    extId Long required,
+    type FieldType required,
+    /** Type of content for frontend usage; phone, email, text */
+    content String,
+    /** Java regexp pattern to validate before sending to server */
+    validation String maxlength(128),
+    /** Field placeholder for UI input box*/
+    placeholder String maxlength(128),
+    /** UI input mask */
+    mask String maxlength(256),
+    /** UI input mask symbol */
+    maskSymbol String maxlength(2),
+    /** Min length for text fields */
+    lengthMin Integer min(0) max(256),
+    /** Max length for text fields */
+    lengthMax Integer min(0) max(256),
+    /** Require parent field to draw this one */
+    requireField String maxlength(64),
+    /** Filter showing by previous selected field */
+    filterBy String maxlength(16),
+    /** Is field optional to fill */
+    optional Boolean,
+    /** Need to send the value to server */
+    output Boolean,
+    /** Visible in UI, can be used for hidden static fields */
+    visibility Visibility,
+    /** Display order */
+    ord Integer
+}
+
+entity FieldValue {
+    /** Param value to send to server */
+    value String maxlength(64) required,
+    /** Price of selected value*/
+    amount Long,
+    /** Filter the values (field.type=select) by parent field */
+    filterBy String maxlength(16),
+    /** Display order */
+    ord Integer
+}
+
+entity Gateway {
+    name String maxlength(64) required, //Paynet
+    org String maxlength(32) required, //organization, СП ООО "UZPAYNET"
+    active Boolean required,
+    /** Bank MFO (BIN) */
+    mfo String maxlength(8) required,
+    /** Tax number (INN) */
+    taxnr Long,
+    ban String maxlength(32) required,//Bank account number
+    contract String maxlength(64) required,
+    springBeanName String maxlength(128)
+}
+
+enum MethodType {
+    GET,POST
+}
+
+enum ProtocolType {
+    REST,WS,HESSIAN
+}
+
+entity GatewayParam {
+    url String maxlength(512),
+    type RequestType,
+    username String maxlength(32),
+    password String maxlength(32),
+    token String maxlength(128),
+    body String maxlength(2048),
+    statusQuery String maxlength(256),
+    messageQuery String maxlength(256),
+    successCode String maxlength(32),
+    callback String maxlength(512),
+    timeout Integer,
+    soapAction String maxlength(128),
+    httpMethodType MethodType,
+    protocol ProtocolType,
+    requestMediaType String maxlength(64),
+    responseMediaType String maxlength(64),
+    active Boolean required
+}
+
+enum RequestType {
+	CHECK,PAY,STATUS,CANCEL,DEPOSIT
+}
+
+entity Bill {
+	recipientId Long,
+	recipientShortName String maxlength(64) required,
+	sessionId String maxlength(32) required,
+    type RequestType required,
+    amountRatio Integer,
+    amount Long required,
+    profit Long required,
+    account String maxlength(64) required,
+    params String maxlength(256),
+    currency Integer,
+    extId String maxlength(32), //tranId
+    checkId String maxlength(32),
+    payId String maxlength(32),
+    requestTime Instant required,
+    requestJson String maxlength(512),
+    responseJson String maxlength(512),
+    responseTime Instant required,
+    responseCode String maxlength(32),
+    responseText String maxlength(128),
+    success Boolean,
+    login String maxlength(64),
+    fraudId Long
+}
+
+enum TransactionStatus {
+    NEW,WAITING,SUCCESS,FAILED,CANCELLED,REVERSED,INVOICE_SENDING,INVOICE_SENT,INVOICE_PAID,FINISHED,EXPIRED,INVOICE_REJECTED,OTHER
+}
+
+enum Currency {
+  USD, UZS, EUR, RUB
+}
+
+entity Transaction {
+	senderPsId Long,
+    recipientPsId Long,
+    senderAccount String,
+    recipientAccount String,
+    status TransactionStatus,
+    /** Снимаюшаяся сумма по валюте */
+    senderAmount BigDecimal,
+    /** Валюта отправителя */
+    senderCurrency Currency,
+    /** Поступаюшая сумма по валюте */
+    recipientAmount BigDecimal,
+    /** Валюта получателя */
+    recipientCurrency Currency,
+    /** Курс валюты в копейках */
+    currencyRate Long,
+    systemFeeAmount Long,
+    systemFeePercent Long max(100) min(0),
+    systemFeeCurrency Currency,
+    senderTrId String,
+    recipientTrId String,
+    agentTransactionId Long required,
+    agentLogin String maxlength(64) required,
+    comment String maxlength(128) required,
+    transactionDate Instant,
+    senderSuccess Boolean,
+    senderDate Instant,
+    senderStatus String maxlength(8),
+    senderStatusText String maxlength(128),
+    recipientSuccess Boolean,
+    recipientDate Instant,
+    recipientStatus String maxlength(8),
+    recipientStatusText String maxlength(128),
+}
+
+entity PaymentSystem {
+    name String maxlength(64),
+    legalName String maxlength(128),
+    terminalId String maxlength(32),
+    merchantId String maxlength(32),
+    enabled Boolean,
+    pan String maxlength(32),
+    bankAccount String maxlength(32),
+    bankMfo String maxlength(8),
+    expiry String maxlength(8),
+    minAmount Long,
+    maxAmount Long,
+    gatewayBean String maxlength(64)
+}
+
+/**
+* Deposit History
+**/
+entity DepositTransaction {
+    /** Tax number (INN) of payer */
+    payerTaxnr Long,
+    recipientTaxnr Long,
+    amount Long required,
+    updateDate Instant required,
+    comment String
+}
+
+entity Deposit {
+    /** Размер овердрафта */
+    credit Long required,
+    /** Забронированный овердрафта */
+    bookedCredit Long required,
+    /** Размер баланса */
+    balance Long required,
+    /** Забронированный баланса */
+    bookedBalance Long required,
+    /** Уведомления при достижеии лимита */
+    limitInform Long required,
+    /** Остановить оплату при достижеии лимита */
+    limitDisable Long required,
+    /** Номера телефонов для уведомления, разделенные запятыми */
+    informNumbers String maxlength(128)
+}
+
+/** Тип проводки **/
+enum BookkeepingType {
+    EXTERNAL,INTERNAL
+}
+
+/** Период **/
+enum BktPeriod {
+    DAY,WEEK,MONTH
+}
+
+/** Данная форма предназначена для создания шаблонов проводок в разрезе групп **/
+entity BookkeepingTemplate {
+    /** Группа **/
+    groupId Long required,
+    /** МФО Отправителя **/
+    sMfo String maxlength(8) required,
+    /** ИНН Отправителя **/
+    sInn String maxlength(16) required,
+    /** Р/С Отправителя **/
+    sAccount String maxlength(32) required,
+    /** МФО Получателя **/
+    rMfo String maxlength(8) required,
+    /** ИНН Получателя **/
+    rInn String maxlength(16) required,
+    /** Р/С Получателя **/
+    rAccount String maxlength(32) required,
+    /** Правило расчета суммы, SUM(amount) - SUM(comission) - SUM(fee), ROUND(SUM(comission), 2) **/
+    calculateAmountRule String maxlength(64) required, //
+    //gateway String maxlength(50) required, //Поставщик
+    //service Long required, //not used, default -1
+    period BktPeriod required,
+    payTypes String maxlength(50) required,
+    //TRType Long required, // not used, default 0
+    desc String maxlength(128) required,
+    sType Long required,
+    sTypeIds String maxlength(128) required,
+    docType String maxlength(8), //always 06
+    /** Код платежа **/
+    docCode String maxlength(16),
+    /** Код задачи **/
+    docTaskCode String maxlength(8), //always 1
+    rAccountName String maxlength(64),
+    control Long,
+}
+
+relationship ManyToOne {
+    Recipient{gateway(name)} to Gateway,
+    Recipient{category(shortName)} to Category,
+    Category{parent(shortName)} to Category,
+    Field{recipient(shortName) required} to Recipient,
+    FieldValue{field(name) required} to Field{value},
+    Prefix{field(name)} to Field{prefix},
+    //Prefix{filedValue(parent)} to FieldValue{prefix},
+    AgentRecipient{agent(shortName)} to Agent,
+    AgentRecipient{recipient(shortName)} to Recipient,
+    BookkeepingTemplate{gateway(name)} to Gateway,
+    BookkeepingTemplate{recipient(shortName)} to Recipient
+}
+
+relationship ManyToMany {
+    Recipient{title required} to I18n,
+    Agent{title required} to I18n,
+    Field{title required} to I18n,
+    Field{description} to I18n,
+    FieldValue{title required} to I18n,
+    FieldValue{description} to I18n,
+    Recipient{fullName required} to I18n,
+    Category{name required} to I18n
+}
+
+relationship OneToOne {
+	GatewayParam{recipient(shortName)} to Recipient{gatewayParam required},
+	Deposit{recipient(shortName)} to Recipient{deposit},
+	Deposit{agent(shortName)} to Agent{deposit}
+}
+
+paginate * with pagination
+
+dto * with mapstruct except DataAdapterHistory
+
+service all with serviceClass
+
+microservice * with pkbillms
+
+filter Bill, Gateway, Field, Category, Recipient, I18n, Agent, Transaction, Deposit, DepositTransaction

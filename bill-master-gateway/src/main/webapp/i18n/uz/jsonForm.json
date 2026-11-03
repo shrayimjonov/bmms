@@ -1,0 +1,30 @@
+{
+  "billMasterGwApp": {
+    "jsonForm": {
+      "home": {
+        "title": "Json Forms",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Yangi Json Form qo`shish",
+        "createOrEditLabel": "Json Formni tahrirlash",
+        "notFound": "No Json Forms found"
+      },
+      "created": "Json Form {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- Json Form saqlandi",
+      "deleted": "{{ param }}- Json Form o`chirildi",
+      "delete": {
+        "question": "{{ id }}- Json Formni o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "Json Form"
+      },
+      "id": "ID",
+      "name": "Name",
+      "type": "Type",
+      "data": "Data",
+      "username": "Username",
+      "active": "Active",
+      "description": "Description",
+      "users": "Users"
+    }
+  }
+}

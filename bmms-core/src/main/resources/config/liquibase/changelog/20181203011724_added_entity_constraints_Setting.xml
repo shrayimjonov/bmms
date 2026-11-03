@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added the constraints for entity Setting.
+    -->
+    <changeSet id="20181203011724-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="settings_id"
+                                 baseTableName="setting_prop"
+                                 constraintName="fk_setting_prop_settings_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="setting"/>
+        <addForeignKeyConstraint baseColumnNames="props_id"
+                                 baseTableName="setting_prop"
+                                 constraintName="fk_setting_prop_props_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="setting_property"/>
+        
+    </changeSet>
+</databaseChangeLog>

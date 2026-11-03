@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Entity ReconcileDiscrepancy migrate to 7.1 jhipster
+    -->
+    <changeSet id="entity_ReconcileDiscrepancy_migrate-1" author="zafar">
+        <!--
+            Rename column jhi_comment
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="reconcile_discrepancy"
+                          columnName="jhi_comment"/>
+        </preConditions>
+
+        <comment>Rename column jhi_comment</comment>
+
+        <renameColumn tableName="reconcile_discrepancy" oldColumnName="jhi_comment" newColumnName="comment"/>
+    </changeSet>
+
+    <changeSet id="entity_ReconcileDiscrepancy_migrate-2" author="zafar">
+        <!--
+          Add column created_by
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="reconcile_discrepancy"
+                              columnName="created_by"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column created_by</comment>
+
+        <addColumn tableName="reconcile_discrepancy">
+            <column name="created_by" type="varchar(50)" defaultValue="system">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_ReconcileDiscrepancy_migrate-3" author="zafar">
+        <!--
+           Add column created_date
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="reconcile_discrepancy"
+                              columnName="created_date"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column created_date</comment>
+
+        <addColumn tableName="reconcile_discrepancy">
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_ReconcileDiscrepancy_migrate-4" author="zafar">
+        <!--
+          Add column last_modified_by
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="reconcile_discrepancy"
+                              columnName="last_modified_by"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column last_modified_by</comment>
+
+        <addColumn tableName="reconcile_discrepancy">
+            <column name="last_modified_by" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_ReconcileDiscrepancy_migrate-5" author="zafar">
+        <!--
+         Add column last_modified_date
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="reconcile_discrepancy"
+                              columnName="last_modified_date"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column last_modified_date</comment>
+
+        <addColumn tableName="reconcile_discrepancy">
+            <column name="last_modified_date" type="timestamp"/>
+        </addColumn>
+
+    </changeSet>
+</databaseChangeLog>

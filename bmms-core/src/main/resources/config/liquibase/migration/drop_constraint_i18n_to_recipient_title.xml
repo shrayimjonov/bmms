@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Drop foreign constraint i18n to recipientTitle
+    -->
+    <changeSet id="drop_constraint_i18n_to_recipient_title" author="zafar" >
+        <preConditions onFail="MARK_RAN">
+            <foreignKeyConstraintExists foreignKeyName="fk_recipient_title_titles_id"/>
+        </preConditions>
+
+        <comment>Drop foreign constraint i18 to recipient title</comment>
+
+        <dropForeignKeyConstraint baseTableName="rel_recipient__title"
+                                  constraintName = "fk_recipient_title_titles_id"/>
+
+    </changeSet>
+</databaseChangeLog>

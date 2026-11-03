@@ -1,0 +1,53 @@
+{
+  "entityAudit": {
+    "home": {
+      "title": "История изменений",
+      "filter": "Фильтр",
+      "entityOrTable": "Объект/Таблица",
+      "limitTo": "Ограничить кол-во",
+      "loadChangeList": "Показать изменения"
+    },
+    "result": {
+      "showInfo": "Last <strong>{{ limit }}</strong> Changes for <strong>{{ entity }}</strong>",
+      "searchFieldLabel": "Фильтр:",
+      "globalFilter": "Глобальный фильтр",
+      "entityIdFilter": "Ид. объекта",
+      "tableHeader": {
+        "entityId": "Ид. объекта",
+        "action": "Действие",
+        "version": "Версия",
+        "value": "Значение",
+        "modifiedDate": "Дата изменения",
+        "modifiedBy": "Изменил"
+      },
+      "tableBody": {
+        "field": "Поле",
+        "value": "Значение",
+        "viewDetails": "Посмотреть историю изменений"
+      },
+      "noDataFound": "Нет данных",
+      "firstAuditEntry": "Для этой записи нет предыдущей версии.\nЭто первая запись аудита для данного объекта."
+    },
+    "detail": {
+      "close": "Закрыть",
+      "title": "История изменений",
+      "action": "{{action}} action was performed on below data",
+      "old": "Старое/удалённое значение",
+      "new": "Новое/добавленное значение",
+      "changedFields": "Изменённые поля",
+      "allFields": "Все поля",
+      "done": "Закрыть",
+      "resetPassword": "Сброс пароля"
+    },
+    "type": {
+      "INITIAL": "Создан",
+      "UPDATE": "Изменён",
+      "TERMINAL": "Удалён"
+    },
+    "info": {
+      "INITIAL": "{{ author }} создал {{ duration }}",
+      "UPDATE": "{{ author }} изменил {{ duration }}",
+      "TERMINAL": "{{ author }} удалил {{ duration }}"
+    }
+  }
+}

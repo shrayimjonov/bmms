@@ -1,0 +1,86 @@
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <div class="modal-header">
+    <h5 id="myUserLabel" jhiTranslate="userManagement.home.createOrEditLabel">Create or edit a User</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="closeModal()">&times;</button>
+  </div>
+
+  <div class="modal-body">
+    <bm-alert></bm-alert>
+
+    <div class="form-row">
+      <div class="form-group col-lg-6" [ngClass]="{ 'col-lg-12': isUpdate() }">
+        <label class="label-required" for="username" jhiTranslate="userManagement.login">Login</label>
+        <input
+          id="username"
+          nz-input
+          nzSize="large"
+          name="login"
+          formControlName="username"
+          [disable]="isUpdate()"
+          input-validator
+          auto-focus
+        />
+      </div>
+
+      <div class="form-group col-lg-6">
+        <label for="email" class="form-control-label" jhiTranslate="userManagement.email">Email</label>
+        <input id="email" nz-input type="email" nzSize="large" formControlName="email" input-validator />
+      </div>
+
+      <div class="form-group col-lg-6">
+        <label for="firstName" class="form-control-label" jhiTranslate="userManagement.firstName">First Name</label>
+        <input id="firstName" nz-input nzSize="large" formControlName="firstName" input-validator />
+      </div>
+
+      <div class="form-group col-lg-6">
+        <label for="lastName" jhiTranslate="userManagement.lastName">Last Name</label>
+        <input id="lastName" nz-input type="text" nzSize="large" formControlName="lastName" input-validator />
+      </div>
+
+      <div class="form-group col-lg-12" *ngIf="!isUpdate()">
+        <label for="password" jhiTranslate="login.form.password">Password</label>
+        <bm-password-input id="password" formControlName="password"></bm-password-input>
+      </div>
+
+      <div class="form-group col-lg-12">
+        <label for="password" jhiTranslate="global.menu.entities.pkuaaGroup">Groups</label>
+        <bm-select-input
+          bmMode="multiple"
+          [data]="userGroups"
+          bmLabelField="name"
+          bmValueField="name"
+          formControlName="groups"
+          [bmMaxTagCount]="10"
+          (bmOnSearch)="loadUserGroups($event)"
+          input-validator
+        ></bm-select-input>
+      </div>
+    </div>
+
+    <div class="d-flex">
+      <nz-switch
+        id="field_enabled"
+        formControlName="enabled"
+        nzCheckedChildren="{{ 'global.active.true' | translate }}"
+        nzUnCheckedChildren="{{ 'global.active.false' | translate }}"
+      >
+      </nz-switch>
+      <nz-switch
+        id="field_temporary"
+        class="ml-2"
+        formControlName="temporary"
+        nzCheckedChildren="{{ 'userManagement.temporary' | translate }}"
+        nzUnCheckedChildren="{{ 'userManagement.temporary' | translate }}"
+      >
+      </nz-switch>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button nz-button type="button" nzType="text" nzSize="large" (click)="closeModal()" jhiTranslate="entity.action.cancel">Cancel</button>
+
+    <button nz-button nzType="primary" nzSize="large" type="submit" [input-validator-button]="editForm" [nzLoading]="loading">
+      {{ 'entity.action.save' | translate }}
+    </button>
+  </div>
+</form>

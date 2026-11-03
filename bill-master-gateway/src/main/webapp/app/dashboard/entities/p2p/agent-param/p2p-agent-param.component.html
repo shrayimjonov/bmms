@@ -1,0 +1,123 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h5 class="mb-0" jhiTranslate="global.menu.entities.pkbillmsP2PAgentParam">P2P Conditions</h5>
+
+  <div>
+    <nz-badge [nzCount]="filterRef.querySize">
+      <button nz-button nzSize="large" jhiTranslate="entity.action.filter" (click)="showFilter = !showFilter">Filter</button>
+    </nz-badge>
+
+    <ngl-export-as
+      *ngIf="data?.length"
+      class="ml-2"
+      [data]="data"
+      requestUrl="{{ p2pAgentParamService.resourceUrl }}"
+      [requestOption]="getOption"
+      translationPrefix="billMasterGwApp.pkbillmsP2PAgentParam"
+      fileName="p2p_conditions"
+    >
+    </ngl-export-as>
+
+    <button
+      class="ml-2"
+      type="button"
+      nz-button
+      nzSize="large"
+      nzType="primary"
+      jhiTranslate="entity.action.add"
+      *jhiHasAnyAuthority="[authority.P2P_AGENT_PARAM_WRITE]"
+      (click)="p2pAgentParamService.openUpdate()"
+    >
+      Add
+    </button>
+  </div>
+</div>
+
+<ngl-filter-field [hidden]="!showFilter" [fields]="filterFields" (onFilter)="setQuery($event); loadPage()" #filterRef></ngl-filter-field>
+
+<bm-alert></bm-alert>
+
+<ng-container *ngIf="data?.length">
+  <div class="table-responsive">
+    <nz-table nzSize="small" [nzLoading]="loading" nzTemplateMode nzOuterBordered>
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th jhiSortBy="id">
+            <span jhiTranslate="global.field.id">ID</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="agentId">
+            <span jhiTranslate="billMasterGwApp.pkbillmsP2PAgentParam.agentId">Agent ID</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="p2pParamsRegex">
+            <span jhiTranslate="billMasterGwApp.pkbillmsP2PAgentParam.p2pParamsRegex">p2pParamsRegex</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="active">
+            <span jhiTranslate="billMasterGwApp.pkbillmsSetting.active">Active</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="description">
+            <span jhiTranslate="billMasterGwApp.pkbillmsP2PAgentParam.description">Description</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p2pAgentParam of data; trackBy: trackId">
+          <td>
+            <a href="javascript:void(0)" (click)="p2pAgentParamService.openView(p2pAgentParam)">{{ p2pAgentParam.id }}</a>
+          </td>
+          <td>{{ p2pAgentParam.agentId }}</td>
+          <td>{{ p2pAgentParam.p2pParamsRegex }}</td>
+          <td>
+            <p [bm-boolean-badge]="p2pAgentParam.active" bmType="active">{{ p2pAgentParam.active }}</p>
+          </td>
+          <td>{{ p2pAgentParam.description }}</td>
+          <td width="10" class="text-right">
+            <nz-button-group nzSize="small">
+              <button
+                (click)="p2pAgentParamService.openView(p2pAgentParam)"
+                nzType="default"
+                nz-button
+                title="{{ 'entity.action.view' | translate }}"
+              >
+                <i nz-icon nzType="eye" class="icon-btn"></i>
+              </button>
+              <ng-container *jhiHasAnyAuthority="[authority.P2P_AGENT_PARAM_WRITE]">
+                <button
+                  nz-button
+                  (click)="p2pAgentParamService.openUpdate(p2pAgentParam, true)"
+                  title="{{ 'entity.action.duplicate' | translate }}"
+                >
+                  <i nz-icon nzType="copy" class="icon-btn"></i>
+                </button>
+                <button nz-button (click)="p2pAgentParamService.openUpdate(p2pAgentParam)" title="{{ 'entity.action.edit' | translate }}">
+                  <i nz-icon nzType="edit" class="icon-btn"></i>
+                </button>
+                <button
+                  nz-button
+                  (click)="p2pAgentParamService.openDelete(p2pAgentParam.id)"
+                  title="{{ 'entity.action.delete' | translate }}"
+                >
+                  <i nz-icon nzType="delete" class="icon-btn"></i>
+                </button>
+              </ng-container>
+            </nz-button-group>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+
+  <div class="d-flex justify-content-center mt-3">
+    <nz-pagination
+      [nzPageIndex]="ngbPaginationPage"
+      [nzTotal]="totalItems"
+      [nzPageSize]="itemsPerPage"
+      (nzPageIndexChange)="loadPage($event)"
+    >
+    </nz-pagination>
+  </div>
+</ng-container>

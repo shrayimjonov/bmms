@@ -1,0 +1,4 @@
+id;name;active;details;type
+-1;Admin;true;group for admin;ADMIN
+-2;Agent;true;group for Agent;AGENT
+-3;Recipient;true;group for Recipient;RECIPIENT

@@ -1,0 +1,126 @@
+<div class="checkout-bg h-100 pt-5">
+  <!--Header-->
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-10 col-md-8 col-lg-12 col-xl-9 d-flex align-items-center m-auto pl-0">
+        <div class="d-block mr-auto pl-0 pt-4 pb-4 pr-4">
+          <div class="logo-container p-0 m-0">
+            <img class="anorbank-logo" alt="logo" height="28" width="190" />
+            <!--          <div class="d-grid ml-2">-->
+            <!--            <span class="font-weight-bold fs-18">Bill Master</span>-->
+            <!--          </div>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Content-->
+  <div class="container" *ngIf="checkout.recipient">
+    <div class="row align-items-start">
+      <div class="order-first col-sm-10 col-md-8 col-lg-6 col-xl-5 bg-white px-0 py-3 mx-auto mr-lg-0">
+        <div class="p-3 px-sm-5 mb-3">
+          <div class="row align-items-center justify-content-around mx-n2 mt-2 mb-4">
+            <img
+              class="recipient-logo"
+              src="{{ paymentService.getRecipientLogoUrl(checkout.recipient.logo) }}"
+              alt="recipient_image"
+              image-loader
+            />
+          </div>
+
+          <h6 class="mb-4 text-center text-muted" [bm-i18n]="checkout.recipient.fullNames">{{ checkout.recipient.fullNames }}</h6>
+
+          <div class="mb-3" *ngIf="checkout.recipient.category">
+            <h6
+              class="font-weight-bold"
+              jhiTranslate="payment.payTo"
+              [translateValues]="{ categoryName: checkout.recipient.category.shortName }"
+            >
+              Pay To
+            </h6>
+          </div>
+
+          <button type="button" class="mt-2" nz-button nzType="default" jhiTranslate="payment.paymentDetail" (click)="draw = true">
+            Payment Details
+          </button>
+        </div>
+
+        <div class="px-3 px-sm-5 mb-4">
+          <div class="d-flex align-items-center">
+            <span class="font-weight-bold mr-auto pr-2 mb-0 fs-16" jhiTranslate="payment.payAmount">Pay amount</span>
+            <h5
+              class="pr-2 font-weight-bold mb-0"
+              jhiTranslate="payment.amountWithSuffix"
+              [translateValues]="{ amount: checkout.params.amount | bmAmount: 1 }"
+            >
+              Amount With Suffix
+            </h5>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="order-last d-flex align-items-center col-sm-10 col-md-8 col-lg-6 col-xl-4 px-0 pt-4 pt-lg-5 pb-5 mx-auto ml-lg-0 bg-white"
+      >
+        <div class="w-100 px-3 px-sm-5">
+          <bm-alert></bm-alert>
+
+          <ng-container #checkoutContainer></ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Drawer-->
+  <nz-drawer
+    nzPlacement="right"
+    nzTitle="{{ 'payment.cheque' | translate }}"
+    nzMaskClosable
+    nzWidth="500px"
+    [nzVisible]="draw"
+    (nzOnClose)="draw = false"
+  >
+    <ng-container *nzDrawerContent>
+      <div class="p-3" *ngIf="checkout.recipient">
+        <div class="row align-items-center justify-content-around mb-4">
+          <img
+            class="recipient-logo"
+            src="{{ paymentService.getRecipientLogoUrl(checkout.recipient.logo) }}"
+            alt="recipient_image"
+            image-loader
+          />
+        </div>
+
+        <h6 class="mb-4 text-center text-muted">{{ checkout.recipient.shortName }}</h6>
+
+        <div *ngFor="let obj of checkout.bill?.params | keyvalue">
+          <div class="row justify-content-between mx-n2">
+            <div class="col-auto px-2">
+              <span class="text-muted mb-0 fs-16">{{ obj.key }}</span>
+            </div>
+            <div class="col-auto px-2 ml-auto">
+              <span class="text-break font-weight-bold">{{ obj.value }}</span>
+            </div>
+          </div>
+          <hr class="params-divider" />
+        </div>
+
+        <div class="row justify-content-between mx-n2">
+          <div class="col-auto px-2">
+            <span class="text-muted mb-0 fs-16" jhiTranslate="payment.payAmount">Pay amount</span>
+          </div>
+          <div class="col-auto px-2 ml-auto">
+            <h5
+              class="text-break font-weight-bold font-weight-bold mb-0"
+              jhiTranslate="payment.amountWithSuffix"
+              [translateValues]="{ amount: checkout.params.amount | bmAmount: 1 }"
+            >
+              Amount With Suffix
+            </h5>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </nz-drawer>
+</div>

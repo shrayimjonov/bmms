@@ -1,0 +1,23 @@
+{
+  "home": {
+    "title": "Java Hipsterga, hush kelibsiz!",
+    "subtitle": "Bosh sahifa",
+    "widget": {
+      "notFound": "Vidjetlar topilmadi"
+    },
+    "logged": {
+      "message": "Siz \"{{username}}\" foydalanuvchisi sifatida kirdiz."
+    },
+    "question": "JHipster bo`yicha savollaringiz bo`lsa:",
+    "link": {
+      "homepage": "JHipster bosh sahifasi",
+      "stackoverflow": "JHipster Stack Overflow",
+      "bugtracker": "JHipster bag trekeri",
+      "chat": "JHipster umumiy chat xonasi",
+      "follow": "Twitterdagi logini @jhipster"
+    },
+    "like": "Agar JHipster sizga yoqsa, ushbu manzilda yulduzcha quyishni ununmang",
+    "github": "GitHub",
+    "note": "Hurmatli foydalanuvchilar, endi profil havolasi orqali (sahifaning yuqori o'ng burchagi) parolingizni o'zgartirishingiz, o'zgartirishingiz mumkin sizning profilingiz haqida ma'lumot. Ma'lumotlarning xavfsizligi va xavfsizligini oshirish uchun Ma'muriyat parolni har oyda o'zgartirishni tavsiya qiladi! Shuni ham yodda tutingki, tizimdagi barcha harakatlaringiz ro'yxatga olingan, shuning uchun ma'lumotlaringizni uchinchi shaxslarga o'tkazmang va aniq matnda saqlamang!"
+  }
+}

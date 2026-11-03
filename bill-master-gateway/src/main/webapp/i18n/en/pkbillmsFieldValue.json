@@ -1,0 +1,38 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsFieldValue": {
+      "home": {
+        "title": "Field Values",
+        "createLabel": "Create a new Field Value",
+        "createOrEditLabel": "Create or edit a Field Value",
+        "notFound": "No Field Values found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Field Value {{ id }}?"
+      },
+      "detail": {
+        "title": "Field Value"
+      },
+      "value": "Value",
+      "amount": "Amount",
+      "filterBy": "Filter By",
+      "ord": "Ord",
+      "field": "Field",
+      "title": "Title",
+      "description": "Description",
+      "help": {
+        "value": "Param value to send to server",
+        "amount": "Price of selected value",
+        "filterBy": "Filter the values (field.type=select) by parent field",
+        "ord": "Display order"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsFieldValue": {
+      "created": "A new Field Value is created with identifier {{ param }}",
+      "updated": "A Field Value is updated with identifier {{ param }}",
+      "deleted": "A Field Value is deleted with identifier {{ param }}"
+    }
+  }
+}

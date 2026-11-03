@@ -1,0 +1,8 @@
+= Agent Payment API
+Javlon Eraliyev
+
+:icons: font
+
+include::intro.adoc[]
+include::api.adoc[]
+include::types.adoc[]

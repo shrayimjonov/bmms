@@ -1,0 +1,15 @@
+<bm-alert></bm-alert>
+<nz-collapse class="my-3" *ngFor="let action of jobs">
+  <nz-collapse-panel [nzHeader]="headerRef" [nzActive]="true">
+    <button nz-button class="float-right" nzType="primary"
+            [bm-i18n]="action.btnParams!['text']" (click)="executeAction(action)">
+      {{ action.btnParams!['text'] }}
+    </button>
+
+    <p class="fs-15" [bm-i18n]="action.description">{{ action.description }}</p>
+  </nz-collapse-panel>
+
+  <ng-template #headerRef>
+    <span class="fs-16" [bm-i18n]="action.title">{{ action.title }}</span>
+  </ng-template>
+</nz-collapse>

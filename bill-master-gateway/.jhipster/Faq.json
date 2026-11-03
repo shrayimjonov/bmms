@@ -1,0 +1,35 @@
+{
+  "applications": "*",
+  "changelogDate": "20200319100926",
+  "clientRootFolder": "",
+  "dto": "mapstruct",
+  "enableEntityAudit": true,
+  "entityTableName": "faq",
+  "fields": [
+    {
+      "fieldName": "active",
+      "fieldType": "Boolean",
+      "javadoc": "Активный"
+    },
+    {
+      "fieldName": "video",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "FaqMs",
+  "name": "Faq",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "id",
+      "otherEntityName": "faqCategory",
+      "relationshipName": "category",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl",
+  "databaseType": "sql"
+}

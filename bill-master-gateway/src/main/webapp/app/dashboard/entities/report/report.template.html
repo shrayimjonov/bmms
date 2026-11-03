@@ -1,0 +1,113 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <nz-badge [nzCount]="iconTpl">
+    <h4 class="mb-0 mr-3" jhiTranslate="global.menu.entities.reportmsReport">Reports</h4>
+
+    <ng-template #iconTpl>
+      <i nz-icon nzType="question-circle" class="ant-scroll-number-custom-component cursor-pointer"
+         nz-tooltip="{{ 'billMasterGwApp.reportmsReport.note' | translate }}" nzTooltipPlacement="rightTop"
+         [nzTooltipOverlayStyle]="{ width: 'fit-content', 'max-width': '1000px' }">
+      </i>
+    </ng-template>
+  </nz-badge>
+
+  <ngl-export-as *ngIf="data?.length" [data]="data" [requestUrl]="reportService.resourceUrl"
+                 [requestOption]="getOption" [translationPrefix]="'download'">
+  </ngl-export-as>
+</div>
+
+<div class="form-row" [formGroup]="filterForm">
+  <div class="form-row-mb col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+    <label for="field_startDate" jhiTranslate="global.field.fromDate">Start Date</label>
+    <nz-date-picker formControlName="startDate" id="field_startDate" nzSize="large"
+                    nzFormat="dd.MM.yyyy" nzInputReadOnly>
+    </nz-date-picker>
+  </div>
+
+  <div class="form-row-mb col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+    <label for="field_endDate" jhiTranslate="global.field.endDate">End Date</label>
+    <nz-date-picker formControlName="endDate" id="field_endDate" nzSize="large"
+                    nzFormat="dd.MM.yyyy" nzInputReadOnly>
+    </nz-date-picker>
+  </div>
+
+  <div class="form-row-mb col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+    <label jhiTranslate="global.menu.entities.pkbillmsGateway">Gateways</label>
+    <bm-select-input [bmServerSearch]="true" [bmShowSearch]="true" [requestUrl]="gatewayService.resourceUrl"
+                     bmLabelField="name" bmValueField="name" bmMode="multiple" formControlName="gateways">
+    </bm-select-input>
+  </div>
+
+  <div class="form-row-mb col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+    <label jhiTranslate="global.menu.entities.pkbillmsAgent">Agents</label>
+    <bm-select-input [bmServerSearch]="true" [bmShowSearch]="true" [requestUrl]="agentService.resourceUrl"
+                     bmLabelField="shortName" bmValueField="shortName" bmMode="multiple" formControlName="agents">
+    </bm-select-input>
+  </div>
+
+  <div class="form-row-mb col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+    <label jhiTranslate="global.menu.entities.pkbillmsRecipient">Recipients</label>
+    <bm-select-input [bmServerSearch]="true" [bmShowSearch]="true" [requestUrl]="recipientService.resourceUrl"
+                     bmLabelField="shortName" bmValueField="shortName" bmMode="multiple" formControlName="recipients">
+    </bm-select-input>
+  </div>
+
+  <div class="form-row-mb col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+    <label jhiTranslate="billMasterGwApp.pkbillmsBookkeepingTemplate.payTypes">Pay Types</label>
+    <bm-select-input [data]="payTypes" bmMode="multiple" formControlName="payTypes"></bm-select-input>
+  </div>
+</div>
+
+<bm-alert></bm-alert>
+
+<ng-container *ngIf="data?.length">
+  <div class="table-responsive">
+    <nz-table [nzLoading]="loading" nzSize="small" nzTemplateMode nzOuterBordered>
+      <thead jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+      <tr>
+        <th jhiSortBy="title">
+          <span jhiTranslate="billMasterGwApp.reportmsReport.title">Title</span>
+        </th>
+        <th jhiSortBy="desc">
+          <span jhiTranslate="billMasterGwApp.reportmsReport.desc">Desc</span>
+        </th>
+        <th jhiSortBy="fileName">
+          <span jhiTranslate="billMasterGwApp.reportmsReport.fileName">File Name</span>
+        </th>
+        <th jhiSortBy="lang">
+          <span jhiTranslate="billMasterGwApp.reportmsReport.lang">Lang</span>
+        </th>
+        <th jhiSortBy="defaultFormat">
+          <span jhiTranslate="billMasterGwApp.reportmsReport.defaultFormat">Default Format</span>
+        </th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let report of data; trackBy: trackId">
+        <td>{{ report.title }}</td>
+        <td>{{ report.desc }}</td>
+        <td>{{ report.fileName }}</td>
+        <td>{{ report.lang }}</td>
+        <td>{{ report.defaultFormat }}</td>
+        <td width="10" class="text-right">
+          <div class="btn-group">
+            <button nz-button nzType="primary" (click)="download(report.id)" jhiTranslate="entity.action.download"
+                    [disabled]="!report.enabled">
+              Download
+            </button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </nz-table>
+  </div>
+
+  <div class="d-flex justify-content-center mt-3">
+    <nz-pagination
+      [nzPageIndex]="ngbPaginationPage"
+      [nzTotal]="totalItems"
+      [nzPageSize]="itemsPerPage"
+      (nzPageIndexChange)="loadPage($event)">
+    </nz-pagination>
+  </div>
+</ng-container>

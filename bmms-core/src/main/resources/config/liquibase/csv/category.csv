@@ -1,0 +1,2 @@
+id;short_name;thumbnail     ;logo    ;ord;parent_id;active
+1 ;taxi      ;taxi_small.jpg;taxi.jpg;1  ;null;true

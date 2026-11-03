@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:getRegionsListResponse xmlns:ns2="http://st.apus.com/">
+    <return>
+        <AreasList/>
+        <Result>
+            <code>STPIMS-ERR-001</code>
+            <Description>Ведутся тех. работы, пожалуйста обратитесь в тех поддержку или попробуйте позже</Description>
+        </Result>
+    </return>
+</ns2:getRegionsListResponse>

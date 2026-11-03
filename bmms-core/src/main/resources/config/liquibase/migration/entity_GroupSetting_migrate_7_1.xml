@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Entity GroupSetting migrate to 7.1 jhipster
+    -->
+    <changeSet id="entity_GroupSetting_migrate-0" author="zafar">
+        <!--
+            Drop unique constraint GroupSetting to SettingType
+        -->
+
+        <preConditions onFail="MARK_RAN">
+            <indexExists tableName="group_setting" columnNames="setting_type_id, request_group" indexName="uc_group_setting_group_and_type"/>
+        </preConditions>
+        <comment>Drop unique constraint fieldValue to fieldValueTitle</comment>
+
+        <dropUniqueConstraint tableName="group_setting" constraintName="uc_group_setting_group_and_type" uniqueColumns="setting_type_id, request_group"/>
+    </changeSet>
+
+    <changeSet id="entity_GroupSetting_migrate-1" author="zafar">
+        <!--
+            Drop column setting_type_id
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="group_setting"
+                          columnName="setting_type_id"/>
+        </preConditions>
+
+        <comment>Drop column setting_type_id</comment>
+
+        <dropColumn tableName="group_setting" columnName="setting_type_id"/>
+    </changeSet>
+
+    <changeSet id="entity_GroupSetting_migrate-2" author="zafar">
+        <!--
+               Rename column props_id entity GroupSettingProp
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="group_setting_prop"
+                          columnName="props_id"/>
+        </preConditions>
+
+        <comment>Rename column props_id entity GroupSettingProp</comment>
+
+        <renameColumn tableName="group_setting_prop" oldColumnName="props_id" newColumnName="prop_id"/>
+    </changeSet>
+
+    <changeSet id="entity_GroupSetting_migrate-3" author="zafar">
+        <!--
+            Rename column group_settings_id entity GroupSettingProp
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="group_setting_prop"
+                          columnName="group_settings_id"/>
+        </preConditions>
+
+        <comment>Rename column group_settings_id entity GroupSettingProp</comment>
+
+        <renameColumn tableName="group_setting_prop" oldColumnName="group_settings_id" newColumnName="group_setting_id"/>
+    </changeSet>
+
+    <changeSet id="entity_GroupSetting_migrate-4" author="zafar">
+        <!--
+            Drop primary key group_setting_prop
+        -->
+        <preConditions onFail="MARK_RAN">
+            <primaryKeyExists tableName="group_setting_prop"/>
+        </preConditions>
+
+        <comment>Drop primary key group_setting_prop</comment>
+
+        <dropPrimaryKey tableName="group_setting_prop"
+                        dropIndex="true"/>
+    </changeSet>
+
+    <changeSet id="entity_GroupSetting_migrate-5" author="zafar">
+        <!--
+            Rename table group_setting_prop
+        -->
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="group_setting_prop"/>
+        </preConditions>
+
+        <comment>Rename table group_setting_prop</comment>
+
+        <renameTable oldTableName="group_setting_prop" newTableName="rel_group_setting__prop"/>
+    </changeSet>
+
+    <changeSet id="entity_GroupSetting_migrate-6" author="zafar">
+        <!--
+           Add primary key rel_group_setting__prop
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <primaryKeyExists tableName="rel_group_setting__prop"/>
+            </not>
+        </preConditions>
+
+        <comment>Add primary key rel_group_setting__prop</comment>
+
+        <addPrimaryKey columnNames="group_setting_id, prop_id" tableName="rel_group_setting__prop"/>
+    </changeSet>
+
+</databaseChangeLog>

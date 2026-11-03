@@ -1,0 +1,57 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsDeposit": {
+      "home": {
+        "title": "Депозиты",
+        "createLabel": "Создать новый Депозит",
+        "createOrEditLabel": "Создать или отредактировать Депозит",
+        "notFound": "Депозиты не найдены"
+      },
+      "delete": {
+        "question": "Вы уверены что хотите удалить Депозит {{ id }}?"
+      },
+      "detail": {
+        "title": "Депозит"
+      },
+      "balance": "Баланс",
+      "balanceCcy": "Баланс Ccy",
+      "bookedBalance": "Забронированный баланс",
+      "limitInform": "Ограничение Информ",
+      "limitDisable": "Отключение пределов",
+      "contactGroup": "Группа контактов",
+      "blocked": "Заблокировано",
+      "unlimit": "Безлимит",
+      "gateway": "Шлюз",
+      "agent": "Агент",
+      "virtualAccount": "Виртуальный аккаунт",
+      "replenishDeposit": "Пополнение депозита",
+      "onSuccessReplenish": "Депозит успешно пополнен!",
+      "onFailedReplenish": "Ошибка при пополнении депозита!",
+      "doc": "Док",
+      "state": "Статус",
+      "agentName": "Название агента: ",
+      "balanceAmount": "Сумма пополнения",
+      "payerTaxnr": "ИНН плательшика",
+      "recipientTaxnr": "ИНН получателя",
+      "overdraftLimit": "Лимит овердрафта",
+      "help": {
+        "overdraftLimit": "Размер овердрафта",
+        "balance": "Сумма доступного баланса",
+        "balanceCcy": "Валюта баланса",
+        "bookedBalance": "Зарезервированный баланса",
+        "limitInform": "Порог уведомления при достижении лимита",
+        "limitDisable": "Порог остановки оплат",
+        "contactGroup": "Группа контактов для уведомления",
+        "blocked": "Заблокирован",
+        "unlimit": "Без ограничения"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsDeposit": {
+      "created": "Новый Депозит создан с идентификатором {{ param }}",
+      "updated": "Депозит обновлен с идентификатором {{ param }}",
+      "deleted": "Депозит удален с идентификатором {{ param }}"
+    }
+  }
+}

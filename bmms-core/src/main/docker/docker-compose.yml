@@ -1,0 +1,140 @@
+# This configuration is intended for development purpose, it's **your** responsibility to harden it for production
+version:
+    '3.8'
+
+    #x-common-variables: &common-variables
+    #  SPRING_PROFILES_ACTIVE: prod,swagger
+    #  MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED: "false"
+    #  SPRING_CLOUD_CONFIG_ENABLED: "false"
+    # JHIPSTER_REGISTRY_PASSWORD: CHANGE_ME
+    # EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: "http://127.0.0.1:8761/eureka"
+# SPRING_CLOUD_CONFIG_URI: "http://127.0.0.1:8761/config"
+#   JHIPSTER_SLEEP: 30
+#  JAVA_HOME: /DATA/jdk
+#  JRE_HOME: /DATA/jdk/jre
+#  PATH: "$PATH:/DATA/jdk:/DATA/jdk/jre/bin"
+
+services:
+    ######################################
+    # Bmms Db
+    ######################################
+
+    bmms-postgresql:
+        image: postgres:14
+        volumes:
+            - ~/volumes/jhipster/bmms2/postgresql/:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_USER=${POSTGRES_USER}
+            - POSTGRES_PASSWORD=123
+            - POSTGRES_HOST_AUTH_METHOD=${POSTGRES_HOST_AUTH_METHOD}
+        # If you want to expose these ports outside your dev PC,
+        # remove the "127.0.0.1:" prefix
+        ports:
+            - 127.0.0.1:5432:5432
+
+    ######################################
+    # CONSUL
+    ######################################
+
+    consul:
+        image: consul:1.9.5
+        # If you want to expose these ports outside your dev PC,
+        # remove the "127.0.0.1:" prefix
+        ports:
+            - 8300:8300
+            - 8500:8500
+            - 8600:8600
+        command: consul agent -dev -ui -client 0.0.0.0 -log-level=INFO
+
+    ######################################
+    # Config Loader
+    ######################################
+
+    loader:
+        image: jhipster/consul-config-loader:v0.4.1
+        volumes:
+            - /DATA/central-server-config:/config
+        environment:
+            - INIT_SLEEP_SECONDS=5
+            - CONSUL_URL=consul
+            - CONSUL_PORT=8500
+            # Uncomment to load configuration into Consul from a Git repository
+            # as configured in central-server-config/git2consul.json
+            # Also set SPRING_CLOUD_CONSUL_CONFIG_FORMAT=files on your apps
+            # - CONFIG_MODE=git
+        depends_on:
+            - consul
+
+    ######################################
+    # JHipster Control Centre
+    ######################################
+
+    jcc:
+        image: 'jhipster/jhipster-control-center:v0.5.0'
+        command:
+            - /bin/sh
+            - -c
+            # Patch /etc/hosts to support resolving internal.example.com to the internal IP address used by the host in all OSes
+            - echo "`ip route | grep default | cut -d ' ' -f3` internal.example.com" | tee -a /etc/hosts > /dev/null && java -jar /jhipster-control-center.jar
+        environment:
+            - _JAVA_OPTIONS=-Xmx512m -Xms256m
+            - SPRING_PROFILES_ACTIVE=prod,api-docs,consul
+            - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
+            - SPRING_SECURITY_USER_PASSWORD=${SPRING_SECURITY_USER_PASSWORD}
+            # The token should have the same value than the one declared in you Spring configuration under the jhipster.security.authentication.jwt.base64-secret configuration's entry
+            - JHIPSTER_SECURITY_AUTHENTICATION_JWT_BASE64_SECRET=${JHIPSTER_SECURITY_AUTHENTICATION_JWT_BASE64_SECRET}
+            - SPRING_CLOUD_CONSUL_HOST=${SPRING_CLOUD_CONSUL_HOST}
+            - SPRING_CLOUD_CONSUL_PORT=8500
+            - LOGGING_FILE_NAME=/DATA/LOGS/jcc/jhipster-control-center.log
+        depends_on:
+            - consul
+            - loader
+        volumes:
+            - /DATA/LOGS/jcc:/DATA/LOGS/jcc:rw
+        # If you want to expose these ports outside your dev PC,
+        # remove the "127.0.0.1:" prefix
+        ports:
+            - 7419:7419
+    keycloak:
+        container_name: keycloak
+        image: jboss/keycloak:15.0.2
+        command:
+            [
+                '-b',
+                '0.0.0.0',
+                '-Dkeycloak.migration.action=import',
+                '-Dkeycloak.migration.provider=dir',
+                '-Dkeycloak.migration.dir=/opt/jboss/keycloak/realm-config',
+                '-Dkeycloak.migration.strategy=OVERWRITE_EXISTING',
+                '-Djboss.socket.binding.port-offset=1000',
+                '-Dkeycloak.profile.feature.upload_scripts=enabled',
+            ]
+        volumes:
+            - ./realm-config:/opt/jboss/keycloak/realm-config
+        environment:
+            - KEYCLOAK_USER=${KEYCLOAK_USER}
+            - KEYCLOAK_PASSWORD=${KEYCLOAK_PASSWORD}
+            - DB_VENDOR=h2
+        # If you want to expose these ports outside your dev PC,
+        # remove the "127.0.0.1:" prefix
+        ports:
+            - 127.0.0.1:9080:9080
+            - 127.0.0.1:9443:9443
+            - 127.0.0.1:10990:10990
+#  traefik:
+#    image: 'traefik:v2.4'
+#    container_name: 'traefik'
+#    command:
+#      - '--log.level=DEBUG'
+#      - '--api.insecure=true'
+#      - '--providers.docker=true'
+#      - '--providers.docker.exposedbydefault=false'
+#      - '--entrypoints.web.address=:80'
+#      - '--providers.consulCatalog.endpoint.address=http://consul:8500'
+#      - '--providers.consulCatalog.prefix=traefik'
+#    ports:
+#      - '80:80'
+#      - '28080:8080'
+#    volumes:
+#      - '/var/run/docker.sock:/var/run/docker.sock:ro'
+#  #      - "./traefik/traefik.toml:/etc/traefik/traefik.toml"

@@ -1,0 +1,180 @@
+{
+  "name": "BookkeepingTemplate",
+  "fields": [
+    {
+      "fieldName": "groupId",
+      "javadoc": "Группа",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "sMfo",
+      "javadoc": "МФО Отправителя",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": 8
+    },
+    {
+      "fieldName": "sInn",
+      "javadoc": "ИНН Отправителя",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": 16
+    },
+    {
+      "fieldName": "sAccount",
+      "javadoc": "Р/С Отправителя",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": 32
+    },
+    {
+      "fieldName": "rMfo",
+      "javadoc": "МФО Получателя",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": 8
+    },
+    {
+      "fieldName": "rInn",
+      "javadoc": "ИНН Получателя",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": 16
+    },
+    {
+      "fieldName": "rAccount",
+      "javadoc": "Р/С Получателя",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": 32
+    },
+    {
+      "fieldName": "calculateAmountRule",
+      "javadoc": "Правило расчета суммы, SUM(amount) - SUM(comission) - SUM(fee), ROUND(SUM(comission), 2)",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": 64
+    },
+    {
+      "fieldName": "period",
+      "fieldType": "BktPeriod",
+      "fieldValues": "DAY,WEEK,MONTH",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "payTypes",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "desc",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": 256
+    },
+    {
+      "fieldName": "sType",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "sTypeIds",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": 128
+    },
+    {
+      "fieldName": "docType",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 8
+    },
+    {
+      "fieldName": "docCode",
+      "javadoc": "Код платежа",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 16
+    },
+    {
+      "fieldName": "docTaskCode",
+      "javadoc": "Код задачи",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 8
+    },
+    {
+      "fieldName": "rAccountName",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 64
+    },
+    {
+      "fieldName": "bookkeepingPayType",
+      "javadoc": "Тип платежа проводки : за контракт , акт , поставщику и т.д.",
+      "fieldType": "BookkeepingPayType",
+      "fieldValues": "CONTRACT,ACT,GATEWAY"
+    },
+    {
+      "fieldName": "control",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "bookkeepingType",
+      "fieldType": "BookkeepingTransactionType",
+      "fieldValues": "INTERNAL,EXTERNAL",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "name",
+      "javadoc": "Уникальное название схемы бухгалтерского взаиморасчета",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": 64
+    },
+    {
+      "fieldName": "groupIds",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 256
+    },
+    {
+      "fieldName": "subRecipientId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "amountCalculateType",
+      "fieldType": "BookkeepingAmountCalculateType",
+      "fieldValues": "RECIPIENT, GATEWAY, SUB_RECIPIENT, PAY_TYPE",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "relationshipName": "gateway",
+      "otherEntityName": "gateway",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "relationshipName": "recipient",
+      "otherEntityName": "recipient",
+      "otherEntityField": "shortName"
+    }
+  ],
+  "changelogDate": "20180813204929",
+  "javadoc": "Данная форма предназначена для создания шаблонов проводок в разрезе групп",
+  "entityTableName": "bookkeeping_template",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "clientRootFolder": "bmms",
+  "applications": "*",
+  "microserviceName": "pkbillms",
+  "enableEntityAudit": true,
+  "databaseType": "sql"
+}

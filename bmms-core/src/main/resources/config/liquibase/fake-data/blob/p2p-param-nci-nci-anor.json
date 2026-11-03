@@ -1,0 +1,16 @@
+{
+    "sender": {
+        "bankAccount": "-",
+        "bankMfo": "-",
+        "purposeId": "-",
+        "purpose": "-"
+    },
+    "recipient": {
+        "bankAccount": "00000000000000000000",
+        "purposeId": "00668",
+        "purpose": "TEST Перевод сo счета ${senderName} на ${recipientName}",
+
+        "tranType": "106",
+        "tax": ""
+    }
+}

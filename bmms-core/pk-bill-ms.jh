@@ -1,0 +1,107 @@
+
+entity Processor {
+    name String maxlength(64) required,
+
+}
+
+entity Category {
+    nameRu String maxlength(64) required,
+    nameUz String maxlength(64) required,
+    nameEn String maxlength(64),
+    logo128 ImageBlob,
+    logo256 ImageBlob,
+    displayOrder Integer
+}
+
+entity Merchant {
+    nameRu String maxlength(64) required,
+    nameUz String maxlength(64) required,
+    nameEn String maxlength(64),
+    logo128 ImageBlob,`
+    logo256 ImageBlob,
+    topSelected Long,
+    infoServiceId Long,
+    paymentServiceId Long,
+    cancelServiceId Long,
+    statusServiceId Long,
+    minAmount Long,
+    maxAmount Long,
+    displayOrder Integer,
+    legalName String maxlength(64) required,
+    servicePrice Long,
+    printInfoCheque Integer,
+    printPayCheque Integer,
+    inn String maxlength(16),
+    beanName String maxlength(64),
+}
+
+entity Field {
+    name String maxlength(32) required,
+    type String maxlength(4) required,
+    labelRu String maxlength(32) required,
+    labelUz String maxlength(32) required,
+    labelEn String maxlength(32) required,
+    fieldSize Integer min(1) max(99),
+    required Boolean,
+    visible Boolean,
+    controlType String maxlength(64),
+    controlTypeInfo String maxlength(256),
+    parentId Long,
+    displayOrder Integer
+}
+
+entity FieldValue {
+    fieldValue String maxlength(64) ,
+    fieldLabelRu String maxlength(128) required,
+    fieldLabelUz String maxlength(128) required,
+    fieldLabelEn String maxlength(128) required,
+    amount Long,
+    prefix Integer,
+    parentId Long,
+    checkId Long,
+    displayOrder Integer
+}
+
+entity Gateway {
+    name String maxlength(64) required, //Paynet
+    org String maxlength(50) required, //organization, СП ООО "UZPAYNET"
+    active Boolean required,
+    mfo String maxlength(8) required,
+    inn String maxlength(16) required,
+    ban String maxlength(32) required,//Bank account number
+    contract String maxlength(64) required,
+}
+
+entity Service {
+    name String maxlength(64) required,
+
+    active Boolean required,
+    beanName String maxlength(128), //Payment_Paynet_Adapter_Muvi
+    minAmount Float,
+    maxAmount Float,
+    activePay Boolean
+}
+
+entity GatewayAccount {
+    machineMark String maxlength(32) required,
+    params String required,
+    paynetLogin String maxlength(50) required,
+    paynetPassword String maxlength(50) required
+}
+
+entity Deposit {
+    gateway String maxlength(50) required,
+    curDeposit Float required,
+    updateDate Instant required,
+    limitInform Float required,
+    limitDisable Float required,
+    informNumber String maxlength(50),
+}
+
+relationship ManyToOne {
+    Service{gateway(name)} to Gateway,
+    Merchant{category(nameRu)} to Category,
+    Category{parent(nameRu)} to Category,
+    Field{merchant(nameRu)} to Merchant,
+    FieldValue{field(name)} to Field
+}

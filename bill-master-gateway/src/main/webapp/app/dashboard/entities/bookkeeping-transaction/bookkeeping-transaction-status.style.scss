@@ -1,0 +1,22 @@
+@import 'src/main/webapp/content/scss/bootstrap-variables';
+
+.bookkeeping-transaction-status {
+  color: #fff;
+
+  &.NEW {
+    background-color: $info;
+  }
+
+  &.CANCELED,
+  .CONFIRMED {
+    background-color: $warning;
+  }
+
+  &.SUCCESS {
+    background-color: $success;
+  }
+
+  &.FAILED {
+    background-color: $danger;
+  }
+}

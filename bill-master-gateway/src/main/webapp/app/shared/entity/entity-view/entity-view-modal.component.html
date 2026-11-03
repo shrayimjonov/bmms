@@ -1,0 +1,63 @@
+<div>
+  <div class="modal-header border-bottom-0 pb-0">
+    <h4 class="modal-title" [jhiTranslate]="titleTranslation || 'global.entity-view'" [translateValues]="{ id: id }">View</h4>
+
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="close()">&times;</button>
+  </div>
+
+  <div class="modal-body">
+    <nz-list id="nz-list" nzBordered nzSize="small">
+      <ng-container *ngFor="let item of data">
+        <nz-list-item *ngIf="item.type !== 'json'">
+          <span class="font-weight-bold" jhiTranslate="{{ item.title }}">{{ item.title }}</span>
+
+          <div class="ml-3">
+            <!--Date-->
+            <span *ngIf="item.type === 'date'">{{ item.value | bmDate: item.date || 'dd.MM.yyyy' }}</span>
+
+            <!--Mask-->
+            <span *ngIf="item.type === 'mask'">{{ item.value | mask: item.mask }}</span>
+
+            <!--Translation-->
+            <span *ngIf="item.type === 'translation'">{{ item.translation | translate }}</span>
+
+            <!--Boolean-->
+            <span *ngIf="item.type === 'boolean'" [bm-boolean-badge]="item.value" bmType="{{ item.boolean }}">{{ item.value }} </span>
+
+            <!--Link-->
+            <span *ngIf="item.type === 'link'">
+              <a *ngFor="let v of item.value" class="ml-2" (click)="executeLink(item, v)" [hidden]="!v">{{ v }},</a>
+            </span>
+
+            <!--Image-->
+            <span
+              *ngIf="item.type === 'file' && item.file?.contentType?.startsWith('image')"
+              bm-table-image-viewer
+              [bmContent]="item.file.content"
+              [bmContentType]="item.file.contentType"
+              >{{ item.value }}
+            </span>
+
+            <!--Amount-->
+            <span *ngIf="item.type === 'amount'">{{ item.value | bmAmount: item.amountRatio }}</span>
+
+            <!--Default-->
+            <ng-template [ngIf]="!item.type">
+              <span *ngIf="instanceOfHTMLElement(item.value)" class="text-right" [element-resolver]="item.value"></span>
+              <span class="text-break" *ngIf="!instanceOfHTMLElement(item.value)">{{ item.value }}</span>
+            </ng-template>
+          </div>
+        </nz-list-item>
+      </ng-container>
+    </nz-list>
+
+    <div class="mt-3" *ngFor="let json of jsons">
+      <label>{{ json.title | translate }}</label>
+      <bm-json-viewer [data]="json.value"></bm-json-viewer>
+    </div>
+  </div>
+
+  <div class="modal-footer border-top-0 pt-0">
+    <button type="button" nz-button nzSize="large" jhiTranslate="entity.action.back" (click)="close()">Back</button>
+  </div>
+</div>

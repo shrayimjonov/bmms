@@ -1,0 +1,53 @@
+{
+    "name": "DepositTransaction",
+    "fields": [
+        {
+            "fieldName": "payerTaxnr",
+            "javadoc": "Tax number (INN, VAT) of payer. see : https://en.wikipedia.org/wiki/VAT_identification_number",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 32
+        },
+        {
+            "fieldName": "recipientTaxnr",
+            "javadoc": "Tax number (INN, VAT) of payer. see : https://en.wikipedia.org/wiki/VAT_identification_number",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 32
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "Long",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "updateDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "comment",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "doc",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 64
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180719230930",
+    "javadoc": "Deposit History",
+    "entityTableName": "deposit_transaction",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "bmms",
+    "applications": "*",
+    "microserviceName": "pkbillms",
+    "enableEntityAudit": true,
+    "databaseType": "sql"
+}

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Field.
+    -->
+    <changeSet id="20180719230924-1" author="jhipster">
+        <createTable tableName="field">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(64)" remarks="Field (merchant param) name; account_id, phone, login, ...">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="ext_id" type="bigint" remarks="External id, optional">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="jhi_type" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="control_type" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="content" type="varchar(255)" remarks="Type of content for frontend usage; phone, email, text">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="jhi_validation" type="varchar(128)" remarks="Java regexp pattern to validate before sending to server">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="placeholder" type="varchar(128)" remarks="Field placeholder for UI input box">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="mask" type="varchar(256)" remarks="UI input mask">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="mask_symbol" type="varchar(2)" remarks="UI input mask symbol">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="length_min" type="integer" remarks="Min length for text fields">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="length_max" type="integer" remarks="Max length for text fields">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="require_field" type="varchar(64)" remarks="Require parent field to draw this one">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="filter_by" type="varchar(16)" remarks="Filter showing by previous selected field">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="optional" type="boolean" remarks="Is field optional to fill">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="output" type="boolean" remarks="Need to send the value to server">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="visibility" type="varchar(255)" remarks="Visible in UI, can be used for hidden static fields">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ord" type="integer" remarks="Display order">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="request_type" type="varchar(255)" remarks="Define to which of CHECK,PAY,STATUS,CANCEL,DEPOSIT belongs that field">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="recipient_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+
+        <!--<addUniqueConstraint-->
+            <!--columnNames="name, request_type, recipient_id"-->
+            <!--constraintName="field_recipient_name_type_unique"-->
+            <!--tableName="field"-->
+        <!--/>-->
+        
+        <createTable tableName="field_title">
+            <column name="titles_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fields_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="fields_id, titles_id" tableName="field_title"/>
+        
+        <createTable tableName="field_description">
+            <column name="descriptions_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fields_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="fields_id, descriptions_id" tableName="field_description"/>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

@@ -1,0 +1,264 @@
+{
+    "recipient": {
+        "shortName": "uzdigital",
+        "ccy": 860,
+        "logo": "uzdigital_small.png",
+        "thumbnail": "uzdigital.png",
+        "amountRatio": 1,
+        "minAmount": 1,
+        "maxAmount": 500000,
+        "commission": 0.0,
+        "fee": 0.0,
+        "systemCommission": 0.0,
+        "systemFee": 0.0,
+        "ord": 1,
+        "active": true,
+        "check": true,
+        "pay": true,
+        "status": true,
+        "cancel": true,
+        "canDeposit": true,
+        "serviceId": "1",
+        "titles": [
+            {
+                "lang": "UZ",
+                "text": "UzDigitalTV"
+            },
+            {
+                "lang": "RU",
+                "text": "UzDigitalTV"
+            },
+            {
+                "lang": "EN",
+                "text": "UzDigitalTV"
+            }
+        ],
+        "fullNames": [
+            {
+                "lang": "UZ",
+                "text": "UzDigitalTV"
+            },
+            {
+                "lang": "RU",
+                "text": "UzDigitalTV"
+            },
+            {
+                "lang": "EN",
+                "text": "UzDigitalTV"
+            }
+        ]
+    },
+    "fields": [
+        {
+            "name": "client_id",
+            "extId": 0,
+            "type": "ACCOUNT",
+            "controlType": "TEXT",
+            "content": null,
+            "validation": "",
+            "placeholder": null,
+            "mask": "dDDDDDD",
+            "maskSymbol": null,
+            "lengthMin": 1,
+            "lengthMax": 7,
+            "requireField": null,
+            "filterBy": null,
+            "optional": false,
+            "output": true,
+            "visibility": "ALL",
+            "ord": 1,
+            "requestType": null,
+            "titles": [
+                {
+                    "lang": "UZ",
+                    "text": "Хисоб раками"
+                },
+                {
+                    "lang": "RU",
+                    "text": "Номер счёта"
+                },
+                {
+                    "lang": "EN",
+                    "text": "Account number"
+                }
+            ],
+            "descriptions": [
+                {
+                    "lang": "UZ",
+                    "text": "Хисоб раками киргизинг"
+                },
+                {
+                    "lang": "RU",
+                    "text": "Введите номер счёта"
+                },
+                {
+                    "lang": "EN",
+                    "text": "Input account number"
+                }
+            ],
+            "values": [],
+            "prefixes": []
+        },
+        {
+            "name": "amount",
+            "extId": 0,
+            "type": "AMOUNT",
+            "controlType": "TEXT",
+            "content": null,
+            "validation": "",
+            "placeholder": null,
+            "mask": "",
+            "maskSymbol": null,
+            "lengthMin": 1,
+            "lengthMax": 15,
+            "requireField": null,
+            "filterBy": null,
+            "optional": false,
+            "output": true,
+            "visibility": "ALL",
+            "ord": 2,
+            "requestType": null,
+            "titles": [
+                {
+                    "lang": "UZ",
+                    "text": "Summa"
+                },
+                {
+                    "lang": "RU",
+                    "text": "Сумма"
+                },
+                {
+                    "lang": "EN",
+                    "text": "Amount"
+                }
+            ],
+            "descriptions": [
+                {
+                    "lang": "UZ",
+                    "text": "Summa"
+                },
+                {
+                    "lang": "RU",
+                    "text": "Сумма"
+                },
+                {
+                    "lang": "EN",
+                    "text": "Amount"
+                }
+            ],
+            "values": [],
+            "prefixes": []
+        }
+    ],
+    "gatewayParams": [
+        {
+            "url": "https://127.0.0.1:1710/ProviderWebService.svc",
+            "type": "CHECK",
+            "username": "kapitalbank",
+            "password": "",
+            "token": null,
+            "body": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:uws=\"http://uws.provider.com/\"><soapenv:Header/><soapenv:Body><uws:GetInformationArguments><password>${password}</password><username>${username}</username><parameters><paramKey>client_id</paramKey><paramValue>${account}</paramValue></parameters><serviceId>1</serviceId></uws:GetInformationArguments></soapenv:Body></soapenv:Envelope>",
+            "statusQuery": "//*[local-name()='status']",
+            "messageQuery": "//*[local-name()='errorMsg']",
+            "successCode": "0",
+            "callback": null,
+            "timeout": 5000,
+            "headers": "{\"Content-Type\":\"text/xml;charset=UTF-8\",\"SOAPAction\":\"urn:GetInformation\"}",
+            "dataQueries": null,
+            "httpMethodType": "POST",
+            "protocol": null,
+            "requestMediaType": "text/xml;charset=UTF-8",
+            "responseMediaType": "text/xml;charset=UTF-8",
+            "active": true,
+            "mode": null,
+            "extIdQuery": null
+        },
+        {
+            "url": "https://127.0.0.1:1710/ProviderWebService.svc",
+            "type": "PAY",
+            "username": "kapitalbank",
+            "password": "",
+            "token": null,
+            "body": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:uws=\"http://uws.provider.com/\"><soapenv:Header/><soapenv:Body><uws:PerformTransactionArguments><password>${password}</password><username>${username}</username><amount>${amount}</amount><parameters><paramKey>client_id</paramKey><paramValue>${account}</paramValue></parameters><serviceId>1</serviceId><transactionId>${tranId}</transactionId><transactionTime>${timestamp}</transactionTime></uws:PerformTransactionArguments></soapenv:Body></soapenv:Envelope>",
+            "statusQuery": "//*[local-name()='status']",
+            "messageQuery": "//*[local-name()='errorMsg']",
+            "successCode": "0",
+            "callback": null,
+            "timeout": 10000,
+            "headers": "{\"Content-Type\":\"text/xml;charset=UTF-8\",\"SOAPAction\":\"urn:PerformTransaction\"}",
+            "dataQueries": null,
+            "httpMethodType": "POST",
+            "protocol": null,
+            "requestMediaType": "text/xml;charset=UTF-8",
+            "responseMediaType": "text/xml;charset=UTF-8",
+            "active": true,
+            "mode": null,
+            "extIdQuery": "//*[local-name()='providerTrnId']"
+        },
+        {
+            "url": "https://127.0.0.1:1710/ProviderWebService.svc",
+            "type": "CANCEL",
+            "username": "kapitalbank",
+            "password": "",
+            "token": null,
+            "body": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:uws=\"http://uws.provider.com/\"><soapenv:Header/><soapenv:Body><uws:CancelTransactionArguments><password>${password}</password><username>${username}</username><serviceId>1</serviceId><transactionId>${tranId}</transactionId><transactionTime>${timestamp}</transactionTime><parameters><paramKey>reason</paramKey><paramValue></paramValue></parameters></uws:CancelTransactionArguments></soapenv:Body></soapenv:Envelope>",
+            "statusQuery": "//*[local-name()='status']",
+            "messageQuery": "//*[local-name()='errorMsg']",
+            "successCode": "0",
+            "callback": null,
+            "timeout": 10000,
+            "headers": "{\"Content-Type\":\"text/xml;charset=UTF-8\",\"SOAPAction\":\"urn:CancelTransaction\"}",
+            "dataQueries": null,
+            "httpMethodType": "POST",
+            "protocol": null,
+            "requestMediaType": "text/xml;charset=UTF-8",
+            "responseMediaType": "text/xml;charset=UTF-8",
+            "active": true,
+            "mode": null,
+            "extIdQuery": null
+        },
+        {
+            "url": "https://127.0.0.1:1710/ProviderWebService.svc",
+            "type": "RECONCILE",
+            "username": "kapitalbank",
+            "password": "",
+            "token": null,
+            "body": "<x:Envelope xmlns:x=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://service.payment.uzbilling\"><x:Header/><x:Body><uws:GetStatementArguments xmlns:uws=\"http://uws.provider.com/\"><password>${password}</password><username>${username}</username><dateFrom>${dateFrom}</dateFrom><dateTo>${dateTo}</dateTo><serviceId>1</serviceId><parameters><paramKey>reason</paramKey><paramValue></paramValue></parameters></uws:GetStatementArguments></x:Body></x:Envelope>",
+            "statusQuery": "//*[local-name()='status']",
+            "messageQuery": "//*[local-name()='errorMsg']",
+            "successCode": "0",
+            "callback": null,
+            "timeout": 10000,
+            "headers": "{\"Content-Type\":\"text/xml;charset=UTF-8\",\"SOAPAction\":\"urn:GetStatement\"}",
+            "dataQueries": "{\"queryRootName\": \"statements\",\"queryAmount\": \"amount\",\"queryExtId\": \"providerTrnId\",\"queryTranId\": \"transactionId\",\"queryExtTime\": \"transactionTime\",\"requestDateFormat\": \"yyyy-MM-dd'T'HH:mm:ss\"}",
+            "httpMethodType": "POST",
+            "protocol": null,
+            "requestMediaType": "text/xml;charset=UTF-8",
+            "responseMediaType": "text/xml;charset=UTF-8",
+            "active": true,
+            "mode": null,
+            "extIdQuery": null
+        }
+    ],
+    "category": {
+        "shortName": "Телевидение и онлайн вещание",
+        "thumbnail": "tv.png",
+        "logo": "tv.png",
+        "ord": 1,
+        "active": true,
+        "names": [
+            {
+                "lang": "UZ",
+                "text": "Televidenie va onlayn eshittirish"
+            },
+            {
+                "lang": "RU",
+                "text": "Телевидение и онлайн вещание"
+            },
+            {
+                "lang": "EN",
+                "text": "Television and online broadcasting"
+            }
+        ]
+    }
+}

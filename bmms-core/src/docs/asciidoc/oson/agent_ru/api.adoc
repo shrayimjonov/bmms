@@ -1,0 +1,146 @@
+
+:devBaseUrl: http://127.0.0.1:8080
+
+=== Проверка счета перед оплатой, создаст чек
+[source,html]
+POST /pkbillms/api/agent/check
+Content-Type application/json
+
+==== Параметры Запроса
+
+|===
+|Параметр |Тип |Описание
+
+|Request body
+|xref:CheckRequest[Check Request]
+|
+
+|===
+
+==== Пример Запроса (http body)
+[source,json]
+include::./../agent_examples/req/check.json[]
+
+==== Пример Запроса (cURL)
+[subs="attributes"]
+----
+include::./../agent_examples/curl_req/check.txt[]
+----
+
+==== Ответ
+
+|===
+|Параметр |Тип |Описание
+
+|Response Body
+|xref:Bill[Bill]
+|
+
+|===
+
+==== Пример Ответа
+[source,json]
+include::./../agent_examples/res/bill.json[]
+
+
+=== Оплата, подтверждение чека после проверки
+[source,html]
+POST /pkbillms/api/agent/pay
+Content-Type application/json
+
+==== Параметры Запроса
+
+|===
+|Параметр |Тип |Описание
+
+|Request body
+|xref:PayRequest[PayRequest]
+|
+
+|===
+
+==== Пример Запроса (http body)
+[source,json]
+include::./../agent_examples/req/pay.json[]
+
+==== Пример Запроса (cURL)
+[subs="attributes"]
+----
+include::./../agent_examples/curl_req/pay.txt[]
+----
+
+==== Ответ
+
+|===
+|Параметр |Тип |Описание
+
+|Response Body
+|xref:Bill[Bill]
+|
+
+|===
+
+==== Пример Ответа
+[source,json]
+include::./../agent_examples/res/bill.json[]
+
+
+=== Статус платежа
+[source,html]
+POST /pkbillms/api/agent/status
+Content-Type application/json
+
+==== Параметры Запроса
+
+|===
+|Параметр |Тип |Описание
+
+|Request body
+|xref:PayRequest[PayRequest]
+|
+
+|===
+
+==== Пример Запроса (http body)
+[source,json]
+include::./../agent_examples/req/status.json[]
+
+==== Ответ
+
+|===
+|Параметр |Тип |Описание
+
+|Response Body
+|xref:Bill[Bill]
+|
+
+|===
+
+==== Пример Ответа
+[source,json]
+include::./../agent_examples/res/bill.json[]
+
+=== Получение всех доступных категорий, получателей и их полей
+[source,html]
+GET /pkbillms/api/agent/recipients
+Content-Type application/json
+
+==== Пример Запроса (cURL)
+[subs="attributes"]
+----
+include::./../agent_examples/curl_req/recipients.txt[]
+----
+
+==== Ответ
+
+|===
+|Параметр |Тип
+
+|BodyResponse
+|xref:AgentData[AgentData]
+
+|===
+
+==== Пример Ответа
+[source,json]
+include::./../agent_examples/res/all-data.json[]

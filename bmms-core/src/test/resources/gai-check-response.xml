@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+    <transaction>
+        <status>0</status>
+        <status_text>Проведен успешно</status_text>
+        <comission>0</comission>
+        <receipt>
+            <agent_name label="Агент">ANOR BANK</agent_name>
+            <agent_inn label="ИНН">207324986</agent_inn>
+            <service_name label="Услуга">Получение информации</service_name>
+            <time label="Время">23.04.2021 15:04:07</time>
+            <terminal_id label="Номер терминала">4144789</terminal_id>
+            <transaction_id label="Номер чека">10178612348</transaction_id>
+            <provider_name label="Оператор">Штрафы ГУБДД</provider_name>
+            <amount label="Cумма">87465</amount>
+            <FIO label="ФИО">MAXMUDXO?JAYEV SAIDALI SHUXRATXO?JA O?G?LI</FIO>
+            <NDECREE label="Номер поручения">KV18131297906</NDECREE>
+            <ADDRESS label="Адрес"> </ADDRESS>
+            <NTYPE label="Вид нарушения">XAVFSIZLIK KAMARIDAN FOYDALANISH</NTYPE>
+            <DAN2CAR label="Номер авто"> </DAN2CAR>
+            <NDATE label="Дата и время нарушения"> </NDATE>
+            <BUDGET_INCOME label="Счет дохода в бюджет">4014228601262693430147179</BUDGET_INCOME>
+            <pay_amount label="Сумма платежа проводимого оператору">85750</pay_amount>
+            <paynet_amount label="Коммиссия UZPAYNET">1715</paynet_amount>
+        </receipt>
+    </transaction>
+</response>

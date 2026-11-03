@@ -1,0 +1,204 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h4 class="mb-0" jhiTranslate="global.menu.entities.pkbillmsAgentRecipient">Agent Recipients</h4>
+
+  <div>
+    <nz-badge [nzCount]="filterRef.querySize">
+      <button nz-button nzSize="large" jhiTranslate="entity.action.filter" (click)="showFilter = !showFilter">Filter</button>
+    </nz-badge>
+
+    <ngl-export-as
+      *ngIf="data?.length"
+      class="ml-2"
+      [data]="data"
+      requestUrl="{{ agentRecipientService.resourceUrl }}"
+      fileName="agent-recipient"
+      [requestOption]="getOption"
+      translationPrefix="billMasterGwApp.pkbillmsAgentRecipient"
+    >
+    </ngl-export-as>
+
+    <button
+      class="ml-2"
+      type="button"
+      nz-button
+      nzSize="large"
+      nzType="primary"
+      jhiTranslate="entity.action.add"
+      *jhiHasAnyAuthority="[authority.AGENT_RECIPIENT_WRITE]"
+      (click)="agentRecipientService.openUpdate()"
+    >
+      Add
+    </button>
+  </div>
+</div>
+
+<ngl-filter-field [hidden]="!showFilter" [fields]="filterFields" (onFilter)="setQuery($event); loadPage()" #filterRef></ngl-filter-field>
+
+<bm-alert></bm-alert>
+
+<ng-container *ngIf="data?.length">
+  <div class="table-responsive">
+    <nz-table [nzLoading]="loading" nzSize="small" nzTemplateMode nzOuterBordered>
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th jhiSortBy="id">
+            <span jhiTranslate="global.field.id">ID</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="agent">
+            <span jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.agent">Agent</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="recipient">
+            <span jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.recipient">Recipient</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="agentCommission">
+            <span jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.agentCommission">Agent Commission</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="agentFee">
+            <span jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.agentFee">Agent Fee</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="systemCommissionUp">
+            <span jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.systemCommissionUp">System Commission Up</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="systemCommissionDown">
+            <span jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.systemCommissionDown">System Commission Down</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="systemFee">
+            <span jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.systemFee">System Fee</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="active">
+            <span jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.active">Active</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="eposPort">
+            <span jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.eposPort">Epos Port</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="eposMerchant">
+            <span jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.eposMerchant">Epos Merchant</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="eposTerminal">
+            <span jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.eposTerminal">Epos Terminal</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="requestGroup">
+            <span jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.requestGroup">Request Group</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="recipientGroup">
+            <span jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.recipientGroup">Recipient Group</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th jhiSortBy="jsonParams">
+            <span jhiTranslate="billMasterGwApp.pkbillmsAgentRecipient.jsonParams">Json Params</span>
+            <sort-icon icon="sort"></sort-icon>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let agentRecipient of data; trackBy: trackId">
+          <td>
+            <a href="javascript:void(0)" (click)="agentRecipientService.openView(agentRecipient)">{{ agentRecipient.id }}</a>
+          </td>
+          <td>
+            <div *ngIf="agentRecipient.agent">
+              <a href="javascript:void(0)" (click)="agentService.openView(agentRecipient.agent)">{{ agentRecipient.agent.shortName }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="agentRecipient.recipient">
+              <a href="javascript:void(0)" (click)="recipientService.openView(agentRecipient.recipient)">{{
+                agentRecipient.recipient.shortName
+              }}</a>
+            </div>
+          </td>
+          <td>{{ agentRecipient.agentCommission }}</td>
+          <td>{{ agentRecipient.agentFee }}</td>
+          <td>{{ agentRecipient.systemCommissionUp }}</td>
+          <td>{{ agentRecipient.systemCommissionDown }}</td>
+          <td>{{ agentRecipient.systemFee }}</td>
+          <td>
+            <span [bm-boolean-badge]="agentRecipient.active" bmType="active">{{ agentRecipient.active }}</span>
+          </td>
+          <td>{{ agentRecipient.eposPort }}</td>
+          <td>{{ agentRecipient.eposMerchant }}</td>
+          <td>{{ agentRecipient.eposTerminal }}</td>
+          <td>{{ agentRecipient.requestGroup }}</td>
+          <td>
+            <div *ngIf="agentRecipient.recipientGroup">
+              <a href="javascript:void(0)" (click)="recipientGroupService.openView(agentRecipient.recipientGroup)">{{
+                agentRecipient.recipientGroup.name
+              }}</a>
+            </div>
+          </td>
+          <td>
+            <a
+              href="javascript:void(0)"
+              jhiTranslate="global.showJson"
+              (click)="p2pParamService.openJsonViewer(agentRecipient.jsonParams)"
+              >{{ agentRecipient.jsonParams }}</a
+            >
+          </td>
+          <td width="10" class="text-right">
+            <nz-button-group nzSize="small">
+              <button
+                nz-button
+                (click)="agentRecipientService.openHistory(agentRecipient.id)"
+                title="{{ 'entity.action.history' | translate }}"
+              >
+                <i nz-icon nzType="history" class="icon-btn"></i>
+              </button>
+              <button nz-button (click)="agentRecipientService.openView(agentRecipient)" title="{{ 'entity.action.view' | translate }}">
+                <i nz-icon nzType="eye" class="icon-btn"></i>
+              </button>
+              <ng-container *jhiHasAnyAuthority="[authority.AGENT_RECIPIENT_WRITE]">
+                <button
+                  nz-button
+                  (click)="agentRecipientService.openUpdate(agentRecipient, true)"
+                  title="{{ 'entity.action.duplicate' | translate }}"
+                >
+                  <i nz-icon nzType="copy" class="icon-btn"></i>
+                </button>
+                <button
+                  type="submit"
+                  nz-button
+                  (click)="agentRecipientService.openUpdate(agentRecipient)"
+                  title="{{ 'entity.action.edit' | translate }}"
+                >
+                  <i nz-icon nzType="edit" class="icon-btn"></i>
+                </button>
+                <button
+                  type="submit"
+                  nz-button
+                  (click)="agentRecipientService.openDelete(agentRecipient.id)"
+                  title="{{ 'entity.action.delete' | translate }}"
+                >
+                  <i nz-icon nzType="delete" class="icon-btn"></i>
+                </button>
+              </ng-container>
+            </nz-button-group>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+
+  <div class="d-flex justify-content-center mt-3">
+    <nz-pagination
+      [nzPageIndex]="ngbPaginationPage"
+      [nzTotal]="totalItems"
+      [nzPageSize]="itemsPerPage"
+      (nzPageIndexChange)="loadPage($event)"
+    >
+    </nz-pagination>
+  </div>
+</ng-container>

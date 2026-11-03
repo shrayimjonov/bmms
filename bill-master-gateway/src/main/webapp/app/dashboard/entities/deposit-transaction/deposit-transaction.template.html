@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h4>
+    <span class="mb-0" jhiTranslate="billMasterGwApp.pkbillmsDepositTransaction.home.title">Deposit Transactions</span>
+    <span *ngIf="agentShortName">({{ agentShortName }})</span>
+  </h4>
+
+  <ngl-export-as
+    *ngIf="data?.length"
+    class="ml-auto"
+    [data]="data"
+    [requestOption]="getOption"
+    requestUrl="{{ depositTransactionService.resourceUrl }}"
+    translationPrefix="billMasterGwApp.pkbillmsDepositTransaction"
+    fileName="deposit_transactions"
+  >
+  </ngl-export-as>
+</div>
+
+<bm-alert></bm-alert>
+
+<div class="table-responsive" *ngIf="data?.length">
+  <nz-table [nzLoading]="loading" nzSize="small" nzTemplateMode nzOuterBordered>
+    <thead>
+      <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending">
+        <th jhiSortBy="payerTaxnr">
+          <span jhiTranslate="billMasterGwApp.pkbillmsDepositTransaction.payerTaxnr">Payer Taxnr</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <th jhiSortBy="recipientTaxnr">
+          <span jhiTranslate="billMasterGwApp.pkbillmsDepositTransaction.recipientTaxnr">Recipient Taxnr</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <th jhiSortBy="amount">
+          <span jhiTranslate="billMasterGwApp.pkbillmsDepositTransaction.amount">Amount</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <th jhiSortBy="updateDate">
+          <span jhiTranslate="billMasterGwApp.pkbillmsDepositTransaction.updateDate">Update Date</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <th jhiSortBy="comment">
+          <span jhiTranslate="billMasterGwApp.pkbillmsDepositTransaction.comment">Comment</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <th jhiSortBy="doc">
+          <span jhiTranslate="billMasterGwApp.pkbillmsDepositTransaction.doc">Doc</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let depositTransaction of data; trackBy: trackId">
+        <tr>
+          <td>{{ depositTransaction.payerTaxnr }}</td>
+          <td>{{ depositTransaction.recipientTaxnr }}</td>
+          <td>{{ depositTransaction.amount | bmAmount }}</td>
+          <td>{{ depositTransaction.updateDate | bmDate }}</td>
+          <td>
+            <span nz-tooltip="{{ depositTransaction.comment }}">{{ depositTransaction.comment | bmEllipsis: 30 }}</span>
+          </td>
+          <td>{{ depositTransaction.doc }}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </nz-table>
+</div>

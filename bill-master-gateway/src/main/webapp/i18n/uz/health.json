@@ -1,0 +1,36 @@
+{
+  "health": {
+    "title": "Xolati",
+    "refresh.button": "Yangila",
+    "stacktrace": "Stacktrace",
+    "details": {
+      "details": "Batafsil",
+      "properties": "Parametrlari",
+      "name": "Nomi",
+      "value": "Qiymati",
+      "error": "Xatolik"
+    },
+    "indicator": {
+      "discoveryComposite": "Discovery Composite",
+      "refreshScope": "Qayta yuklash doirasi",
+      "clientConfigServer": "Microservice Config Server",
+      "hystrix": "Hystrix",
+      "consul": "Consul",
+      "diskSpace": "Diskdagi joy",
+      "mail": "Email",
+      "livenessState": "Liveness state",
+      "readinessState": "Readiness state",
+      "ping": "Application",
+      "r2dbc": "Ma`lumotlar bazasi"
+    },
+    "table": {
+      "service": "Servis",
+      "status": "Holat"
+    },
+    "status": {
+      "UNKNOWN": "UNKNOWN",
+      "UP": "Faol",
+      "DOWN": "Faol emas"
+    }
+  }
+}

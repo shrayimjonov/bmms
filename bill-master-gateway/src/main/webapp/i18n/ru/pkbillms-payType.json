@@ -1,0 +1,21 @@
+{
+  "billMasterGwApp": {
+    "PayType": {
+      "null": "Нет типа",
+      "undefined": "Нет типа",
+      "CASH": "Наличность",
+      "UZCARD_DUET": "UZCARD DUET",
+      "UZCARD_EMV": "UZCARD EMV",
+      "UZCARD": "Узкард",
+      "AGENT": "Агент",
+      "VISA": "VISA",
+      "PAYME": "PayMe",
+      "PC": "ПЦ",
+      "P2P": "P2P",
+      "HUMO": "Хумо",
+      "NCI": "NCI",
+      "UNKNOWN": "Неизвестный",
+      "NEW": "Не определен"
+    }
+  }
+}

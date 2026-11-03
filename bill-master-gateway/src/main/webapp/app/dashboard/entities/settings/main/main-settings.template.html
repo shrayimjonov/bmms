@@ -1,0 +1,85 @@
+<form [formGroup]="editForm" (ngSubmit)="save()">
+  <div class="w-400px">
+    <bm-alert></bm-alert>
+
+    <div class="mb-4">
+      <input type="file" hidden #imageInp (change)="onSelectImage($event)" />
+      <nz-avatar nzIcon="user" nzShape="square" [nzSize]="70" [nzSrc]="editForm.get('imageUrl')?.value"></nz-avatar>
+      <button type="button" class="ml-3" nz-button nzSize="large" nzType="dashed" [nzLoading]="loading" (click)="imageInp.click()">
+        {{ 'settings.form.loadProfileImage' | translate }}
+      </button>
+    </div>
+
+    <div class="form-group">
+      <label class="label-required" for="firstName" jhiTranslate="settings.form.firstname">First Name</label>
+      <input
+        nz-input
+        nzSize="large"
+        id="firstName"
+        name="firstName"
+        formControlName="firstName"
+        placeholder="{{ 'settings.form.firstname.placeholder' | translate }}"
+        [disable]="loading"
+        input-validator
+      />
+    </div>
+
+    <div class="form-group">
+      <label class="label-required" for="lastName" jhiTranslate="settings.form.lastname">Last Name</label>
+      <input
+        nz-input
+        nzSize="large"
+        id="lastName"
+        name="lastName"
+        formControlName="lastName"
+        placeholder="{{ 'settings.form.lastname.placeholder' | translate }}"
+        [disable]="loading"
+        input-validator
+      />
+    </div>
+
+    <div class="form-group">
+      <label class="label-required" for="email" jhiTranslate="global.form.email.label">Email</label>
+      <input
+        nz-input
+        nzSize="large"
+        id="email"
+        name="email"
+        formControlName="email"
+        placeholder="{{ 'global.form.email.placeholder' | translate }}"
+        [disable]="loading"
+        input-validator
+      />
+    </div>
+
+    <div class="form-group">
+      <label jhiTranslate="billMasterGwApp.pkbillmsAgent.phoneNumber" for="phoneNumber">Phone Number</label>
+      <input
+        nz-input
+        nzSize="large"
+        id="phoneNumber"
+        formControlName="phoneNumber"
+        placeholder="+998 XX XXX XX XX"
+        mask="+000 00 000 00 00"
+        autocomplete="off"
+        input-validator
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="langKey" jhiTranslate="settings.form.language">Language</label>
+      <bm-select-input
+        id="langKey"
+        [data]="languages"
+        bmLabelField="label"
+        bmValueField="value"
+        formControlName="langKey"
+        [disable]="loading"
+      ></bm-select-input>
+    </div>
+  </div>
+
+  <button nz-button nzSize="large" nzType="primary" [nzLoading]="loading" [input-validator-button]="editForm">
+    {{ 'settings.form.button' | translate }}
+  </button>
+</form>

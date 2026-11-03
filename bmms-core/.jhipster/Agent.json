@@ -1,0 +1,118 @@
+{
+    "name": "Agent",
+    "fields": [
+        {
+            "fieldName": "shortName",
+            "javadoc": "Short name to show in UI",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "amountRatio",
+            "javadoc": "Доля суммы, 1 - сум, 100 - тийин",
+            "fieldType": "Integer",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "apiKey",
+            "javadoc": "Agent's api key, comes in request to authorize one",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "currencies",
+            "javadoc": "Валюта разрешенных запросов",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "ipAddresses",
+            "javadoc": "Ip addresses for filtering",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 32
+        },
+        {
+            "fieldName": "logo",
+            "javadoc": "Logo file path or url",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "ord",
+            "javadoc": "Display order",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "active",
+            "fieldType": "Boolean",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "phoneNumber",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 32
+        },
+        {
+            "fieldName": "inn",
+            "javadoc": "Tax number (INN, VAT) of payer. see : https://en.wikipedia.org/wiki/VAT_identification_number",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 32
+        },
+        {
+            "fieldName": "orgName",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength"],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "minlength", "unique"],
+            "fieldValidateRulesMaxlength": 254,
+            "fieldValidateRulesMinlength": 4
+        },
+        {
+            "fieldName": "state",
+            "javadoc": "Состояние",
+            "fieldType": "AgentState",
+            "fieldValues": "NEW,ACTIVE,DELETED"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipValidateRules": "required",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "title",
+            "otherEntityName": "i18n",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "deposit",
+            "otherEntityName": "deposit",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "agent"
+        }
+    ],
+    "changelogDate": "20180719230920",
+    "javadoc": "Агент, инициатор оплаты",
+    "entityTableName": "agent",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "bmms",
+    "applications": "*",
+    "microserviceName": "pkbillms",
+    "enableEntityAudit": true,
+    "databaseType": "sql"
+}

@@ -1,0 +1,13 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsCashBack": {
+      "id": "ID",
+      "bankCommission": "Bank Commissionа",
+      "clientCommission": "Client Commission",
+      "name": "Name",
+      "type": "Type",
+      "status": "Status",
+      "deleted": "Cashback deleted successfully"
+    }
+  }
+}

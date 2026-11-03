@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:bankCheckAccountResponse xmlns:ns2="http://st.apus.com/">
+    <return>
+        <Result>
+            <code>OK</code>
+            <Description>Успешно</Description>
+        </Result>
+        <Account>322846</Account>
+        <FullName> </FullName>
+        <Address> </Address>
+        <Balance>9018.6</Balance>
+        <Soato>19</Soato>
+    </return>
+</ns2:bankCheckAccountResponse>

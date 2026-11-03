@@ -1,0 +1,32 @@
+{
+  "billMasterGwApp": {
+    "faqCategory": {
+      "home": {
+        "title": "Faq Categories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Yangi Faq Category qo`shish",
+        "createOrEditLabel": "Faq Categoryni tahrirlash",
+        "notFound": "No Faq Categories found"
+      },
+      "delete": {
+        "question": "{{ id }}- Faq Categoryni o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "Faq Category"
+      },
+      "id": "ID",
+      "active": "Active",
+      "name": "Nomi",
+      "help": {
+        "active": "Активный"
+      }
+    }
+  },
+  "faqMsApp": {
+    "faqCategory": {
+      "created": "Faq Category {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- Faq Category saqlandi",
+      "deleted": "{{ param }}- Faq Category o`chirildi"
+    }
+  }
+}

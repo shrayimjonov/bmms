@@ -1,0 +1,163 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h5 class="mb-0" jhiTranslate="global.menu.admin.userManagement">Users</h5>
+
+  <div>
+    <nz-badge [nzCount]="filterRef.querySize">
+      <button nz-button nzSize="large" jhiTranslate="entity.action.filter" (click)="showFilter = !showFilter">Filter</button>
+    </nz-badge>
+
+    <ngl-export-as
+      *ngIf="data?.length"
+      class="ml-2"
+      [data]="data"
+      [exclude]="exclude"
+      requestUrl="{{ userService.resourceUrl }}/by-criteria"
+      translationPrefix="userManagement"
+      fileName="users"
+    >
+    </ngl-export-as>
+
+    <button
+      class="ml-2"
+      type="button"
+      nz-button
+      nzType="primary"
+      nzSize="large"
+      jhiTranslate="entity.action.add"
+      *jhiHasAnyAuthority="[authority.USER_MANAGEMENT_WRITE]"
+      (click)="userService.openUpdate()"
+    >
+      Add
+    </button>
+  </div>
+</div>
+
+<ngl-filter-field [hidden]="!showFilter" [fields]="filterFields" (onFilter)="setQuery($event); loadPage()" #filterRef></ngl-filter-field>
+
+<bm-alert></bm-alert>
+
+<div class="table-responsive" *ngIf="data?.length">
+  <nz-table [nzLoading]="loading" nzSize="small" nzTemplateMode nzOuterBordered>
+    <thead>
+      <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+        <!--        <th jhiSortBy="id">-->
+        <!--          <span jhiTranslate="global.field.id">ID</span>-->
+        <!--          <sort-icon icon="sort"></sort-icon>-->
+        <!--        </th>-->
+        <th jhiSortBy="login">
+          <span jhiTranslate="userManagement.login">Login</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <th jhiSortBy="email">
+          <span jhiTranslate="userManagement.email">Email</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <th jhiSortBy="firstName">
+          <span jhiTranslate="userManagement.firstName">First Name</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <th jhiSortBy="lastName">
+          <span jhiTranslate="userManagement.lastName">Last Name</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <th jhiSortBy="activated" width="10">
+          <span jhiTranslate="userManagement.activated">Activated</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <!--        <th jhiSortBy="phoneNumber">-->
+        <!--          <span jhiTranslate="userManagement.phoneNumber">PhoneNumber</span>-->
+        <!--          <sort-icon icon="sort"></sort-icon>-->
+        <!--        </th>-->
+        <!--        <th jhiSortBy="createdDate">-->
+        <!--          <span jhiTranslate="userManagement.createdDate">Created Date</span>-->
+        <!--          <sort-icon icon="sort"></sort-icon>-->
+        <!--        </th>-->
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of data">
+        <!--        <td>-->
+        <!--          <a href="javascript:void(0)" (click)="userService.openView(user)">{{ user.id }}</a>-->
+        <!--        </td>-->
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>
+          <ng-container *jhiHasAnyAuthority="[authority.USER_MANAGEMENT_WRITE]">
+            <button
+              nz-button
+              nzDanger
+              nzSize="small"
+              (click)="setActive(user, true)"
+              *ngIf="!user.enabled"
+              jhiTranslate="userManagement.deactivated"
+            >
+              Deactivated
+            </button>
+
+            <ng-template #ref>
+              <span jhiTranslate="userManagement.popconfirmTitle" [translateValues]="{ userName: user.username }"></span>
+            </ng-template>
+
+            <button
+              nz-button
+              [nz-popconfirm]="ref"
+              nzOkText="{{ 'global.boolean.true' | translate }}"
+              nzCancelText="{{ 'global.boolean.false' | translate }}"
+              (nzOnConfirm)="setActive(user, false)"
+              nzSize="small"
+              nzType="primary"
+              *ngIf="user.enabled"
+              [disabled]="login === user.username"
+              jhiTranslate="userManagement.activated"
+            >
+              Activated
+            </button>
+          </ng-container>
+        </td>
+        <!--        <td>{{ user.phoneNumber | mask: '+000 00 000 00 00' }}</td>-->
+        <!--        <td>{{ user.createdDate | bmDate: 'dd.MM.yyyy' }}</td>-->
+        <td class="text-right">
+          <nz-button-group nzSize="small">
+            <button
+              type="submit"
+              (click)="userService.openView(user)"
+              nzType="default"
+              nz-button
+              title="{{ 'entity.action.view' | translate }}"
+            >
+              <i nz-icon nzType="eye" class="icon-btn"></i>
+            </button>
+            <!--            <button nz-button (click)="userService.openUpdate(user, true)" title="{{ 'entity.action.duplicate' | translate }}">-->
+            <!--              <i nz-icon nzType="copy" class="icon-btn"></i>-->
+            <!--            </button>-->
+            <!--              <button type="submit" nz-button nzType="primary" (click)="openUpdateModal(user)">-->
+            <!--                <i nz-icon nzType="edit" class="icon-btn"></i>-->
+            <!--              </button>-->
+            <!--              <button-->
+            <!--                type="button"-->
+            <!--                (click)="delete(user.username)"-->
+            <!--                nz-button-->
+            <!--                nzDanger-->
+            <!--                [disabled]="!currentAccount || currentAccount.login === user.username"-->
+            <!--              >-->
+            <!--                <i nz-icon nzType="delete" class="icon-btn"></i>-->
+            <!--              </button>-->
+          </nz-button-group>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>
+
+<div class="d-flex justify-content-center mt-3">
+  <nz-pagination
+    [nzPageIndex]="ngbPaginationPage"
+    [nzTotal]="totalItems"
+    [nzPageSize]="itemsPerPage"
+    (nzPageIndexChange)="loadPage($event)"
+  >
+  </nz-pagination>
+</div>

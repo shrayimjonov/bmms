@@ -1,0 +1,69 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+!include ./../config.txt
+
+title
+    4.1 Регистрация 3d secure карты в системе (привязка)
+end title
+
+actor Client
+participant BSS
+participant AnorHub
+participant TKB
+
+autonumber
+
+== Check 3Ds ==
+
+Client -> BSS: Кнопка <u>Привязка карты</u>
+BSS --> BSS: Show card data form
+Client -> BSS: Enter card data \n(PAN,expYear,expMonth,card holder)
+BSS --> BSS: generate agentRequestId (eg.: uid123)
+BSS -> AnorHub: Card data\n(agentRequestId, **CardInfo**, amount)
+'activate AnorHub
+AnorHub -> TKB: Check3ds v2.0\n(agentRequestId, **CardInfo**, amount)
+'activate TKB
+
+TKB --> AnorHub: Enrolled = Y (Y = yes, N = no)
+'deactivate TKB
+AnorHub --> BSS: Good 3Ds
+'deactivate AnorHub
+
+alt Enrolled = N
+
+TKB -[#red]-> AnorHub: Enrolled = N (Y = yes, N = no)
+AnorHub -[#red]-> BSS: Bad 3Ds
+
+end
+
+== Bind Card ==
+
+BSS -> AnorHub: previous agentRequestId (eg.: uid123)
+AnorHub -> TKB: 4.1.3 BindCard \n(//agentRequestId//, amount, desc, ""returnUrl"")
+note right: /api/v1/card/unregistered/bind
+TKB --> AnorHub: HTTP-STATUS 200 OK
+note left: //agentRequestId//, orderId, FORM-URL
+AnorHub --> BSS: //agentRequestId//, orderId, FORM-URL
+BSS --> Client: Redirect to FORM-URL
+
+== V1 Get Order (<u>Bind Card</u>) Status ==
+
+Client --> Client: Открывается форма TKB
+Client -> TKB: Тестовые платеж (PAN, Expiry, CVV, Card Holder Name)
+TKB --> Client: Клиент перенаправляется на форму "ввод SMS"
+...After T time...
+TKB -> Client: Отправка СМС на номер клиента
+Client --> Client: Ввод OTP в форме
+Client -> TKB: Подтвердить (OTP)
+TKB --> TKB: Дебит с карты с суммами \n мерчанта (**amount**)
+TKB --> Client: Клиент перенаправляется на ""returnUrl""
+'Client -> BSS: Ввод списанные сумму
+BSS -> AnorHub: 4.6.3 GetOrderState (//agentRequestId//)
+AnorHub -> TKB: 4.6.3 GetOrderState (//agentRequestId//)
+TKB --> AnorHub: OrderInfo(cardRefId), OrderAdditionalInfo, ErrorInfo
+AnorHub --> BSS: OrderInfo(cardRefId), OrderAdditionalInfo, ErrorInfo
+
+BSS --> BSS:  Сравнение списанные сумму клиента и сумму мерчанта
+BSS --> BSS:  Сохранение CardRefId
+@enduml

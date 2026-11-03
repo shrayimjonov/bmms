@@ -1,0 +1,47 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsGatewayParam": {
+      "home": {
+        "title": "Shlyuz parametrlari",
+        "createLabel": "Yangi shlyuz parametrlari qo`shish",
+        "createOrEditLabel": "Shlyuz parametrlarini tahrirlash",
+        "notFound": "Xech qanday shlyuz parametrlari topilmadi"
+      },
+      "delete": {
+        "question": "{{ id }}- Shlyuz parametrlarini o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "Shlyuz parametrlari"
+      },
+      "url": "Url",
+      "type": "Turi",
+      "username": "Foydalanuvchi nomi",
+      "password": "Parol",
+      "token": "Token",
+      "body": "Body",
+      "statusQuery": "So'rov statusi",
+      "messageQuery": "So'rov xabari",
+      "successCode": "Success kod",
+      "callback": "Call back",
+      "timeout": "Taym-out",
+      "headers": "Sarlavhalar",
+      "dataQueries": "Ma'lumotlar so'rovlari",
+      "httpMethodType": "Http metod turi",
+      "protocol": "Protokol",
+      "requestMediaType": "Media so'rov turi",
+      "responseMediaType": "Media javob turi",
+      "active": "Aktiv",
+      "mode": "Rejim",
+      "extIdQuery": "Ext Id so'rovi",
+      "successOn2xx": "2 Xx muvaffaqiyat",
+      "recipient": "Qabul qiluvchi"
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsGatewayParam": {
+      "created": "Shlyuz parametrlari {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- Shlyuz parametrlari saqlandi",
+      "deleted": "{{ param }}- Shlyuz parametrlari o`chirildi"
+    }
+  }
+}

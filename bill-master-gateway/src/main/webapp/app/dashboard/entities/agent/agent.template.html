@@ -1,0 +1,119 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h4 class="mb-0" jhiTranslate="global.menu.entities.pkbillmsAgent">Agents</h4>
+
+  <div>
+    <nz-badge [nzCount]="filterRef.querySize">
+      <button nz-button nzSize="large" jhiTranslate="entity.action.filter" (click)="showFilter = !showFilter">Filter</button>
+    </nz-badge>
+
+    <ngl-export-as
+      *ngIf="data?.length"
+      class="ml-2"
+      [data]="data"
+      requestUrl="{{ agentService.resourceUrl }}"
+      [requestOption]="getOption"
+      fileName="agent"
+      translationPrefix="billMasterGwApp.pkbillmsAgent"
+    >
+    </ngl-export-as>
+
+    <button
+      *jhiHasAnyAuthority="[authority.AGENT_WRITE]"
+      class="ml-2"
+      type="button"
+      nz-button
+      nzSize="large"
+      nzType="primary"
+      jhiTranslate="entity.action.add"
+      (click)="agentService.openUpdate()"
+    >
+      Add
+    </button>
+  </div>
+</div>
+
+<ngl-filter-field [hidden]="!showFilter" [fields]="filterFields" (onFilter)="setQuery($event); loadPage()" #filterRef></ngl-filter-field>
+
+<bm-alert></bm-alert>
+
+<div class="table-responsive" *ngIf="data?.length">
+  <nz-table [nzLoading]="loading" nzSize="small" nzTemplateMode nzOuterBordered>
+    <thead>
+      <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+        <th [jhiSortBy]="'id'">
+          <span jhiTranslate="global.field.id">ID</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <th [jhiSortBy]="'shortName'">
+          <span jhiTranslate="billMasterGwApp.pkbillmsAgent.shortName">Short Name</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <th [jhiSortBy]="'amountRatio'">
+          <span jhiTranslate="billMasterGwApp.pkbillmsAgent.amountRatio">Amount Ratio</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <th [jhiSortBy]="'phoneNumber'">
+          <span jhiTranslate="billMasterGwApp.pkbillmsAgent.phoneNumber">Phone Number</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <th [jhiSortBy]="'inn'">
+          <span jhiTranslate="billMasterGwApp.pkbillmsAgent.inn">Inn</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <th [jhiSortBy]="'orgName'">
+          <span jhiTranslate="billMasterGwApp.pkbillmsAgent.orgName">Org Name</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <th [jhiSortBy]="'email'">
+          <span jhiTranslate="billMasterGwApp.pkbillmsAgent.email">Email</span>
+          <sort-icon icon="sort"></sort-icon>
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let agent of data; trackBy: trackId">
+        <td>
+          <a href="javascript:void(0)" (click)="agentService.openView(agent)">{{ agent.id }}</a>
+        </td>
+        <td>{{ agent.shortName }}</td>
+        <td jhiTranslate="global.amountRatio.{{ agent.amountRatio }}">{{ agent.amountRatio }}</td>
+        <td>{{ agent.phoneNumber | mask: '+000 00 000 00 00' }}</td>
+        <td>{{ agent.inn }}</td>
+        <td>{{ agent.orgName }}</td>
+        <td>{{ agent.email }}</td>
+        <td width="10" class="text-right">
+          <nz-button-group nzSize="small">
+            <button nz-button (click)="agentService.openHistory(agent.id)" title="{{ 'entity.action.history' | translate }}">
+              <i nz-icon nzType="history" class="icon-btn"></i>
+            </button>
+            <button nz-button (click)="agentService.openView(agent)" title="{{ 'entity.action.view' | translate }}">
+              <i nz-icon nzType="eye" class="icon-btn"></i>
+            </button>
+            <ng-container *jhiHasAnyAuthority="[authority.AGENT_WRITE]">
+              <button nz-button (click)="agentService.openUpdate(agent, true)" title="{{ 'entity.action.duplicate' | translate }}">
+                <i nz-icon nzType="copy" class="icon-btn"></i>
+              </button>
+              <button nz-button (click)="agentService.openUpdate(agent)" title="{{ 'entity.action.edit' | translate }}">
+                <i nz-icon nzType="edit" class="icon-btn"></i>
+              </button>
+              <button nz-button (click)="agentService.openDelete(agent.id)" title="{{ 'entity.action.delete' | translate }}">
+                <i nz-icon nzType="delete" class="icon-btn"></i>
+              </button>
+            </ng-container>
+          </nz-button-group>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>
+
+<div class="d-flex justify-content-center mt-3">
+  <nz-pagination
+    [nzPageIndex]="ngbPaginationPage"
+    [nzTotal]="totalItems"
+    [nzPageSize]="itemsPerPage"
+    (nzPageIndexChange)="loadPage($event)"
+  >
+  </nz-pagination>
+</div>

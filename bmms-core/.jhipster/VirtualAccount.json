@@ -1,0 +1,59 @@
+{
+    "name": "VirtualAccount",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "orgName",
+            "fieldType": "String",
+            "fieldValidateRules": ["maxlength", "required"],
+            "fieldValidateRulesMaxlength": 32
+        },
+        {
+            "fieldName": "active",
+            "fieldType": "Boolean",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "inn",
+            "javadoc": "Organisation inn",
+            "fieldType": "String",
+            "fieldValidateRules": ["required"]
+        },
+        {
+            "fieldName": "uid",
+            "javadoc": "Unique id",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "mode",
+            "fieldType": "ModeType",
+            "fieldValues": "TEST,DEV,PROD"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "deposit",
+            "otherEntityName": "deposit",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "virtualAccount"
+        }
+    ],
+    "changelogDate": "20180719230926",
+    "entityTableName": "virtual_account",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "bmms",
+    "applications": "*",
+    "microserviceName": "pkbillms",
+    "enableEntityAudit": true,
+    "databaseType": "sql"
+}

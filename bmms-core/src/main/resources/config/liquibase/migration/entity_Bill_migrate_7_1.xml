@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Entity Bill migrate to 7.1 jhipster
+    -->
+    <changeSet id="entity_Bill_migrate-1" author="zafar">
+        <!--
+             Drop not null constraint session_id
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="bill"
+                          columnName="session_id"/>
+        </preConditions>
+
+        <comment>Drop not null constraint session_id</comment>
+
+        <dropNotNullConstraint tableName="bill" columnName="session_id"/>
+    </changeSet>
+
+    <changeSet id="entity_Bill_migrate-2" author="zafar">
+        <!--
+          Rename column jhi_type
+        -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="bill"
+                          columnName="jhi_type"/>
+        </preConditions>
+
+        <comment>Rename column jhi_type</comment>
+
+        <renameColumn tableName="bill" oldColumnName="jhi_type" newColumnName="type"/>
+    </changeSet>
+
+    <changeSet id="entity_Bill_migrate-3" author="zafar">
+        <!--
+         Rename column jhi_account
+       -->
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="bill"
+                          columnName="jhi_account"/>
+        </preConditions>
+
+        <comment>Rename column jhi_account</comment>
+
+        <renameColumn tableName="bill" oldColumnName="jhi_account" newColumnName="account"/>
+    </changeSet>
+
+    <changeSet id="entity_Bill_migrate-4" author="zafar">
+        <!--
+          Add column created_by
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="bill"
+                              columnName="created_by"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column created_by</comment>
+
+        <addColumn tableName="bill">
+            <column name="created_by" type="varchar(50)" defaultValue="system">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_Bill_migrate-5" author="zafar">
+        <!--
+           Add column created_date
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="bill"
+                              columnName="created_date"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column created_date</comment>
+
+        <addColumn tableName="bill">
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_Bill_migrate-6" author="zafar">
+        <!--
+          Add column last_modified_by
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="bill"
+                              columnName="last_modified_by"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column last_modified_by</comment>
+
+        <addColumn tableName="bill">
+            <column name="last_modified_by" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="entity_Bill_migrate-7" author="zafar">
+        <!--
+         Add column last_modified_date
+        -->
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="bill"
+                              columnName="last_modified_date"/>
+            </not>
+        </preConditions>
+
+        <comment>Add column last_modified_by</comment>
+
+        <addColumn tableName="bill">
+            <column name="last_modified_date" type="timestamp"/>
+        </addColumn>
+
+    </changeSet>
+</databaseChangeLog>

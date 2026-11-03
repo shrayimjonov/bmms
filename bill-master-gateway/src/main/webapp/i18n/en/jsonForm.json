@@ -1,0 +1,30 @@
+{
+  "billMasterGwApp": {
+    "jsonForm": {
+      "home": {
+        "title": "Json Forms",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Json Form",
+        "createOrEditLabel": "Create or edit a Json Form",
+        "notFound": "No Json Forms found"
+      },
+      "created": "A new Json Form is created with identifier {{ param }}",
+      "updated": "A Json Form is updated with identifier {{ param }}",
+      "deleted": "A Json Form is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Json Form {{ id }}?"
+      },
+      "detail": {
+        "title": "Json Form"
+      },
+      "id": "ID",
+      "name": "Name",
+      "type": "Type",
+      "data": "Data",
+      "username": "Username",
+      "active": "Active",
+      "description": "Description",
+      "users": "Users"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+::ng-deep .ant-table-pagination.ant-pagination {
+  display: flex;
+  justify-content: center;
+}
+
+::ng-deep .ant-table-thead > tr > th {
+  font-weight: bold;
+}

@@ -1,0 +1,31 @@
+{
+  "billMasterGwApp": {
+    "pkbillmsP2PCondition": {
+      "home": {
+        "title": "P2P Shartlari",
+        "createLabel": "Yangi P2P shart qo`shish",
+        "createOrEditLabel": "P2P shartni tahrirlash",
+        "notFound": "Xech qanday P2P shartlari topilmadi"
+      },
+      "delete": {
+        "question": "{{ id }}- P2P Shartni o`chirmoqchimisiz? "
+      },
+      "detail": {
+        "title": "P2P Shart"
+      },
+      "value": "Qiymat",
+      "description": "Tavsif",
+      "help": {
+        "value": "Qiymat",
+        "description": "Tavsif"
+      }
+    }
+  },
+  "pkbillmsApp": {
+    "pkbillmsP2PCondition": {
+      "created": "P2P Shart {{ param }} bilan qo`shildi",
+      "updated": "{{ param }}- P2P Shart saqlandi",
+      "deleted": "{{ param }}- P2P Shart o`chirildi"
+    }
+  }
+}

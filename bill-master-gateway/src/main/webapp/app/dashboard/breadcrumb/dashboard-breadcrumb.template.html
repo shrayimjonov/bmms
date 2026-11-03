@@ -1,0 +1,5 @@
+<nz-breadcrumb *ngIf="breadcrumbs?.length > 1">
+  <nz-breadcrumb-item *ngFor="let breadcrumb of breadcrumbs">
+    <a routerLink="{{ breadcrumb.url }}" queryParamsHandling="merge" [replaceUrl]="true">{{ breadcrumb.title | translate }}</a>
+  </nz-breadcrumb-item>
+</nz-breadcrumb>

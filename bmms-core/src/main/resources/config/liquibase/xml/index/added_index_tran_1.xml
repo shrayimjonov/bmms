@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="added_index_tran_recipient_name" author="javlon" context="dev or prod">
+
+        <createIndex indexName="idx_tran_recipient_name"
+                     tableName="transaction">
+            <column name="recipient_name" type="varchar(32)"/>
+        </createIndex>
+
+    </changeSet>
+
+    <changeSet id="added_index_tran_recipient_gateway" author="javlon" context="dev or prod">
+
+        <createIndex indexName="idx_tran_recipient_gateway"
+                     tableName="transaction">
+            <column name="recipient_gateway" type="varchar(255)"/>
+        </createIndex>
+
+    </changeSet>
+
+    <changeSet id="added_index_tran_date_trunc_day_recipient_date" author="javlon" context="dev or prod">
+
+        <sql dbms="postgresql">
+            create index idx_tran_date_trunc_day_recipient_date on transaction (date_trunc('day',recipient_date))
+        </sql>
+
+    </changeSet>
+</databaseChangeLog>
